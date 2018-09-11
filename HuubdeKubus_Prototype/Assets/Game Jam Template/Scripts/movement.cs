@@ -16,20 +16,6 @@ public class movement : MonoBehaviour
 
     void Update()
     {
-
-        if (SystemInfo.deviceType == DeviceType.Desktop) 
-        {
-            // Exit condition for Desktop devices
-            if (Input.GetKey("escape"))
-                Application.Quit();
-        }
-        else
-        {
-            // Exit condition for mobile devices
-            if (Input.GetKeyDown(KeyCode.Escape))
-                Application.Quit();            
-        }
-
     }
 
 
