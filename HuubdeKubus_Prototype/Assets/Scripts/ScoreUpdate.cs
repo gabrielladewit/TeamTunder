@@ -17,7 +17,7 @@ public class ScoreUpdate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         var score = (int) Vector3.Distance(playerObj.transform.position, topObj.transform.position);
-        theScore.GetComponent<Text>().text = score.ToString();
+        theScore.GetComponent<Text>().text = (-16 + score).ToString();
 
     }
 }
