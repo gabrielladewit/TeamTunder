@@ -20,6 +20,13 @@ public class PlayerController : MonoBehaviour {
         Vector3 movement = new Vector3(moveH,0,moveV);
 
         rb.AddForce(movement * speed);
-
 	}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Destroy")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
