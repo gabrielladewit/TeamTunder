@@ -26,7 +26,7 @@ public class WorldGeneration : MonoBehaviour {
         if (collision.gameObject.name == playerObj.name)
         {
             var theTable = GameObject.Find("EventSystem").GetComponent<LoadTables>().GetRandomTable();
-            var worldBlock = (GameObject)Instantiate(theTable, new Vector3(0,0,-46.6f), Quaternion.identity);
+            var worldBlock = (GameObject)Instantiate(theTable, new Vector3(0,0,collision.gameObject.transform.position.z - 46.6f), Quaternion.identity);
             worldBlock.transform.parent = GameObject.Find("GameWorld").transform;
         }
     }
