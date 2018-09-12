@@ -8,7 +8,7 @@ public class WorldGeneration : MonoBehaviour {
     public GameObject tablePrefab;
     public List<GameObject> tables;
     GameObject playerObj;
-    private bool triggered;
+    public bool triggered = false;
     
 
 	// Use this for initialization
@@ -23,8 +23,9 @@ public class WorldGeneration : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == playerObj.name)
+        if (collision.gameObject.name == playerObj.name && !triggered)
         {
+            triggered = true;
             var theTable = GameObject.Find("EventSystem").GetComponent<LoadTables>().GetRandomTable();
             var worldBlock = (GameObject)Instantiate(theTable, new Vector3(0,0,collision.gameObject.transform.position.z - 46.6f), Quaternion.identity);
             worldBlock.transform.parent = GameObject.Find("GameWorld").transform;

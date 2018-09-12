@@ -12,6 +12,6 @@ public class WorldMover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        theWorld.transform.Translate(new Vector3(0,0,0.3f));
+        theWorld.transform.Translate(new Vector3(0,0,0.15f));
 	}
 }
