@@ -12,7 +12,6 @@ public class GyroTest : MonoBehaviour {
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        accel = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -22,7 +21,7 @@ public class GyroTest : MonoBehaviour {
 
 
         if (isFlat)
-            tilt = Quaternion.Euler(90, 0, 0) * tilt * Time.deltaTime * 50;
+            tilt = Quaternion.Euler(90, 0, 0) * tilt * Time.deltaTime * 1000;
 
         rigid.AddForce(tilt);
     }
