@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickupMovement : MonoBehaviour
 {
+    
     public float horizontalSpeed;
     public float verticalSpeed = 1;
     public float amplitude = 0.5f;
