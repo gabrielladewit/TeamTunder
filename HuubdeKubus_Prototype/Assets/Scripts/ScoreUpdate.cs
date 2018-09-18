@@ -12,12 +12,17 @@ public class ScoreUpdate : MonoBehaviour {
         theScore = GameObject.Find("Score");
         playerObj = GameObject.Find("PlayerSphere");
         topObj = GameObject.Find("Top");
+        StartCoroutine(DoUpdate());
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        var score = (int) Vector3.Distance(playerObj.transform.position, topObj.transform.position);
-        theScore.GetComponent<Text>().text = (-16 + score).ToString();
 
+    IEnumerator DoUpdate()
+    {
+        while (true)
+        {
+            var score = (int)Vector3.Distance(playerObj.transform.position, topObj.transform.position);
+            theScore.GetComponent<Text>().text = (-16 + score).ToString();
+            yield return new WaitForSeconds(0.4f);
+        }
     }
+
 }
