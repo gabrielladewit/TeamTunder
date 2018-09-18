@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldMover : MonoBehaviour {
-    GameObject theWorld, theCam;
+    GameObject theObj;
+    private Pause pause;
     public float gameSpeed = 0.10f;
+    private bool paused = false;
 
 	// Use this for initialization
 	void Start () {
-        theWorld = this.gameObject;
-        theCam = GameObject.Find("Main Camera");
+        theObj = this.gameObject;
+        pause = GameObject.Find("UI").GetComponent<Pause>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         // Move the world
-        theWorld.transform.Translate(new Vector3(0, -gameSpeed,0));
-        // Move the camera
-        Vector3 move = Quaternion.Euler(12, 0, 0) * new Vector3(0, gameSpeed, 0) * Time.deltaTime;
-        theCam.transform.Translate(move);
+
+
+        if (!pause.isPaused) {
+            theObj.transform.Translate(new Vector3(0, -gameSpeed, 0));
+        }
     }
 }
