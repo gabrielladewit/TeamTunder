@@ -38,6 +38,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4875734548226648}
   - component: {fileID: 114859324880613644}
+  - component: {fileID: 65806869179739676}
+  - component: {fileID: 114752055881235026}
   m_Layer: 0
   m_Name: TablePrefabM4
   m_TagString: Tables
@@ -110,7 +112,6 @@ GameObject:
   - component: {fileID: 33937581268073528}
   - component: {fileID: 23272020121457452}
   - component: {fileID: 65186520159219188}
-  - component: {fileID: 114269623823406534}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -693,6 +694,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65806869179739676
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170796454864106}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 18, y: 1.2, z: 9}
+  m_Center: {x: 0, y: 1.6, z: 5.6308955e-15}
 --- !u!65 &65834906010055450
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -729,19 +742,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114269623823406534
+--- !u!114 &114752055881235026
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1736793569841550}
+  m_GameObject: {fileID: 1170796454864106}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a97dca14e926e17469f4d120a6be6785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tablePrefab: {fileID: 1170796454864106}
-  tables: []
 --- !u!114 &114859324880613644
 MonoBehaviour:
   m_ObjectHideFlags: 1

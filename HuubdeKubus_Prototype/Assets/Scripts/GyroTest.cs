@@ -24,7 +24,7 @@ public class GyroTest : MonoBehaviour {
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
             // Building of force vector
-            Vector3 movement = new Vector3 (moveHorizontal,0.0f,moveVertical);
+            Vector3 movement = new Vector3 (moveHorizontal, moveVertical, 0.0f);
             // Adding force to rigidbody
             rigid.AddForce(movement * 1000 * Time.deltaTime);
         }

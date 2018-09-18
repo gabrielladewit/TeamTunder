@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class WorldGeneration : MonoBehaviour {
 
-    public GameObject tablePrefab;
-    public List<GameObject> tables;
+
     GameObject playerObj;
-    public bool triggered = false;
+    Manager manager;
+    bool triggered = false;
     
 
 	// Use this for initialization
 	void Start () {
+        manager = GameObject.Find("GameWorld").GetComponent<Manager>();
         playerObj = GameObject.Find("PlayerSphere");
     }
 	
@@ -21,15 +22,16 @@ public class WorldGeneration : MonoBehaviour {
         
 	}
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.name == playerObj.name && !triggered)
         {
             triggered = true;
             var theTable = GameObject.Find("EventSystem").GetComponent<LoadTables>().GetRandomTable();
-            var worldBlock = (GameObject)Instantiate(theTable, new Vector3(0,0,0), Quaternion.identity);
+            var worldBlock = (GameObject)Instantiate(theTable, new Vector3(0,manager.count*-32f,0), Quaternion.Euler(-90, 0, 0));
             worldBlock.transform.parent = GameObject.Find("GameWorld").transform;
-            worldBlock.transform.rotation = Quaternion.Euler (-90, 0, 0);
+            manager.count++;
+            Destroy(this);
         }
     }
 }

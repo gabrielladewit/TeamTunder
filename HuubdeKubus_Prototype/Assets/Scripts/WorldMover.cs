@@ -15,7 +15,7 @@ public class WorldMover : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // Move the world
-        theWorld.transform.Translate(new Vector3(0,0,gameSpeed));
+        theWorld.transform.Translate(new Vector3(0, -gameSpeed,0));
         // Move the camera
         Vector3 move = Quaternion.Euler(12, 0, 0) * new Vector3(0, gameSpeed, 0) * Time.deltaTime;
         theCam.transform.Translate(move);
