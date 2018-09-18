@@ -12,8 +12,14 @@ public class ButtonMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(MoveUpdate());
-        rigid = this.GetComponent<Rigidbody>();
+        rigid = GameObject.Find("PlayerSphere").GetComponent<Rigidbody>();
+        if (rigid != null)
+        {
+            StartCoroutine(MoveUpdate());
+        } else
+        {
+            Debug.Log("No player found!");
+        }
     }
 
     // Update is called once per frame

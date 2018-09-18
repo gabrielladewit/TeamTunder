@@ -40,6 +40,8 @@ public class ShowPanels : MonoBehaviour {
     public void ShowDeathPanel()
     {
         deathPanel.SetActive(true);
+        deathPanel.transform.SetParent(GameObject.Find("TempHolder").gameObject.transform);
+        deathPanel.transform.SetParent(GameObject.Find("UI").gameObject.transform);
         optionsTint.SetActive(true);
     }
 
@@ -54,7 +56,10 @@ public class ShowPanels : MonoBehaviour {
 	public void ShowPausePanel()
 	{
 		pausePanel.SetActive (true);
-		optionsTint.SetActive(true);
+        Debug.Log("SETSETSET");
+        pausePanel.transform.SetParent(GameObject.Find("TempHolder").gameObject.transform);
+        pausePanel.transform.SetParent(GameObject.Find("UI").gameObject.transform);
+        optionsTint.SetActive(true);
 	}
 
 	//Call this function to deactivate and hide the Pause panel during game play
