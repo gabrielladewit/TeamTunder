@@ -24,11 +24,11 @@ public class WorldGeneration : MonoBehaviour {
 
     private void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.name == playerObj.name && !triggered)
+        if (collision.gameObject == playerObj && !triggered)
         {
             triggered = true;
             var theTable = GameObject.Find("EventSystem").GetComponent<LoadTables>().GetRandomTable();
-            var worldBlock = (GameObject)Instantiate(theTable, new Vector3(0,manager.count*-32f,0), Quaternion.Euler(-90, 0, 0));
+            var worldBlock = (GameObject)Instantiate(theTable, new Vector3(0,manager.count*-33f,0), Quaternion.Euler(-90, 0, 0));
             worldBlock.transform.parent = GameObject.Find("GameWorld").transform;
             manager.count++;
             Destroy(this);
