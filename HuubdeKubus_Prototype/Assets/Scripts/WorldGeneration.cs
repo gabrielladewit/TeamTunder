@@ -27,8 +27,9 @@ public class WorldGeneration : MonoBehaviour {
         {
             triggered = true;
             var theTable = GameObject.Find("EventSystem").GetComponent<LoadTables>().GetRandomTable();
-            var worldBlock = (GameObject)Instantiate(theTable, new Vector3(0,0,collision.gameObject.transform.position.z - 46.6f), Quaternion.identity);
+            var worldBlock = (GameObject)Instantiate(theTable, new Vector3(0,0,0), Quaternion.identity);
             worldBlock.transform.parent = GameObject.Find("GameWorld").transform;
+            worldBlock.transform.rotation = Quaternion.Euler (-90, 0, 0);
         }
     }
 }
