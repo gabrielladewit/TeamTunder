@@ -7,7 +7,8 @@ public class ButtonMovement : MonoBehaviour
 
     private bool isLeftPressed = false, isRightPressed = false;
     private Rigidbody rigid;
-
+    private ScoreUpdate scoreUpdateScript;
+    private bool invincible = false;
 
     // Use this for initialization
     void Start()
@@ -16,7 +17,8 @@ public class ButtonMovement : MonoBehaviour
         if (rigid != null)
         {
             StartCoroutine(MoveUpdate());
-        } else
+        }
+        else
         {
             Debug.Log("No player found!");
         }
@@ -28,6 +30,40 @@ public class ButtonMovement : MonoBehaviour
 
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Multiplier"))
+        {
+            //other.gameObject.SetActive(false);
+            Debug.Log("Pickup: score multiplier");
+            scoreUpdateScript = GameObject.Find("EventSystem").GetComponent<ScoreUpdate>();
+            scoreUpdateScript.multiplier = true;
+            Destroy(other.gameObject);
+            Debug.Log("Destroy: " + other.gameObject.name);
+        }
+
+        if (other.gameObject.CompareTag("Invincible"))
+        {
+            Debug.Log("Pickup: Invinvible");
+            Destroy(other.gameObject);
+            //invincible = true;
+        }
+
+        //// Still working on the invincibility pickup!
+        //GameObject cube;
+
+        //if (other.gameObject.name.Contains("Cube"))
+        //{
+        //    cube = other.gameObject;
+        //    if (invincible == true)
+        //    {
+        //        Physics.IgnoreCollision(cube.GetComponent<Collider>(), GetComponent<Collider>());
+        //    }
+
+        //}
+
+        
+    }
     IEnumerator MoveUpdate()
     {
         while (true)
