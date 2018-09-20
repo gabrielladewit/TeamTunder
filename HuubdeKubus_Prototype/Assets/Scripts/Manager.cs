@@ -5,6 +5,7 @@ using UnityEngine;
 public class Manager : MonoBehaviour {
 
     public int count = 1;
+    public int waterCount = 0;
 	// Use this for initialization
 	void Start () {
 		

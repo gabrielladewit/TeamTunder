@@ -5,33 +5,24 @@ using UnityEngine;
 
 public class WorldGeneration : MonoBehaviour {
 
+    int count = 0;
+    LoadTables theTable;
+    Transform worldBlockParent;
 
-    GameObject playerObj;
-    Manager manager;
-    bool triggered = false;
-    
-
-	// Use this for initialization
-	void Start () {
-        manager = GameObject.Find("GameWorld").GetComponent<Manager>();
-        playerObj = GameObject.Find("PlayerSphere");
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        
-	}
-
-    private void OnTriggerStay(Collider collision)
+    void Start()
     {
-        if (collision.gameObject == playerObj && !triggered)
-        {
-            triggered = true;
-            var theTable = GameObject.Find("EventSystem").GetComponent<LoadTables>().GetRandomTable();
-            var worldBlock = (GameObject)Instantiate(theTable, new Vector3(0,manager.count*-33f,0), Quaternion.Euler(-90, 0, 0));
-            worldBlock.transform.parent = GameObject.Find("GameWorld").transform;
-            manager.count++;
-            Destroy(this);
-        }
+        theTable = GameObject.Find ("EventSystem").GetComponent<LoadTables> ();
+        worldBlockParent = GameObject.Find("GameWorld").transform;
+
     }
+
+    public void spawnPuzzle()
+    {
+        GameObject aTable = theTable.GetRandomTable();
+        GameObject worldBlock = (GameObject)Instantiate(aTable, new Vector3(0,count*-33f,0), Quaternion.Euler(-90, 0, 0));
+        worldBlock.transform.parent = worldBlockParent;
+        count++;
+    }
+
+
 }
