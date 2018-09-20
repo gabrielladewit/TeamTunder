@@ -2,18 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConveyorBelt : MonoBehaviour {
+public class ConveyorBelt : MonoBehaviour
+{
 
     public GameObject conveyor;
     public Transform endpoint;
-    public float beltSpeed = 7;
+    private float beltSpeed = 10;
 
     public float scrollSpeed = 0.5F;
     public Renderer rend;
 
+    public Vector3 start;
+    public Vector3 end;
+    public Vector3 direction;
+
     void Start()
     {
         rend = GetComponent<Renderer>();
+        start = this.gameObject.transform.GetChild(0).position;
+        end = this.gameObject.transform.GetChild(1).position;
+
+        var heading = end - start;
+        var distance = heading.magnitude;
+        direction = heading / distance;
     }
     void Update()
     {
@@ -23,6 +34,6 @@ public class ConveyorBelt : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        other.transform.Translate(endpoint.transform.forward * beltSpeed * Time.deltaTime, Space.World);
+        other.attachedRigidbody.AddForce(direction * beltSpeed);
     }
-}
+} 

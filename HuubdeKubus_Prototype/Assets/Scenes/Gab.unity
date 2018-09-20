@@ -205,12 +205,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 435300277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.49, y: -1.07, z: -13.1}
+  m_LocalPosition: {x: 13.68, y: 16.68, z: -21.3}
   m_LocalScale: {x: 0.84, y: 0.84, z: 0.84}
   m_Children:
   - {fileID: 935634743}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &435300283
 Rigidbody:
@@ -370,90 +370,3 @@ Transform:
   m_Father: {fileID: 435300282}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!1001 &1957224988
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4397831401580690, guid: ea272443433467a49a7fba27a937cc7d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 30.422386
-      objectReference: {fileID: 0}
-    - target: {fileID: 4397831401580690, guid: ea272443433467a49a7fba27a937cc7d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 68.199875
-      objectReference: {fileID: 0}
-    - target: {fileID: 4397831401580690, guid: ea272443433467a49a7fba27a937cc7d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -21.842527
-      objectReference: {fileID: 0}
-    - target: {fileID: 4397831401580690, guid: ea272443433467a49a7fba27a937cc7d, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4397831401580690, guid: ea272443433467a49a7fba27a937cc7d, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4397831401580690, guid: ea272443433467a49a7fba27a937cc7d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4397831401580690, guid: ea272443433467a49a7fba27a937cc7d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4397831401580690, guid: ea272443433467a49a7fba27a937cc7d, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224134980062960228, guid: ea272443433467a49a7fba27a937cc7d,
-        type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224134980062960228, guid: ea272443433467a49a7fba27a937cc7d,
-        type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 224134980062960228, guid: ea272443433467a49a7fba27a937cc7d,
-        type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224134980062960228, guid: ea272443433467a49a7fba27a937cc7d,
-        type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 224134980062960228, guid: ea272443433467a49a7fba27a937cc7d,
-        type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 224976087015283464, guid: ea272443433467a49a7fba27a937cc7d,
-        type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 224976087015283464, guid: ea272443433467a49a7fba27a937cc7d,
-        type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224976087015283464, guid: ea272443433467a49a7fba27a937cc7d,
-        type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 224976087015283464, guid: ea272443433467a49a7fba27a937cc7d,
-        type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ea272443433467a49a7fba27a937cc7d, type: 2}
-  m_IsPrefabAsset: 0

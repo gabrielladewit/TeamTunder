@@ -707,9 +707,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conveyor: {fileID: 1345317958158178}
   endpoint: {fileID: 4996403973300800}
-  beltSpeed: 5
   scrollSpeed: 0.5
   rend: {fileID: 0}
+  start: {x: 0, y: 0, z: 0}
+  end: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
 --- !u!224 &224616979653480850
 RectTransform:
   m_ObjectHideFlags: 1
