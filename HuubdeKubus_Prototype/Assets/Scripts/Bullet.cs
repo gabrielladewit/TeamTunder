@@ -4,25 +4,31 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-    public GameObject floor;
-    float marge = 2f;
+    private GameObject thePlayer;
+    private Pause pause;
 
-	// Update is called once per frame
-	void Update () {
-        float PosX = floor.transform.position.x;
-        float PosY = floor.transform.position.z;
+    private void Start()
+    {
+        thePlayer = GameObject.Find("PlayerSphere");
+        pause = GameObject.Find("UI").GetComponent<Pause>();
+    }
 
-        float SizeX = floor.transform.localScale.x;
-        float SizeY = floor.transform.localScale.z;
-
-        if (this.transform.position.x >= PosX + ((SizeX/2) + marge) || this.transform.position.x <= PosX - ((SizeX / 2) + marge))
+    // Update is called once per frame
+    void Update () {
+        
+        if(Vector3.Distance(thePlayer.transform.position, this.transform.position) > 50)
         {
-            Destroy(this.gameObject);
+            GameObject.Destroy(this);
         }
 
-        if (this.transform.position.z >= PosY + ((SizeY / 2) + marge) || this.transform.position.z <= PosY - ((SizeY / 2) + marge))
+        this.transform.Translate(new Vector3(0,0,0.3f));
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Destroy")
         {
-            Destroy(this.gameObject);
+            GameObject.Destroy(this.gameObject);
         }
     }
 }
