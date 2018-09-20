@@ -7,16 +7,11 @@ public class ObstacleSpawner : MonoBehaviour
 
     public GameObject o_walls, o_turn, o_zigzag;
 
-    private Vector3 wallsBegin = new Vector3(-25f, 1.5f, 5f);
-    private Vector3 zigzagBegin = new Vector3(0, 1.5f, 74f);
-    private Vector3 turnBegin = new Vector3(0, -1f, 0);
+    private Vector3 wallsBegin, zigzagBegin, turnBegin;
 
     public GameObject leftRot, rightRot, upRot, downRot;
 
-    private Vector3 leftRotStart = new Vector3(-30,2,0);
-    private Vector3 rightRotStart = new Vector3(30,2,0);
-    private Vector3 upRotStart = new Vector3(0,2,22);
-    private Vector3 downRotStart = new Vector3(0,2,-22);
+    private Vector3 leftRotStart, rightRotStart, upRotStart, downRotStart;
 
     GameObject gunV1, gunV2, gunV3, gunH1, gunH2, gunH3;
     private float instantiateTimer = 6;
@@ -38,6 +33,13 @@ public class ObstacleSpawner : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        wallsBegin = o_walls.transform.position;
+        zigzagBegin = o_zigzag.transform.position;
+        turnBegin = o_turn.transform.position;
+        leftRotStart = GameObject.Find("TurnLeft").transform.rotation.eulerAngles;
+        rightRotStart = GameObject.Find("TurnRight").transform.rotation.eulerAngles;
+        upRotStart = GameObject.Find("TurnTop").transform.rotation.eulerAngles;
+        downRotStart = GameObject.Find("TurnBottom").transform.rotation.eulerAngles;
         gunV1 = new GameObject("V1");
         gunV2 = new GameObject("V2");
         gunV3 = new GameObject("V3");
@@ -69,6 +71,7 @@ public class ObstacleSpawner : MonoBehaviour
         }
     }
 
+    //Decrepetededed
     public void Walls()
     {
 
@@ -90,6 +93,7 @@ public class ObstacleSpawner : MonoBehaviour
         }
     }
 
+    //Decrepetededed
     public void ZigZag()
     {
         if (start)
