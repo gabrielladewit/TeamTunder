@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ConveyorBelt : MonoBehaviour {
 
-    public float beltSpeed;
+    public GameObject conveyor;
+    public Transform endpoint;
+    public float beltSpeed = 7;
 
     public float scrollSpeed = 0.5F;
     public Renderer rend;
@@ -16,11 +18,11 @@ public class ConveyorBelt : MonoBehaviour {
     void Update()
     {
         float offset = Time.time * scrollSpeed;
-        rend.material.mainTextureOffset = new Vector2(offset, 0);
+        rend.material.mainTextureOffset = new Vector2(-offset, 0);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        other.attachedRigidbody.AddForce(beltSpeed, 0, 0);
+        other.transform.Translate(endpoint.transform.forward * beltSpeed * Time.deltaTime, Space.World);
     }
 }
