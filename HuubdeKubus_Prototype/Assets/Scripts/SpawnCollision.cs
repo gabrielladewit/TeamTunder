@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpawnCollision : MonoBehaviour {
 
-    GameObject playerObj;
-    WorldGeneration worldGen;
+    static GameObject playerObj;
+    static WorldGeneration worldGen;
     bool triggered = false;
 
     // Use this for initialization
