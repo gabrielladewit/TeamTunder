@@ -33,11 +33,17 @@ public class ButtonMovement : MonoBehaviour
         while (true)
         {
             if (isLeftPressed)
+            {
                 rigid.AddForce(new Vector3(-50, 0, 0));
+            }
+                
             //this.gameObject.transform.Translate(new Vector3(-10, 0, 0) * Time.deltaTime);
 
             if (isRightPressed)
+            {
                 rigid.AddForce(new Vector3(50, 0, 0));
+            }
+                
             yield return new WaitForSeconds(0.1f);
         }
 
