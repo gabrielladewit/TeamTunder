@@ -19,8 +19,12 @@ public class WorldMover : MonoBehaviour {
         // Move the world
 
 
-        if (!pause.isPaused) {
-            theObj.transform.Translate(new Vector3(0, -gameSpeed, 0));
+        if (pause != null)
+        {
+            if (!pause.isPaused)
+            {
+                theObj.transform.Translate(new Vector3(0, -gameSpeed, 0));
+            }
         }
     }
 }
