@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4590231755870706}
   - component: {fileID: 114580437207515910}
   - component: {fileID: 65678541990814734}
-  - component: {fileID: 114478423589222912}
+  - component: {fileID: 114616060430619156}
   m_Layer: 0
   m_Name: TablePrefab7
   m_TagString: Tables
@@ -908,6 +908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97dca14e926e17469f4d120a6be6785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterPrefab: {fileID: 0}
 --- !u!114 &114165809883159760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -934,17 +935,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   replacement: {fileID: 1515874224059700, guid: 26232ff2c3e6f264b9f812fdc1bea267,
     type: 2}
---- !u!114 &114478423589222912
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1220571116541778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a97dca14e926e17469f4d120a6be6785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114478889671686568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -980,6 +970,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56b506c1d1cf61741b1a6f5e447f5b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114616060430619156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1220571116541778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c8f84554329e8479d70eb9d54b0cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114642364490289548
