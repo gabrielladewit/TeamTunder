@@ -20,7 +20,7 @@ public class ScoreUpdate : MonoBehaviour {
         while (true)
         {
             var score = (int)Vector3.Distance(playerObj.transform.position, topObj.transform.position);
-            theScore.GetComponent<Text>().text = (-16 + score).ToString();
+            theScore.GetComponent<Text>().text = (-8 + score).ToString();
             yield return new WaitForSeconds(0.4f);
         }
     }
