@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class HoleBlockScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
+    //Remove constraints when player collides with the hole
     private void OnTriggerStay(Collider other)
     {
-        other.attachedRigidbody.AddForce(0, 0, 100);
+        other.attachedRigidbody.AddForce(0, 0, 50);
+        other.attachedRigidbody.constraints = RigidbodyConstraints.None;
+    }
+
+
+    //Add constraints when player isn't on the hole
+    private void OnTriggerExit(Collider other)
+    {
+        other.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | 
+            RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 }
