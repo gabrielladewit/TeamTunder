@@ -50,21 +50,20 @@ public class ButtonMovement : MonoBehaviour
         }
 
         //// Still working on the invincibility pickup!
+        // De obstacle names moeten aangepast worden. Anders kan ik geen collision detection doen.
+        // Mogelijk kan ik ook een trigger detection doen. Daar moet ik nog even naar kijken.
+        if (other.gameObject.name.Contains("ObstacleR"))
+        {
 
-        //if (other.gameObject.name.Contains("Right"))
-        //{
+            if (invincible == true)
+            {
+                Debug.Log("INVINCIBLE ACTIVE");
 
-        //    if (invincible == true)
-        //    {
-        //        Debug.Log("INVINCIBLE ACTIVE");
-                
-        //        Physics.IgnoreCollision(other.gameObject.GetComponent<Collider>(), this.GetComponent<Collider>(), true);
-        //        invincible = false;
-        //    }
+                Physics.IgnoreCollision(other.gameObject.GetComponent<Collider>(), this.GetComponent<Collider>(), true);
+                invincible = false;
+            }
 
-        //}
-
-
+        }
     }
     IEnumerator MoveUpdate()
     {

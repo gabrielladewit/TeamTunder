@@ -7,7 +7,7 @@ public class ScoreUpdate : MonoBehaviour {
 
     GameObject theScore, playerObj, topObj;
     public bool multiplier = false;
-    private int score;
+    private int scorez;
     private float multiplierDurance;
     public float multiplierTime = 5f;
 
@@ -25,10 +25,10 @@ public class ScoreUpdate : MonoBehaviour {
     {
         while (true)
         {
-<<<<<<< HEAD:HuubdeKubus_Prototype/Assets/Scripts/ScoreUpdate.cs
+
             if (multiplier)
             {
-                score = (int)(Vector3.Distance(playerObj.transform.position, topObj.transform.position) * 1.5f);
+                scorez = (int)(Vector3.Distance(playerObj.transform.position, topObj.transform.position) * 1.5f);
                 Debug.Log("Multiplier is active");
 
                 multiplierDurance -= Time.deltaTime*10;
@@ -36,7 +36,7 @@ public class ScoreUpdate : MonoBehaviour {
 
                 if (multiplierDurance < 0)
                 {
-                    score = (int)Vector3.Distance(playerObj.transform.position, topObj.transform.position);
+                    scorez = (int)Vector3.Distance(playerObj.transform.position, topObj.transform.position);
                     multiplier = false;
                     multiplierDurance = multiplierTime;
                     Debug.Log("MULTIPLIER DEACTIVATED");
@@ -46,11 +46,11 @@ public class ScoreUpdate : MonoBehaviour {
             }
 
             
-            theScore.GetComponent<Text>().text = (-16 + score).ToString();
-=======
+            theScore.GetComponent<Text>().text = (-16 + scorez).ToString();
+
             var score = (int)Vector3.Distance(playerObj.transform.position, topObj.transform.position);
             theScore.GetComponent<Text>().text = (-8 + score).ToString();
->>>>>>> master:HuubdeKubus_Prototype/Assets/Resources/Scripts/WorldManagers/ScoreUpdate.cs
+
             yield return new WaitForSeconds(0.4f);
         }
     }
