@@ -8,7 +8,7 @@ public class LoadTables : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        tablePrefabs = new List<GameObject>(Resources.LoadAll<GameObject>("PuzzlePrefabs"));
+        tablePrefabs = new List<GameObject>(Resources.LoadAll<GameObject>("PrototypePrefabs"));
     }
 	
 	// Update is called once per frame
