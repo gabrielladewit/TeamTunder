@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65926056438179614}
   - component: {fileID: 114450339829633038}
   m_Layer: 0
-  m_Name: RotateObstacleRight
+  m_Name: RotateObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,7 +623,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1763666007394620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 168.16121, y: 823.15674, z: -486.3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4658251430408322}
@@ -1412,6 +1412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66faae23e352e9489a14b73453585b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: 0
 --- !u!114 &114485781438628338
 MonoBehaviour:
   m_ObjectHideFlags: 1
