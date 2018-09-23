@@ -44,25 +44,27 @@ public class ButtonMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Invincible"))
         {
-            Debug.Log("Pickup: Invinvible");
+            Debug.Log("PICKUP: INVINCIBLE");
             Destroy(other.gameObject);
-            //invincible = true;
+            invincible = true;
         }
 
         //// Still working on the invincibility pickup!
-        //GameObject cube;
 
-        //if (other.gameObject.name.Contains("Cube"))
+        //if (other.gameObject.name.Contains("Right"))
         //{
-        //    cube = other.gameObject;
+
         //    if (invincible == true)
         //    {
-        //        Physics.IgnoreCollision(cube.GetComponent<Collider>(), GetComponent<Collider>());
+        //        Debug.Log("INVINCIBLE ACTIVE");
+                
+        //        Physics.IgnoreCollision(other.gameObject.GetComponent<Collider>(), this.GetComponent<Collider>(), true);
+        //        invincible = false;
         //    }
 
         //}
 
-        
+
     }
     IEnumerator MoveUpdate()
     {
