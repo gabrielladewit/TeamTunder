@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65250092443439202}
   - component: {fileID: 114122447473326470}
   m_Layer: 0
-  m_Name: RotateObstacleRight
+  m_Name: RotateObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,4 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66faae23e352e9489a14b73453585b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRotate: 5
+  left: 0
