@@ -13,7 +13,7 @@ public class TableRemover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Vector3.Distance(playerObj.transform.position, this.transform.position) > 150)
+        if (playerObj != null && Vector3.Distance(playerObj.transform.position, this.transform.position) > 150)
         {
             Destroy(this.gameObject);
         }
