@@ -6,9 +6,9 @@ public class ShatterOnCollision : MonoBehaviour {
 
     public GameObject replacement;
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider coll)
     {
-        if (collision.gameObject.tag == "Player")
+        if (coll.gameObject.tag == "Player")
         {
             GameObject.Instantiate(replacement, transform.position, transform.rotation);
 
