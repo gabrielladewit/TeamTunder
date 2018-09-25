@@ -8,7 +8,6 @@ public class ButtonMovement : MonoBehaviour
     private bool isLeftPressed = false, isRightPressed = false;
     private Rigidbody rigid;
     private ScoreUpdate scoreUpdateScript;
-    private bool invincible = false;
 
     // Use this for initialization
     void Start()
@@ -41,30 +40,8 @@ public class ButtonMovement : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Destroy: " + other.gameObject.name);
         }
-
-        if (other.gameObject.CompareTag("Invincible"))
-        {
-            Debug.Log("PICKUP: INVINCIBLE");
-            Destroy(other.gameObject);
-            invincible = true;
-        }
-
-        //// Still working on the invincibility pickup!
-        // De obstacle names moeten aangepast worden. Anders kan ik geen collision detection doen.
-        // Mogelijk kan ik ook een trigger detection doen. Daar moet ik nog even naar kijken.
-        if (other.gameObject.name.Contains("ObstacleR"))
-        {
-
-            if (invincible == true)
-            {
-                Debug.Log("INVINCIBLE ACTIVE");
-
-                Physics.IgnoreCollision(other.gameObject.GetComponent<Collider>(), this.GetComponent<Collider>(), true);
-                invincible = false;
-            }
-
-        }
     }
+
     IEnumerator MoveUpdate()
     {
         while (true)
