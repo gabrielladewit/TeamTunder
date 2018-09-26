@@ -10,18 +10,22 @@ public class ButtonMovement : MonoBehaviour
     private ScoreUpdate scoreUpdateScript;
     private bool invincible = false;
 
+    private Transform prefab;
+
     // Use this for initialization
     void Start()
     {
-        rigid = GameObject.Find("PlayerSphere").GetComponent<Rigidbody>();
-        if (rigid != null)
-        {
-            StartCoroutine(MoveUpdate());
-        }
-        else
-        {
-            Debug.Log("No player found!");
-        }
+
+
+        //if (prefab != null)
+        //{
+        //    //StartCoroutine(MoveUpdate());
+        //}
+        //else
+        //{
+        //    Debug.Log("No PLAYER2 found!");
+        //}
+
     }
 
     // Update is called once per frame
@@ -49,6 +53,28 @@ public class ButtonMovement : MonoBehaviour
             invincible = true;
         }
 
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            Debug.Log("PICKUP: COIN");
+            Destroy(other.gameObject);
+            // Add code for coin pickup here
+
+        }
+
+        if (other.gameObject.CompareTag("ExtraBall"))
+        {
+            Debug.Log("PICKUP: EXTRA BALL");
+            Destroy(other.gameObject);
+            // Add code for extra ball pickup here
+            //GameObject extraPlayer = Instantiate(playerClone, transform.position, transform.rotation);
+
+            //Instantiate(prefab, new Vector3(this.transform.position.x + 2, this.transform.position.y + 2, this.transform.position.z), Quaternion.identity);
+             GameObject player2 = Instantiate (Resources.Load("Prefabs/Player2") as GameObject, new Vector3(this.transform.position.x + 2, this.transform.position.y + 2, this.transform.position.z), Quaternion.identity);
+
+            //(GameObject)//GameObject theNippleKing = GameObject.Find("PlayerSphere(Clone)");
+
+        }
+
         //// Still working on the invincibility pickup!
         // De obstacle names moeten aangepast worden. Anders kan ik geen collision detection doen.
         // Mogelijk kan ik ook een trigger detection doen. Daar moet ik nog even naar kijken.
@@ -71,14 +97,12 @@ public class ButtonMovement : MonoBehaviour
         {
             if (isLeftPressed)
             {
-                rigid.AddForce(new Vector3(-50, 0, 0));
+                this.GetComponent<Rigidbody>().AddForce(new Vector3(-50, 0, 0));
             }
-                
-            //this.gameObject.transform.Translate(new Vector3(-10, 0, 0) * Time.deltaTime);
 
             if (isRightPressed)
             {
-                rigid.AddForce(new Vector3(50, 0, 0));
+                this.GetComponent<Rigidbody>().AddForce(new Vector3(50, 0, 0));
             }
                 
             yield return new WaitForSeconds(0.1f);

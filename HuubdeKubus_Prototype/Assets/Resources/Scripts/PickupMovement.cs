@@ -11,7 +11,7 @@ public class PickupMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Rotate(Vector3.up * rotationSpeed);
+        transform.Rotate(Vector3.back * rotationSpeed);
         transform.position = transform.position + new Vector3(0.0f,0.0f, Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude);
     }
 }
