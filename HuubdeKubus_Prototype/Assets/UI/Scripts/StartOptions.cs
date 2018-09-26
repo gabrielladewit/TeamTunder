@@ -36,28 +36,51 @@ public class StartOptions : MonoBehaviour {
 
 	public void StartButtonClicked()
 	{
-		//If changeMusicOnStart is true, fade out volume of music group of AudioMixer by calling FadeDown function of PlayMusic, using length of fadeColorAnimationClip as time. 
-		//To change fade time, change length of animation "FadeToColor"
-		
+        //If changeMusicOnStart is true, fade out volume of music group of AudioMixer by calling FadeDown function of PlayMusic, using length of fadeColorAnimationClip as time. 
+        //To change fade time, change length of animation "FadeToColor"
+        Debug.Log("G Clicked");
 
 		//If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
 		if (changeScenes) 
 		{
-			//Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
-			Invoke ("LoadDelayed", fadeColorAnimationClip.length * .5f);
+            Debug.Log("G Started");
+            //Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
+            Invoke ("LoadDelayedGame", fadeColorAnimationClip.length * .5f);
 
 			//Set the trigger of Animator animColorFade to start transition to the FadeToOpaque state.
 			animColorFade.SetTrigger ("fade");
-		} 
-
-		//If changeScenes is false, call StartGameInScene
-		else 
-		{
-			//Call the StartGameInScene function to start game without loading a new scene.
-			StartGameInScene();
 		}
-
 	}
+
+    public void ShopButtonClicked()
+    {
+        Debug.Log("S Clicked");
+        //If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
+        if (changeScenes)
+        {
+            Debug.Log("S Started");
+            //Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
+            Invoke("LoadDelayedShop", fadeColorAnimationClip.length * .5f);
+
+            //Set the trigger of Animator animColorFade to start transition to the FadeToOpaque state.
+            animColorFade.SetTrigger("fade");
+        }
+    }
+
+    public void MainMenuButtonClicked()
+    {
+        Debug.Log("M Clicked");
+        //If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
+        if (true)
+        {
+            Debug.Log("M Started");
+            //Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
+            Invoke("LoadDelayedMainMenu", fadeColorAnimationClip.length * .5f);
+
+            //Set the trigger of Animator animColorFade to start transition to the FadeToOpaque state.
+            //animColorFade.SetTrigger("fade");
+        }
+    }
 
     void OnEnable()
     {
@@ -80,19 +103,49 @@ public class StartOptions : MonoBehaviour {
 	}
 
 
-	public void LoadDelayed()
+	public void LoadDelayedGame()
 	{
-		//Pause button now works if escape is pressed since we are no longer in Main menu.
-		inMainMenu = false;
+        Debug.Log("G Invoked");
+        //Pause button now works if escape is pressed since we are no longer in Main menu.
+        inMainMenu = false;
 
 		//Hide the main menu UI element
 		showPanels.HideMenu ();
 
-		//Load the selected scene, by scene index number in build settings
-		SceneManager.LoadScene (sceneToStart);
+        Debug.Log("G SCene");
+        //Load the selected scene, by scene index number in build settings
+        SceneManager.LoadScene (1);
 	}
 
-	public void HideDelayed()
+    public void LoadDelayedShop()
+    {
+        //Pause button now works if escape is pressed since we are no longer in Main menu.
+        //inMainMenu = false;
+
+        Debug.Log("S Invoked");
+        //Hide the main menu UI element
+        showPanels.HideMenu();
+
+        Debug.Log("S Scene");
+        //Load the selected scene, by scene index number in build settings
+        SceneManager.LoadScene(2);
+    }
+
+    public void LoadDelayedMainMenu()
+    {
+        //Pause button now works if escape is pressed since we are no longer in Main menu.
+        //inMainMenu = false;
+
+        Debug.Log("M Invoked");
+        //Hide the main menu UI element
+        //showPanels.ShowMenu();
+
+        Debug.Log("M Scene");
+        //Load the selected scene, by scene index number in build settings
+        SceneManager.LoadScene(0);
+    }
+
+    public void HideDelayed()
 	{
 		//Hide the main menu UI element after fading out menu for start game in scene
 		showPanels.HideMenu();
