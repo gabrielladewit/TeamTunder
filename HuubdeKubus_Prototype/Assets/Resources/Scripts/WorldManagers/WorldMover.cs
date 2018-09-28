@@ -25,9 +25,9 @@ public class WorldMover : MonoBehaviour {
         {
             if (!pause.isPaused)
             {
-                float realSpeed = gameSpeed * ((int)Vector3.Distance(playerObj.transform.position, topObj.transform.position) * 0.01f);
-                Debug.Log(realSpeed);
-                theObj.transform.Translate(new Vector3(0, -realSpeed, 0));
+                //float realSpeed = gameSpeed * ((int)Vector3.Distance(playerObj.transform.position, topObj.transform.position) * 0.01f);
+                //Debug.Log(realSpeed);
+                theObj.transform.Translate(new Vector3(0, -gameSpeed, 0));
             }
         }
     }
