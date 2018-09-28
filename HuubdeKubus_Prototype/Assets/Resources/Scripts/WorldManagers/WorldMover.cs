@@ -24,7 +24,7 @@ public class WorldMover : MonoBehaviour {
         if (realSpeed >= 0.125f)
             realSpeed = 0.125f;
 
-        Debug.Log(realSpeed);
+        //Debug.Log(realSpeed);
 
         if (pause != null)
         {
