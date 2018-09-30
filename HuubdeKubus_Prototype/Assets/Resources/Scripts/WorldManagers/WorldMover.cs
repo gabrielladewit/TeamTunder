@@ -5,11 +5,11 @@ using UnityEngine;
 public class WorldMover : MonoBehaviour {
     GameObject theObj, playerObj, topObj;
     private Pause pause;
-<<<<<<< HEAD
+
     public float gameSpeed = 50f;
-=======
-    float gameSpeed = 0.075f;
->>>>>>> master
+
+    //float gameSpeed = 0.075f;
+
     private bool paused = false;
     private float slowdownTimeDurance;
     public float sDTTime = 3f;
@@ -26,9 +26,7 @@ public class WorldMover : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        // Move the world
-<<<<<<< HEAD
-=======
+
         float realSpeed = gameSpeed + ((int)Vector3.Distance(playerObj.transform.position, topObj.transform.position) * 0.0001f);
 
         if (realSpeed >= 0.125f)
@@ -36,18 +34,16 @@ public class WorldMover : MonoBehaviour {
 
         //Debug.Log(realSpeed);
 
->>>>>>> master
+
         if (pause != null)
         {
             if (!pause.isPaused)
             {
-<<<<<<< HEAD
+
                 //float realSpeed = gameSpeed * ((int)Vector3.Distance(playerObj.transform.position, topObj.transform.position) * 0.01f);
                 //Debug.Log(realSpeed);
                 theObj.transform.Translate(new Vector3(0, -gameSpeed, 0));
-=======
-                theObj.transform.Translate(new Vector3(0, -realSpeed, 0));
->>>>>>> master
+
             }
         }
         else

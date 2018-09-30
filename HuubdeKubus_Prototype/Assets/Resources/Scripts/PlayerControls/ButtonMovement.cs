@@ -10,6 +10,7 @@ public class ButtonMovement : MonoBehaviour
     private ScoreUpdate scoreUpdateScript;
 
     private Transform prefab;
+    bool invincible;
 
     // Use this for initialization
     void Start()
@@ -44,7 +45,6 @@ public class ButtonMovement : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Destroy: " + other.gameObject.name);
         }
-<<<<<<< HEAD
 
         if (other.gameObject.CompareTag("Invincible"))
         {
@@ -90,8 +90,6 @@ public class ButtonMovement : MonoBehaviour
             }
 
         }
-=======
->>>>>>> master
     }
 
     IEnumerator MoveUpdate()
