@@ -8,6 +8,7 @@ public class ButtonMovement : MonoBehaviour
     private bool isLeftPressed = false, isRightPressed = false;
     private Rigidbody rigid;
     private ScoreUpdate scoreUpdateScript;
+    bool invincible;
 
     // Use this for initialization
     void Start()
@@ -39,6 +40,35 @@ public class ButtonMovement : MonoBehaviour
             scoreUpdateScript.multiplier = true;
             Destroy(other.gameObject);
             Debug.Log("Destroy: " + other.gameObject.name);
+        }
+
+        if (other.gameObject.CompareTag("Invincible"))
+        {
+            Debug.Log("PICKUP: INVINCIBLE");
+            Destroy(other.gameObject);
+            invincible = true;
+        }
+
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            Debug.Log("PICKUP: COIN");
+            Destroy(other.gameObject);
+            // Add code for coin pickup here
+
+        }
+
+        if (other.gameObject.CompareTag("ExtraBall"))
+        {
+            Debug.Log("PICKUP: EXTRA BALL");
+            Destroy(other.gameObject);
+            // Add code for extra ball pickup here
+            //GameObject extraPlayer = Instantiate(playerClone, transform.position, transform.rotation);
+
+            //Instantiate(prefab, new Vector3(this.transform.position.x + 2, this.transform.position.y + 2, this.transform.position.z), Quaternion.identity);
+            GameObject player2 = Instantiate(Resources.Load("Prefabs/Player2") as GameObject, new Vector3(this.transform.position.x + 2, this.transform.position.y + 2, this.transform.position.z), Quaternion.identity);
+
+            //(GameObject)//GameObject theNippleKing = GameObject.Find("PlayerSphere(Clone)");
+
         }
     }
 
