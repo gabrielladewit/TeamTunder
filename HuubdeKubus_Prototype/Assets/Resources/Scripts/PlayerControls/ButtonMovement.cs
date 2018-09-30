@@ -8,7 +8,6 @@ public class ButtonMovement : MonoBehaviour
     private bool isLeftPressed = false, isRightPressed = false;
     private Rigidbody rigid;
     private ScoreUpdate scoreUpdateScript;
-    private bool invincible = false;
 
     private Transform prefab;
 
@@ -45,6 +44,7 @@ public class ButtonMovement : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Destroy: " + other.gameObject.name);
         }
+<<<<<<< HEAD
 
         if (other.gameObject.CompareTag("Invincible"))
         {
@@ -90,7 +90,10 @@ public class ButtonMovement : MonoBehaviour
             }
 
         }
+=======
+>>>>>>> master
     }
+
     IEnumerator MoveUpdate()
     {
         while (true)

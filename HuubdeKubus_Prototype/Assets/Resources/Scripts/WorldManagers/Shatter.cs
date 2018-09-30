@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shatter : MonoBehaviour {
+public class CountDown : MonoBehaviour {
 
-    private float time = 2f;
+    public float time = 3f;
 
     void Start()
     {
