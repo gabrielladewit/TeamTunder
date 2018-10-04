@@ -16,10 +16,15 @@ public class ScoreUpdate : MonoBehaviour {
         theScore = GameObject.Find("Score");
         playerObj = GameObject.Find("PlayerSphere");
         topObj = GameObject.Find("Top");
-        multiplierDurance = multiplierTime;
+<<<<<<< HEAD
         StartCoroutine(DoUpdate());         // Start the coroutine function DoUpdate()
-        
     }
+=======
+        multiplierDurance = multiplierTime;
+        StartCoroutine(DoUpdate());
+        
+	}
+>>>>>>> master
 
     IEnumerator DoUpdate()                  // The coroutine (returns IEnumerator)
     {
