@@ -38,12 +38,10 @@ public class StartOptions : MonoBehaviour {
 	{
         //If changeMusicOnStart is true, fade out volume of music group of AudioMixer by calling FadeDown function of PlayMusic, using length of fadeColorAnimationClip as time. 
         //To change fade time, change length of animation "FadeToColor"
-        Debug.Log("G Clicked");
 
 		//If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
 		if (changeScenes) 
 		{
-            Debug.Log("G Started");
             //Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
             Invoke ("LoadDelayedGame", fadeColorAnimationClip.length * .5f);
 
@@ -54,11 +52,9 @@ public class StartOptions : MonoBehaviour {
 
     public void ShopButtonClicked()
     {
-        Debug.Log("S Clicked");
         //If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
         if (changeScenes)
         {
-            Debug.Log("S Started");
             //Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
             Invoke("LoadDelayedShop", fadeColorAnimationClip.length * .5f);
 
@@ -69,11 +65,9 @@ public class StartOptions : MonoBehaviour {
 
     public void MainMenuButtonClicked()
     {
-        Debug.Log("M Clicked");
         //If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
         if (true)
         {
-            Debug.Log("M Started");
             //Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
             Invoke("LoadDelayedMainMenu", fadeColorAnimationClip.length * .5f);
 

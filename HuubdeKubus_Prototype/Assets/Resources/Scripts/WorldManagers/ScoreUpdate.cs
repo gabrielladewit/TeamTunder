@@ -12,10 +12,10 @@ public class ScoreUpdate : MonoBehaviour {
         theScore = GameObject.Find("Score");
         playerObj = GameObject.Find("PlayerSphere");
         topObj = GameObject.Find("Top");
-        StartCoroutine(DoUpdate());
-	}
+        StartCoroutine(DoUpdate());         // Start the coroutine function DoUpdate()
+    }
 
-    IEnumerator DoUpdate()
+    IEnumerator DoUpdate()                  // The coroutine (returns IEnumerator)
     {
         while (true)
         {
@@ -26,3 +26,6 @@ public class ScoreUpdate : MonoBehaviour {
     }
 
 }
+
+
+

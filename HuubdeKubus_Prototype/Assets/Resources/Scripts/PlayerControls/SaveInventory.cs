@@ -2,24 +2,35 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
 using UnityEngine;
 
-public class SaveInventory : MonoBehaviour {
-    
-    string currentName = "Inventory";
-    int currentMoney = 1234, currentLives = 2;
-    bool currentBoughtHeavy = false;
+public class SaveInventory : MonoBehaviour
+{
+    public int currentMoney, currentLives;
+    public bool currentBoughtHeavy;
+    public bool initialized = false;
+    //public bool loaded = false, saved = false;
+    private string destination;
 
 
-	// Use this for initialization
-	void Start () {
-        LoadFile();
+    // Use this for initialization
+    void Start () {
+        //StartSaveThread();
+        StartLoadThread();
 	}
+
+    public void StartSaveThread()
+    {
+        //saved = false;
+        Thread thread = new Thread(SaveFile);
+        destination = Application.persistentDataPath + "/inventory.dat";
+        thread.Start();
+    }
 
     public void SaveFile()
     {
         // Get the path to the inventory
-        string destination = Application.persistentDataPath + "/inventory.dat";
         FileStream file;
         
         if (File.Exists(destination)) file = File.OpenWrite(destination);
@@ -29,11 +40,19 @@ public class SaveInventory : MonoBehaviour {
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(file, data);
         file.Close();
+        //saved = true;
     }
 
-    void LoadFile()
+    public void StartLoadThread()
     {
-        string destination = Application.persistentDataPath + "/inventory.dat";
+        //loaded = false;
+        Thread thread = new Thread(LoadFile);
+        destination = Application.persistentDataPath + "/inventory.dat";
+        thread.Start();
+    }
+
+    public void LoadFile()
+    {        
         FileStream file;
 
         if (File.Exists(destination)) file = File.OpenRead(destination);
@@ -50,19 +69,16 @@ public class SaveInventory : MonoBehaviour {
         currentMoney = data.money;
         currentLives = data.lives;
         currentBoughtHeavy = data.boughtHeavy;
-        
-        Debug.Log(data.money);
-        Debug.Log(data.lives);
-        Debug.Log(data.boughtHeavy);
+        initialized = true;
     }
 	
-    public void SetMoney(int price)
+    public void SpendMoney(int price)
     {
         currentMoney -= price;
         SaveFile();
     }
 
-    public void AddLives()
+    public void AddLife()
     {
         currentLives++;
         SaveFile();
@@ -70,8 +86,22 @@ public class SaveInventory : MonoBehaviour {
 
     public void SetBoughtHeavy()
     {
-        currentMoney -= 100;
         currentBoughtHeavy = true;
         SaveFile();
+    }
+
+    public int GetCurrentMoney()
+    {
+        return currentMoney;
+    }
+
+    public int GetCurrentLives()
+    {
+        return currentLives;
+    }
+
+    public bool GetCurrentBoughtHeavy()
+    {
+        return currentBoughtHeavy;
     }
 }

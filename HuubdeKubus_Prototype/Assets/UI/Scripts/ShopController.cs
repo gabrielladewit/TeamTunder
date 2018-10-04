@@ -6,50 +6,60 @@ using UnityEngine.UI;
 public class ShopController : MonoBehaviour
 {
 
-    public GameObject livesUpgradeObj, heavyBallObj, UI;
-    private Button livesUpgradeButton, heavyBallButton;
+    public GameObject livesUpgradeObj, heavyBallObj;
+    private Text currentMoneyText;
     private Slider livesUpgradeSlider;
+    public SaveInventory inventory;
 
-    // Use this for initialization
+    // Use this for initializatio
     void Start()
     {
-        livesUpgradeButton = livesUpgradeObj.GetComponentInChildren<Button>();
-        heavyBallButton = heavyBallObj.GetComponentInChildren<Button>();
-        livesUpgradeSlider = livesUpgradeObj.GetComponentInChildren<Slider>();
         Destroy(GameObject.Find("UI"));
+        inventory = this.gameObject.AddComponent<SaveInventory>();
+        currentMoneyText = GameObject.Find("CurrentMoneyText").GetComponent<Text>();
+        livesUpgradeSlider = livesUpgradeObj.GetComponentInChildren<Slider>();
+        StartCoroutine(UpdateShopUI());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        if (inventory.initialized)
+        {
+            LoadShopInventory();
+        }
+    }
+
+    public void LoadShopInventory()
+    {
+        
     }
 
     public void BuyLivesUpgrade()
     {
-        int playerMoney = 1000;
-
-        switch ((int)livesUpgradeSlider.value)
+        switch (inventory.currentLives)
         {
             case 0:
-                if (playerMoney >= 100)
+                if (inventory.currentMoney >= 100)
                 {
-                    playerMoney -= 100;
+                    inventory.SpendMoney(100);
+                    inventory.AddLife();
                     livesUpgradeSlider.value++;
                 }
                 return;
             case 1:
-                if (playerMoney >= 200)
+                if (inventory.currentMoney >= 200)
                 {
-                    playerMoney -= 200;
+                    inventory.SpendMoney(200);
+                    inventory.AddLife();
                     livesUpgradeSlider.value++;
                 }
                 return;
             case 2:
-                if (playerMoney >= 400)
+                if (inventory.currentMoney >= 400)
                 {
-                    playerMoney -= 400;
-                    livesUpgradeSlider.value++;
-                    livesUpgradeButton.interactable = false;
+                    inventory.SpendMoney(400);
+                    inventory.AddLife();
+                    livesUpgradeObj.GetComponentInChildren<Button>().interactable = false;
                 }
                 return;
         }
@@ -57,15 +67,22 @@ public class ShopController : MonoBehaviour
 
     public void BuyHeavyBall()
     {   // PlayerMoney >= Price
-        if (100 >= 100)
+        if (inventory.currentMoney >= 250)
         {
-            heavyBallButton.interactable = false;
+            inventory.SpendMoney(400);
+            inventory.SetBoughtHeavy();
+            heavyBallObj.GetComponentInChildren<Button>().interactable = false;
         }
     }
 
-    public void SaveStats()
+    IEnumerator UpdateShopUI()
     {
-        int lives = (int)livesUpgradeSlider.value;
-        bool heavyBought = !heavyBallButton.interactable;
+        while (true)
+        {
+            currentMoneyText.text = inventory.GetCurrentMoney().ToString();
+            livesUpgradeSlider.value = inventory.GetCurrentLives();
+            heavyBallObj.GetComponentInChildren<Button>().enabled = !inventory.GetCurrentBoughtHeavy();
+            yield return new WaitForSeconds(1);
+        }
     }
 }
