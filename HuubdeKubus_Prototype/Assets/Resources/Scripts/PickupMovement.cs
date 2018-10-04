@@ -12,6 +12,6 @@ public class PickupMovement : MonoBehaviour
     void FixedUpdate()
     {
         transform.Rotate(Vector3.up * rotationSpeed);
-        transform.position = transform.position + new Vector3(0.0f, Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude, 0.0f);
+        transform.position = transform.position + new Vector3(0.0f,0.0f, Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude);
     }
 }
