@@ -10,7 +10,6 @@ public class WorldGeneration : MonoBehaviour {
     int waterRnd;
     bool waterSpawning = false;
     public GameObject waterPrefab;
-    public GameObject wall;
     LoadTables theTable;
     Transform worldBlockParent;
 
@@ -44,12 +43,8 @@ public class WorldGeneration : MonoBehaviour {
 
         GameObject aTable = theTable.GetRandomTable();
         GameObject worldBlock = (GameObject)Instantiate(aTable, new Vector3(0,count*-33f,0), Quaternion.Euler(-90, 0, 0));
-        GameObject left = (GameObject)Instantiate(wall, new Vector3(-7.6f, count * -33f, -1.67f), Quaternion.Euler(-90, 0, 0));
-        GameObject right = (GameObject)Instantiate(wall, new Vector3(8.7f, count * -33f, -1.67f), Quaternion.Euler(-90, 0, 0));
         spawnWater ();
         worldBlock.transform.parent = worldBlockParent;
-        left.transform.parent = worldBlockParent;
-        right.transform.parent = worldBlockParent;
         count++;
     }
 
