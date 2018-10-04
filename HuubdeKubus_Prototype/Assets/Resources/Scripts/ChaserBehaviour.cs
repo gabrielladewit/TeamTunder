@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class ChaserBehaviour : MonoBehaviour {
 
-    public GameObject player;
-    public float speed;
+    private GameObject player;
+    public float speed, range;
+    float minY, maxY;
     Pause pause;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         player = GameObject.Find("PlayerSphere");
         pause = GameObject.Find("UI").GetComponent<Pause>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, step);
-	}
+
+    // Update is called once per frame
+    void Update() {
+        float dist = Vector3.Distance(player.transform.position, this.transform.position);
+
+        if (dist <= range)
+        {
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, step);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
