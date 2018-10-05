@@ -10,11 +10,14 @@ public class WorldGeneration : MonoBehaviour {
     int waterRnd;
     bool waterSpawning = false;
     public GameObject waterPrefab;
+    private int currentDifficulty = 0;
+    ScoreUpdate scoreUpdate;
     LoadTables theTable;
     Transform worldBlockParent;
 
     void Start()
     {
+        scoreUpdate = GameObject.Find("EventSystem").GetComponent<ScoreUpdate>();
         theTable = GameObject.Find ("EventSystem").GetComponent<LoadTables> ();
         worldBlockParent = GameObject.Find("GameWorld").transform;
 
@@ -38,10 +41,18 @@ public class WorldGeneration : MonoBehaviour {
         }
     }
 
+    private void getDifficulty()
+    {
+        if (scoreUpdate.scorez > 200)
+            currentDifficulty = 1;
+        if(scoreUpdate.scorez > 500)
+            currentDifficulty = 2;
+    }
+
     public void spawnPuzzle()
     {
-
-        GameObject aTable = theTable.GetRandomTable();
+        getDifficulty();
+        GameObject aTable = theTable.GetRandomTable(currentDifficulty);
         GameObject worldBlock = (GameObject)Instantiate(aTable, new Vector3(0,count*-33f,0), Quaternion.Euler(-90, 0, 0));
         spawnWater ();
         worldBlock.transform.parent = worldBlockParent;

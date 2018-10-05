@@ -7,7 +7,7 @@ public class ScoreUpdate : MonoBehaviour {
 
     GameObject theScore, playerObj, topObj;
     public bool multiplier = false;
-    private int scorez;
+    public int scorez;
     private float multiplierDurance;
     public float multiplierTime = 5f;
 
@@ -25,7 +25,6 @@ public class ScoreUpdate : MonoBehaviour {
     {
         while (true)
         {
-
             if (multiplier)
             {
                 scorez = (int)(Vector3.Distance(playerObj.transform.position, topObj.transform.position) * 1.5f);
@@ -45,11 +44,11 @@ public class ScoreUpdate : MonoBehaviour {
 
             }
 
-            
-            theScore.GetComponent<Text>().text = (-16 + scorez).ToString();
 
             var score = (int)Vector3.Distance(playerObj.transform.position, topObj.transform.position);
             theScore.GetComponent<Text>().text = (-8 + score).ToString();
+
+            scorez = score;
 
             yield return new WaitForSeconds(0.4f);
         }

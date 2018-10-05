@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class LoadTables : MonoBehaviour {
 
-    public List<GameObject> tablePrefabs;
-    public int x;
-
+    private List<GameObject> easyPuzzles;
+    private List<GameObject> mediumPuzzles;
+    private List<GameObject> hardPuzzles;
+    private GameObject table;
     // Use this for initialization
     void Start () {
-        x = 0;
-        tablePrefabs = new List<GameObject>(Resources.LoadAll<GameObject>("PrototypePrefabs"));
+        easyPuzzles = new List<GameObject>(Resources.LoadAll<GameObject>("EasyPuzzles"));
+        mediumPuzzles = new List<GameObject>(Resources.LoadAll<GameObject>("MediumPuzzles"));
+        hardPuzzles = new List<GameObject>(Resources.LoadAll<GameObject>("HardPuzzles"));
     }
 	
 	// Update is called once per frame
@@ -18,14 +20,24 @@ public class LoadTables : MonoBehaviour {
 		
 	}
 
-    public GameObject GetRandomTable()
+    public GameObject GetRandomTable(int difficulty)
     {
-        GameObject table;
+        if (difficulty == 0)
+        {
+            int x = Random.Range(0, easyPuzzles.Count);
+            table = easyPuzzles[x];
+        }
+        if (difficulty == 1)
+        {
+            int x = Random.Range(0, mediumPuzzles.Count);
+            table = mediumPuzzles[x];
 
-        int x = Random.Range (0, tablePrefabs.Count);
-        table = tablePrefabs[x];
-        x++;
-        
+        }
+        if (difficulty == 2)
+        {
+            int x = Random.Range(0, hardPuzzles.Count);
+            table = hardPuzzles[x];
+        }
 
         return table;
     }
