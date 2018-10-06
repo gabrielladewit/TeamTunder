@@ -22,7 +22,7 @@ public class LoadTables : MonoBehaviour {
     {
         GameObject table;
 
-        int x = Random.Range (0, tablePrefabs.Count);
+        //int x = Random.Range (0, tablePrefabs.Count);
         table = tablePrefabs[x];
         x++;
         
