@@ -17,7 +17,5 @@ public class DeathChecker : MonoBehaviour {
     void OnBecameInvisible()
     {
         pause.DoDie();
-        Debug.Log("THE PLAYER HAS DIED!!!");
-        //Application.Quit();
     }
 }
