@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorldMover : MonoBehaviour {
     GameObject theObj, playerObj, topObj;
     private Pause pause;
-    float gameSpeed = 0.135f;
+    float gameSpeed = 0.1f;
     private bool paused = false;
 
 	// Use this for initialization
