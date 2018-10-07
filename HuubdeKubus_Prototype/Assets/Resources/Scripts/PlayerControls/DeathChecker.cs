@@ -6,7 +6,8 @@ public class DeathChecker : MonoBehaviour {
     Pause pause;
    	// Use this for initialization
 	void Start () {
-        pause = GameObject.Find("UI").GetComponent<Pause>();
+        if (GameObject.Find("UI") != null)
+            pause = GameObject.Find("UI").GetComponent<Pause>();
 	}
 	
 	// Update is called once per frame

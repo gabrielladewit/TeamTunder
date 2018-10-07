@@ -43,7 +43,7 @@ public class WorldGeneration : MonoBehaviour {
 
         GameObject aTable = theTable.GetRandomTable();
         GameObject worldBlock = (GameObject)Instantiate(aTable, new Vector3(0,count*-33f,0), Quaternion.Euler(-90, 0, 0));
-        spawnWater ();
+        //spawnWater ();
         worldBlock.transform.parent = worldBlockParent;
         count++;
     }
