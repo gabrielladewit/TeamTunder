@@ -33,7 +33,7 @@ public class ScoreUpdate : MonoBehaviour {
                 Debug.Log("Multiplier is active");
 
                 multiplierDurance -= Time.deltaTime*10;
-                Debug.Log("Time left: " + multiplierDurance);
+//                Debug.Log("Time left: " + multiplierDurance);
 
                 if (multiplierDurance < 0)
                 {
@@ -41,7 +41,7 @@ public class ScoreUpdate : MonoBehaviour {
                     multiplier = false;
                     multiplierDurance = multiplierTime;
                     Debug.Log("MULTIPLIER DEACTIVATED");
-                    Debug.Log("multiplier time reset: " + multiplierDurance );
+//                    Debug.Log("multiplier time reset: " + multiplierDurance );
                 }
 
             }

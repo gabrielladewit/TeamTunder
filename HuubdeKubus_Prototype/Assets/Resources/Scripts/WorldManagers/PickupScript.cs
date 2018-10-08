@@ -98,7 +98,7 @@ public class PickupScript : MonoBehaviour
             case "ChangeSize":
                 {
                     Debug.Log("PICKUP: CHANGE PLAYER SIZE");
-                    playerBall.gameObject.transform.localScale += new Vector3(0.5F, 0.5f, 0.5f);
+                    playerBall.gameObject.transform.localScale = new Vector3(2f, 2f, 2f);
                     //playerBall.GetComponent<Rigidbody>().mass = 2f;
                     Destroy(pickup.gameObject);
                     theSound.Play();
