@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldMover : MonoBehaviour {
-    GameObject theObj, playerObj, topObj;
+    GameObject theObj, playerObj, topObj, cameraObj;
     private Pause pause;
     float gameSpeed = 0.075f;
     private bool paused = false;
@@ -12,6 +12,7 @@ public class WorldMover : MonoBehaviour {
 	void Start () {
         playerObj = GameObject.Find("PlayerSphere");
         topObj = GameObject.Find("Top");
+        cameraObj = GameObject.Find("Main Camera");
         theObj = this.gameObject;
         pause = GameObject.Find("UI").GetComponent<Pause>();
 	}
@@ -19,7 +20,7 @@ public class WorldMover : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // Move the world
-        float realSpeed = gameSpeed + ((int)Vector3.Distance(playerObj.transform.position, topObj.transform.position) * 0.0001f);
+        float realSpeed = gameSpeed + ((int)Vector3.Distance(cameraObj.transform.position, topObj.transform.position) * 0.0001f);
 
         if (realSpeed >= 0.125f)
             realSpeed = 0.125f;

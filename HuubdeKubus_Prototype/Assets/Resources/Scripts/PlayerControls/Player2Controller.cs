@@ -9,6 +9,8 @@ public class Player2Controller : MonoBehaviour {
     ButtonMovement buttonMovementScript;
     void Start () {
         buttonMovementScript = GameObject.Find("PlayerSphere").GetComponent<ButtonMovement>();
+        Debug.Log("Hi Kaas ement");
+        StartCoroutine(MoveUpdate());
     }
 	
 	// Update is called once per frame
@@ -18,16 +20,19 @@ public class Player2Controller : MonoBehaviour {
 
     IEnumerator MoveUpdate()
     {
+        Debug.Log("Hij komt in de movement");
         while (true)
         {
             if (!buttonMovementScript.inverted)
             {
+                Debug.Log("Hij komt in niet inverted");
                 if (isLeftPressed)
                 {
+                    Debug.Log(this.gameObject.name);
                     this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-50, 0, 0));
                 }
 
-                Debug.Log("Hij komt in de movement");
+                
                 //this.gameObject.transform.Translate(new Vector3(-10, 0, 0) * Time.deltaTime);
 
                 if (isRightPressed)

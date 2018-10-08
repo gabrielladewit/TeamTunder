@@ -5,34 +5,39 @@ using UnityEngine;
 public class ButtonMovement : MonoBehaviour
 {
 
-    private bool isLeftPressed = false, isRightPressed = false;
+    static bool isLeftPressed = false, isRightPressed = false;
     //private Rigidbody rigid;
     private ScoreUpdate scoreUpdateScript;
-    private PickupScript pickupScript;
+    private PickupScript pickupManager;
     bool invincible;
     bool moveFasterActive;
     public bool inverted = false;
-    private float movementSpeed = 50;
+    public float movementSpeed = 15;
 
     // Use this for initialization
     void Start()
     {
-        pickupScript = GameObject.Find("Main Camera").GetComponent<PickupScript>();
+        pickupManager = GameObject.Find("Main Camera").GetComponent<PickupScript>();
 
-        if (this.gameObject != null)
-        {
-            StartCoroutine(MoveUpdate());
-        }
-        else
-        {
-            Debug.Log("No player found!");
-        }
+
+            //StartCoroutine(MoveUpdate());
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (isLeftPressed)
+        {
+            this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-movementSpeed, 0, 0));
+        }
 
+        //this.gameObject.transform.Translate(new Vector3(-10, 0, 0) * Time.deltaTime);
+
+        if (isRightPressed)
+        {
+            this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(movementSpeed, 0, 0));
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -40,49 +45,11 @@ public class ButtonMovement : MonoBehaviour
         if (other.gameObject.name == "Pickup")
         {
             //Debug.Log("Kaaaaaaas!");
-            pickupScript.CollissionInputChecker(this.gameObject, other.gameObject);
+            pickupManager.CollissionInputChecker(this.gameObject, other.gameObject);
         }
-        //if (other.gameObject.CompareTag("Multiplier"))
-        //{
-        //    //other.gameObject.SetActive(false);
-        //    Debug.Log("Pickup: score multiplier");
-        //    scoreUpdateScript = GameObject.Find("EventSystem").GetComponent<ScoreUpdate>();
-        //    scoreUpdateScript.multiplier = true;
-        //    Destroy(other.gameObject);
-        //    Debug.Log("Destroy: " + other.gameObject.name);
-        //}
-
-        //if (other.gameObject.CompareTag("Invincible"))
-        //{
-        //    Debug.Log("PICKUP: INVINCIBLE");
-        //    Destroy(other.gameObject);
-        //    invincible = true;
-        //}
-
-        //if (other.gameObject.CompareTag("Coin"))
-        //{
-        //    Debug.Log("PICKUP: COIN");
-        //    Destroy(other.gameObject);
-        //    // Add code for coin pickup here
-
-        //}
-
-        //if (other.gameObject.CompareTag("ExtraBall"))
-        //{
-        //    Debug.Log("PICKUP: EXTRA BALL");
-        //    Destroy(other.gameObject);
-        //    // Add code for extra ball pickup here
-        //    //GameObject extraPlayer = Instantiate(playerClone, transform.position, transform.rotation);
-
-        //    //Instantiate(prefab, new Vector3(this.transform.position.x + 2, this.transform.position.y + 2, this.transform.position.z), Quaternion.identity);
-        //    GameObject player2 = Instantiate(Resources.Load("Prefabs/Player2") as GameObject, new Vector3(this.transform.position.x + 2, this.transform.position.y + 2, this.transform.position.z), Quaternion.identity);
-
-        //    //(GameObject)//GameObject theNippleKing = GameObject.Find("PlayerSphere(Clone)");
-
-        //}
     }
 
-    IEnumerator MoveUpdate()
+    void MoveUpdate()
     {
         while (true)
         {
@@ -105,7 +72,7 @@ public class ButtonMovement : MonoBehaviour
                     this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(movementSpeed, 0, 0));
                 }
 
-                yield return new WaitForSeconds(0.1f);
+               // yield return new WaitForSeconds(0.1f);
             }
             else
             {
@@ -121,7 +88,7 @@ public class ButtonMovement : MonoBehaviour
                     this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-movementSpeed, 0, 0));
                 }
 
-                yield return new WaitForSeconds(0.1f);
+                //yield return new WaitForSeconds(0.1f);
             }
 
         }

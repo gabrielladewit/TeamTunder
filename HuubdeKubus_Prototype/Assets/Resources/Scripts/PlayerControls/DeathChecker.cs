@@ -16,8 +16,17 @@ public class DeathChecker : MonoBehaviour {
 
     void OnBecameInvisible()
     {
-        pause.DoDie();
-        Debug.Log("THE PLAYER HAS DIED!!!");
+        //this.gameObject.name = "Kippen";
+
+
+        if (GameObject.Find("PlayerSphere") == null)
+        {
+            pause.DoDie();
+
+            Debug.Log("THE PLAYER HAS DIED!!!");
+        }
+
+        //Destroy(this.gameObject);
         //Application.Quit();
     }
 }
