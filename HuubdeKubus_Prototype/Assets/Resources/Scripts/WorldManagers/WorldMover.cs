@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorldMover : MonoBehaviour {
     GameObject theObj, playerObj, topObj;
     private Pause pause;
-    float gameSpeed = 0.075f;
+    float gameSpeed = 0.000075f;
     private bool paused = false;
 
 	// Use this for initialization
@@ -21,7 +21,7 @@ public class WorldMover : MonoBehaviour {
         // Move the world
         float realSpeed = gameSpeed + ((int)Vector3.Distance(playerObj.transform.position, topObj.transform.position) * 0.0001f);
 
-        if (realSpeed >= 0.125f)
+        if (realSpeed > 0.125f)
             realSpeed = 0.125f;
 
         //Debug.Log(realSpeed);

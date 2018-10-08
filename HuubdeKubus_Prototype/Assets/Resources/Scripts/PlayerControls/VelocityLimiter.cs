@@ -5,7 +5,10 @@ using UnityEngine;
 public class VelocityLimiter : MonoBehaviour {
 
     private Rigidbody rigid;
-    public float velocityLimit = 11f;
+    public GameObject mainCamera;
+    private float velocityLimit = 15f;
+    public float gravity = 0.4f;
+    RaycastHit hit;
 
 	// Use this for initialization
 	void Start () {
@@ -14,11 +17,42 @@ public class VelocityLimiter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(rigid.velocity.magnitude > velocityLimit)
+        float dist = this.transform.position.y - mainCamera.transform.position.y;
+
+        //If the player is already at the bottom
+        if (dist > -6)
         {
-            rigid.velocity = Vector3.ClampMagnitude(rigid.velocity, velocityLimit);
+            // IF Speed > Speedlimit
+            if (Mathf.Abs(rigid.velocity.y) > velocityLimit)
+            {
+                //Lower Speed to standard
+                Vector3 rigidbodyVelocity = rigid.velocity;
+                rigidbodyVelocity.y = -velocityLimit;
+                rigid.velocity = rigidbodyVelocity;
+            }
+            else
+            {
+                //Else keep going faster
+                Vector3 rigidbodyVelocity = rigid.velocity;
+                rigidbodyVelocity.y = rigidbodyVelocity.y - gravity;
+                rigid.velocity = rigidbodyVelocity;
+            }
+
+
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, 1))
+            {
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+                if ((hit.distance < .6f) && (hit.collider.name != "BreakCube"))
+                {
+                    Vector3 rigidbodyVelocity = rigid.velocity;
+                    rigidbodyVelocity.y = 0;
+                    rigid.velocity = rigidbodyVelocity;
+                }
+            }
         }
-	}
+
+        
+    }
 
     public void SetVelocityLimit(float vLimit)
     {
