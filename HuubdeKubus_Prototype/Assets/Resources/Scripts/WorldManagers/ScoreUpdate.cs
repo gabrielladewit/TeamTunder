@@ -18,11 +18,11 @@ public class ScoreUpdate : MonoBehaviour {
         cameraObj = GameObject.Find("Main Camera");
         topObj = GameObject.Find("Top");
         multiplierDurance = multiplierTime;
-        StartCoroutine(DoUpdate());
+        StartCoroutine(DoUpdate());         // Start the coroutine function DoUpdate()
         
-	}
+    }
 
-    IEnumerator DoUpdate()
+    IEnumerator DoUpdate()                  // The coroutine (returns IEnumerator)
     {
         while (true)
         {
@@ -57,3 +57,6 @@ public class ScoreUpdate : MonoBehaviour {
     }
 
 }
+
+
+
