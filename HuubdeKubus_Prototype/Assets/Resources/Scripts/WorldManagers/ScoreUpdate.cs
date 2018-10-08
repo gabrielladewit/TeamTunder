@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreUpdate : MonoBehaviour {
 
-    GameObject theScore, playerObj, topObj;
+    GameObject theScore, playerObj, topObj, cameraObj;
     public bool multiplier = false;
     private int scorez;
     private float multiplierDurance;
@@ -15,6 +15,7 @@ public class ScoreUpdate : MonoBehaviour {
     void Start () {
         theScore = GameObject.Find("Score");
         playerObj = GameObject.Find("PlayerSphere");
+        cameraObj = GameObject.Find("Main Camera");
         topObj = GameObject.Find("Top");
         multiplierDurance = multiplierTime;
         StartCoroutine(DoUpdate());         // Start the coroutine function DoUpdate()
@@ -32,7 +33,7 @@ public class ScoreUpdate : MonoBehaviour {
                 Debug.Log("Multiplier is active");
 
                 multiplierDurance -= Time.deltaTime*10;
-                Debug.Log("Time left: " + multiplierDurance);
+//                Debug.Log("Time left: " + multiplierDurance);
 
                 if (multiplierDurance < 0)
                 {
@@ -40,7 +41,7 @@ public class ScoreUpdate : MonoBehaviour {
                     multiplier = false;
                     multiplierDurance = multiplierTime;
                     Debug.Log("MULTIPLIER DEACTIVATED");
-                    Debug.Log("multiplier time reset: " + multiplierDurance );
+//                    Debug.Log("multiplier time reset: " + multiplierDurance );
                 }
 
             }
@@ -48,7 +49,7 @@ public class ScoreUpdate : MonoBehaviour {
             
             theScore.GetComponent<Text>().text = (-16 + scorez).ToString();
 
-            var score = (int)Vector3.Distance(playerObj.transform.position, topObj.transform.position);
+            var score = (int)Vector3.Distance(cameraObj.transform.position, topObj.transform.position);
             theScore.GetComponent<Text>().text = (-8 + score).ToString();
 
             yield return new WaitForSeconds(0.4f);

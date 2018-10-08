@@ -32,11 +32,12 @@ public class PickupScript : MonoBehaviour
         {
             timer += Time.deltaTime;
             Debug.Log(timer.ToString());
-            if (timer > 5f)
+            if (timer < 5f)
             {
+                timerActive = false;
+                invincibleActive = false;
                 SwitchCollision();
                 timer = 0f;
-                timerActive = false;
 
             }
         }
@@ -48,12 +49,14 @@ public class PickupScript : MonoBehaviour
         {
             case "Invincible":
                 {
-                    Debug.Log("PICKUP: INVINCIBLE");
+                    //Debug.Log("PICKUP: INVINCIBLE");
                     SwitchCollision();
                     timerActive = true;
                     invincibleActive = true;
+                    Debug.Log(invincibleActive);
                     pickup.transform.position = new Vector3(100, 100, 100);
                     Destroy(pickup.gameObject);
+                    //SwitchCollision();
                     theSound.Play();
                     return;
                 }
@@ -86,7 +89,8 @@ public class PickupScript : MonoBehaviour
                     if (extraPlayerActive == false)
                     {
                         extraPlayerActive = true;
-                        player2 = Instantiate(Resources.Load("Prefabs/Player2") as GameObject, new Vector3(playerBall.transform.position.x + 2, playerBall.transform.position.y + 2, playerBall.transform.position.z), Quaternion.identity);
+                        player2 = Instantiate(Resources.Load("Prefabs/PlayerSphere") as GameObject, new Vector3(playerBall.transform.position.x + 2, playerBall.transform.position.y + 2, playerBall.transform.position.z), Quaternion.identity);
+                        player2.gameObject.name = "PlayerSphere";
                         theSound.Play();
                     }
                     return;
@@ -94,8 +98,8 @@ public class PickupScript : MonoBehaviour
             case "ChangeSize":
                 {
                     Debug.Log("PICKUP: CHANGE PLAYER SIZE");
-                    playerBall.gameObject.transform.localScale += new Vector3(0.5F, 0.5f, 0.5f);
-                    playerBall.GetComponent<Rigidbody>().mass = 2f;
+                    playerBall.gameObject.transform.localScale = new Vector3(2f, 2f, 2f);
+                    //playerBall.GetComponent<Rigidbody>().mass = 2f;
                     Destroy(pickup.gameObject);
                     theSound.Play();
                     return;
@@ -103,6 +107,8 @@ public class PickupScript : MonoBehaviour
             case "MoveFaster":
                 {
                     Debug.Log("PICKUP: MOVE PLAYER FASTER");
+                    ButtonMovement buttonMovementScript = playerBall.GetComponent<ButtonMovement>();
+                    buttonMovementScript.movementSpeed = 40;
                     Destroy(pickup.gameObject);
                     theSound.Play();
                     return;
@@ -130,8 +136,10 @@ public class PickupScript : MonoBehaviour
 
     void SwitchCollision()
     {
-        Debug.Log("Switch Collision");
-        Physics.IgnoreLayerCollision(0, 9, ignoringCollision);
-        ignoringCollision = !ignoringCollision;
+        // Debug.Log("Switch Collision");
+            Physics.IgnoreLayerCollision(0, 9, ignoringCollision);
+            ignoringCollision = !ignoringCollision;
+        
+
     }
 }
