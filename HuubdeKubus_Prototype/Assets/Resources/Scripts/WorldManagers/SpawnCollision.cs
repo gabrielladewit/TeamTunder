@@ -24,7 +24,7 @@ public class SpawnCollision : MonoBehaviour {
         if (collision.gameObject == playerObj && !triggered)
         {
             triggered = true;
-            worldGen.spawnPuzzle();
+            worldGen.spawnPuzzle(1);
             Destroy(this);
         }
     }

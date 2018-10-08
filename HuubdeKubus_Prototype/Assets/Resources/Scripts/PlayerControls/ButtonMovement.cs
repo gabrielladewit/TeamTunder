@@ -29,14 +29,16 @@ public class ButtonMovement : MonoBehaviour
     {
         if (isLeftPressed)
         {
-            this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-movementSpeed, 0, 0));
+            //this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-movementSpeed, 0, 0));
+            this.gameObject.transform.Translate (new Vector3 (-movementSpeed/100, 0, 0));
         }
 
         //this.gameObject.transform.Translate(new Vector3(-10, 0, 0) * Time.deltaTime);
 
         if (isRightPressed)
         {
-            this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(movementSpeed, 0, 0));
+            //this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(movementSpeed, 0, 0));
+            this.gameObject.transform.Translate (new Vector3 (movementSpeed/100, 0, 0));
         }
     }
 

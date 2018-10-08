@@ -10,13 +10,11 @@ public class LoadTables : MonoBehaviour {
     public List<GameObject> level3Prefabs;
     public List<GameObject> level4Prefabs;
     public List<GameObject> level5Prefabs;
-    public int x;
-    public int i;
+    int x = 0, i = 0;
 
     // Use this for initialization
     void Start () {
-        x = 0;
-        i = 0;
+        Debug.Log (x);
         tablePrefabs = new List<GameObject>(Resources.LoadAll<GameObject>(""));
         level1Prefabs = new List<GameObject>(Resources.LoadAll<GameObject>("Level1"));
         level2Prefabs = new List<GameObject>(Resources.LoadAll<GameObject>("Level2"));
@@ -38,6 +36,16 @@ public class LoadTables : MonoBehaviour {
         table = tablePrefabs[x];
         
         return table;
+    }
+
+    public GameObject LoadLevel(int l)
+    {
+        string levelname = "level" + l;
+        List<GameObject> level = new List<GameObject>(Resources.LoadAll<GameObject>(levelname));
+        GameObject level1 = level[i];
+        i++;
+
+        return level1;
     }
 
     public GameObject LoadLevel1()

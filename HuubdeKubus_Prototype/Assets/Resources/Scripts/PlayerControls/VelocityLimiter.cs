@@ -22,7 +22,7 @@ public class VelocityLimiter : MonoBehaviour
     {
         float dist = this.transform.position.y - mainCamera.transform.position.y;
 
-        Debug.Log(dist);
+        //Debug.Log(dist);
 
         //If the player is already at the bottom
         if (dist > -6)
