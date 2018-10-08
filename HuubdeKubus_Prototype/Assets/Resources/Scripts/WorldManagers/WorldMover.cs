@@ -20,11 +20,11 @@ public class WorldMover : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // Move the world
-<<<<<<< HEAD
-        float realSpeed = gameSpeed + ((int)Vector3.Distance(cameraObj.transform.position, topObj.transform.position) * 0.0001f);
-=======
+// <<<<<<< HEAD
+        //float realSpeed = gameSpeed + ((int)Vector3.Distance(cameraObj.transform.position, topObj.transform.position) * 0.0001f);
+// =======
         float realSpeed = gameSpeed;// + ((int)Vector3.Distance(playerObj.transform.position, topObj.transform.position) * 0.0001f);
->>>>>>> master
+// >>>>>>> master
 
         //if (realSpeed >= 0.125f)
           //  realSpeed = 0.125f;
