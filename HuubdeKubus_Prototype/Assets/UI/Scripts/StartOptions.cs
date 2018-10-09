@@ -38,8 +38,8 @@ public class StartOptions : MonoBehaviour {
 
     public void LevelClicked(int x)
     {
-        levelManager.levelCount = x;
-        Debug.Log(levelManager.levelCount);
+        levelManager.currentLevel = x;
+        Debug.Log(levelManager.currentLevel);
         ChangeScenes();
     }
 

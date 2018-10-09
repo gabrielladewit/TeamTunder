@@ -47,7 +47,6 @@ public class WorldGeneration : MonoBehaviour {
                 GameObject worldBlock = (GameObject)Instantiate(aTable, new Vector3(0, count * -33f, 0), Quaternion.Euler(-90, 0, 0));
                 worldBlock.transform.parent = worldBlockParent;
                 count++;
-                Debug.Log("level "+ x);
 
     }
 
