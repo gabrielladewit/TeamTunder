@@ -32,9 +32,10 @@ public class MineBehaviour : MonoBehaviour {
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
         onOff = true;
         tempDelay = delay;
+        this.gameObject.GetComponent<Collider>().enabled = false;
     }
 }
