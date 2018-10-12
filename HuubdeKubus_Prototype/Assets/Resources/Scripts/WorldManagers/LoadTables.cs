@@ -18,7 +18,7 @@ public class LoadTables : MonoBehaviour {
         x = 0;
         i = 0;
         tablePrefabs = new List<GameObject>(Resources.LoadAll<GameObject>(""));
-        level1Prefabs = new List<GameObject>(Resources.LoadAll<GameObject>("Level1"));
+        level1Prefabs = new List<GameObject>(Resources.LoadAll<GameObject>("NewLevels"));
         level2Prefabs = new List<GameObject>(Resources.LoadAll<GameObject>("Level2"));
         level3Prefabs = new List<GameObject>(Resources.LoadAll<GameObject>("Level3"));
         level4Prefabs = new List<GameObject>(Resources.LoadAll<GameObject>("Level4"));
