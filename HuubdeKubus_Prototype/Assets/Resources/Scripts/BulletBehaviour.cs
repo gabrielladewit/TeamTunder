@@ -17,7 +17,10 @@ public class BulletBehaviour : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
+        Destroy(gameObject, 2);
 	}
+
+
 
     private void OnTriggerEnter(Collider other)
     {

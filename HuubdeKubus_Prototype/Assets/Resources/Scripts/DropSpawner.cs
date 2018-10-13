@@ -8,7 +8,6 @@ public class DropSpawner : MonoBehaviour {
 
     public float delayTime;
     public float dropSpeed;
-    public float destroyTime = 5;
 
     float floorSizeX = 15f;
     float borderX;
