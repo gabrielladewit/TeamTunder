@@ -41,50 +41,12 @@ public class WorldGeneration : MonoBehaviour {
         }
     }
 
-    public void spawnPuzzle()
+    public void spawnPuzzle(int x)
     {
-        switch(levelManager.levelCount)
-        {
-            case 1:
-                GameObject aTable = theTable.LoadLevel1();
+                GameObject aTable = theTable.LoadLevel(x);
                 GameObject worldBlock = (GameObject)Instantiate(aTable, new Vector3(0, count * -33f, 0), Quaternion.Euler(-90, 0, 0));
                 worldBlock.transform.parent = worldBlockParent;
                 count++;
-                Debug.Log("level 1");
-                break;
-
-            case 2:
-                GameObject aTable2 = theTable.LoadLevel2();
-                GameObject worldBlock2 = (GameObject)Instantiate(aTable2, new Vector3(0, count * -33f, 0), Quaternion.Euler(-90, 0, 0));
-                worldBlock2.transform.parent = worldBlockParent;
-                count++;
-                Debug.Log("level 2");
-                break;
-
-            case 3:
-                GameObject aTable3 = theTable.LoadLevel3();
-                GameObject worldBlock3 = (GameObject)Instantiate(aTable3, new Vector3(0, count * -33f, 0), Quaternion.Euler(-90, 0, 0));
-                worldBlock3.transform.parent = worldBlockParent;
-                count++;
-                Debug.Log("level 3");
-                break;
-
-            case 4:
-                GameObject aTable4 = theTable.LoadLevel4();
-                GameObject worldBlock4 = (GameObject)Instantiate(aTable4, new Vector3(0, count * -33f, 0), Quaternion.Euler(-90, 0, 0));
-                worldBlock4.transform.parent = worldBlockParent;
-                count++;
-                Debug.Log("level 4");
-                break;
-
-            case 5:
-                GameObject aTable5 = theTable.LoadLevel5();
-                GameObject worldBlock5 = (GameObject)Instantiate(aTable5, new Vector3(0, count * -33f, 0), Quaternion.Euler(-90, 0, 0));
-                worldBlock5.transform.parent = worldBlockParent;
-                count++;
-                Debug.Log("level 5");
-                break;
-        }
 
     }
 

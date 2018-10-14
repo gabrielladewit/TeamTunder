@@ -36,38 +36,10 @@ public class StartOptions : MonoBehaviour {
 
 	}
 
-    public void Level1Clicked()
+    public void LevelClicked(int x)
     {
-        levelManager.levelCount = 1;
-        Debug.Log(levelManager.levelCount);
-        ChangeScenes();
-    }
-
-    public void Level2Clicked()
-    {
-        levelManager.levelCount = 2;
-        Debug.Log(levelManager.levelCount);
-        ChangeScenes();
-    }
-
-    public void Level3Clicked()
-    {
-        levelManager.levelCount = 3;
-        Debug.Log(levelManager.levelCount);
-        ChangeScenes();
-    }
-
-    public void Level4Clicked()
-    {
-        levelManager.levelCount = 4;
-        Debug.Log(levelManager.levelCount);
-        ChangeScenes();
-    }
-
-    public void Level5Clicked()
-    {
-        levelManager.levelCount = 5;
-        Debug.Log(levelManager.levelCount);
+        levelManager.currentLevel = x;
+        Debug.Log(levelManager.currentLevel);
         ChangeScenes();
     }
 

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Levels : MonoBehaviour {
 
-    public int levelCount;
+    public int currentLevel;
 
 	// Use this for initialization
 	void Start () {
-        levelCount = 0;
+       
 	}
 	
 	// Update is called once per frame
