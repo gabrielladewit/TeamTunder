@@ -40,7 +40,7 @@ public class ShowPanels : MonoBehaviour {
     public void ShowDeathPanel()
     {
         deathPanel.SetActive(true);
-        deathPanel.transform.SetParent(GameObject.Find("TempHolder").gameObject.transform);
+//        deathPanel.transform.SetParent(GameObject.Find("TempHolder").gameObject.transform);
         deathPanel.transform.SetParent(GameObject.Find("UI").gameObject.transform);
         optionsTint.SetActive(true);
     }

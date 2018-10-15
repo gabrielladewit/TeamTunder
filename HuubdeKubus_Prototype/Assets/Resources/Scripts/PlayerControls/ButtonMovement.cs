@@ -6,7 +6,7 @@ public class ButtonMovement : MonoBehaviour
 {
 
     static bool isLeftPressed = false, isRightPressed = false;
-    //private Rigidbody rigid;
+    private Rigidbody rb;
     private ScoreUpdate scoreUpdateScript;
     private PickupScript pickupManager;
     bool invincible;
@@ -17,6 +17,7 @@ public class ButtonMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        rb = this.gameObject.GetComponent<Rigidbody> ();
         pickupManager = GameObject.Find("Main Camera").GetComponent<PickupScript>();
       //StartCoroutine(MoveUpdate());
 
@@ -27,7 +28,7 @@ public class ButtonMovement : MonoBehaviour
     {
         if (isLeftPressed)
         {
-            this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-movementSpeed, 0, 0));
+            rb.AddForce(new Vector3(-movementSpeed, 0, 0));
             //this.gameObject.transform.Translate (new Vector3 (-movementSpeed/100, 0, 0));
         }
 
@@ -35,9 +36,18 @@ public class ButtonMovement : MonoBehaviour
 
         if (isRightPressed)
         {
-            this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(movementSpeed, 0, 0));
+            rb.AddForce(new Vector3(movementSpeed, 0, 0));
             //this.gameObject.transform.Translate (new Vector3 (movementSpeed/100, 0, 0));
         }
+
+
+    }
+
+    void Update()
+    {
+       // Vector3 movement = new Vector3 (Input.acceleration.x, 0.0f, 0.0f);
+        // Adding force to rigidbody
+       // rb.AddForce(movement * 500 * Time.deltaTime);
     }
 
     void OnTriggerEnter(Collider other)
