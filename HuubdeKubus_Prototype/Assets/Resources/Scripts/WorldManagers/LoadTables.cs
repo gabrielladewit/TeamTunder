@@ -9,7 +9,6 @@ public class LoadTables : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Debug.Log (x);
         tablePrefabs = new List<GameObject>(Resources.LoadAll<GameObject>("PrototypePrefabs"));
     }
 	

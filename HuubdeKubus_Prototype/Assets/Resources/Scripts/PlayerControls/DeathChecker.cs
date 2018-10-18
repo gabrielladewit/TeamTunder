@@ -22,8 +22,6 @@ public class DeathChecker : MonoBehaviour {
         if (GameObject.Find("PlayerSphere") == null)
         {
             pause.DoDie();
-
-            Debug.Log("THE PLAYER HAS DIED!!!");
         }
 
         //Destroy(this.gameObject);
