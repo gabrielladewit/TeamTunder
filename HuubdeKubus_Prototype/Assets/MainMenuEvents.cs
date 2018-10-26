@@ -1,73 +1,45 @@
 ﻿using System.Collections;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
+using UnityEngine.SocialPlatforms;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenuEvents : MonoBehaviour
 {
-    private Text signInButtonText;
-    private Text authStatus;
+    Text status;
 
-    public void Start()
+    void Start()
     {
-        signInButtonText = GameObject.Find("SignInButton").GetComponentInChildren<Text>();
-        authStatus = GameObject.Find("authStatus").GetComponent<Text>();
-
-        // Create client configuration
-        PlayGamesClientConfiguration config = new
-            PlayGamesClientConfiguration.Builder()
+        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
             .Build();
-
-        // Enable debugging output (recommended)
-        PlayGamesPlatform.DebugLogEnabled = true;
-
-        // Initialize and activate the platform
+         status = GameObject.Find("authStatus").GetComponent<Text>();
         PlayGamesPlatform.InitializeInstance(config);
+        // recommended for debugging:
+        PlayGamesPlatform.DebugLogEnabled = true;
+        // Activate the Google Play Games platform
         PlayGamesPlatform.Activate();
 
-        PlayGamesPlatform.Instance.Authenticate(SignInCallback, true);
+        Button btn = GameObject.Find("SignInButton").GetComponent<Button>();
+        btn.onClick.AddListener(signIn);
+
     }
 
-    public void SignIn()
+    void signIn()
     {
-        if (!PlayGamesPlatform.Instance.localUser.authenticated)
+        Social.localUser.Authenticate((bool success) =>
         {
-            // Sign in with Play Game Services, showing the consent dialog
-            // by setting the second parameter to isSilent=false.
-            PlayGamesPlatform.Instance.Authenticate(SignInCallback, false);
-        }
-        else
-        {
-            // Sign out of play games
-            PlayGamesPlatform.Instance.SignOut();
-
-            // Reset UI
-            signInButtonText.text = "Sign In";
-            authStatus.text = "";
-        }
+            // handle success or failure
+            if (success)
+            {
+                Debug.Log("succes");
+                status.text = "succes";
+            }
+            else
+            {
+                Debug.Log("failure");
+                status.text = "failed";
+            }
+        });
     }
-
-    public void SignInCallback(bool success)
-    {
-        if (success)
-        {
-            Debug.Log("(Lollygagger) Signed in!");
-
-            // Change sign-in button text
-            signInButtonText.text = "Sign out";
-
-            // Show the user's name
-            authStatus.text = "Signed in as: " + Social.localUser.userName;
-        }
-        else
-        {
-            Debug.Log("(Lollygagger) Sign-in failed...");
-
-            // Show failure message
-            signInButtonText.text = "Sign in";
-            authStatus.text = "Sign-in failed";
-        }
-    }
-
 }
