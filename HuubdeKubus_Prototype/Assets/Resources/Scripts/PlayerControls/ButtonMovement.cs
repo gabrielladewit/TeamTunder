@@ -8,100 +8,62 @@ public class ButtonMovement : MonoBehaviour
     static bool isLeftPressed = false, isRightPressed = false;
     private Rigidbody rb;
     private ScoreUpdate scoreUpdateScript;
-    private PickupScript pickupManager;
+    private PickupBehaviour pickupManager;
     bool invincible;
     bool moveFasterActive;
     public bool inverted = false;
     public float movementSpeed = 15;
-
+    public int breakAmount = 0;
     // Use this for initialization
     void Start()
     {
-        rb = this.gameObject.GetComponent<Rigidbody> ();
-        pickupManager = GameObject.Find("Main Camera").GetComponent<PickupScript>();
-      //StartCoroutine(MoveUpdate());
+        rb = this.gameObject.GetComponent<Rigidbody>();
+        pickupManager = GameObject.Find("Main Camera").GetComponent<PickupBehaviour>();
+        //StartCoroutine(MoveUpdate());
 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isLeftPressed)
-        {
-            rb.AddForce(new Vector3(-movementSpeed, 0, 0));
-            //this.gameObject.transform.Translate (new Vector3 (-movementSpeed/100, 0, 0));
-        }
-
-        //this.gameObject.transform.Translate(new Vector3(-10, 0, 0) * Time.deltaTime);
-
-        if (isRightPressed)
-        {
-            rb.AddForce(new Vector3(movementSpeed, 0, 0));
-            //this.gameObject.transform.Translate (new Vector3 (movementSpeed/100, 0, 0));
-        }
-
+        MoveUpdate();
 
     }
 
-    void Update()
-    {
-       // Vector3 movement = new Vector3 (Input.acceleration.x, 0.0f, 0.0f);
-        // Adding force to rigidbody
-       // rb.AddForce(movement * 500 * Time.deltaTime);
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "Pickup")
-        {
-            //Debug.Log("Kaaaaaaas!");
-            pickupManager.CollissionInputChecker(this.gameObject, other.gameObject);
-        }
-    }
 
     void MoveUpdate()
     {
-        while (true)
+        if (moveFasterActive)
         {
-            if (moveFasterActive)
+            movementSpeed = 200;
+        }
+
+        if (!inverted)
+        {
+            if (isLeftPressed)
             {
-                movementSpeed = 200;
+                rb.AddForce(new Vector3(-movementSpeed, 0, 0));
             }
 
-            if (!inverted)
+            if (isRightPressed)
             {
-                if (isLeftPressed)
-                {
-                    this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-movementSpeed, 0, 0));
-                }
-
-                //this.gameObject.transform.Translate(new Vector3(-10, 0, 0) * Time.deltaTime);
-
-                if (isRightPressed)
-                {
-                    this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(movementSpeed, 0, 0));
-                }
-
-               // yield return new WaitForSeconds(0.1f);
+                rb.AddForce(new Vector3(movementSpeed, 0, 0));
             }
-            else
+        }
+        else
+        {
+            if (isLeftPressed)
             {
-                if (isLeftPressed)
-                {
-                    this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(movementSpeed, 0, 0));
-                }
+                rb.AddForce(new Vector3(movementSpeed, 0, 0));
+            }
 
-                //this.gameObject.transform.Translate(new Vector3(-10, 0, 0) * Time.deltaTime);
-
-                if (isRightPressed)
-                {
-                    this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-movementSpeed, 0, 0));
-                }
-
-                //yield return new WaitForSeconds(0.1f);
+            if (isRightPressed)
+            {
+                rb.AddForce(new Vector3(-movementSpeed, 0, 0));
             }
 
         }
+
 
     }
 
@@ -123,5 +85,17 @@ public class ButtonMovement : MonoBehaviour
     public void OnPointerUpRightButton()
     {
         isRightPressed = false;
+    }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        if (breakAmount > 0)
+        {
+            if (coll.gameObject.name != "Left" && coll.gameObject.name != "Right")
+            {
+                Destroy(coll.gameObject);
+                breakAmount--;
+            }
+        }
     }
 }

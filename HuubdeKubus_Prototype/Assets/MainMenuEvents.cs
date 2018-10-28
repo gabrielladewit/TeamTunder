@@ -7,21 +7,20 @@ using UnityEngine.UI;
 
 public class MainMenuEvents : MonoBehaviour
 {
-    Text status;
 
     void Start()
     {
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
             .Build();
-         status = GameObject.Find("authStatus").GetComponent<Text>();
+
         PlayGamesPlatform.InitializeInstance(config);
         // recommended for debugging:
         PlayGamesPlatform.DebugLogEnabled = true;
         // Activate the Google Play Games platform
         PlayGamesPlatform.Activate();
 
-        Button btn = GameObject.Find("SignInButton").GetComponent<Button>();
-        btn.onClick.AddListener(signIn);
+        signIn();
+
 
     }
 
@@ -33,12 +32,10 @@ public class MainMenuEvents : MonoBehaviour
             if (success)
             {
                 Debug.Log("succes");
-                status.text = "succes";
             }
             else
             {
                 Debug.Log("failure");
-                status.text = "failed";
             }
         });
     }
