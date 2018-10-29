@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1129,6 +1129,48 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4101439093329872, guid: 619dfda93567e594db7be229d8e3dba4,
     type: 2}
   m_PrefabInternal: {fileID: 473652271}
+--- !u!1001 &1426182962
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4749940219404712, guid: 29d1c7527d2382e4497686f99557c9fe, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749940219404712, guid: 29d1c7527d2382e4497686f99557c9fe, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749940219404712, guid: 29d1c7527d2382e4497686f99557c9fe, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749940219404712, guid: 29d1c7527d2382e4497686f99557c9fe, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749940219404712, guid: 29d1c7527d2382e4497686f99557c9fe, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749940219404712, guid: 29d1c7527d2382e4497686f99557c9fe, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749940219404712, guid: 29d1c7527d2382e4497686f99557c9fe, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749940219404712, guid: 29d1c7527d2382e4497686f99557c9fe, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29d1c7527d2382e4497686f99557c9fe, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!114 &1448122840 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114916282115942896, guid: 7297ab1930ac0254c993da002324edb0,
