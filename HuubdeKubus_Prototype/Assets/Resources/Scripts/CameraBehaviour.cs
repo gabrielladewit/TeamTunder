@@ -13,7 +13,7 @@ public class CameraBehaviour : MonoBehaviour {
 	void Start () {
         playerT = GameObject.Find ("PlayerSphere").transform;
         startPos = this.transform.position;
-        camPos = new Vector3 (0, 12f, -20f);
+        camPos = new Vector3 (0, 2f, -20f);
         offset = new Vector3 (0, 2f, 2f);
 	}
 	
@@ -34,6 +34,4 @@ public class CameraBehaviour : MonoBehaviour {
             transform.LookAt (playerT);
         }
     }
-
-
 }
