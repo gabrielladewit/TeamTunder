@@ -13,7 +13,7 @@ public class CameraBehaviour : MonoBehaviour {
 	void Start () {
         playerT = GameObject.Find ("PlayerSphere").transform;
         startPos = this.transform.position;
-        camPos = new Vector3 (0, 2f, -20f);
+        camPos = new Vector3 (0, 0f, -25f);
         offset = new Vector3 (0, 2f, 2f);
 	}
 	
@@ -26,12 +26,31 @@ public class CameraBehaviour : MonoBehaviour {
     {
         if (playerT != null)
         {
-            Vector3 desiredPosition = playerT.position + camPos;
-            desiredPosition.x = 0;
-            Vector3 smoothedPosition = Vector3.Lerp (transform.position, desiredPosition, smoothSpeed);
+            Vector3 dPosition = playerT.position + camPos;
+            
+            dPosition.x = 0;
 
-            transform.position = smoothedPosition;
-            transform.LookAt (playerT);
+            transform.LookAt(playerT);
+            Quaternion camRotation = this.transform.rotation;
+            Debug.Log(camRotation);
+
+            if (camRotation.y > 0.1f)
+            {
+                Debug.Log("clamping right");
+                //clamp right
+                camRotation.y = 0.1f;
+            } else if (camRotation.y < -0.1f)
+            {
+                camRotation.y = -0.1f;
+                //clamp left
+            }
+
+            this.transform.rotation = camRotation;
+
+            float angle = Vector3.Angle(dPosition, this.transform.position);
+            //Debug.Log("Camera angle = " + angle);
+
+            transform.position = dPosition;
         }
     }
 }
