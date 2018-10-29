@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114141288904281478}
   - component: {fileID: 135171906014565688}
   - component: {fileID: 114916282115942896}
+  - component: {fileID: 114595060891373280}
   m_Layer: 9
   m_Name: PlayerSphere
   m_TagString: Player
@@ -114,6 +115,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3cefdbb72489f4ea9a5c27362fad7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114595060891373280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542995691236530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8ed859522340c4db007d2275ced5da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114916282115942896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inverted: 0
+  movementSpeed: 15
 --- !u!135 &135171906014565688
 SphereCollider:
   m_ObjectHideFlags: 1
