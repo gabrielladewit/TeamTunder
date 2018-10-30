@@ -10,8 +10,8 @@ public class CountDown : MonoBehaviour {
     {
         foreach (Transform child in transform)
         {
-            child.transform.rotation = Random.rotation;
-            child.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward*2f);
+            //child.transform.rotation = Random.rotation;
+            child.gameObject.GetComponent<Rigidbody>().AddForce(transform.up*2f);
         }
     }
 

@@ -9,7 +9,7 @@ public class PickupBehaviour : MonoBehaviour
     static bool ignoringCollision = true;
     AudioSource theSound;
 
-    ButtonMovement buttonMovement;
+    PlayerController playerController;
     int SecondsToWait = 0;
     ScoreUpdate scoreUpdate;
 
@@ -18,7 +18,7 @@ public class PickupBehaviour : MonoBehaviour
     {
         scoreUpdate = GameObject.Find("EventSystem").GetComponent<ScoreUpdate>();
         playerObj = GameObject.Find("PlayerSphere");
-        buttonMovement = playerObj.GetComponent<ButtonMovement>();
+        playerController = playerObj.GetComponent<PlayerController>();
         theSound = this.gameObject.GetComponent<AudioSource>();
     }
 
@@ -47,14 +47,14 @@ public class PickupBehaviour : MonoBehaviour
     void Breakable()
     {
         SecondsToWait = 0;
-        buttonMovement.breakAmount += 1;
-        Debug.Log(buttonMovement.breakAmount);
+        playerController.breakAmount += 1;
+        Debug.Log(playerController.breakAmount);
     }
 
     void MoveFaster()
     {
         SecondsToWait = 5;
-        buttonMovement.movementSpeed = (buttonMovement.movementSpeed == 40) ? 15 : 40;
+        playerController.movementSpeed = (playerController.movementSpeed == 7) ? 4 : 7;
     }
 
     void Coin()
@@ -67,7 +67,7 @@ public class PickupBehaviour : MonoBehaviour
     void Invert()
     {
         SecondsToWait = 5;
-        buttonMovement.inverted = !buttonMovement.inverted;
+        playerController.inverted = !playerController.inverted;
     }
 
     void SwitchCollision()
