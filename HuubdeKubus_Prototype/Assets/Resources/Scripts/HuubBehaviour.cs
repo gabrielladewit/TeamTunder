@@ -6,7 +6,7 @@ public class HuubBehaviour : MonoBehaviour {
     Pause pause;
     Vector3 startPos;
     GameObject playerObj;
-    float gameSpeed = 0.1f;
+    float gameSpeed = 0.065f;
 	// Use this for initialization
 	void Start () {
         pause = GameObject.Find("UI").GetComponent<Pause>();
@@ -20,8 +20,8 @@ public class HuubBehaviour : MonoBehaviour {
         {
             float realSpeed = gameSpeed + ((int)Vector3.Distance (playerObj.transform.position, startPos) * 0.0001f);
 
-            if (realSpeed >= 0.15f)
-                realSpeed = 0.15f;
+            if (realSpeed >= 0.1f)
+                realSpeed = 0.1f;
 
 //            Debug.Log (realSpeed);
 

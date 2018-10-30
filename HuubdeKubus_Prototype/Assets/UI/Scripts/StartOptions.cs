@@ -90,15 +90,12 @@ public class StartOptions : MonoBehaviour {
 
     public void MainMenuButtonClicked()
     {
-        //If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
-        if (true)
-        {
-            //Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
-            Invoke("LoadDelayedMainMenu", fadeColorAnimationClip.length * .5f);
+        Debug.Log("Invoking main menu");
+        //Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
+        Invoke("LoadDelayedMainMenu", fadeColorAnimationClip.length * .0f);
 
-            //Set the trigger of Animator animColorFade to start transition to the FadeToOpaque state.
-            //animColorFade.SetTrigger("fade");
-        }
+        //Set the trigger of Animator animColorFade to start transition to the FadeToOpaque state.
+        animColorFade.SetTrigger("fade");
     }
 
     void OnEnable()
@@ -126,21 +123,18 @@ public class StartOptions : MonoBehaviour {
         //Hide the main menu UI element
         showPanels.HideMenu();
 
-        Debug.Log("G SCene");
         //Load the selected scene, by scene index number in build settings
         SceneManager.LoadScene("LevelMenuScene");
     }
 
     public void LoadDelayedGame()
 	{
-        Debug.Log("G Invoked");
         //Pause button now works if escape is pressed since we are no longer in Main menu.
         inMainMenu = false;
 
 		//Hide the main menu UI element
 		showPanels.HideMenu ();
-
-        Debug.Log("G SCene");
+        
         //Load the selected scene, by scene index number in build settings
         SceneManager.LoadScene (1);
     }
@@ -161,14 +155,10 @@ public class StartOptions : MonoBehaviour {
 
     public void LoadDelayedMainMenu()
     {
+        Destroy(this.gameObject);
         //Pause button now works if escape is pressed since we are no longer in Main menu.
-        //inMainMenu = false;
-
-        Debug.Log("M Invoked");
-        //Hide the main menu UI element
-        //showPanels.ShowMenu();
-
-        Debug.Log("M Scene");
+        inMainMenu = false;
+        
         //Load the selected scene, by scene index number in build settings
         SceneManager.LoadScene(0);
     }

@@ -36,6 +36,13 @@ public class Pause : MonoBehaviour {
 	
 	}
 
+    public void DoWin()
+    {
+        isPaused = true;
+        Time.timeScale = 0;
+        showPanels.ShowWinPanel();
+    }
+
 
 	public void DoPause()
 	{

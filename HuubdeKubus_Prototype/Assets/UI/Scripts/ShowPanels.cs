@@ -8,6 +8,7 @@ public class ShowPanels : MonoBehaviour {
 	public GameObject menuPanel;							//Store a reference to the Game Object MenuPanel 
 	public GameObject pausePanel;							//Store a reference to the Game Object PausePanel 
     public GameObject deathPanel;
+    public GameObject winPanel;
 
 
 	//Call this function to activate and display the Options panel during the main menu
@@ -36,12 +37,19 @@ public class ShowPanels : MonoBehaviour {
 		menuPanel.SetActive (false);
 	}
 
+    public void ShowWinPanel()
+    {
+        winPanel.SetActive(true);
+        winPanel.transform.SetParent(GameObject.Find("UI").gameObject.transform);
+        optionsTint.SetActive(true);
+    }
+
     //Call this function to show deathpanel on death
     public void ShowDeathPanel()
     {
         deathPanel.SetActive(true);
 //        deathPanel.transform.SetParent(GameObject.Find("TempHolder").gameObject.transform);
-        deathPanel.transform.SetParent(GameObject.Find("UI").gameObject.transform);
+        //deathPanel.transform.SetParent(GameObject.Find("UI").gameObject.transform);
         optionsTint.SetActive(true);
     }
 
@@ -56,9 +64,8 @@ public class ShowPanels : MonoBehaviour {
 	public void ShowPausePanel()
 	{
 		pausePanel.SetActive (true);
-        Debug.Log("SETSETSET");
-        pausePanel.transform.SetParent(GameObject.Find("TempHolder").gameObject.transform);
-        pausePanel.transform.SetParent(GameObject.Find("UI").gameObject.transform);
+        //pausePanel.transform.SetParent(GameObject.Find("TempHolder").gameObject.transform);
+        //pausePanel.transform.SetParent(GameObject.Find("UI").gameObject.transform);
         optionsTint.SetActive(true);
 	}
 
