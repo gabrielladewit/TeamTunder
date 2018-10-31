@@ -32,11 +32,10 @@ public class CameraBehaviour : MonoBehaviour {
 
             transform.LookAt(playerT);
             Quaternion camRotation = this.transform.rotation;
-            Debug.Log(camRotation);
+            
 
             if (camRotation.y > 0.1f)
             {
-                Debug.Log("clamping right");
                 //clamp right
                 camRotation.y = 0.1f;
             } else if (camRotation.y < -0.1f)
