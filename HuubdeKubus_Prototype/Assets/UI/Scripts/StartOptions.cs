@@ -38,6 +38,7 @@ public class StartOptions : MonoBehaviour {
 
     public void LevelClicked(int x)
     {
+        Debug.Log("Button " + x + " clicked");
         levelManager.currentLevel = x;
         Debug.Log(levelManager.currentLevel);
         ChangeScenes();
@@ -61,18 +62,15 @@ public class StartOptions : MonoBehaviour {
 
     public void StartButtonClicked()
 	{
-        //If changeMusicOnStart is true, fade out volume of music group of AudioMixer by calling FadeDown function of PlayMusic, using length of fadeColorAnimationClip as time. 
-        //To change fade time, change length of animation "FadeToColor"
+        //Hide the main menu UI element
+        showPanels.HideMenu();
+        showPanels.ShowLevels();
+    }
 
-        //If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
-        if (changeScenes) 
-		{
-            //Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
-            Invoke ("LoadLevelMenu", fadeColorAnimationClip.length * .5f);
-
-            //Set the trigger of Animator animColorFade to start transition to the FadeToOpaque state.
-            animColorFade.SetTrigger ("fade");
-		}
+    public void ReturnFromLevelSelect()
+    {
+        showPanels.HideLevels();
+        showPanels.ShowMenu();
     }
 
     public void ShopButtonClicked()
@@ -118,28 +116,20 @@ public class StartOptions : MonoBehaviour {
 		}	
 	}
 
-    public void LoadLevelMenu()
-    {
-        //Hide the main menu UI element
-        showPanels.HideMenu();
-
-        //Load the selected scene, by scene index number in build settings
-        SceneManager.LoadScene("LevelMenuScene");
-    }
-
-    public void LoadDelayedGame()
+    private void LoadDelayedGame()
 	{
         //Pause button now works if escape is pressed since we are no longer in Main menu.
         inMainMenu = false;
 
 		//Hide the main menu UI element
 		showPanels.HideMenu ();
+        showPanels.HideLevels();
         
         //Load the selected scene, by scene index number in build settings
         SceneManager.LoadScene (1);
     }
 
-    public void LoadDelayedShop()
+    private void LoadDelayedShop()
     {
         //Pause button now works if escape is pressed since we are no longer in Main menu.
         //inMainMenu = false;
@@ -153,7 +143,7 @@ public class StartOptions : MonoBehaviour {
         SceneManager.LoadScene(2);
     }
 
-    public void LoadDelayedMainMenu()
+    private void LoadDelayedMainMenu()
     {
         Destroy(this.gameObject);
         //Pause button now works if escape is pressed since we are no longer in Main menu.

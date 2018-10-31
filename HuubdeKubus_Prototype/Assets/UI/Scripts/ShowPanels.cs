@@ -9,6 +9,7 @@ public class ShowPanels : MonoBehaviour {
 	public GameObject pausePanel;							//Store a reference to the Game Object PausePanel 
     public GameObject deathPanel;
     public GameObject winPanel;
+    public GameObject levelPanel;
 
 
 	//Call this function to activate and display the Options panel during the main menu
@@ -36,6 +37,16 @@ public class ShowPanels : MonoBehaviour {
 	{
 		menuPanel.SetActive (false);
 	}
+
+    public void ShowLevels()
+    {
+        levelPanel.SetActive(true);
+    }
+
+    public void HideLevels()
+    {
+        levelPanel.SetActive(false);
+    }
 
     public void ShowWinPanel()
     {
