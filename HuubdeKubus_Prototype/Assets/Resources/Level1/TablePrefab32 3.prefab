@@ -113,7 +113,6 @@ GameObject:
   - component: {fileID: 23254862608401500}
   - component: {fileID: 65601501315706858}
   - component: {fileID: 114891878994865330}
-  - component: {fileID: 114008258983447642}
   m_Layer: 9
   m_Name: Pickup (1)
   m_TagString: Multiplier
@@ -151,7 +150,6 @@ GameObject:
   - component: {fileID: 23742511162531154}
   - component: {fileID: 65752440182687554}
   - component: {fileID: 114793562377856180}
-  - component: {fileID: 114536092037087300}
   m_Layer: 9
   m_Name: Pickup (3)
   m_TagString: Multiplier
@@ -171,7 +169,6 @@ GameObject:
   - component: {fileID: 23867449539854700}
   - component: {fileID: 65220107960743802}
   - component: {fileID: 114541775243459212}
-  - component: {fileID: 114944768862623998}
   m_Layer: 9
   m_Name: Pickup (2)
   m_TagString: Multiplier
@@ -245,7 +242,6 @@ GameObject:
   - component: {fileID: 23447519504926314}
   - component: {fileID: 65700309807372822}
   - component: {fileID: 114409960453945594}
-  - component: {fileID: 114604359815693476}
   m_Layer: 9
   m_Name: Pickup
   m_TagString: Multiplier
@@ -301,7 +297,6 @@ GameObject:
   - component: {fileID: 23499824207041678}
   - component: {fileID: 65837270556522914}
   - component: {fileID: 114794929496148404}
-  - component: {fileID: 114968919229470598}
   m_Layer: 9
   m_Name: Pickup (4)
   m_TagString: Multiplier
@@ -1870,17 +1865,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114008258983447642
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1182540578575854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cac18773664dd4449b6a4fc2d83604b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114249467557507012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1906,17 +1890,7 @@ MonoBehaviour:
   verticalSpeed: 4
   amplitude: 0.05
   rotationSpeed: 1
---- !u!114 &114536092037087300
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1283059569977898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cac18773664dd4449b6a4fc2d83604b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  powerup: 0
 --- !u!114 &114541775243459212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1931,17 +1905,7 @@ MonoBehaviour:
   verticalSpeed: 4
   amplitude: 0.05
   rotationSpeed: 1
---- !u!114 &114604359815693476
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1471322103473774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cac18773664dd4449b6a4fc2d83604b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  powerup: 0
 --- !u!114 &114646384409368872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1967,6 +1931,7 @@ MonoBehaviour:
   verticalSpeed: 4
   amplitude: 0.05
   rotationSpeed: 1
+  powerup: 0
 --- !u!114 &114794929496148404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1981,6 +1946,7 @@ MonoBehaviour:
   verticalSpeed: 4
   amplitude: 0.05
   rotationSpeed: 1
+  powerup: 0
 --- !u!114 &114891878994865330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1995,25 +1961,4 @@ MonoBehaviour:
   verticalSpeed: 4
   amplitude: 0.05
   rotationSpeed: 1
---- !u!114 &114944768862623998
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1311550616911308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cac18773664dd4449b6a4fc2d83604b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114968919229470598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1619515795739802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cac18773664dd4449b6a4fc2d83604b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  powerup: 0

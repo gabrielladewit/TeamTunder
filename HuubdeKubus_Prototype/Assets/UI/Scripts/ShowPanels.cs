@@ -51,7 +51,7 @@ public class ShowPanels : MonoBehaviour {
     public void ShowWinPanel()
     {
         winPanel.SetActive(true);
-        winPanel.transform.SetParent(GameObject.Find("UI").gameObject.transform);
+        //winPanel.transform.SetParent(GameObject.Find("UI").gameObject.transform);
         optionsTint.SetActive(true);
     }
 

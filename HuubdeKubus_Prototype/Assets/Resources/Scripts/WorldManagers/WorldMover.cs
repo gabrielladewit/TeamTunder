@@ -6,7 +6,7 @@ public class WorldMover : MonoBehaviour {
     GameObject theObj, playerObj, topObj, cameraObj;
     private Pause pause;
     float gameSpeed = 0.1f;
-    private bool paused = false;
+    //private bool paused = false;
 
 	// Use this for initialization
 	void Start () {
