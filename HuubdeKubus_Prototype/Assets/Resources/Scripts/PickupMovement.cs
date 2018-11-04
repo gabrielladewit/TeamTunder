@@ -22,7 +22,8 @@ public class PickupMovement : MonoBehaviour
         Breakable,
         MoveFaster,
         Coin,
-        Invert
+        Invert,
+        Star
     }
 
     public Powerups powerup;

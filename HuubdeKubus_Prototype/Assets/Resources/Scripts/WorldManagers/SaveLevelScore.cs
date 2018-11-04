@@ -9,21 +9,24 @@ public class SaveLevelScore : MonoBehaviour {
 
     public int[] stars;
     public Levels level;
+    public bool initialized = false;
 
     private string destination;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         //LOAD STARS
-        stars = new int[8];
+        stars = new int[10];
         StartLoadThread();
     }
 
     public void SetLevelStars(int collectedStars)
     {
-        //currentLevel = level.currentLevel;
-        Debug.Log("Level: " + level.currentLevel + "   Stars:" + collectedStars);
-        stars[level.currentLevel] = collectedStars;
+        Debug.Log("Setting  -  Level: " + level.currentLevel + " Stars:" + level.currentStars);
+        if (stars[level.currentLevel] < level.currentStars)
+        {
+            stars[level.currentLevel] = level.currentStars;
+        }
         StartSaveThread();
     }
 
@@ -63,11 +66,25 @@ public class SaveLevelScore : MonoBehaviour {
         else
         {
             Debug.LogError("File not found");
+            stars = new int[10];
+            for (int i = 0; i < stars.Length; i++)
+            {
+                stars[i] = 0;
+            }
+            initialized = true;
+            StartSaveThread();
             return;
         }
 
         BinaryFormatter bf = new BinaryFormatter();
         stars = (int[])bf.Deserialize(file);
         file.Close();
+
+        initialized = true;
+    }
+
+    public int[] GetStars()
+    {
+        return stars;
     }
 }

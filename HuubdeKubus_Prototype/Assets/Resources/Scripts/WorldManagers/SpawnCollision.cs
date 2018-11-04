@@ -12,7 +12,6 @@ public class SpawnCollision : MonoBehaviour {
     // Use this for initialization
     void Start () {
         levels = GameObject.Find ("UI").GetComponent<Levels> ();
-        Debug.Log (levels.currentLevel);
         playerObj = GameObject.Find("PlayerSphere");
         worldGen = GameObject.Find ("GameWorld").GetComponent<WorldGeneration>();
     }

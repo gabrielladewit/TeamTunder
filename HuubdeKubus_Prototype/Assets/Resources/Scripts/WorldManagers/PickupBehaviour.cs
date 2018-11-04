@@ -13,11 +13,14 @@ public class PickupBehaviour : MonoBehaviour
     int SecondsToWait = 0;
     ScoreUpdate scoreUpdate;
 
+    Levels currentLevelStats;
+
     // Use this for initialization
     void Start()
     {
         scoreUpdate = GameObject.Find("EventSystem").GetComponent<ScoreUpdate>();
         playerObj = GameObject.Find("PlayerSphere");
+        currentLevelStats = GameObject.Find("UI").GetComponent<Levels>();
         playerController = playerObj.GetComponent<PlayerController>();
         theSound = this.gameObject.GetComponent<AudioSource>();
     }
@@ -63,11 +66,16 @@ public class PickupBehaviour : MonoBehaviour
         //Add coin
     }
 
-
     void Invert()
     {
         SecondsToWait = 5;
         playerController.inverted = !playerController.inverted;
+    }
+
+    void Star()
+    {
+        SecondsToWait = 0;
+        currentLevelStats.currentStars++;
     }
 
     void SwitchCollision()
