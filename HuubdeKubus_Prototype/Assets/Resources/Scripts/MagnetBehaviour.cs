@@ -36,7 +36,7 @@ public class MagnetBehaviour : MonoBehaviour {
     {
         if (collision.gameObject == player)
         {
-            pause.DoDie();
+            //pause.DoDie();
         }
     }
 
