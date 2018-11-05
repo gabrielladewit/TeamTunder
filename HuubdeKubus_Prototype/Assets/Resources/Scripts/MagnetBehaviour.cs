@@ -30,10 +30,6 @@ public class MagnetBehaviour : MonoBehaviour {
             Debug.Log("hit");
             player.GetComponent<Rigidbody>().AddForce(forceDirection.normalized * pullforce * Time.deltaTime);
         }
-
-        Debug.Log(distance);
-        Debug.Log(pullforce);
-        Debug.Log(forceDirection);
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -23,7 +23,7 @@ public class TurretBehaviour : MonoBehaviour {
         Vector3 targetPos = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
         transform.LookAt(targetPos);
 
-        float distanceP = (transform.position - player.transform.position).sqrMagnitude;
+        float distanceP = (transform.position - targetPos).sqrMagnitude;
 
         if (distanceP < radius)
         {

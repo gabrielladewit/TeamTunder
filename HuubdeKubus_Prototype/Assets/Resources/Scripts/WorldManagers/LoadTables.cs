@@ -36,6 +36,4 @@ public class LoadTables : MonoBehaviour {
 
         return level1;
     }
-
-
 }
