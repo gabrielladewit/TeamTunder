@@ -10,8 +10,11 @@ public class MineBehaviour : MonoBehaviour {
     float radius, tempDelay;
     bool onOff;
 
-	// Use this for initialization
-	void Start () {
+    public ParticleSystem particleSmoke;
+    public ParticleSystem particleShock;
+
+    // Use this for initialization
+    void Start () {
         player = GameObject.Find("PlayerSphere");
         radius = this.gameObject.GetComponent<SphereCollider>().radius;
         tempDelay = delay;
@@ -21,19 +24,21 @@ public class MineBehaviour : MonoBehaviour {
     {
         if (onOff)
         {
-            tempDelay -= 2f * Time.deltaTime;
+            //tempDelay -= 2f * Time.deltaTime;
 
-            if (tempDelay <= 0.0f)
-            {
+            //if (tempDelay <= 0.0f)
+            //{
                 Rigidbody rb = player.GetComponent<Rigidbody>();
                 rb.AddExplosionForce(force * 10, this.transform.position, addRadius + radius);
                 onOff = false;
-            }
+            //}
         }
     }
 
     public void OnTriggerEnter(Collider other)
     {
+        particleSmoke.Play();
+        particleShock.Play();
         onOff = true;
         tempDelay = delay;
         this.gameObject.GetComponent<Collider>().enabled = false;

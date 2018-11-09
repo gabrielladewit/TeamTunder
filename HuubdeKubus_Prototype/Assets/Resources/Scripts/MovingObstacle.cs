@@ -10,7 +10,7 @@ public class MovingObstacle : MonoBehaviour {
     Vector3 startPos;
     float distance;
     int nextLocation = 0;
-    float speed = 0.06f;
+    public float speed = 0.06f;
     // Use this for initialization
     void Start()
     {
