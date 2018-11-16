@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 114727618459237792}
   - component: {fileID: 114837443908500510}
   m_Layer: 0
-  m_Name: z
+  m_Name: Level
   m_TagString: Tables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3892,6 +3892,7 @@ MonoBehaviour:
   verticalSpeed: 4
   amplitude: 0.05
   rotationSpeed: 1
+  powerup: 0
 --- !u!114 &114655599294494912
 MonoBehaviour:
   m_ObjectHideFlags: 1
