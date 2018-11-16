@@ -29,7 +29,7 @@ public class LoadTables : MonoBehaviour {
 
     public GameObject LoadLevel(int l)
     {
-        string levelname = "level" + l;
+        string levelname = "levels/level" + l;
         List<GameObject> level = new List<GameObject>(Resources.LoadAll<GameObject>(levelname));
         GameObject level1 = level[i];
         i++;
