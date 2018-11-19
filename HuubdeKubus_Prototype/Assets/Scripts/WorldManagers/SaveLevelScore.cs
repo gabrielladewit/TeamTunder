@@ -16,7 +16,7 @@ public class SaveLevelScore : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         //LOAD STARS
-        stars = new int[10];
+        stars = new int[20];
         StartLoadThread();
     }
 
@@ -66,7 +66,7 @@ public class SaveLevelScore : MonoBehaviour {
         else
         {
             Debug.LogError("File not found");
-            stars = new int[10];
+            stars = new int[20];
             for (int i = 0; i < stars.Length; i++)
             {
                 stars[i] = 0;
@@ -78,6 +78,7 @@ public class SaveLevelScore : MonoBehaviour {
 
         BinaryFormatter bf = new BinaryFormatter();
         stars = (int[])bf.Deserialize(file);
+        Debug.Log("Saved Stars array length = " + stars.Length);
         file.Close();
 
         initialized = true;

@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour {
 
+    public enum Modes
+    {
+        Sway,
+        Strafe
+    }
+
+    public Modes cameraMode;
+
     private Transform playerT;
     public float smoothSpeed = 0.125f;
     public Vector3 camPos;
@@ -16,40 +24,49 @@ public class CameraBehaviour : MonoBehaviour {
         camPos = new Vector3 (0, 0f, -25f);
         offset = new Vector3 (0, 2f, 2f);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        //this.transform.position = new Vector3 (startPos.x,this.transform.position.y,this.transform.position.z);
-	}
 
     void FixedUpdate()
     {
         if (playerT != null)
         {
-            Vector3 dPosition = playerT.position + camPos;
-            
-            dPosition.x = 0;
-
-            transform.LookAt(playerT);
-            Quaternion camRotation = this.transform.rotation;
-            
-
-            if (camRotation.y > 0.1f)
+            if (cameraMode == Modes.Sway)
             {
-                //clamp right
-                camRotation.y = 0.1f;
-            } else if (camRotation.y < -0.1f)
+                Vector3 camPosition = playerT.position + camPos;
+
+                camPosition.x = 0;
+
+                transform.LookAt(playerT);
+                Quaternion camRotation = this.transform.rotation;
+
+
+                if (camRotation.y > 0.1f)
+                {
+                    //clamp right
+                    camRotation.y = 0.1f;
+                }
+                else if (camRotation.y < -0.1f)
+                {
+                    camRotation.y = -0.1f;
+                    //clamp left
+                }
+
+                transform.rotation = camRotation;
+                transform.position = camPosition;
+            } else if (cameraMode == Modes.Strafe)
             {
-                camRotation.y = -0.1f;
-                //clamp left
+                Vector3 camPosition = playerT.position + camPos;
+
+                if (camPosition.x > 6.5f)
+                {
+                    camPosition.x = 6.5f;
+                }
+                else if (camPosition.x < -6.5f)
+                {
+                    camPosition.x = -6.5f;
+                }
+
+                transform.position = camPosition;
             }
-
-            this.transform.rotation = camRotation;
-
-            float angle = Vector3.Angle(dPosition, this.transform.position);
-            //Debug.Log("Camera angle = " + angle);
-
-            transform.position = dPosition;
         }
     }
 }
