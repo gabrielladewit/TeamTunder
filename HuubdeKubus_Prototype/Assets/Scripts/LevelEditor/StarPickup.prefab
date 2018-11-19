@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1835215939789648}
+  m_RootGameObject: {fileID: 1590607655201740}
   m_IsPrefabAsset: 1
---- !u!1 &1835215939789648
+--- !u!1 &1590607655201740
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4470076627056850}
-  - component: {fileID: 33728542981778550}
-  - component: {fileID: 23704872216223778}
-  - component: {fileID: 135659098945517448}
-  - component: {fileID: 64017363651472874}
+  - component: {fileID: 4984029547035316}
+  - component: {fileID: 33168033860384362}
+  - component: {fileID: 23312169301570520}
+  - component: {fileID: 135398720374613236}
+  - component: {fileID: 114584062746456046}
   m_Layer: 0
-  m_Name: Bouncer
+  m_Name: StarPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4470076627056850
+--- !u!4 &4984029547035316
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1835215939789648}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -11.31, y: 1.0686874, z: 12.82}
-  m_LocalScale: {x: 1, y: 4.3754997, z: 8.397003}
+  m_GameObject: {fileID: 1590607655201740}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 3.4, y: 1.74, z: 5.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!23 &23704872216223778
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!23 &23312169301570520
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1835215939789648}
+  m_GameObject: {fileID: 1590607655201740}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,7 +58,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 640dc2f025ee433489ca50d9f685de47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,36 +78,37 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33728542981778550
+--- !u!33 &33168033860384362
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1835215939789648}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64017363651472874
-MeshCollider:
+  m_GameObject: {fileID: 1590607655201740}
+  m_Mesh: {fileID: 4300000, guid: 9d0e73dbf5dfc6e4e800cbe52651ac4d, type: 3}
+--- !u!114 &114584062746456046
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1835215939789648}
-  m_Material: {fileID: 13400000, guid: 0f997507614451945a238f00bee538b6, type: 2}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 1590607655201740}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &135659098945517448
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalSpeed: 1
+  amplitude: 1.1
+  rotationSpeed: 1
+  powerup: 5
+--- !u!135 &135398720374613236
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1835215939789648}
-  m_Material: {fileID: 13400000, guid: 0f997507614451945a238f00bee538b6, type: 2}
+  m_GameObject: {fileID: 1590607655201740}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.4
+  m_Center: {x: -0.00000023841858, y: -0.00041776896, z: 0.117841244}

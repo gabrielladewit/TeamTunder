@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -283,16 +283,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c61aa06517cd2f4597b991c1c5f724b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 2800000, guid: 10176ef0ba43a9142ad9668cc3e6ffa2, type: 3}
+  map: {fileID: 2800000, guid: 7c2d827cd70d79a41abef99ee46a43b5, type: 3}
   colorMappings:
-  - color: {r: 0, g: 0, b: 0, a: 1}
+  - color: {r: 0, g: 0, b: 1, a: 1}
     prefab: {fileID: 1947144019504248, guid: 29d1c7527d2382e4497686f99557c9fe, type: 2}
   - color: {r: 1, g: 0, b: 0, a: 1}
     prefab: {fileID: 1408018348993304, guid: 5a78f358948c5e6459025e037f57e9d5, type: 2}
   - color: {r: 1, g: 0.5882353, b: 0, a: 1}
     prefab: {fileID: 1011072799218776, guid: 775cbacff5c8378488e3d2d856dcf1e7, type: 2}
-  - color: {r: 1, g: 1, b: 0, a: 1}
+  - color: {r: 1, g: 0, b: 1, a: 1}
     prefab: {fileID: 1708540482372298, guid: 0c45896af9fb8ad42b85dc67b1bf5e76, type: 2}
+  - color: {r: 0, g: 1, b: 0, a: 1}
+    prefab: {fileID: 1741834324762948, guid: 42195f1fe6e893b4f843567686493c4a, type: 2}
+  - color: {r: 0.19607843, g: 0.78431374, b: 0.78431374, a: 1}
+    prefab: {fileID: 1583255924872964, guid: 0495d7a53a44d75438b0025ebb132f33, type: 2}
+  - color: {r: 1, g: 0.78431374, b: 0, a: 1}
+    prefab: {fileID: 1590607655201740, guid: e85d7489cb75c4345b66647559fa97e6, type: 2}
+  - color: {r: 0, g: 0.19607843, b: 0, a: 1}
+    prefab: {fileID: 1063920538063150, guid: 6d1deec75217d3840b583d9c50500e1e, type: 2}
+  - color: {r: 0.78431374, g: 1, b: 0.78431374, a: 1}
+    prefab: {fileID: 1835215939789648, guid: 94ee7e9d1b4091f4a9577616b9ecfe40, type: 2}
+  - color: {r: 0, g: 0, b: 0, a: 1}
+    prefab: {fileID: 1245572201679832, guid: 41a442e8a3b4d164ea85be502d57aeae, type: 2}
+  Floor: {fileID: 1998221624737720, guid: 72efb2af82a760b49bf631f308848072, type: 2}
 --- !u!4 &2117024945
 Transform:
   m_ObjectHideFlags: 0
@@ -300,7 +313,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2117024943}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.277355, y: 17.340452, z: 46.99139}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

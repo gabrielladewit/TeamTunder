@@ -6,9 +6,12 @@ public class LevelGenerator : MonoBehaviour {
 
 	public ColorToPrefab[] colorMappings;
 
+    public GameObject Floor;
+
 	// Use this for initialization
 	void Start () {
 		GenerateLevel();
+        Instantiate(Floor, transform);
 	}
 
 	void GenerateLevel ()
@@ -26,20 +29,25 @@ public class LevelGenerator : MonoBehaviour {
 	{
 		Color pixelColor = map.GetPixel(x, y);
 
-		if (pixelColor.a == 0)
+
+
+        if (pixelColor.a == 0)
 		{
 			// The pixel is transparrent. Let's ignore it!
 			return;
 		}
 
+
 		foreach (ColorToPrefab colorMapping in colorMappings)
 		{
-			if (colorMapping.color.Equals(pixelColor))
+            Vector2 position = new Vector2(x, y);
+
+            if (colorMapping.color.Equals(pixelColor))
 			{
-				Vector2 position = new Vector2(x, y);
                 Instantiate(colorMapping.prefab, position, colorMapping.prefab.transform.rotation, transform);
-			}
-		}
+            }
+
+        }
 	}
 	
 }
