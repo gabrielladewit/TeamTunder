@@ -19,6 +19,7 @@ public class StarUIManager : MonoBehaviour {
             if (starsContainer.initialized)
             {
                 starsArray = starsContainer.GetStars();
+                Debug.Log("Star array length = " + starsArray.Length);
                 starsContainer = null;
                 SetStarUI();
             }
@@ -31,29 +32,33 @@ public class StarUIManager : MonoBehaviour {
         {
             GameObject starDaddy = GameObject.Find("Level" + i);
 
-            Transform star1 = starDaddy.transform.GetChild(1);
-            star1.gameObject.SetActive(false);
-            Transform star2 = starDaddy.transform.GetChild(2);
-            star2.gameObject.SetActive(false);
-            Transform star3 = starDaddy.transform.GetChild(3);
-            star3.gameObject.SetActive(false);
-
-            switch (starsArray[i])
+            if (starDaddy != null)
             {
-                case 0:
-                    break;
-                case 1:
-                    star1.gameObject.SetActive(true);
-                    break;
-                case 2:
-                    star1.gameObject.SetActive(true);
-                    star2.gameObject.SetActive(true);
-                    break;
-                case 3:
-                    star1.gameObject.SetActive(true);
-                    star2.gameObject.SetActive(true);
-                    star3.gameObject.SetActive(true);
-                    break;
+                Transform star1 = starDaddy.transform.GetChild(1);
+                Debug.Log("star 1 name = " + star1.name);
+                star1.gameObject.SetActive(false);
+                Transform star2 = starDaddy.transform.GetChild(2);
+                star2.gameObject.SetActive(false);
+                Transform star3 = starDaddy.transform.GetChild(3);
+                star3.gameObject.SetActive(false);
+
+                switch (starsArray[i])
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        star1.gameObject.SetActive(true);
+                        break;
+                    case 2:
+                        star1.gameObject.SetActive(true);
+                        star2.gameObject.SetActive(true);
+                        break;
+                    case 3:
+                        star1.gameObject.SetActive(true);
+                        star2.gameObject.SetActive(true);
+                        star3.gameObject.SetActive(true);
+                        break;
+                }
             }
         }
     }

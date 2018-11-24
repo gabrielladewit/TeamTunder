@@ -35,18 +35,33 @@ public class PlayerController : MonoBehaviour
 
         if (!inverted)
         {
+            Debug.Log("RB VEL = " + rb.velocity.x);
             if (isLeftPressed)
             {
-                rb.AddForce(new Vector3(-movementSpeed, 0, 0));
+                if (rb.velocity.x > 3)
+                {
+                    rb.AddForce(new Vector3(-movementSpeed * 2, 0, 0));
+                } else
+                {
+                    rb.AddForce(new Vector3(-movementSpeed, 0, 0));
+                }
             }
 
             if (isRightPressed)
             {
-                rb.AddForce(new Vector3(movementSpeed, 0, 0));
+                if (rb.velocity.x < -3)
+                {
+                    rb.AddForce(new Vector3(movementSpeed * 2, 0, 0));
+                }
+                else
+                {
+                    rb.AddForce(new Vector3(movementSpeed, 0, 0));
+                }
             }
         }
         else
         {
+            
             if (isLeftPressed)
             {
                 rb.AddForce(new Vector3(movementSpeed, 0, 0));
