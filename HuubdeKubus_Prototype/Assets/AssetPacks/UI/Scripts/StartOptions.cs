@@ -22,6 +22,8 @@ public class StartOptions : MonoBehaviour {
 	private ShowPanels showPanels;										//Reference to ShowPanels script on UI GameObject, to show and hide panels
 
     public Levels levelManager;
+    public Pause pauseScript;
+    public Tutorial tutorialScript;
 
 	
 	void Awake()
@@ -33,6 +35,8 @@ public class StartOptions : MonoBehaviour {
         playMusic = GetComponent<PlayMusic> ();
 
         levelManager = GetComponent<Levels>();
+        pauseScript = GetComponent<Pause>();
+        tutorialScript = GetComponent<Tutorial>();
 
 	}
 
@@ -125,6 +129,15 @@ public class StartOptions : MonoBehaviour {
         
         //Load the selected scene, by scene index number in build settings
         SceneManager.LoadScene (1);
+        Tutorial();
+    }
+
+    private void Tutorial()
+    {
+        if (levelManager.currentLevel == 1)
+        {
+            pauseScript.PauseTutorial();
+        }
     }
 
     private void LoadDelayedShop()
@@ -174,7 +187,6 @@ public class StartOptions : MonoBehaviour {
 		Invoke("HideDelayed", fadeAlphaAnimationClip.length);
 		Debug.Log ("Game started in same scene! Put your game starting stuff here.");
 	}
-
 
 	public void PlayNewMusic()
 	{

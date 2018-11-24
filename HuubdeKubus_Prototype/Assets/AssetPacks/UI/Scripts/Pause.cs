@@ -2,11 +2,11 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Pause : MonoBehaviour {
+public class Pause : MonoBehaviour { 
 
 
 	private ShowPanels showPanels;						//Reference to the ShowPanels script used to hide and show UI panels
-	public bool isPaused, isDead;								//Boolean to check if the game is paused or not
+	public bool isPaused, isDead;						//Boolean to check if the game is paused or not
 	private StartOptions startScript;					//Reference to the StartButton script
 	
 	//Awake is called before Start()
@@ -33,8 +33,14 @@ public class Pause : MonoBehaviour {
             //Call the UnPause function to unpause the game
             UnPause ();
 		}
-	
-	}
+
+        else if (Input.GetKeyDown("Space") && !isPaused && !startScript.inMainMenu && !isDead)
+        {
+            //Call the UnPause function to unpause the game
+            PauseTutorial();
+        }
+
+    }
 
     public void DoWin()
     {
@@ -43,16 +49,33 @@ public class Pause : MonoBehaviour {
         showPanels.ShowWinPanel();
     }
 
-
-	public void DoPause()
+	public void PauseTutorial()
 	{
-		//Set isPaused to true
-		isPaused = true;
-		//Set time.timescale to 0, this will cause animations and physics to stop updating
-		Time.timeScale = 0;
-		//call the ShowPausePanel function of the ShowPanels script
-		showPanels.ShowPausePanel ();
-	}
+        Debug.Log("pausetutorial");
+        //Set isPaused to true
+        isPaused = true;
+
+        StartCoroutine(PauseForTutorial());
+    }
+
+    IEnumerator PauseForTutorial()
+    {
+        yield return new WaitForSeconds(1);
+        //Set time.timescale to 0, this will cause animations and physics to stop updating
+        Time.timeScale = 0;
+        //call the ShowPausePanel function of the ShowPanels script
+        showPanels.ShowTutorialPanel();
+    }
+
+    public void DoPause()
+    {
+        //Set isPaused to true
+        isPaused = true;
+        //Set time.timescale to 0, this will cause animations and physics to stop updating
+        Time.timeScale = 0;
+        //call the ShowPausePanel function of the ShowPanels script
+        showPanels.ShowPausePanel();
+    }
 
     public void DoDie()
     {
