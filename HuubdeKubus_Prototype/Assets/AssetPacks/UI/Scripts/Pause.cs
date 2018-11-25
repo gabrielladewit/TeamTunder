@@ -33,13 +33,6 @@ public class Pause : MonoBehaviour {
             //Call the UnPause function to unpause the game
             UnPause ();
 		}
-
-        else if (Input.GetKeyDown("Space") && !isPaused && !startScript.inMainMenu && !isDead)
-        {
-            //Call the UnPause function to unpause the game
-            PauseTutorial();
-        }
-
     }
 
     public void DoWin()

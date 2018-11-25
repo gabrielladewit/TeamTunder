@@ -17,10 +17,9 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        movementSpeed = 4;
+        movementSpeed = 6;
         rb = this.gameObject.GetComponent<Rigidbody>();
         pickupManager = GameObject.Find("Main Camera").GetComponent<PickupBehaviour>();
-        //StartCoroutine(MoveUpdate());
 
     }
 

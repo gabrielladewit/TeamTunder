@@ -11,21 +11,14 @@ public class ShowPanels : MonoBehaviour {
     public GameObject deathPanel;
     public GameObject winPanel;
     public GameObject levelPanel;
-    public GameObject welcomePanel;
     public GameObject tutorialPanel;
 
     public GameObject textPanel;
     public GameObject textPanel1;
     public GameObject textPanel2;
+    public GameObject textPanel3;
 
     public int next;
-
-    //Call this function to activate and display the Welcome text and panel during the main menu
-    public void ShowWelcomePanel()
-    {
-        welcomePanel.SetActive(true);
-        optionsTint.SetActive(true);
-    }
 
     //Call this function to deactivate the Welcome panel and show the Tutorial panel
     public void ShowTutorialPanel()
@@ -35,18 +28,19 @@ public class ShowPanels : MonoBehaviour {
         switch (next)
         {
             case 0:
-                Debug.Log("case 0");
                 textPanel.SetActive(true);
                 break;
             case 1:
-                Debug.Log("case 1");
                 textPanel.SetActive(false);
                 textPanel1.SetActive(true);
                 break;
             case 2:
-                Debug.Log("case 2");
                 textPanel1.SetActive(false);
                 textPanel2.SetActive(true);
+                break;
+            case 3:
+                textPanel2.SetActive(false);
+                textPanel3.SetActive(true);
                 break;
             default:
                 break;
