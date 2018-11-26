@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -780,8 +780,9 @@ Transform:
   - {fileID: 411971400}
   - {fileID: 705893815}
   - {fileID: 1116255672}
+  - {fileID: 1537150662}
   m_Father: {fileID: 1001067780}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &140829986
 MonoBehaviour:
@@ -795,7 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stars: 
-  level: {fileID: 1644238109}
+  level: {fileID: 0}
   initialized: 0
 --- !u!114 &140829987
 MonoBehaviour:
@@ -4470,7 +4471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e7f18868b2549738d2c110db32ca9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMixer: {fileID: 24100000, guid: 0ac7fb39e445048d89688f69c2a1839a, type: 2}
+  mainMixer: {fileID: 0}
 --- !u!114 &733576052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4524,7 +4525,7 @@ RectTransform:
   - {fileID: 1859504009}
   - {fileID: 559555977}
   m_Father: {fileID: 1001067780}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22775084, y: 0.337}
   m_AnchorMax: {x: 0.7727509, y: 0.8407936}
@@ -4563,7 +4564,7 @@ Transform:
   - {fileID: 1203833465}
   - {fileID: 1818606903}
   m_Father: {fileID: 1001067780}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740119703
 GameObject:
@@ -4765,7 +4766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e7f18868b2549738d2c110db32ca9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMixer: {fileID: 24100000, guid: 0ac7fb39e445048d89688f69c2a1839a, type: 2}
+  mainMixer: {fileID: 0}
 --- !u!114 &779661552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4817,7 +4818,7 @@ RectTransform:
   - {fileID: 686249043}
   - {fileID: 547147586}
   m_Father: {fileID: 1001067780}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22775084, y: 0.337}
   m_AnchorMax: {x: 0.7727509, y: 0.8407936}
@@ -5584,7 +5585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &923392945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6213,7 +6214,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 911581134}
-  - {fileID: 1537150662}
   - {fileID: 140829985}
   - {fileID: 1743729994}
   - {fileID: 733576054}
@@ -6335,7 +6335,7 @@ RectTransform:
   - {fileID: 1099690657}
   - {fileID: 1611989226}
   m_Father: {fileID: 1001067780}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22775084, y: 0.337}
   m_AnchorMax: {x: 0.7727509, y: 0.8407936}
@@ -6366,7 +6366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e7f18868b2549738d2c110db32ca9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMixer: {fileID: 24100000, guid: 0ac7fb39e445048d89688f69c2a1839a, type: 2}
+  mainMixer: {fileID: 0}
 --- !u!114 &1019727979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8131,7 +8131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.010827652, y: 0.04063255}
   m_AnchorMax: {x: 0.31800002, y: 0.162}
-  m_AnchoredPosition: {x: 271, y: 122.99341}
+  m_AnchoredPosition: {x: 271, y: 122.993286}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471379400
@@ -8333,7 +8333,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1001067780}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8707,17 +8707,17 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1537150658}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 99.94366}
+  m_LocalScale: {x: 0.04510549, y: 0.04510549, z: 0.04510549}
   m_Children: []
-  m_Father: {fileID: 1001067780}
-  m_RootOrder: 1
+  m_Father: {fileID: 140829985}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 1.8482445, y: -56.683804}
+  m_SizeDelta: {x: 1440, y: 2560}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1545290489
 GameObject:
@@ -9461,7 +9461,6 @@ MonoBehaviour:
   deathPanel: {fileID: 779661549}
   winPanel: {fileID: 1019727975}
   levelPanel: {fileID: 140829984}
-  welcomePanel: {fileID: 0}
   tutorialPanel: {fileID: 734722743}
   textPanel: {fileID: 1881740671}
   textPanel1: {fileID: 141480357}
@@ -9480,10 +9479,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6575c13371fd4cbcba0652f2092d1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleMusic: {fileID: 8300000, guid: 7db0c87ec4fdb0e48af04349c4f14df9, type: 3}
-  mainMusic: {fileID: 8300000, guid: 7db0c87ec4fdb0e48af04349c4f14df9, type: 3}
-  volumeDown: {fileID: 24519918, guid: 0ac7fb39e445048d89688f69c2a1839a, type: 2}
-  volumeUp: {fileID: 24500003, guid: 0ac7fb39e445048d89688f69c2a1839a, type: 2}
+  titleMusic: {fileID: 0}
+  mainMusic: {fileID: 0}
+  volumeDown: {fileID: 0}
+  volumeUp: {fileID: 0}
 --- !u!82 &1644238101
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9618,15 +9617,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToStart: 1
-  changeScenes: 1
+  changeScenes: 0
   changeMusicOnStart: 0
   inMainMenu: 1
-  animColorFade: {fileID: 1480851099}
+  animColorFade: {fileID: 0}
   animMenuAlpha: {fileID: 0}
-  fadeColorAnimationClip: {fileID: 7400000, guid: ca6f1c3d28a5b4d7fac820172514263f,
-    type: 2}
-  fadeAlphaAnimationClip: {fileID: 7400000, guid: 60ffe2e0cce24e54eb5aa46966d599a8,
-    type: 2}
+  fadeColorAnimationClip: {fileID: 0}
+  fadeAlphaAnimationClip: {fileID: 0}
   levelManager: {fileID: 0}
   pauseScript: {fileID: 0}
   tutorialScript: {fileID: 0}
@@ -10036,7 +10033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e7f18868b2549738d2c110db32ca9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMixer: {fileID: 24100000, guid: 0ac7fb39e445048d89688f69c2a1839a, type: 2}
+  mainMixer: {fileID: 0}
 --- !u!114 &1743729992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10089,7 +10086,7 @@ RectTransform:
   - {fileID: 564787958}
   - {fileID: 1471379399}
   m_Father: {fileID: 1001067780}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22775084, y: 0.337}
   m_AnchorMax: {x: 0.7727509, y: 0.8407936}
