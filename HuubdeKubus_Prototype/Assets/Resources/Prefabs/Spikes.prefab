@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33540555461773492}
   - component: {fileID: 23746028937489176}
   - component: {fileID: 114566947271900640}
+  - component: {fileID: 64691809163668524}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -35,9 +36,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1125021118449788}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 9.386481, z: -11.23}
-  m_LocalScale: {x: 51.77095, y: 63.28635, z: 63.28635}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 41.88, y: 138.03659, z: -245.3}
+  m_LocalScale: {x: 66.6551, y: 63.28635, z: 96.51168}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,7 +58,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 994b5ab6540c5ae4c8aeea966acd5fd8, type: 2}
+  - {fileID: 2100000, guid: c57f4d32220124d4cab495f290617730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,6 +84,20 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1125021118449788}
+  m_Mesh: {fileID: 4300000, guid: 86002796b008638478badaa67fbada69, type: 3}
+--- !u!64 &64691809163668524
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1125021118449788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 86002796b008638478badaa67fbada69, type: 3}
 --- !u!114 &114566947271900640
 MonoBehaviour:
