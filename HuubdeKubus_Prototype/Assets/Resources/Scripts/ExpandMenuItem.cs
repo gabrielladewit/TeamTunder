@@ -4,13 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ExpandMenuItem : MonoBehaviour {
-    private float standardHeight = 292.9f;
-    private float standardWidth = 1422f;
+    private float standardHeight = 355.8f;
+    private float standardWidth = 1402;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        RectTransform rt = (RectTransform)this.transform;
+
+        Debug.Log("Width: " + rt.rect.width + " Height: " + rt.rect.height);
+    }
 
     public void ExpandField()
     {
@@ -20,16 +22,12 @@ public class ExpandMenuItem : MonoBehaviour {
         float newHeight = oldHeight + 240f;
 
         Debug.Log("Width: " + oldWidth + " Height: " + rt.rect.height);
-
-        rt.sizeDelta = new Vector2(standardWidth, newHeight);
-        Button theButton = GameObject.Find("btMore").GetComponent<Button>();
-        Sprite theImage = Resources.Load<Sprite>("ShowLess");
-
-        //theButton.GetComponent<Image>().overrideSprite = theImage;
-        theButton.image.sprite = theImage;
-
-
-        Debug.Log("Width: " + rt.rect.width);
+        if (oldHeight <= standardHeight)
+        {
+            GameObject.Find("MoreButton1").GetComponentInChildren<Text>().text = "Less";
+            rt.sizeDelta = new Vector2(standardWidth, newHeight);
+            Image theImage = Resources.Load<Image>("ShowLess");
+        }
     }
 	
 	// Update is called once per frame
