@@ -8131,7 +8131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.010827652, y: 0.04063255}
   m_AnchorMax: {x: 0.31800002, y: 0.162}
-  m_AnchoredPosition: {x: 271, y: 122.993286}
+  m_AnchoredPosition: {x: 271, y: 122.993195}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471379400
@@ -9617,12 +9617,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToStart: 1
-  changeScenes: 0
+  changeScenes: 1
   changeMusicOnStart: 0
   inMainMenu: 1
   animColorFade: {fileID: 0}
   animMenuAlpha: {fileID: 0}
-  fadeColorAnimationClip: {fileID: 0}
+  fadeColorAnimationClip: {fileID: 7400000, guid: ca6f1c3d28a5b4d7fac820172514263f,
+    type: 2}
   fadeAlphaAnimationClip: {fileID: 0}
   levelManager: {fileID: 0}
   pauseScript: {fileID: 0}
