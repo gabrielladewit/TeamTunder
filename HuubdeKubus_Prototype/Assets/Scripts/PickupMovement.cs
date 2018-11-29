@@ -9,10 +9,11 @@ public class PickupMovement : MonoBehaviour
     public float amplitude = 0.05f;
     public float rotationSpeed = 1;
     static PickupBehaviour pUp;
+    public ParticleSystem starParticles;
 
     private void Start()
     {
-            pUp = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
+        pUp = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
     }
 
     public enum Powerups
@@ -32,7 +33,8 @@ public class PickupMovement : MonoBehaviour
         if (coll.gameObject.name == "PlayerSphere")
         {
             pUp.Pickup(powerup.ToString());
-            Destroy(this.gameObject);
+            starParticles.Play();
+            Destroy(this.gameObject, 1);
         }
     }
 }
