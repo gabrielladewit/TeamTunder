@@ -12,7 +12,6 @@ public class PickupMovement : MonoBehaviour
 
     private void Start()
     {
-        if(pUp == null)
             pUp = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
     }
 

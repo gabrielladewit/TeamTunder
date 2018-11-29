@@ -78,7 +78,6 @@ public class SaveLevelScore : MonoBehaviour {
 
         BinaryFormatter bf = new BinaryFormatter();
         stars = (int[])bf.Deserialize(file);
-        Debug.Log("Saved Stars array length = " + stars.Length);
         file.Close();
 
         initialized = true;

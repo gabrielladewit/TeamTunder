@@ -5,11 +5,13 @@ using UnityEngine;
 public class StarUIManager : MonoBehaviour {
 
     SaveLevelScore starsContainer;
+    public Levels level;
     int[] starsArray;
 
 	// Use this for initialization
 	void Awake () {
         starsContainer = this.gameObject.GetComponent<SaveLevelScore>();
+        level = GameObject.Find("UI").GetComponent<Levels>();
     }
 
     void Update()
@@ -19,9 +21,9 @@ public class StarUIManager : MonoBehaviour {
             if (starsContainer.initialized)
             {
                 starsArray = starsContainer.GetStars();
-                Debug.Log("Star array length = " + starsArray.Length);
                 starsContainer = null;
                 SetStarUI();
+                level.starlvlarray = starsArray;
             }
         }
     }
@@ -35,7 +37,6 @@ public class StarUIManager : MonoBehaviour {
             if (starDaddy != null)
             {
                 Transform star1 = starDaddy.transform.GetChild(1);
-                Debug.Log("star 1 name = " + star1.name);
                 star1.gameObject.SetActive(false);
                 Transform star2 = starDaddy.transform.GetChild(2);
                 star2.gameObject.SetActive(false);
@@ -43,7 +44,7 @@ public class StarUIManager : MonoBehaviour {
                 star3.gameObject.SetActive(false);
 
                 switch (starsArray[i])
-                {
+                { 
                     case 0:
                         break;
                     case 1:

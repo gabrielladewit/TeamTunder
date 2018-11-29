@@ -26,7 +26,6 @@ public class StartOptions : MonoBehaviour {
     public Tutorial tutorialScript;
 
     public CameraBehaviour.Modes currentCameraMode = CameraBehaviour.Modes.Sway;
-
 	
 	void Awake()
 	{
@@ -39,7 +38,6 @@ public class StartOptions : MonoBehaviour {
         levelManager = GetComponent<Levels>();
         pauseScript = GetComponent<Pause>();
         tutorialScript = GetComponent<Tutorial>();
-
 	}
 
     public void LevelClicked(int x)

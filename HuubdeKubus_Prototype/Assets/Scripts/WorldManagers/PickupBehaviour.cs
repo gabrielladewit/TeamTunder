@@ -12,13 +12,14 @@ public class PickupBehaviour : MonoBehaviour
     PlayerController playerController;
     int SecondsToWait = 0;
     ScoreUpdate scoreUpdate;
-
     Levels currentLevelStats;
+    DisplayStars starScore;
 
     // Use this for initialization
     void Start()
     {
         scoreUpdate = GameObject.Find("EventSystem").GetComponent<ScoreUpdate>();
+        starScore = GameObject.Find("EventSystem").GetComponent<DisplayStars>();
         playerObj = GameObject.Find("PlayerSphere");
         currentLevelStats = GameObject.Find("UI").GetComponent<Levels>();
         playerController = playerObj.GetComponent<PlayerController>();
@@ -76,6 +77,8 @@ public class PickupBehaviour : MonoBehaviour
     {
         SecondsToWait = 0;
         currentLevelStats.currentStars++;
+        starScore.starsToDisplay = currentLevelStats.currentStars;
+        starScore.ChangeStars();
     }
 
     void SwitchCollision()

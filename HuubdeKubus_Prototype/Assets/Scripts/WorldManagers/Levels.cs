@@ -6,9 +6,11 @@ public class Levels : MonoBehaviour {
 
     public int currentLevel;
     public int currentStars;
+    public int[] starlvlarray;
+    public int starsToDisplay;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         currentStars = 0;
 	}
 	

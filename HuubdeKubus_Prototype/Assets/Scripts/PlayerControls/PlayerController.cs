@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         movementSpeed = 6;
         rb = this.gameObject.GetComponent<Rigidbody>();
-        pickupManager = GameObject.Find("Main Camera").GetComponent<PickupBehaviour>();
+        pickupManager = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
 
     }
 
@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
 
         if (!inverted)
         {
-            Debug.Log("RB VEL = " + rb.velocity.x);
             if (isLeftPressed)
             {
                 if (rb.velocity.x > 3)
