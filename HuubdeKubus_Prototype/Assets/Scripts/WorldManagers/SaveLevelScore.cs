@@ -20,7 +20,7 @@ public class SaveLevelScore : MonoBehaviour {
         StartLoadThread();
     }
 
-    public void SetLevelStars(int collectedStars)
+    public void SetLevelStars()
     {
         Debug.Log("Setting  -  Level: " + level.currentLevel + " Stars:" + level.currentStars);
         if (stars[level.currentLevel] < level.currentStars)

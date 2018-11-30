@@ -21,9 +21,9 @@ public class StartOptions : MonoBehaviour {
 	private float fastFadeIn = .01f;									//Very short fade time (10 milliseconds) to start playing music immediately without a click/glitch
 	private ShowPanels showPanels;										//Reference to ShowPanels script on UI GameObject, to show and hide panels
 
-    public Levels levelManager;
-    public Pause pauseScript;
-    public Tutorial tutorialScript;
+    private Levels levelManager;
+    private Pause pauseScript;
+    //private Tutorial tutorialScript;
 
 	
 	void Awake()
@@ -36,7 +36,7 @@ public class StartOptions : MonoBehaviour {
 
         levelManager = GetComponent<Levels>();
         pauseScript = GetComponent<Pause>();
-        tutorialScript = GetComponent<Tutorial>();
+        //tutorialScript = GetComponent<Tutorial>();
 
 	}
 
