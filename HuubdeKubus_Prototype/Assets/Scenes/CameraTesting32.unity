@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1591,6 +1591,7 @@ MonoBehaviour:
   inverted: 0
   movementSpeed: 8
   breakAmount: 0
+  pickupManager: {fileID: 0}
 --- !u!1 &1540928097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,6 +2003,7 @@ MonoBehaviour:
   Star1: {fileID: 1595049533}
   Star2: {fileID: 136810801}
   Star3: {fileID: 42671397}
+  starsToDisplay: 0
 --- !u!4 &1750927562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4481774503778116, guid: 3983df7ee5a47b544ad125ce100844e0,

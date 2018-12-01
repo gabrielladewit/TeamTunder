@@ -12,7 +12,11 @@ public class ShakeOnCollision : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.name != "Floor")
-            CameraShaker.Instance.ShakeOnce(Magnitude, Roughness, 0, FadeOutTime);
+            if (CameraShaker.Instance != null)
+            {
+                CameraShaker.Instance.ShakeOnce(Magnitude, Roughness, 0, FadeOutTime);
+            }
+            
     }
 
 }

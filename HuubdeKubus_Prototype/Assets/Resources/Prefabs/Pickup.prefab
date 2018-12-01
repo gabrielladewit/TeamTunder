@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 23089618975673386}
   - component: {fileID: 65340998136536926}
   - component: {fileID: 114500358738592450}
-  - component: {fileID: 114378604775049882}
   m_Layer: 9
   m_Name: Pickup
   m_TagString: Multiplier
@@ -98,17 +97,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.9657456, z: 1}
   m_Center: {x: 0, y: -0.4828729, z: -2.43389e-16}
---- !u!114 &114378604775049882
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924102709473684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cac18773664dd4449b6a4fc2d83604b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114500358738592450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,3 +111,4 @@ MonoBehaviour:
   verticalSpeed: 4
   amplitude: 0.05
   rotationSpeed: 1
+  powerup: 0

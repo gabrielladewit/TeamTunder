@@ -3,36 +3,67 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StarUIManager : MonoBehaviour {
+    
+    public int[] starsArray;
+    int totalStars = 0;
+    public GameObject UI;
 
-    SaveLevelScore starsContainer;
-    public Levels level;
-    int[] starsArray;
-
-	// Use this for initialization
-	void Awake () {
-        starsContainer = this.gameObject.GetComponent<SaveLevelScore>();
-        level = GameObject.Find("UI").GetComponent<Levels>();
-    }
-
-    void Update()
-    {
-        if (starsContainer != null)
-        {
-            if (starsContainer.initialized)
-            {
-                starsArray = starsContainer.GetStars();
-                starsContainer = null;
-                SetStarUI();
-                level.starlvlarray = starsArray;
-            }
-        }
+    // Use this for initialization
+    void Awake () {
+        starsArray = UI.GetComponent<SaveLevelScore>().stars;
+        SetStarUI();
     }
 
     public void SetStarUI()
     {
-        for (int i = 1; i <= starsArray.Length; i++)
+        for (int i = 0; i < starsArray.Length; i++)
         {
-            GameObject starDaddy = GameObject.Find("Level" + i);
+            totalStars += starsArray[i];
+        }
+
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            GameObject starDaddy = gameObject.transform.GetChild(i).gameObject;
+            //Since GameObjects stars active check if it needs to be set to Deactive
+            if (starDaddy != null && starDaddy.name != "Return")
+            {
+                if (starDaddy.GetComponent<UnlockLevelWithStars>().requiredStars > totalStars)
+                {
+                    starDaddy.SetActive(false);
+                }
+                else
+                {
+                    Transform star1 = starDaddy.transform.GetChild(1);
+                    star1.gameObject.SetActive(false);
+                    Transform star2 = starDaddy.transform.GetChild(2);
+                    star2.gameObject.SetActive(false);
+                    Transform star3 = starDaddy.transform.GetChild(3);
+                    star3.gameObject.SetActive(false);
+
+                    switch (starsArray[i + 1])
+                    {
+                        case 0:
+                            break;
+                        case 1:
+                            star1.gameObject.SetActive(true);
+                            break;
+                        case 2:
+                            star1.gameObject.SetActive(true);
+                            star2.gameObject.SetActive(true);
+                            break;
+                        case 3:
+                            star1.gameObject.SetActive(true);
+                            star2.gameObject.SetActive(true);
+                            star3.gameObject.SetActive(true);
+                            break;
+                    }
+                }
+            }
+        }
+
+        /*for (int i = 1; i <= gameObject.transform.childCount; i++)
+        {
+            GameObject starDaddy = gameObject.transform.GetChild(i).gameObject;
 
             if (starDaddy != null)
             {
@@ -44,7 +75,7 @@ public class StarUIManager : MonoBehaviour {
                 star3.gameObject.SetActive(false);
 
                 switch (starsArray[i])
-                { 
+                {
                     case 0:
                         break;
                     case 1:
@@ -60,7 +91,7 @@ public class StarUIManager : MonoBehaviour {
                         star3.gameObject.SetActive(true);
                         break;
                 }
-            }
-        }
+            }*/
+        //}
     }
 }

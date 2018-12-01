@@ -10,16 +10,16 @@ public class MainMenuEvents : MonoBehaviour
 
     void Start()
     {
-        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
-            .Build();
+        //PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
+            //.Build();
 
-        PlayGamesPlatform.InitializeInstance(config);
+        //PlayGamesPlatform.InitializeInstance(config);
         // recommended for debugging:
-        PlayGamesPlatform.DebugLogEnabled = true;
+        //PlayGamesPlatform.DebugLogEnabled = true;
         // Activate the Google Play Games platform
-        PlayGamesPlatform.Activate();
+        //PlayGamesPlatform.Activate();
 
-        signIn();
+        //signIn();
 
 
     }
