@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class DisplayStars : MonoBehaviour {
 
-    public GameObject Star0;
-    public GameObject Star1;
-    public GameObject Star2;
-    public GameObject Star3;
+    public GameObject Star0, Star1, Star2, Star3;
 
-    public Levels levelScript;
+    Levels currentLevel;
     public int starsToDisplay;
 
     // Use this for initialization
     void Start () {
-        levelScript = GameObject.Find("UI").GetComponent<Levels>();
+        currentLevel = GameObject.Find("UI").GetComponent<Levels>();
         ChangeStars();
     }
 
     public void ChangeStars()
     {
         //Get the amount of stars of the current level and display them
-        starsToDisplay = levelScript.starlvlarray[levelScript.currentLevel];
+        starsToDisplay = currentLevel.starlvlarray[currentLevel.currentLevel];
 
         switch (starsToDisplay)
         {

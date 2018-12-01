@@ -17,6 +17,7 @@ public class FinishCollider : MonoBehaviour {
     {
         if (collision.gameObject.name == "PlayerSphere")
         {
+            collision.gameObject.GetComponent<PlayerController>().StopStopwatch();
             pause.DoWin();
         }
     }

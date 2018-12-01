@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33540555461773492}
   - component: {fileID: 23746028937489176}
   - component: {fileID: 114566947271900640}
-  - component: {fileID: 64691809163668524}
+  - component: {fileID: 64593652441293360}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -85,14 +85,14 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1125021118449788}
   m_Mesh: {fileID: 4300000, guid: 86002796b008638478badaa67fbada69, type: 3}
---- !u!64 &64691809163668524
+--- !u!64 &64593652441293360
 MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1125021118449788}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
@@ -110,4 +110,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09d576e4f24f734187e739a1c806349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}

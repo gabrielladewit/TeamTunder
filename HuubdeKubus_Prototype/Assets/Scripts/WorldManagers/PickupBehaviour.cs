@@ -7,13 +7,14 @@ public class PickupBehaviour : MonoBehaviour
 {
     GameObject playerObj;
     static bool ignoringCollision = true;
-    AudioSource theSound;
 
     PlayerController playerController;
     int SecondsToWait = 0;
     ScoreUpdate scoreUpdate;
     Levels currentLevelStats;
     DisplayStars starScore;
+
+    PlayAudioClip audioClipPlayer;
 
     // Use this for initialization
     void Start()
@@ -23,13 +24,12 @@ public class PickupBehaviour : MonoBehaviour
         playerObj = GameObject.Find("PlayerSphere");
         currentLevelStats = GameObject.Find("UI").GetComponent<Levels>();
         playerController = playerObj.GetComponent<PlayerController>();
-        theSound = this.gameObject.GetComponent<AudioSource>();
+        audioClipPlayer = GameObject.Find("UI").GetComponent<PlayAudioClip>();
     }
 
    public void Pickup(string Method)
     {
         StartCoroutine(ResetPowerup(Method));
-        theSound.Play();
     }
 
     IEnumerator ResetPowerup(string Method)
@@ -45,6 +45,13 @@ public class PickupBehaviour : MonoBehaviour
     void Multiplier()
     {
         SecondsToWait = 5;
+        if (scoreUpdate.multiplier == false)
+        {
+            audioClipPlayer.PlayMultiplierSound(true);
+        } else
+        {
+            audioClipPlayer.PlayMultiplierSound(false);
+        }
         scoreUpdate.multiplier = !scoreUpdate.multiplier;
     }
 
@@ -64,6 +71,14 @@ public class PickupBehaviour : MonoBehaviour
     void Coin()
     {
         SecondsToWait = 0;
+        audioClipPlayer.PlayCoinSound();
+        if (!scoreUpdate.multiplier)
+        {
+            currentLevelStats.currentCoins += 10;
+        } else
+        {
+            currentLevelStats.currentCoins += 20;
+        }
         //Add coin
     }
 
@@ -76,6 +91,7 @@ public class PickupBehaviour : MonoBehaviour
     void Star()
     {
         SecondsToWait = 0;
+        audioClipPlayer.PlayStarSound();
         currentLevelStats.currentStars++;
         starScore.starsToDisplay = currentLevelStats.currentStars;
         starScore.ChangeStars();

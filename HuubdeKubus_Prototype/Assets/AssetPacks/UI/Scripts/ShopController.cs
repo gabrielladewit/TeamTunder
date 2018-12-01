@@ -39,25 +39,25 @@ public class ShopController : MonoBehaviour
         switch (inventory.currentLives)
         {
             case 0:
-                if (inventory.currentMoney >= 100)
+                if (inventory.currentCoins >= 100)
                 {
-                    inventory.SpendMoney(100);
+                    inventory.SpendCoins(100);
                     inventory.AddLife();
                     livesUpgradeSlider.value++;
                 }
                 return;
             case 1:
-                if (inventory.currentMoney >= 200)
+                if (inventory.currentCoins >= 200)
                 {
-                    inventory.SpendMoney(200);
+                    inventory.SpendCoins(200);
                     inventory.AddLife();
                     livesUpgradeSlider.value++;
                 }
                 return;
             case 2:
-                if (inventory.currentMoney >= 400)
+                if (inventory.currentCoins >= 400)
                 {
-                    inventory.SpendMoney(400);
+                    inventory.SpendCoins(400);
                     inventory.AddLife();
                     livesUpgradeObj.GetComponentInChildren<Button>().interactable = false;
                 }
@@ -67,9 +67,9 @@ public class ShopController : MonoBehaviour
 
     public void BuyHeavyBall()
     {   // PlayerMoney >= Price
-        if (inventory.currentMoney >= 250)
+        if (inventory.currentCoins >= 250)
         {
-            inventory.SpendMoney(400);
+            inventory.SpendCoins(400);
             inventory.SetBoughtHeavy();
             heavyBallObj.GetComponentInChildren<Button>().interactable = false;
         }
