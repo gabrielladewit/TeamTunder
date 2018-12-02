@@ -10,15 +10,20 @@ public class ShopController : MonoBehaviour
     private Text currentMoneyText;
     private Slider livesUpgradeSlider;
     public SaveInventory inventory;
+    public Text currentMoneyTxt;
 
     // Use this for initializatio
     void Start()
     {
+        PlayerPrefs.SetInt("Money", 400);
         Destroy(GameObject.Find("UI"));
-        inventory = this.gameObject.AddComponent<SaveInventory>();
+        //inventory = this.gameObject.AddComponent<SaveInventory>();
         currentMoneyText = GameObject.Find("CurrentMoneyText").GetComponent<Text>();
-        livesUpgradeSlider = livesUpgradeObj.GetComponentInChildren<Slider>();
-        StartCoroutine(UpdateShopUI());
+        //livesUpgradeSlider = livesUpgradeObj.GetComponentInChildren<Slider>();
+        //StartCoroutine(UpdateShopUI());
+
+        Debug.Log("Hoi");
+        currentMoneyText.text = "" + PlayerPrefs.GetInt("Money");
     }
 
     public void Update()
@@ -32,6 +37,66 @@ public class ShopController : MonoBehaviour
     public void LoadShopInventory()
     {
         
+    }
+
+    public void BuyItem(int buttonNumber)
+    {
+        switch(buttonNumber){
+            case 1:
+                if (20 <= PlayerPrefs.GetInt("Money"))
+                {
+                    int newMoneyVal = PlayerPrefs.GetInt("Money") - 20;
+                    PlayerPrefs.SetInt("Money", newMoneyVal);
+                    UpdateShopUI();
+                }
+                else
+                {
+                    Debug.Log("You dont have enough money");
+                }
+                break;
+
+            case 2:
+                if (50 <= PlayerPrefs.GetInt("Money"))
+                {
+                    int newMoneyVal = PlayerPrefs.GetInt("Money") - 50;
+                    PlayerPrefs.SetInt("Money", newMoneyVal);
+                    UpdateShopUI();
+                }
+                else
+                {
+                    Debug.Log("You dont have enough money");
+                }
+                break;
+
+            case 3:
+                if (175 <= PlayerPrefs.GetInt("Money"))
+                {
+                    int newMoneyVal = PlayerPrefs.GetInt("Money") - 175;
+                    PlayerPrefs.SetInt("Money", newMoneyVal);
+                    UpdateShopUI();
+                }
+                else
+                {
+                    Debug.Log("You dont have enough money");
+                }
+                break;
+            case 4:
+                if (400 <= PlayerPrefs.GetInt("Money"))
+                {
+                    int newMoneyVal = PlayerPrefs.GetInt("Money") - 400;
+                    PlayerPrefs.SetInt("Money", newMoneyVal);
+                    UpdateShopUI();
+                }
+                else
+                {
+                    Debug.Log("You dont have enough money");
+                }
+                break;
+
+            default:
+                break;
+
+        }
     }
 
     public void BuyLivesUpgrade()
@@ -75,14 +140,9 @@ public class ShopController : MonoBehaviour
         }
     }
 
-    IEnumerator UpdateShopUI()
+    void UpdateShopUI()
     {
-        while (true)
-        {
-            currentMoneyText.text = inventory.GetCurrentMoney().ToString();
-            livesUpgradeSlider.value = inventory.GetCurrentLives();
-            heavyBallObj.GetComponentInChildren<Button>().enabled = !inventory.GetCurrentBoughtHeavy();
-            yield return new WaitForSeconds(1);
-        }
+            currentMoneyText.text = PlayerPrefs.GetInt("Money").ToString();
+
     }
 }
