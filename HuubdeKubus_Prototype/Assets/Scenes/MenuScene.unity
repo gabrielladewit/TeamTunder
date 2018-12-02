@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3714,7 +3714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9028241bc80306408b0fa08ce64c5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredStars: 2
+  requiredStars: 0
 --- !u!1 &575404441
 GameObject:
   m_ObjectHideFlags: 0
@@ -6983,6 +6983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f20a779227b6f49bfaef3c53094e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
   stars: 0
   coins: 0
   UI: {fileID: 1644238098}
@@ -10417,7 +10418,7 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   pauseScript: {fileID: 0}
   tutorialScript: {fileID: 0}
-  currentCameraMode: 0
+  currentCameraMode: 1
 --- !u!225 &1644238105
 CanvasGroup:
   m_ObjectHideFlags: 0

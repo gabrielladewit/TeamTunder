@@ -30,7 +30,7 @@ public class PickupMovement : MonoBehaviour
         if (coll.gameObject.name == "PlayerSphere")
         {
             pUp.Pickup(powerup.ToString());
-            starParticles.Play();
+            //starParticles.Play();
             Destroy(this.gameObject, 1);
         }
     }
