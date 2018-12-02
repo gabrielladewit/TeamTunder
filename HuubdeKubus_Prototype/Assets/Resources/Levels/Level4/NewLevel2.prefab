@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33667824813045020}
   - component: {fileID: 23302818094202416}
   - component: {fileID: 114977004673084604}
+  - component: {fileID: 65824469639236818}
   m_Layer: 0
   m_Name: Vehicle_Car_color02
   m_TagString: Untagged
@@ -1075,6 +1076,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65824469639236818
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1013151125849374}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9580617, y: 2.1952403, z: 6.3205423}
+  m_Center: {x: -0.0029765964, y: 1.0939842, z: -0.19414222}
 --- !u!114 &114841519917640294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1109,4 +1122,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.17
-  backToStart: 0
