@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateObstacle : MonoBehaviour {
 
-    private float speedRotate = 5;
+    public float speedRotate = 5;
     public bool left = false;
 	// Update is called once per frame
 	void Update () {

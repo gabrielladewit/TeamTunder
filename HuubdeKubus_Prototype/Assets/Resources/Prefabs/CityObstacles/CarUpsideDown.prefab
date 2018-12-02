@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 4686885213418768}
   - component: {fileID: 33403721375299770}
   - component: {fileID: 23173628492949930}
+  - component: {fileID: 65792517986764658}
   m_Layer: 0
   m_Name: CarUpsideDown
   m_TagString: Untagged
@@ -156,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1786516015137418}
   m_LocalRotation: {x: -0.90984374, y: -0.06645231, z: -0.3768696, w: 0.16043007}
-  m_LocalPosition: {x: 0.27353668, y: 4.97229, z: -13.794785}
+  m_LocalPosition: {x: 0.27353668, y: 5.09, z: -13.794785}
   m_LocalScale: {x: 1.4999998, y: 1.4999994, z: 1.4999995}
   m_Children:
   - {fileID: 4425623024354468}
@@ -205,6 +206,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1786516015137418}
   m_Mesh: {fileID: 4300000, guid: 6780ac7fd67c9ab43aebe63ff3fb60aa, type: 3}
+--- !u!65 &65792517986764658
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1786516015137418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2709417, y: 3.1687982, z: 6.046467}
+  m_Center: {x: 0.08416959, y: 1.579233, z: 0.0936146}
 --- !u!198 &198515478297421810
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -6,8 +6,8 @@ public class HuubBehaviour : MonoBehaviour {
     Pause pause;
     Vector3 startPos;
     GameObject playerObj;
-    float gameSpeed = 0.065f;
-    public float speed;
+    float gameSpeed = 0.18f;
+
 	// Use this for initialization
 	void Start () {
         pause = GameObject.Find("UI").GetComponent<Pause>();
@@ -26,7 +26,7 @@ public class HuubBehaviour : MonoBehaviour {
 
 //            Debug.Log (realSpeed);
 
-            transform.Translate (new Vector3 (0, -speed, 0));
+            transform.Translate (new Vector3 (0, -realSpeed, 0));
         }
 	}
 

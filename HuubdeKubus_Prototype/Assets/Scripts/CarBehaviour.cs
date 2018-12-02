@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarBehaviour : MonoBehaviour {
     Vector3 startPos;
-    float moveSpeed = 8;
+    public float moveSpeed = 8;
     bool move = true;
 
 	// Use this for initialization
@@ -19,16 +19,18 @@ public class CarBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(this.move)
-            transform.Translate (Vector3.forward * Time.deltaTime * moveSpeed);
+        if (this.move)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
+        }
 
-        if(Vector3.Distance (startPos,this.transform.position) > 45)
+        if(Vector3.Distance (startPos, this.transform.position) > 80)
             this.transform.position = startPos;
 	}
 
     IEnumerator startCar()
     {
-        yield return new WaitForSeconds (3f);
+        yield return new WaitForSeconds (2f);
         this.move = true;
     }
 }
