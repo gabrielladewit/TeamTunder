@@ -8,7 +8,7 @@ public class WinStatsSetter : MonoBehaviour {
     Levels currentLevel;
     Transform starDaddy, coinDaddy;
 
-    public int stars, coins;
+    public int level, stars, coins;
 
     SaveLevelScore saveStars;
     SaveInventory saveInv;
@@ -23,6 +23,7 @@ public class WinStatsSetter : MonoBehaviour {
             saveStars = UI.GetComponent<SaveLevelScore>();
             saveInv = UI.GetComponent<SaveInventory>();
 
+            level = currentLevel.currentLevel;
             stars = currentLevel.currentStars;
             coins = currentLevel.currentCoins;
         }
@@ -67,7 +68,7 @@ public class WinStatsSetter : MonoBehaviour {
 
 
         // Save the score to your phone
-        saveStars.SetLevelStars(stars);
+        saveStars.SetLevelStars(level, stars);
         saveInv.AddCoins(coins);
     }
 	
