@@ -24,7 +24,7 @@ public class CarBehaviour : MonoBehaviour {
             transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
         }
 
-        if(Vector3.Distance (startPos, this.transform.position) > 80)
+        if(Vector3.Distance (startPos, this.transform.position) > 100)
             this.transform.position = startPos;
 	}
 
