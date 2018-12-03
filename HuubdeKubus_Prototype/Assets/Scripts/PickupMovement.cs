@@ -32,7 +32,8 @@ public class PickupMovement : MonoBehaviour
         if (coll.gameObject.name == "PlayerSphere")
         {
             pUp.Pickup(powerup.ToString());
-            starParticles.Play();
+            if(starParticles != null)
+                starParticles.Play();
             col.enabled = !col.enabled;
             Destroy(this.gameObject, 1);
         }
