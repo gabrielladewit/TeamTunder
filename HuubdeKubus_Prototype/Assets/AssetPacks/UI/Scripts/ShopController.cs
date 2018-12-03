@@ -12,6 +12,7 @@ public class ShopController : MonoBehaviour
     public SaveInventory inventory;
     public Text currentMoneyTxt;
 
+
     // Use this for initializatio
     void Start()
     {
