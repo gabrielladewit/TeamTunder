@@ -1521,8 +1521,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1484046869}
   - component: {fileID: 1484046868}
-  - component: {fileID: 1484046867}
-  - component: {fileID: 1484046866}
   m_Layer: 0
   m_Name: NewLevel1
   m_TagString: Tables
@@ -1530,30 +1528,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1484046866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114052084061861970, guid: 028cfb18602202041bd23d3a3500dc3e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1484046865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b506c1d1cf61741b1a6f5e447f5b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1484046867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114467560738174304, guid: 028cfb18602202041bd23d3a3500dc3e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1484046865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c8f84554329e8479d70eb9d54b0cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1484046868
 BoxCollider:
   m_ObjectHideFlags: 0
