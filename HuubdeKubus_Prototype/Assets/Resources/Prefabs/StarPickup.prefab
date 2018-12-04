@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23312169301570520}
   - component: {fileID: 135398720374613236}
   - component: {fileID: 114584062746456046}
-  - component: {fileID: 114865011655473346}
+  - component: {fileID: 114499769818006458}
   m_Layer: 0
   m_Name: StarPickup
   m_TagString: Untagged
@@ -117,6 +117,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1590607655201740}
   m_Mesh: {fileID: 4300000, guid: 9d0e73dbf5dfc6e4e800cbe52651ac4d, type: 3}
+--- !u!114 &114499769818006458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1590607655201740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114584062746456046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130,29 +141,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starParticles: {fileID: 198653896134096958}
   powerup: 5
---- !u!114 &114865011655473346
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1590607655201740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 1.5, y: 1.5, z: 1.5}
-  scaleSpeed: 1
-  scaleRate: 0.5
 --- !u!135 &135398720374613236
 SphereCollider:
   m_ObjectHideFlags: 1

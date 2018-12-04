@@ -37,8 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4058106959362942}
   - component: {fileID: 65592088944097496}
-  - component: {fileID: 114491984435971630}
-  - component: {fileID: 114116738733662764}
   m_Layer: 0
   m_Name: NewLevel9
   m_TagString: Tables
@@ -750,25 +748,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.1007786, y: 2.2749152, z: 5.7322345}
   m_Center: {x: -0.090745114, y: 1.1287856, z: 0.09188642}
---- !u!114 &114116738733662764
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1210999384186992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b506c1d1cf61741b1a6f5e447f5b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114491984435971630
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1210999384186992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c8f84554329e8479d70eb9d54b0cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

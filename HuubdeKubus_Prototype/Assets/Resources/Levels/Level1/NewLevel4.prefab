@@ -91,8 +91,8 @@ GameObject:
   - component: {fileID: 4336627160310408}
   - component: {fileID: 33771249233407556}
   - component: {fileID: 23997091634650316}
-  - component: {fileID: 114892990783239760}
   - component: {fileID: 114942380742431888}
+  - component: {fileID: 114410748140103976}
   m_Layer: 0
   m_Name: Coin (3)
   m_TagString: Untagged
@@ -145,8 +145,8 @@ GameObject:
   - component: {fileID: 4282733192719322}
   - component: {fileID: 33752991042194068}
   - component: {fileID: 23254904554964044}
-  - component: {fileID: 114728748556187024}
   - component: {fileID: 114809304112062754}
+  - component: {fileID: 114055765227531552}
   m_Layer: 0
   m_Name: Coin (2)
   m_TagString: Untagged
@@ -182,8 +182,8 @@ GameObject:
   - component: {fileID: 4277072862451532}
   - component: {fileID: 33727768813637508}
   - component: {fileID: 23614912680461442}
-  - component: {fileID: 114661062315872008}
   - component: {fileID: 114317113247086252}
+  - component: {fileID: 114378894691486532}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -307,8 +307,8 @@ GameObject:
   - component: {fileID: 4363479476393156}
   - component: {fileID: 33787746903606106}
   - component: {fileID: 23076236996774382}
-  - component: {fileID: 114479815361050162}
   - component: {fileID: 114181120140125010}
+  - component: {fileID: 114867656817738704}
   m_Layer: 0
   m_Name: Coin (1)
   m_TagString: Untagged
@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 23554691532605172}
   - component: {fileID: 135371636619682078}
   - component: {fileID: 114916585533999108}
-  - component: {fileID: 114562701351012292}
+  - component: {fileID: 114647491246345486}
   m_Layer: 0
   m_Name: StarPickup (1)
   m_TagString: Untagged
@@ -414,8 +414,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4732811300176706}
   - component: {fileID: 65105269492197148}
-  - component: {fileID: 114375960123965932}
-  - component: {fileID: 114164386488925996}
   m_Layer: 0
   m_Name: NewLevel4
   m_TagString: Tables
@@ -1672,15 +1670,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114164386488925996
+--- !u!114 &114055765227531552
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1988801558866190}
+  m_GameObject: {fileID: 1353687198731302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b506c1d1cf61741b1a6f5e447f5b60, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114181120140125010
@@ -1709,64 +1707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starParticles: {fileID: 0}
   powerup: 3
---- !u!114 &114375960123965932
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1988801558866190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c8f84554329e8479d70eb9d54b0cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114479815361050162
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1635832114498292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0
---- !u!114 &114562701351012292
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1864391608692518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 1.5, y: 1.5, z: 1.5}
-  scaleSpeed: 1
-  scaleRate: 0.5
---- !u!114 &114661062315872008
+--- !u!114 &114378894691486532
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1774,44 +1715,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1361944890808040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0
---- !u!114 &114728748556187024
+--- !u!114 &114410748140103976
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1353687198731302}
+  m_GameObject: {fileID: 1209712841047732}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0
+--- !u!114 &114647491246345486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1864391608692518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114809304112062754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1825,29 +1753,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starParticles: {fileID: 0}
   powerup: 3
---- !u!114 &114892990783239760
+--- !u!114 &114867656817738704
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1209712841047732}
+  m_GameObject: {fileID: 1635832114498292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0
 --- !u!114 &114916585533999108
 MonoBehaviour:
   m_ObjectHideFlags: 1

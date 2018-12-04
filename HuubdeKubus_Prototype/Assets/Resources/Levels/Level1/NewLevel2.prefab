@@ -72,8 +72,8 @@ GameObject:
   - component: {fileID: 4377921061404042}
   - component: {fileID: 33252385673380884}
   - component: {fileID: 23352320056482532}
-  - component: {fileID: 114592339574802352}
   - component: {fileID: 114486418436079770}
+  - component: {fileID: 114024248966568220}
   m_Layer: 0
   m_Name: Coin (1)
   m_TagString: Untagged
@@ -108,8 +108,8 @@ GameObject:
   - component: {fileID: 4948455148899694}
   - component: {fileID: 33104557118670924}
   - component: {fileID: 23620684490733400}
-  - component: {fileID: 114701930281025088}
   - component: {fileID: 114829745192870762}
+  - component: {fileID: 114125168918691972}
   m_Layer: 0
   m_Name: Coin (2)
   m_TagString: Untagged
@@ -143,8 +143,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4199300217176400}
   - component: {fileID: 65110251831011888}
-  - component: {fileID: 114841519917640294}
-  - component: {fileID: 114909067920178566}
   m_Layer: 0
   m_Name: NewLevel2
   m_TagString: Tables
@@ -245,8 +243,8 @@ GameObject:
   - component: {fileID: 4973487027195732}
   - component: {fileID: 33097342542842030}
   - component: {fileID: 23707467209022652}
-  - component: {fileID: 114147884184376136}
   - component: {fileID: 114894263533777484}
+  - component: {fileID: 114650197777686134}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -1388,29 +1386,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.9580617, y: 2.1952403, z: 6.3205423}
   m_Center: {x: -0.0029765964, y: 1.0939842, z: -0.19414222}
---- !u!114 &114147884184376136
+--- !u!114 &114024248966568220
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1550213846245444}
+  m_GameObject: {fileID: 1081316810881154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0
+--- !u!114 &114125168918691972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161831856809742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114420115181321676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1436,52 +1433,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starParticles: {fileID: 0}
   powerup: 3
---- !u!114 &114592339574802352
+--- !u!114 &114650197777686134
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1081316810881154}
+  m_GameObject: {fileID: 1550213846245444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0
---- !u!114 &114701930281025088
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1161831856809742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0
 --- !u!114 &114829745192870762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1495,17 +1457,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starParticles: {fileID: 0}
   powerup: 3
---- !u!114 &114841519917640294
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1353451938479682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c8f84554329e8479d70eb9d54b0cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114894263533777484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1519,17 +1470,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starParticles: {fileID: 0}
   powerup: 3
---- !u!114 &114909067920178566
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1353451938479682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b506c1d1cf61741b1a6f5e447f5b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114977004673084604
 MonoBehaviour:
   m_ObjectHideFlags: 1

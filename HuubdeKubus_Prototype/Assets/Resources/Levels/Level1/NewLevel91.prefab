@@ -123,8 +123,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4297349205131210}
   - component: {fileID: 65577783240456268}
-  - component: {fileID: 114586876464044384}
-  - component: {fileID: 114294155320826540}
   m_Layer: 0
   m_Name: NewLevel91
   m_TagString: Tables
@@ -213,7 +211,7 @@ GameObject:
   - component: {fileID: 23804991646556230}
   - component: {fileID: 135403039599447722}
   - component: {fileID: 114554214814646592}
-  - component: {fileID: 114479959130994554}
+  - component: {fileID: 114123896381478882}
   m_Layer: 0
   m_Name: StarPickup
   m_TagString: Untagged
@@ -844,18 +842,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.694605, y: 3.5785658, z: 9.302495}
   m_Center: {x: -0.0013978512, y: 1.784227, z: -0.050180912}
---- !u!114 &114294155320826540
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1669195799457526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b506c1d1cf61741b1a6f5e447f5b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114479959130994554
+--- !u!114 &114123896381478882
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -863,21 +850,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1945676068059374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 1.5, y: 1.5, z: 1.5}
-  scaleSpeed: 1
-  scaleRate: 0.5
 --- !u!114 &114554214814646592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -891,17 +866,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starParticles: {fileID: 198164124719498004}
   powerup: 5
---- !u!114 &114586876464044384
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1669195799457526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c8f84554329e8479d70eb9d54b0cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &135403039599447722
 SphereCollider:
   m_ObjectHideFlags: 1
