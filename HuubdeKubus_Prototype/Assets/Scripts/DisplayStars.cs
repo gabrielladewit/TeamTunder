@@ -18,7 +18,7 @@ public class DisplayStars : MonoBehaviour {
     public void ChangeStars()
     {
         //Get the amount of stars of the current level and display them
-        starsToDisplay = currentLevel.starlvlarray[currentLevel.currentLevel];
+        starsToDisplay = currentLevel.currentStars;
 
         switch (starsToDisplay)
         {
