@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MineBehaviour : MonoBehaviour {
 
-    public GameObject player;
+    private GameObject player;
     public float force, addRadius, delay;
 
     float radius, tempDelay;
@@ -17,7 +17,7 @@ public class MineBehaviour : MonoBehaviour {
     void Start () {
         player = GameObject.Find("PlayerSphere");
         if(this.gameObject.GetComponent<SphereCollider>() != null)
-        radius = this.gameObject.GetComponent<SphereCollider>().radius;
+            radius = this.gameObject.GetComponent<SphereCollider>().radius;
         tempDelay = delay;
     }
 
