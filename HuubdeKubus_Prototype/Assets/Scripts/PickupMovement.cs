@@ -7,12 +7,10 @@ public class PickupMovement : MonoBehaviour
 {
     static PickupBehaviour pUp;
     public ParticleSystem starParticles;
-    Collider col;
 
     private void Start()
     {
         pUp = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
-        col = gameObject.GetComponent<Collider>();
     }
 
     public enum Powerups
@@ -32,10 +30,19 @@ public class PickupMovement : MonoBehaviour
         if (coll.gameObject.name == "PlayerSphere")
         {
             pUp.Pickup(powerup.ToString());
-            if(starParticles != null)
+
+            if (starParticles != null)
                 starParticles.Play();
-            col.enabled = !col.enabled;
-            Destroy(this.gameObject, 1);
+
+
+            if (this.powerup == Powerups.Star)
+            {
+                Destroy(this.gameObject, 1);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }
