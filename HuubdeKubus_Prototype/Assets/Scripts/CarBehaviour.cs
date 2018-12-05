@@ -5,6 +5,7 @@ using UnityEngine;
 public class CarBehaviour : MonoBehaviour {
     Vector3 startPos;
     public float moveSpeed = 8;
+    public float distance = 80;
     bool move = true;
 
 	// Use this for initialization
@@ -24,7 +25,7 @@ public class CarBehaviour : MonoBehaviour {
             transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
         }
 
-        if(Vector3.Distance (startPos, this.transform.position) > 100)
+        if(Vector3.Distance (startPos, this.transform.position) > distance)
             this.transform.position = startPos;
 	}
 

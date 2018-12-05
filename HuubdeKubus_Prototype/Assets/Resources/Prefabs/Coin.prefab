@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4077388195129516}
   - component: {fileID: 33561110625951952}
   - component: {fileID: 23301432160892162}
-  - component: {fileID: 114851591136062714}
   - component: {fileID: 114588565343684284}
   - component: {fileID: 65460987457675416}
+  - component: {fileID: 114241704580731736}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -99,6 +99,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.317236, y: 1.317236, z: 0.16533333}
   m_Center: {x: 0.00042656064, y: -0.0009597242, z: 0.00002892688}
+--- !u!114 &114241704580731736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1991873263516826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114588565343684284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,26 +123,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starParticles: {fileID: 0}
   powerup: 3
---- !u!114 &114851591136062714
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1991873263516826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0

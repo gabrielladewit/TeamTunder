@@ -16,6 +16,7 @@ public class MineBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = GameObject.Find("PlayerSphere");
+        if(this.gameObject.GetComponent<SphereCollider>() != null)
         radius = this.gameObject.GetComponent<SphereCollider>().radius;
         tempDelay = delay;
     }

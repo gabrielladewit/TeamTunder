@@ -296,8 +296,8 @@ GameObject:
   - component: {fileID: 4416733404270724}
   - component: {fileID: 33168221956281554}
   - component: {fileID: 23657701914098174}
-  - component: {fileID: 114306549084389868}
   - component: {fileID: 114647316378045088}
+  - component: {fileID: 114629039865601404}
   m_Layer: 0
   m_Name: Coin (2)
   m_TagString: Untagged
@@ -333,8 +333,8 @@ GameObject:
   - component: {fileID: 4481343171727742}
   - component: {fileID: 33323256776198024}
   - component: {fileID: 23945946535366336}
-  - component: {fileID: 114127875004658360}
   - component: {fileID: 114139831116603922}
+  - component: {fileID: 114865317056142484}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 23468447579651200}
   - component: {fileID: 135110918333258054}
   - component: {fileID: 114952984365754638}
-  - component: {fileID: 114669168503400848}
+  - component: {fileID: 114619097495628576}
   m_Layer: 0
   m_Name: StarPickup
   m_TagString: Untagged
@@ -390,8 +390,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4637256142721046}
   - component: {fileID: 65784990952371192}
-  - component: {fileID: 114228899033192604}
-  - component: {fileID: 114985074170603646}
   m_Layer: 0
   m_Name: NewLevel6
   m_TagString: Tables
@@ -443,8 +441,8 @@ GameObject:
   - component: {fileID: 4461118228658704}
   - component: {fileID: 33476976004851976}
   - component: {fileID: 23698876617571262}
-  - component: {fileID: 114390596838402900}
   - component: {fileID: 114755122435989260}
+  - component: {fileID: 114108841319110306}
   m_Layer: 0
   m_Name: Coin (1)
   m_TagString: Untagged
@@ -2276,29 +2274,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedRotate: 40
   left: 0
---- !u!114 &114127875004658360
+--- !u!114 &114108841319110306
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390303802478942}
+  m_GameObject: {fileID: 1553915804779586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0
 --- !u!114 &114139831116603922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2324,17 +2310,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
---- !u!114 &114228899033192604
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1425762134940628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c8f84554329e8479d70eb9d54b0cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114258388815043424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2360,52 +2335,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedRotate: 40
   left: 1
---- !u!114 &114306549084389868
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1370898015093866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0
---- !u!114 &114390596838402900
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1553915804779586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0
 --- !u!114 &114446604746985534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2418,6 +2347,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 25
+--- !u!114 &114619097495628576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1416880852221912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114629039865601404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1370898015093866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114647316378045088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2431,29 +2382,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starParticles: {fileID: 0}
   powerup: 3
---- !u!114 &114669168503400848
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1416880852221912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.03
-  floatRate: 0.3
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 1.5, y: 1.5, z: 1.5}
-  scaleSpeed: 1
-  scaleRate: 0.5
 --- !u!114 &114755122435989260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2467,6 +2395,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starParticles: {fileID: 0}
   powerup: 3
+--- !u!114 &114865317056142484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390303802478942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114939098109859758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2492,17 +2431,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starParticles: {fileID: 198291962507165194}
   powerup: 5
---- !u!114 &114985074170603646
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1425762134940628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b506c1d1cf61741b1a6f5e447f5b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &135110918333258054
 SphereCollider:
   m_ObjectHideFlags: 1

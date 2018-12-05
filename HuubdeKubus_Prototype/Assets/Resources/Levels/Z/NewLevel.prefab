@@ -184,8 +184,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4256825795079688}
   - component: {fileID: 65455557346212852}
-  - component: {fileID: 114104722911312536}
-  - component: {fileID: 114236741677616846}
   m_Layer: 0
   m_Name: NewLevel
   m_TagString: Tables
@@ -2921,28 +2919,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114104722911312536
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1217104107712536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c8f84554329e8479d70eb9d54b0cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114236741677616846
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1217104107712536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b506c1d1cf61741b1a6f5e447f5b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114991795767293258
 MonoBehaviour:
   m_ObjectHideFlags: 1

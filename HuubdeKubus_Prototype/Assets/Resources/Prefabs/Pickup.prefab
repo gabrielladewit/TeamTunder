@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23089618975673386}
   - component: {fileID: 65340998136536926}
   - component: {fileID: 114500358738592450}
+  - component: {fileID: 114971620401825684}
   m_Layer: 9
   m_Name: Pickup
   m_TagString: Multiplier
@@ -108,7 +109,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verticalSpeed: 4
-  amplitude: 0.05
-  rotationSpeed: 1
+  starParticles: {fileID: 0}
   powerup: 0
+--- !u!114 &114971620401825684
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924102709473684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

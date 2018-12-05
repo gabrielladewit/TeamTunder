@@ -139,8 +139,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4544310717885084}
   - component: {fileID: 65965579163349932}
-  - component: {fileID: 114081714288974336}
-  - component: {fileID: 114002767850962796}
   m_Layer: 0
   m_Name: NewLevel92
   m_TagString: Tables
@@ -534,17 +532,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35, y: 1.2, z: 9}
   m_Center: {x: 0, y: 1.6, z: 5}
---- !u!114 &114002767850962796
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1838668407956516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b506c1d1cf61741b1a6f5e447f5b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114011700403155164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -554,17 +541,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e1a50b98d04035498f5e9bc0dfcfacf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114081714288974336
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1838668407956516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c8f84554329e8479d70eb9d54b0cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212939740278328790
