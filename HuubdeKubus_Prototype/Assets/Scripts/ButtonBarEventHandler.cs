@@ -21,6 +21,7 @@ public class ButtonBarEventHandler : MonoBehaviour {
         panelAbilityPosition = scrollViewAbility.transform.position;
         panelUnitsPosition = scrollViewUnits.transform.position;
 
+
     }
 	
 	// Update is called once per frame
