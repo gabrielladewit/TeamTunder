@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class SpikeBehaviour : MonoBehaviour {
 
-    GameObject UI;
+    public GameObject player;
     Pause pause;
-    PlayAudioClip audioClipPlayer;
 
     // Use this for initialization
     void Start () {
-        UI = GameObject.Find("UI");
-        pause = UI.GetComponent<Pause>();
-        audioClipPlayer = UI.GetComponent<PlayAudioClip>();
+        player = GameObject.Find("PlayerSphere");
+        pause = GameObject.Find("UI").GetComponent<Pause>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("spike HIttt");
-        if (other.gameObject.name == "PlayerSphere")
+        if (other.gameObject == player)
         {
-            Debug.Log("spike hittt");
-            audioClipPlayer.PlayDamageSound();
             pause.DoDie();
         }
     }

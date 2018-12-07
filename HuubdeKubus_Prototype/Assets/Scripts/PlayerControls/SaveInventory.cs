@@ -7,23 +7,22 @@ using UnityEngine;
 
 public class SaveInventory : MonoBehaviour
 {
-    public int currentCoins, currentLives;
-    public bool currentBoughtHeavy = false;
+    public int currentMoney, currentLives;
+    public bool currentBoughtHeavy;
     public bool initialized = false;
+    //public bool loaded = false, saved = false;
     private string destination;
-
-    Levels currentLevelStats;
 
 
     // Use this for initialization
-    void Awake () {
-        currentLevelStats = GameObject.Find("UI").GetComponent<Levels>();
+    void Start () {
         //StartSaveThread();
         StartLoadThread();
-    }
+	}
 
     public void StartSaveThread()
     {
+        //saved = false;
         Thread thread = new Thread(SaveFile);
         destination = Application.persistentDataPath + "/inventory.dat";
         thread.Start();
@@ -37,10 +36,11 @@ public class SaveInventory : MonoBehaviour
         if (File.Exists(destination)) file = File.OpenWrite(destination);
         else file = File.Create(destination);
         
-        Inventory data = new Inventory(currentCoins, currentLives, currentBoughtHeavy);
+        Inventory data = new Inventory(currentMoney, currentLives, currentBoughtHeavy);
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(file, data);
         file.Close();
+        //saved = true;
     }
 
     public void StartLoadThread()
@@ -66,46 +66,33 @@ public class SaveInventory : MonoBehaviour
         Inventory data = (Inventory)bf.Deserialize(file);
         file.Close();
         
-        currentCoins = data.coins;
+        currentMoney = data.money;
         currentLives = data.lives;
         currentBoughtHeavy = data.boughtHeavy;
         initialized = true;
     }
 	
-    public void SpendCoins(int price)
+    public void SpendMoney(int price)
     {
-        currentCoins -= price;
-        StartSaveThread();
-    }
-
-    public void AddCoins(int toAdd)
-    {
-        currentCoins += toAdd;
-        StartSaveThread();
-    }
-
-    public void AddCoinsAfterGame()
-    {
-        Debug.Log("wejo te laat");
-        currentCoins += currentLevelStats.currentCoins;
-        StartSaveThread();
+        currentMoney -= price;
+        SaveFile();
     }
 
     public void AddLife()
     {
         currentLives++;
-        StartSaveThread();
+        SaveFile();
     }
 
     public void SetBoughtHeavy()
     {
         currentBoughtHeavy = true;
-        StartSaveThread();
+        SaveFile();
     }
 
     public int GetCurrentMoney()
     {
-        return currentCoins;
+        return currentMoney;
     }
 
     public int GetCurrentLives()

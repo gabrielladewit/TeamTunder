@@ -9,7 +9,7 @@ public class coinsvisualtesting : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        coins = GameObject.Find("UI").GetComponent<SaveInventory>().currentCoins;
+        coins = GameObject.Find("UI").GetComponent<SaveInventory>().currentMoney;
 	}
 	
 	// Update is called once per frame

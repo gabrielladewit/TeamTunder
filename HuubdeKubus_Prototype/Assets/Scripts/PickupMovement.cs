@@ -5,14 +5,15 @@ using Unity.Entities;
 
 public class PickupMovement : MonoBehaviour
 {
+    public float verticalSpeed = 4;
+    public float amplitude = 0.05f;
+    public float rotationSpeed = 1;
     static PickupBehaviour pUp;
-    public ParticleSystem starParticles;
-    Collider col;
 
     private void Start()
     {
-        pUp = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
-        col = gameObject.GetComponent<Collider>();
+        if(pUp == null)
+            pUp = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
     }
 
     public enum Powerups
@@ -32,10 +33,25 @@ public class PickupMovement : MonoBehaviour
         if (coll.gameObject.name == "PlayerSphere")
         {
             pUp.Pickup(powerup.ToString());
-            if(starParticles != null)
-                starParticles.Play();
-            col.enabled = !col.enabled;
-            Destroy(this.gameObject, 1);
+            Destroy(this.gameObject);
+        }
+    }
+}
+
+class MovementSystem : ComponentSystem
+{
+    struct Components
+    {
+        public PickupMovement move;
+        public Transform trans;
+    }
+
+    protected override void OnUpdate()
+    {
+        foreach (var e in GetEntities<Components>())
+        {
+            e.trans.Rotate(Vector3.up * e.move.rotationSpeed);
+            e.trans.position = e.trans.position + new Vector3(0.0f, 0.0f, Mathf.Sin(Time.realtimeSinceStartup * e.move.verticalSpeed) * e.move.amplitude);
         }
     }
 }

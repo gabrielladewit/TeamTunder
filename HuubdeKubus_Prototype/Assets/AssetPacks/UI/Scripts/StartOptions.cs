@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+
 
 public class StartOptions : MonoBehaviour {
 
@@ -25,7 +25,6 @@ public class StartOptions : MonoBehaviour {
     public Pause pauseScript;
     public Tutorial tutorialScript;
 
-    public CameraBehaviour.Modes currentCameraMode = CameraBehaviour.Modes.Sway;
 	
 	void Awake()
 	{
@@ -38,6 +37,7 @@ public class StartOptions : MonoBehaviour {
         levelManager = GetComponent<Levels>();
         pauseScript = GetComponent<Pause>();
         tutorialScript = GetComponent<Tutorial>();
+
 	}
 
     public void LevelClicked(int x)
@@ -195,24 +195,4 @@ public class StartOptions : MonoBehaviour {
 		//Play music clip assigned to mainMusic in PlayMusic script
 		playMusic.PlaySelectedMusic (1);
 	}
-    
-    public void SetCameraMode()
-    {
-        CameraBehaviour.Modes camMode;
-
-        switch (GameObject.Find("CameraModeOptions").GetComponent<Dropdown>().value)
-        {
-            case 0:
-                camMode = CameraBehaviour.Modes.Sway;
-                break;
-            case 1:
-                camMode = CameraBehaviour.Modes.Strafe;
-                break;
-            default:
-                camMode = CameraBehaviour.Modes.Sway;
-                break;
-        }
-
-        currentCameraMode = camMode;
-    }
 }

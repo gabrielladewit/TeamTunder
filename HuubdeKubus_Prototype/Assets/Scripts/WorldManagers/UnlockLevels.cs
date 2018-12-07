@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UnlockLevels : MonoBehaviour {
-
-    public GameObject UI;
-
-	void Awake () {
-        int[] totalStarsArray = UI.GetComponent<SaveLevelScore>().stars;
+    
+	void Start () {
+        int[] totalStarsArray = GetComponent<SaveLevelScore>().stars;
         int totalStars = 0;
 
         //Set Total Stars
@@ -22,12 +20,9 @@ public class UnlockLevels : MonoBehaviour {
             string levelName = "Level" + i;
             GameObject starDaddy = GameObject.Find(levelName);
             //Since GameObjects stars active check if it needs to be set to Deactive
-            if (starDaddy != null)
+            if (starDaddy.GetComponent<UnlockLevelWithStars>().requiredStars > totalStars)
             {
-                if (starDaddy.GetComponent<UnlockLevelWithStars>().requiredStars > totalStars)
-                {
-                    starDaddy.SetActive(false);
-                }
+                starDaddy.SetActive(false);
             }
         }
 	}

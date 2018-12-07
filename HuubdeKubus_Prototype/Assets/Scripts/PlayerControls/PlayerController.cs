@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Timers;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,60 +7,46 @@ public class PlayerController : MonoBehaviour
 
     bool isLeftPressed = false, isRightPressed = false;
     private Rigidbody rb;
-    
+
+    private PickupBehaviour pickupManager;
     public GameObject replacement;
 
     public bool inverted = false;
     public float movementSpeed = 4;
     public int breakAmount = 0;
-
-    public Stopwatch stopwatch;
-    public PickupBehaviour pickupManager;
-    
+    // Use this for initialization
     void Start()
     {
-        stopwatch = new Stopwatch();
-        stopwatch.Start();
         movementSpeed = 6;
         rb = this.gameObject.GetComponent<Rigidbody>();
-        pickupManager = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
+        pickupManager = GameObject.Find("Main Camera").GetComponent<PickupBehaviour>();
+
     }
-    
+
+    // Update is called once per frame
     void FixedUpdate()
     {
         MoveUpdate();
     }
-    
+
+
     void MoveUpdate()
     {
+
         if (!inverted)
         {
             if (isLeftPressed)
             {
-                if (rb.velocity.x > 3)
-                {
-                    rb.AddForce(new Vector3(-movementSpeed * 2, 0, 0));
-                } else
-                {
-                    rb.AddForce(new Vector3(-movementSpeed, 0, 0));
-                }
+                rb.AddForce(new Vector3(-movementSpeed, 0, 0));
             }
 
             if (isRightPressed)
             {
-                if (rb.velocity.x < -3)
-                {
-                    rb.AddForce(new Vector3(movementSpeed * 2, 0, 0));
-                }
-                else
-                {
-                    rb.AddForce(new Vector3(movementSpeed, 0, 0));
-                }
+                rb.AddForce(new Vector3(movementSpeed, 0, 0));
             }
         }
         else
         {
-            
             if (isLeftPressed)
             {
                 rb.AddForce(new Vector3(movementSpeed, 0, 0));
@@ -72,7 +56,10 @@ public class PlayerController : MonoBehaviour
             {
                 rb.AddForce(new Vector3(-movementSpeed, 0, 0));
             }
+
         }
+
+
     }
 
     public void OnPointerDownLeftButton()
@@ -93,17 +80,6 @@ public class PlayerController : MonoBehaviour
     public void OnPointerUpRightButton()
     {
         isRightPressed = false;
-    }
-
-    public void StopStopwatch()
-    {
-        Levels currentLevel = GameObject.Find("UI").GetComponent<Levels>();
-        stopwatch.Stop();
-
-        //TODO: Calculate bonus score !!
-        int bonusScore = 100; // Mathf.RoundToInt((75*1000) - (int)stopwatch.ElapsedMilliseconds)/1000;
-        currentLevel.currentCoins += bonusScore;
-
     }
 
     void SpawnBreakable(GameObject go)

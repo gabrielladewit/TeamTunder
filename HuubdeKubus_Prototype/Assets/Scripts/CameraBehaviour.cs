@@ -10,7 +10,7 @@ public class CameraBehaviour : MonoBehaviour {
         Strafe
     }
 
-    private Modes cameraMode;
+    public Modes cameraMode;
 
     private Transform playerT;
     public float smoothSpeed = 0.125f;
@@ -19,10 +19,9 @@ public class CameraBehaviour : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        cameraMode = GameObject.Find("UI").GetComponent<StartOptions>().currentCameraMode;
         playerT = GameObject.Find ("PlayerSphere").transform;
         startPos = this.transform.position;
-        camPos = new Vector3 (0, 0f, -40f);
+        camPos = new Vector3 (0, 0f, -25f);
         offset = new Vector3 (0, 2f, 2f);
 	}
 

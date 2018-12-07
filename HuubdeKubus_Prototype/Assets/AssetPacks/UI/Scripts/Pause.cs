@@ -44,6 +44,7 @@ public class Pause : MonoBehaviour {
 
 	public void PauseTutorial()
 	{
+        Debug.Log("pausetutorial");
         //Set isPaused to true
         isPaused = true;
 

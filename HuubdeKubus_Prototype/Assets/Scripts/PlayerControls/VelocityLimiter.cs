@@ -7,7 +7,7 @@ public class VelocityLimiter : MonoBehaviour
 
     private Rigidbody rigid;
     public GameObject mainCamera;
-    public float velocityLimit = 15f;
+    private float velocityLimit = 15f;
     public float gravity = 0.4f;
     RaycastHit hit;
 

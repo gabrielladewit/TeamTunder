@@ -19,6 +19,4 @@ public class SetAudioLevels : MonoBehaviour {
 	{
 		mainMixer.SetFloat("sfxVol", sfxLevel);
 	}
-
-
 }

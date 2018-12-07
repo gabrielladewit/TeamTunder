@@ -20,12 +20,12 @@ public class SaveLevelScore : MonoBehaviour {
         StartLoadThread();
     }
 
-    public void SetLevelStars(int level, int currentStars)
+    public void SetLevelStars(int collectedStars)
     {
-        Debug.Log("Setting  -  Level: " + level + " Stars:" + currentStars);
-        if (stars[level] < currentStars)
+        Debug.Log("Setting  -  Level: " + level.currentLevel + " Stars:" + level.currentStars);
+        if (stars[level.currentLevel] < level.currentStars)
         {
-            stars[level] = currentStars;
+            stars[level.currentLevel] = level.currentStars;
         }
         StartSaveThread();
     }
@@ -78,6 +78,7 @@ public class SaveLevelScore : MonoBehaviour {
 
         BinaryFormatter bf = new BinaryFormatter();
         stars = (int[])bf.Deserialize(file);
+        Debug.Log("Saved Stars array length = " + stars.Length);
         file.Close();
 
         initialized = true;

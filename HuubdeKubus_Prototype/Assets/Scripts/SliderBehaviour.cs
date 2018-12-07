@@ -31,8 +31,6 @@ public class SliderBehaviour : MonoBehaviour {
     {
         float playerPos = (Player.transform.position.y - playerStartPos.y) / mapLength;
         float huubPos = (Huub.transform.position.y - huubStartPos.y) / mapLength;
-
-        
     
         playerSlider.value = playerPos;
         huubSlider.value = huubPos;

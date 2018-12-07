@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class Inventory {
 
-    public int coins, lives;
+    public int money, lives;
     public bool boughtHeavy;
 
-    public Inventory(int coinInt, int livesInt, bool boughtHeavyBool)
+    public Inventory(int moneyInt, int livesInt, bool boughtHeavyBool)
     {
-        coins = coinInt;
+        money = moneyInt;
         lives = livesInt;
         boughtHeavy = boughtHeavyBool;
     }
