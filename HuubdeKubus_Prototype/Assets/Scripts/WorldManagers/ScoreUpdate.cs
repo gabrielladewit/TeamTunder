@@ -47,10 +47,10 @@ public class ScoreUpdate : MonoBehaviour {
             }
 
             
-            theScore.GetComponent<Text>().text = (-16 + scorez).ToString();
+            //theScore.GetComponent<Text>().text = (-16 + scorez).ToString();
 
             var score = (int)Vector3.Distance(cameraObj.transform.position, topObj.transform.position);
-            theScore.GetComponent<Text>().text = (-8 + score).ToString();
+            //theScore.GetComponent<Text>().text = (-8 + score).ToString();
 
             yield return new WaitForSeconds(0.4f);
         }

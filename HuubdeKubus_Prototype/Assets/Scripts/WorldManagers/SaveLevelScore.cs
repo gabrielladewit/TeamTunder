@@ -18,6 +18,7 @@ public class SaveLevelScore : MonoBehaviour {
         //LOAD STARS
         stars = new int[20];
         StartLoadThread();
+        //StartSaveThread();
     }
 
     public void SetLevelStars(int collectedStars)
