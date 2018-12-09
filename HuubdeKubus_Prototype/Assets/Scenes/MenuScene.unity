@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -820,8 +820,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c1f7d09720d904796f14ab21c4df2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starsArray: 
-  UI: {fileID: 1644238098}
 --- !u!1 &141480357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2967,7 +2965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 149.4054, y: -264}
+  m_AnchoredPosition: {x: 160, y: -264}
   m_SizeDelta: {x: 298.8108, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &523082023
@@ -3095,7 +3093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.010827652, y: 0.04063255}
   m_AnchorMax: {x: 0.31800002, y: 0.162}
-  m_AnchoredPosition: {x: 65.99983, y: 57.650146}
+  m_AnchoredPosition: {x: 65.99983, y: 57.650208}
   m_SizeDelta: {x: 44.658, y: 115.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547147587
@@ -4398,7 +4396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6781385, y: 0.04063255}
   m_AnchorMax: {x: 0.9883968, y: 0.162}
-  m_AnchoredPosition: {x: -71.150024, y: 57.650146}
+  m_AnchoredPosition: {x: -71.150024, y: 57.650208}
   m_SizeDelta: {x: 42.3, y: 115.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &686249044
@@ -7011,10 +7009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f20a779227b6f49bfaef3c53094e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  stars: 0
-  coins: 0
-  UI: {fileID: 1644238098}
 --- !u!1 &1036446431
 GameObject:
   m_ObjectHideFlags: 0
@@ -7466,7 +7460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6781385, y: 0.04063255}
   m_AnchorMax: {x: 0.9883968, y: 0.162}
-  m_AnchoredPosition: {x: -71.150024, y: 57.650192}
+  m_AnchoredPosition: {x: -71.150024, y: 57.650185}
   m_SizeDelta: {x: 42.3, y: 115.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1099690658
@@ -9888,7 +9882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.010827652, y: 0.04063255}
   m_AnchorMax: {x: 0.31800002, y: 0.162}
-  m_AnchoredPosition: {x: 65.99983, y: 57.650192}
+  m_AnchoredPosition: {x: 65.99983, y: 57.650185}
   m_SizeDelta: {x: 44.658, y: 115.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1611989227
@@ -10446,7 +10440,6 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   pauseScript: {fileID: 0}
   tutorialScript: {fileID: 0}
-  currentCameraMode: 1
 --- !u!225 &1644238105
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -10532,10 +10525,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   currentStars: 0
-  starlvlarray: 
-  starsToDisplay: 0
-  currentCoins: 0
-  currenLevelDuration: 0
 --- !u!114 &1644238110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10547,7 +10536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3bdcbe7ebf8c9b47b9b3e29616579f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCoins: 0
+  currentMoney: 0
   currentLives: 0
   currentBoughtHeavy: 0
   initialized: 0
