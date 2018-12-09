@@ -31,8 +31,17 @@ public class ConveyorBelt : MonoBehaviour
         rend.material.mainTextureOffset = new Vector2(-offset, 0);
     }
 
+    //Remove constraints and add force when player collides with the belt
     private void OnTriggerStay(Collider other)
     {
         other.attachedRigidbody.AddForce(direction * beltSpeed);
+        other.attachedRigidbody.constraints = RigidbodyConstraints.None;
+    }
+
+    //Add constraints when player isn't on the belt
+    private void OnTriggerExit(Collider other)
+    {
+        other.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX |
+            RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 } 

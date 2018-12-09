@@ -8,6 +8,8 @@ public class MovingObstacle : MonoBehaviour {
     Transform[] places;
     Vector3 nextPos;
     Vector3 startPos;
+    Vector3 nextPosY;
+    Vector3 rotate;
     float distance;
     int nextLocation = 0;
     public float speed = 0.06f;
@@ -19,7 +21,7 @@ public class MovingObstacle : MonoBehaviour {
 
         foreach (Transform go in places)
         {
-            if(go.position != startPos)
+            if (go.position != startPos && go.name.Contains("GameObject"))
                 positions.Add(go.position);
         }
         nextPos = positions[nextLocation];
@@ -28,8 +30,7 @@ public class MovingObstacle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         distance = Vector3.Distance(this.transform.position, nextPos);
-        
-        this.transform.position = Vector3.MoveTowards(transform.position, nextPos,speed);
+        this.transform.position = Vector3.MoveTowards(transform.position, nextPos, speed);
 
         if (distance < 0.75f)
         {
@@ -38,6 +39,7 @@ public class MovingObstacle : MonoBehaviour {
                 nextLocation = 0;
             nextPos = positions[nextLocation];
         }
-       
-	}
+        transform.LookAt(nextPos);
+        transform.rotation = Quaternion.Normalize(transform.rotation);
+    }
 }
