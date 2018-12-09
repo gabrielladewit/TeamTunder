@@ -25,19 +25,21 @@ public class MineBehaviour : MonoBehaviour {
     {
         if (onOff)
         {
-            //tempDelay -= 2f * Time.deltaTime;
+            tempDelay -= 2f * Time.deltaTime;
 
-            //if (tempDelay <= 0.0f)
-            //{
+            if (tempDelay <= 0.0f)
+            {
                 Rigidbody rb = player.GetComponent<Rigidbody>();
+                Debug.Log("add xplode");
                 rb.AddExplosionForce(force * 10, this.transform.position, addRadius + radius);
                 onOff = false;
-            //}
+            }
         }
     }
 
     public void OnTriggerEnter(Collider other)
     {
+        Debug.Log("hit");
         particleSmoke.Play();
         particleShock.Play();
         onOff = true;

@@ -7,6 +7,7 @@ public class HuubBehaviour : MonoBehaviour {
     Vector3 startPos;
     GameObject playerObj;
     float gameSpeed = 0.18f;
+    public float speed = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +27,7 @@ public class HuubBehaviour : MonoBehaviour {
 
 //            Debug.Log (realSpeed);
 
-            transform.Translate (new Vector3 (0, -realSpeed, 0));
+            transform.Translate (new Vector3 (0, -speed, 0));
         }
 	}
 
