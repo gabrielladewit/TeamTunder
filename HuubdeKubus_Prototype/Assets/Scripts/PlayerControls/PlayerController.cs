@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject replacement;
 
     public bool inverted = false;
-    public float movementSpeed = 4;
+    public float movementSpeed = 8;
     public int breakAmount = 0;
 
     public Stopwatch stopwatch;
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isLeftPressed)
             {
-                if (rb.velocity.x > 3)
+                if (rb.velocity.x > 2)
                 {
                     rb.AddForce(new Vector3(-movementSpeed * 2, 0, 0));
                 } else
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
             if (isRightPressed)
             {
-                if (rb.velocity.x < -3)
+                if (rb.velocity.x < -2)
                 {
                     rb.AddForce(new Vector3(movementSpeed * 2, 0, 0));
                 }
@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
         Levels currentLevel = GameObject.Find("UI").GetComponent<Levels>();
         stopwatch.Stop();
 
-        //TODO: Calculate bonus score !!
+        //TODO: Calculate bonus score !! -> Distance from huub = level speed !!
         int bonusScore = 100; // Mathf.RoundToInt((75*1000) - (int)stopwatch.ElapsedMilliseconds)/1000;
         currentLevel.currentCoins += bonusScore;
 
