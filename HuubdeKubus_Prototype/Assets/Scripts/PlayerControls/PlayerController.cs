@@ -17,13 +17,12 @@ public class PlayerController : MonoBehaviour
     public int breakAmount = 0;
 
     public Stopwatch stopwatch;
-    public PickupBehaviour pickupManager;
+    PickupBehaviour pickupManager;
     
     void Start()
     {
         stopwatch = new Stopwatch();
         stopwatch.Start();
-        movementSpeed = 6;
         rb = this.gameObject.GetComponent<Rigidbody>();
         pickupManager = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
     }

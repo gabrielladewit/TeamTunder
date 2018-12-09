@@ -25,7 +25,7 @@ public class StarUIManager : MonoBehaviour {
         {
             GameObject starDaddy = gameObject.transform.GetChild(i).gameObject;
             //Since GameObjects stars active check if it needs to be set to Deactive
-            if (starDaddy != null && starDaddy.name != "Return")
+            if (starDaddy != null && starDaddy.name != "Return" && starDaddy.name != "RawImage")
             {
                 if (starDaddy.GetComponent<UnlockLevelWithStars>().requiredStars > totalStars)
                 {
@@ -40,7 +40,7 @@ public class StarUIManager : MonoBehaviour {
                     Transform star3 = starDaddy.transform.GetChild(3);
                     star3.gameObject.SetActive(false);
 
-                    switch (starsArray[i + 1])
+                    switch (starsArray[i])
                     {
                         case 0:
                             break;

@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 402058}
   - component: {fileID: 3381656}
   - component: {fileID: 2347948}
+  - component: {fileID: 64522517301333178}
   m_Layer: 0
   m_Name: SPW_Farm_Fence_03
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 126364}
   m_IsPrefabAsset: 1
+--- !u!64 &64522517301333178
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126364}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: eeebabbc8b69c444db37ed96c856f22b, type: 3}

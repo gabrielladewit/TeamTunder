@@ -35,7 +35,7 @@ public class PickupMovement : MonoBehaviour
             if(starParticles != null)
                 starParticles.Play();
             col.enabled = !col.enabled;
-            Destroy(this.gameObject, 1);
+            Destroy(this.gameObject);
         }
     }
 }

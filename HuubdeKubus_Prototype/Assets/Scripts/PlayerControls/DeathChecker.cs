@@ -21,10 +21,10 @@ public class DeathChecker : MonoBehaviour
     //Die when the player is not in the level
     public void OutOfBounds()
     {
-        if (gameObject.transform.position.x < -18 || gameObject.transform.position.x > 19 || gameObject.transform.position.z > 2 || gameObject.transform.position.z < -4)
+       /* if (gameObject.transform.position.x < -18 || gameObject.transform.position.x > 19 || gameObject.transform.position.z > 2 || gameObject.transform.position.z < -4)
         {
             StartCoroutine(Die());
-        }
+        }*/
     }
 
     IEnumerator Die()
