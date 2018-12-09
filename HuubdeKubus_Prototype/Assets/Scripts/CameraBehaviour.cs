@@ -57,13 +57,13 @@ public class CameraBehaviour : MonoBehaviour {
             {
                 Vector3 camPosition = playerT.position + camPos;
 
-                if (camPosition.x > 15f)
+                if (camPosition.x > 60f)
                 {
-                    camPosition.x = 15f;
+                    camPosition.x = 60f;
                 }
-                else if (camPosition.x < -15f)
+                else if (camPosition.x < -60f)
                 {
-                    camPosition.x = -15f;
+                    camPosition.x = -60f;
                 }
 
                 transform.position = camPosition;
