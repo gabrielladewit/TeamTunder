@@ -6,12 +6,14 @@ using UnityEngine;
 public class MovingObstacle : MonoBehaviour {
     private List<Vector3> positions = new List<Vector3>();
     Transform[] places;
+
     Vector3 nextPos;
+    Vector3 lastPos;
     Vector3 startPos;
-    Vector3 nextPosY;
-    Vector3 rotate;
+
     float distance;
     int nextLocation = 0;
+
     public float speed = 0.06f;
     // Use this for initialization
     void Start()
@@ -34,12 +36,28 @@ public class MovingObstacle : MonoBehaviour {
 
         if (distance < 0.75f)
         {
+            lastPos = nextPos;
             nextLocation++;
-            if (nextLocation >= transform.childCount)
+            if (nextLocation >= positions.Count)
                 nextLocation = 0;
             nextPos = positions[nextLocation];
+
+            RotateDieKutAutosGoed();
         }
-        transform.LookAt(nextPos);
-        transform.rotation = Quaternion.Normalize(transform.rotation);
+
+    }
+
+    void RotateDieKutAutosGoed()
+    {
+        Vector3 targetDir = (nextPos - lastPos).normalized;
+        float angle;
+
+        if (targetDir.x < 0)
+            angle = 360 - Vector3.Angle(targetDir, Vector3.up);
+        else
+            angle = Vector3.Angle(targetDir, Vector3.up);
+
+        transform.localRotation = Quaternion.Euler(0, angle, 0);
+
     }
 }
