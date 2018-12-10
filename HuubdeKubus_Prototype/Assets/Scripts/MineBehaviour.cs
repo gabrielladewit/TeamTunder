@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MineBehaviour : MonoBehaviour {
 
-    public GameObject player;
+    private GameObject player;
     public float force, addRadius, delay;
 
     float radius, tempDelay;
@@ -17,7 +17,7 @@ public class MineBehaviour : MonoBehaviour {
     void Start () {
         player = GameObject.Find("PlayerSphere");
         if(this.gameObject.GetComponent<SphereCollider>() != null)
-        radius = this.gameObject.GetComponent<SphereCollider>().radius;
+            radius = this.gameObject.GetComponent<SphereCollider>().radius;
         tempDelay = delay;
     }
 
@@ -25,19 +25,21 @@ public class MineBehaviour : MonoBehaviour {
     {
         if (onOff)
         {
-            //tempDelay -= 2f * Time.deltaTime;
+            tempDelay -= 2f * Time.deltaTime;
 
-            //if (tempDelay <= 0.0f)
-            //{
+            if (tempDelay <= 0.0f)
+            {
                 Rigidbody rb = player.GetComponent<Rigidbody>();
+                Debug.Log("add xplode");
                 rb.AddExplosionForce(force * 10, this.transform.position, addRadius + radius);
                 onOff = false;
-            //}
+            }
         }
     }
 
     public void OnTriggerEnter(Collider other)
     {
+        Debug.Log("hit");
         particleSmoke.Play();
         particleShock.Play();
         onOff = true;

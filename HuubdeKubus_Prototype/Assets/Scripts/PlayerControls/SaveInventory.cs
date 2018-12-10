@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class SaveInventory : MonoBehaviour
 {
-    public int currentCoins, currentLives;
+    public int currentMoney, currentLives;
     public bool currentBoughtHeavy = false;
     public bool initialized = false;
     private string destination;
@@ -37,7 +37,7 @@ public class SaveInventory : MonoBehaviour
         if (File.Exists(destination)) file = File.OpenWrite(destination);
         else file = File.Create(destination);
         
-        Inventory data = new Inventory(currentCoins, currentLives, currentBoughtHeavy);
+        Inventory data = new Inventory(currentMoney, currentLives, currentBoughtHeavy);
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(file, data);
         file.Close();
@@ -66,28 +66,28 @@ public class SaveInventory : MonoBehaviour
         Inventory data = (Inventory)bf.Deserialize(file);
         file.Close();
         
-        currentCoins = data.coins;
+        currentMoney = data.coins;
         currentLives = data.lives;
         currentBoughtHeavy = data.boughtHeavy;
         initialized = true;
     }
 	
-    public void SpendCoins(int price)
+    public void SpendMoney(int price)
     {
-        currentCoins -= price;
+        currentMoney -= price;
         StartSaveThread();
     }
 
     public void AddCoins(int toAdd)
     {
-        currentCoins += toAdd;
+        currentMoney += toAdd;
         StartSaveThread();
     }
 
     public void AddCoinsAfterGame()
     {
         Debug.Log("wejo te laat");
-        currentCoins += currentLevelStats.currentCoins;
+        currentMoney += currentLevelStats.currentCoins;
         StartSaveThread();
     }
 
@@ -105,7 +105,7 @@ public class SaveInventory : MonoBehaviour
 
     public int GetCurrentMoney()
     {
-        return currentCoins;
+        return currentMoney;
     }
 
     public int GetCurrentLives()
