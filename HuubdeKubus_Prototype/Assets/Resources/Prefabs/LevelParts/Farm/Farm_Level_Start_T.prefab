@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4343760283173276}
   - component: {fileID: 33058837463673200}
   - component: {fileID: 23711313625035950}
+  - component: {fileID: 65708118212911330}
   m_Layer: 0
   m_Name: SPW_Terrain_Grass_Flat (2)
   m_TagString: Untagged
@@ -53,6 +54,7 @@ GameObject:
   - component: {fileID: 4235764597832892}
   - component: {fileID: 33703411311440892}
   - component: {fileID: 23053481597365586}
+  - component: {fileID: 65907859070040668}
   m_Layer: 0
   m_Name: SPW_Medieval_Road_01 (8)
   m_TagString: Untagged
@@ -70,6 +72,7 @@ GameObject:
   - component: {fileID: 4335799679948322}
   - component: {fileID: 33981858357845850}
   - component: {fileID: 23268167957349110}
+  - component: {fileID: 65968256888695078}
   m_Layer: 0
   m_Name: SPW_Medieval_Road_01 (2)
   m_TagString: Untagged
@@ -83,8 +86,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1038797371867532}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4343760283173276}
@@ -258,3 +261,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1904257431408280}
   m_Mesh: {fileID: 4300758, guid: 04de451c167369e4980d42bc7a9599ad, type: 3}
+--- !u!65 &65708118212911330
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1074440073912044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.000004, y: 0.0000008742278, z: 20.000004}
+  m_Center: {x: 0.00000047683716, y: 0, z: 0}
+--- !u!65 &65907859070040668
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1834337637572656}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.000002, y: 0.0000004371139, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65968256888695078
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1904257431408280}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.0000004371139, z: 10}
+  m_Center: {x: 4.5474735e-13, y: 0.0000000018626451, z: 0}
