@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4475332268384322}
   - component: {fileID: 33932217295296704}
   - component: {fileID: 23053944780290240}
+  - component: {fileID: 65305350476502906}
   m_Layer: 0
   m_Name: SPW_Farm_Crop_Sunflower_Level01 (2)
   m_TagString: Untagged
@@ -146,6 +147,7 @@ GameObject:
   - component: {fileID: 4736623949554506}
   - component: {fileID: 33228015368727224}
   - component: {fileID: 23731464005278294}
+  - component: {fileID: 65981677583561520}
   m_Layer: 0
   m_Name: SPW_Farm_Crop_Sunflower_Level01
   m_TagString: Untagged
@@ -358,7 +360,7 @@ GameObject:
   - component: {fileID: 4895290639035340}
   - component: {fileID: 33866724859664972}
   - component: {fileID: 23662252318704938}
-  - component: {fileID: 136905981456004942}
+  - component: {fileID: 65247828085138808}
   m_Layer: 0
   m_Name: SPW_Farm_Crop_Sunflower_Level01 (1)
   m_TagString: Untagged
@@ -551,7 +553,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1439771411215118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -245.75725, y: 1053.625, z: -301.2313}
+  m_LocalPosition: {x: 170.87892, y: 151.05371, z: -434.3705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4736623949554506}
@@ -2023,6 +2025,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 2, z: 0.40000018}
   m_Center: {x: 0.0000007152559, y: 1, z: -0.000000044703494}
+--- !u!65 &65247828085138808
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1706779516338532}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0, z: 10}
+  m_Center: {x: 0, y: -0.00000020861626, z: 2.1175824e-22}
 --- !u!65 &65262353460015732
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2059,6 +2073,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 2, z: 0.40000018}
   m_Center: {x: 0.0000007152559, y: 1, z: -0.000000044703494}
+--- !u!65 &65305350476502906
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061712354769570}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0, z: 10}
+  m_Center: {x: 0, y: -0.00000020861626, z: 2.1175824e-22}
 --- !u!65 &65368793488743334
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2179,6 +2205,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.999998, y: 2, z: 0.4000001}
   m_Center: {x: 0.00000071525574, y: 1, z: -0.000000044703484}
+--- !u!65 &65981677583561520
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375802690172422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0, z: 10}
+  m_Center: {x: 0, y: -0.00000020861626, z: 2.1175824e-22}
 --- !u!136 &136339223228164114
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2244,16 +2282,3 @@ CapsuleCollider:
   m_Height: 4.5087996
   m_Direction: 1
   m_Center: {x: 0.0026714206, y: 2.2544012, z: 0.037383556}
---- !u!136 &136905981456004942
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1706779516338532}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 5
-  m_Height: 0.40234235
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.20117097, z: 0}
