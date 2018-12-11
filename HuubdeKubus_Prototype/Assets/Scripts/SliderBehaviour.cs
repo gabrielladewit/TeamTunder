@@ -19,7 +19,16 @@ public class SliderBehaviour : MonoBehaviour {
 	void Start () {
         playerStartPos = Player.transform.position;
         huubStartPos = Huub.transform.position;
-        mapLength = -175;
+
+        if (GameObject.Find("FinishLine") != null)
+        {
+            mapLength = GameObject.Find("FinishLine").transform.position.y - playerStartPos.y;
+        }
+        else
+        {
+            Debug.LogError("NO FINISHLINE");
+            mapLength = 200;
+        }
 	}
 	
 	// Update is called once per frame

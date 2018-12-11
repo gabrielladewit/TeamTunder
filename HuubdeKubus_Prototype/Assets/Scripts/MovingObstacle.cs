@@ -14,7 +14,7 @@ public class MovingObstacle : MonoBehaviour {
     float distance;
     int nextLocation = 0;
 
-    public float speed = 0.06f;
+    float speed = 15f;
     // Use this for initialization
     void Start()
     {
@@ -26,13 +26,14 @@ public class MovingObstacle : MonoBehaviour {
             if (go.position != startPos && go.name.Contains("GameObject"))
                 positions.Add(go.position);
         }
+    
         nextPos = positions[nextLocation];
     }
 	
 	// Update is called once per frame
 	void Update () {
         distance = Vector3.Distance(this.transform.position, nextPos);
-        this.transform.position = Vector3.MoveTowards(transform.position, nextPos, speed);
+        this.transform.position = Vector3.MoveTowards(transform.position, nextPos, Time.deltaTime * speed);
 
         if (distance < 0.75f)
         {

@@ -6,11 +6,13 @@ public class HuubBehaviour : MonoBehaviour {
     Pause pause;
     Vector3 startPos;
     GameObject playerObj;
-    float gameSpeed = 0.18f;
-    public float speed = 1;
+    public float speed;
+    public float dist;
+    public float realSpeed;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        speed = 8;
         pause = GameObject.Find("UI").GetComponent<Pause>();
         startPos = this.transform.position;
         playerObj = GameObject.Find("PlayerSphere");
@@ -20,14 +22,14 @@ public class HuubBehaviour : MonoBehaviour {
 	void Update () {
         if (playerObj != null && !pause.isPaused)
         {
-            float realSpeed = gameSpeed + ((int)Vector3.Distance (playerObj.transform.position, startPos) * 0.0001f);
+            dist = Mathf.Abs((playerObj.transform.position - this.transform.position).y ); 
 
-            if (realSpeed >= 0.1f)
-                realSpeed = 0.1f;
+            if (dist > 12)
+                realSpeed = speed + (dist * 0.1f);
+            else
+                realSpeed = speed;
 
-//            Debug.Log (realSpeed);
-
-            transform.Translate (new Vector3 (0, -speed, 0));
+            transform.Translate (new Vector3 (0, Time.deltaTime * -realSpeed, 0));
         }
 	}
 
