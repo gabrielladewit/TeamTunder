@@ -35,13 +35,5 @@ public class ConveyorBelt : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         other.attachedRigidbody.AddForce(direction * beltSpeed);
-        other.attachedRigidbody.constraints = RigidbodyConstraints.None;
-    }
-
-    //Add constraints when player isn't on the belt
-    private void OnTriggerExit(Collider other)
-    {
-        other.attachedRigidbody.constraints = RigidbodyConstraints.FreezeRotationX |
-            RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 } 
