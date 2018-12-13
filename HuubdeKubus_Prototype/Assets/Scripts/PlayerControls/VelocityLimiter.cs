@@ -21,42 +21,30 @@ public class VelocityLimiter : MonoBehaviour
     void FixedUpdate()
     {
         float dist = this.transform.position.y - mainCamera.transform.position.y;
-
-        //Debug.Log(dist);
-
+        
         //If the player is already at the bottom
         if (dist > -6)
         {
             // IF Speed > Speedlimit
-            if (Mathf.Abs(rigid.velocity.y) > velocityLimit)
+            /*if (Mathf.Abs(rigid.velocity.y) > velocityLimit)
             {
                 //Lower Speed to standard
                 Vector3 rigidbodyVelocity = rigid.velocity;
                 rigidbodyVelocity.y = -velocityLimit;
                 rigid.velocity = rigidbodyVelocity;
             }
-            else
+            else*/
+            rigid.AddForce(new Vector3(0,-gravity,0));
+            //rigid.AddTorque();
+
+            if (Mathf.Abs(rigid.velocity.y) < velocityLimit)
             {
                 //Else keep going faster
                 Vector3 rigidbodyVelocity = rigid.velocity;
                 rigidbodyVelocity.y = rigidbodyVelocity.y - gravity;
                 rigid.velocity = rigidbodyVelocity;
             }
-
-
-            /*if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, 1))
-            {
-                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
-                if ((hit.distance < .6f) && (hit.collider.name != "BreakCube"))
-                {
-                    Vector3 rigidbodyVelocity = rigid.velocity;
-                    rigidbodyVelocity.y = 0;
-                    rigid.velocity = rigidbodyVelocity;
-                }
-            }*/
         }
-
-
     }
 
     public void SetVelocityLimit(float vLimit)
