@@ -43,7 +43,18 @@ public class StartOptions : MonoBehaviour {
     public void LevelClicked(int x)
     {
         levelManager.currentLevel = x;
-        ChangeScenes();
+        if (x == 2)
+        {
+            SceneManager.LoadScene(3);
+            levelManager.currentLevel = 1;
+            inMainMenu = false;
+
+            //Hide the main menu UI element
+            showPanels.HideMenu();
+            showPanels.HideLevels();
+        }
+        else
+            ChangeScenes();
     }
 
     public void ChangeScenes()
@@ -148,10 +159,12 @@ public class StartOptions : MonoBehaviour {
         Debug.Log("S Invoked");
         //Hide the main menu UI element
         showPanels.HideMenu();
-
+        
+            
         Debug.Log("S Scene");
         //Load the selected scene, by scene index number in build settings
         SceneManager.LoadScene(2);
+
     }
 
     private void LoadDelayedMainMenu()
