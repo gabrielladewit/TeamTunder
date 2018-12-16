@@ -26,7 +26,7 @@ public class ButtonBarEventHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("Player position: " + scrollViewPlayer.transform.position);
+
     }
 
     public void ButtonSelection(int buttonNumber)
