@@ -15,19 +15,19 @@ public class ButtonBarEventHandler : MonoBehaviour {
     // Use this for initialization
     void Start () {
         mainBasePosition = scrollViewPlayer.transform.position;
-        mainToLeftPosition = new Vector3(-65,1.6f,90);
+        mainToLeftPosition = new Vector3(-156.5f, 272.5f, 0.0f);
 
         panelPlayerPosition = scrollViewPlayer.transform.position;
         panelAbilityPosition = scrollViewAbility.transform.position;
         panelUnitsPosition = scrollViewUnits.transform.position;
 
-
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        Debug.Log("Player position: " + scrollViewPlayer.transform.position);
+    }
 
     public void ButtonSelection(int buttonNumber)
     {
@@ -35,7 +35,8 @@ public class ButtonBarEventHandler : MonoBehaviour {
         {
             case 1:
                 //Debug.Log("1");
-                Debug.Log(scrollViewPlayer.transform.position);
+                Debug.Log("Player position: " + scrollViewPlayer.transform.position);
+                Debug.Log("Default position: " + mainBasePosition);
                 //Debug.Log("");
                 scrollViewPlayer.transform.position = panelPlayerPosition;
                 scrollViewAbility.transform.position = panelAbilityPosition;
@@ -43,9 +44,9 @@ public class ButtonBarEventHandler : MonoBehaviour {
                 selectionTitle.text = "Player";
                 break;
             case 2:
-                Debug.Log("2");
-                Debug.Log(scrollViewAbility.transform.position);
-
+                //Debug.Log("2");
+                Debug.Log("Ability's position: " + scrollViewAbility.transform.position);
+                Debug.Log("Default position: " + mainBasePosition);
                 scrollViewPlayer.transform.position = mainToLeftPosition;
                 scrollViewAbility.transform.position = mainBasePosition;
                 scrollViewUnits.transform.position = panelUnitsPosition;
@@ -53,9 +54,9 @@ public class ButtonBarEventHandler : MonoBehaviour {
                 selectionTitle.text = "Ability's";
                 break;
             case 3:
-                Debug.Log("3");
-                Debug.Log(scrollViewUnits.transform.position);
-
+                //Debug.Log("3");
+                Debug.Log("Units position: " + scrollViewUnits.transform.position);
+                Debug.Log("Default position: " + mainBasePosition);
                 scrollViewPlayer.transform.position = mainToLeftPosition;
                 scrollViewAbility.transform.position = panelAbilityPosition;
                 scrollViewUnits.transform.position = mainBasePosition;
