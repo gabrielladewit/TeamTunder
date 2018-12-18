@@ -9,6 +9,7 @@ class PickupMovingComponentSystem : ComponentSystem
     float amplitude = 0.05f;
     float verticalSpeed = 4f;
     float speed = 30f;
+
     struct Components
     {
         public PickupMovement move;

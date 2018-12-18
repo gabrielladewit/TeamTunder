@@ -79,7 +79,6 @@ public class PickupBehaviour : MonoBehaviour
         {
             currentLevelStats.currentCoins += 20;
         }
-        //Add coin
     }
 
     void Invert()
@@ -99,7 +98,6 @@ public class PickupBehaviour : MonoBehaviour
 
     void SwitchCollision()
     {
-        // Debug.Log("Switch Collision");
             Physics.IgnoreLayerCollision(0, 9, ignoringCollision);
             ignoringCollision = !ignoringCollision;
     }

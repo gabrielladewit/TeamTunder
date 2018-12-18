@@ -989,7 +989,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickup: {fileID: 1924102709473684, guid: 03e16a96a38668f47a68f2589b57422f, type: 2}
-  AmountOfPickups: 100
 --- !u!4 &883133438
 Transform:
   m_ObjectHideFlags: 0
@@ -997,7 +996,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 883133436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 0, z: 0}
+  m_LocalPosition: {x: -12, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

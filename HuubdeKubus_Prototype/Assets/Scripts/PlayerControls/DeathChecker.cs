@@ -15,7 +15,8 @@ public class DeathChecker : MonoBehaviour
     {
         if (gameObject.transform.position.z > 0)
         {
-            pause.DoDie();
+            if(pause != null)
+                pause.DoDie();
         }
     }
 }
