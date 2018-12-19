@@ -42,8 +42,6 @@ public class StarUIManager : MonoBehaviour {
 
                     switch (starsArray[i])
                     {
-                        case 0:
-                            break;
                         case 1:
                             star1.gameObject.SetActive(true);
                             break;
@@ -55,6 +53,8 @@ public class StarUIManager : MonoBehaviour {
                             star1.gameObject.SetActive(true);
                             star2.gameObject.SetActive(true);
                             star3.gameObject.SetActive(true);
+                            break;
+                        default:
                             break;
                     }
                 }
