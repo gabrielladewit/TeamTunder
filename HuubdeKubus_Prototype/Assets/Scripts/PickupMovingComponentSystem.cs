@@ -12,7 +12,7 @@ class PickupMovingComponentSystem : ComponentSystem
 
     struct Components
     {
-        public PickupMovement move;
+        public PickupScript move;
         public Transform trans;
     }
 

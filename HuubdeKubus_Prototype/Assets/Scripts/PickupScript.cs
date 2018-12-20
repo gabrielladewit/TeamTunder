@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
 
-public class PickupMovement : MonoBehaviour
+public class PickupScript : MonoBehaviour
 {
-    static PickupBehaviour pUp;
-    public ParticleSystem starParticles;
-    Collider col;
+    private static PickupBehaviour pickupBehaviour;
 
     private void Start()
     {
-        pUp = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
-        col = gameObject.GetComponent<Collider>();
+        if (pickupBehaviour == null)
+        {
+            pickupBehaviour = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
+        }
     }
 
     public enum Powerups
@@ -31,10 +31,7 @@ public class PickupMovement : MonoBehaviour
     {
         if (coll.gameObject.name == "PlayerSphere")
         {
-            pUp.Pickup(powerup.ToString());
-            if(starParticles != null)
-                starParticles.Play();
-            col.enabled = !col.enabled;
+            pickupBehaviour.Pickup(powerup.ToString());
             Destroy(this.gameObject);
         }
     }
