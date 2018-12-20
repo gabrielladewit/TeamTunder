@@ -31,7 +31,7 @@ public class PickupScript : MonoBehaviour
     {
         if (coll.gameObject.name == "PlayerSphere")
         {
-            pickupBehaviour.Pickup(powerup.ToString());
+            pickupBehaviour.StartPickup(powerup.ToString());
             Destroy(this.gameObject);
         }
     }
