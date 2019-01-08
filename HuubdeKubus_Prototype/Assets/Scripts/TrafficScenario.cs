@@ -19,6 +19,8 @@ public class TrafficScenario : MonoBehaviour {
     private int currentPos;
     private bool spawnDriftCar;
 
+    public float endPoint = -410f;
+
     public GameObject player;
     public GameObject trafficCar;
     public GameObject driftCar;
@@ -27,9 +29,10 @@ public class TrafficScenario : MonoBehaviour {
     float[] spawnPointsY = new float[] { 55.5f, -33.5f };            //ypos
 
     private List<float> usedPos = new List<float>();
-    
+
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         level = GameObject.Find("UI").GetComponent<Levels>();
         player = GameObject.Find("PlayerSphere");
 
@@ -41,9 +44,10 @@ public class TrafficScenario : MonoBehaviour {
 
         counter = counterAmount;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (currentLevel == 2)
         {
             switch (state)
@@ -52,21 +56,13 @@ public class TrafficScenario : MonoBehaviour {
                     SpawnMovingCars();
                     break;
                 case 1:
-                    //SpawnDriftCar();
                     break;
             }
         }
-	}
-
-    void SpawnDriftCar() {
-        if (spawnDriftCar)
-        {
-            GameObject go = Instantiate(driftCar, player.transform.position, Quaternion.identity);
-            spawnDriftCar = false;
-        }
     }
 
-    void SpawnMovingCars() {
+    void SpawnMovingCars()
+    {
         float checkedPos;
 
         counter -= Time.deltaTime;
@@ -74,28 +70,14 @@ public class TrafficScenario : MonoBehaviour {
         if (counter <= 0)
         {
             currentPos = Random.Range(0, usedPos.Count());
-            bool y = (Random.value > 0.5f);
 
-            if (y)
+            checkedPos = usedPos[currentPos];
+
+            if (usedPos.Contains(checkedPos))
             {
-                checkedPos = usedPos[currentPos];
-
-                if (usedPos.Contains(checkedPos))
-                {
-                    GameObject go = Instantiate(trafficCar, new Vector3(checkedPos, player.transform.position.y + spawnPointsY[0], player.transform.position.z), Quaternion.Euler(90, -90, 90));
-                    go.GetComponent<TrafficCar>().up = true;
-                    usedPos.Remove(checkedPos);
-                }
-            }
-            else {
-                checkedPos = usedPos[currentPos];
-
-                if (usedPos.Contains(checkedPos))
-                {
-                    GameObject go = Instantiate(trafficCar, new Vector3(checkedPos, player.transform.position.y + spawnPointsY[1], player.transform.position.z), Quaternion.Euler(90, -90, 90));
-                    go.GetComponent<TrafficCar>().up = false;
-                    usedPos.Remove(checkedPos);
-                }
+                GameObject go = Instantiate(trafficCar, new Vector3(checkedPos, player.transform.position.y + spawnPointsY[1], player.transform.position.z), Quaternion.Euler(90, -90, 90));
+                go.GetComponent<TrafficCar>().up = false;
+                usedPos.Remove(checkedPos);
             }
 
             if (usedPos.Count() <= 0)
@@ -103,11 +85,10 @@ public class TrafficScenario : MonoBehaviour {
                 FillList();
             }
 
-            spawnCount++;
             counter = counterAmount;
         }
 
-        if (spawnCount >= spawnLimit)
+        if (player.transform.position.y <= endPoint)
         {
             state++;
         }
