@@ -7,8 +7,8 @@ public class HuubBehaviour : MonoBehaviour {
     Vector3 startPos;
     GameObject playerObj;
     public float speed;
-    public float dist;
-    public float realSpeed;
+    public float dist, xDist;
+    public float realSpeed, xSpeed;
 
     // Use this for initialization
     void Start () {
@@ -29,7 +29,17 @@ public class HuubBehaviour : MonoBehaviour {
             else
                 realSpeed = speed;
 
-            transform.Translate (new Vector3 (0, Time.deltaTime * -realSpeed, 0));
+
+            xDist = playerObj.transform.position.x - this.transform.position.x;
+
+            if (xDist > 1)
+                xSpeed = 4;
+            else if (xDist < -1)
+                xSpeed = -4;
+            else
+                xSpeed = 0;
+
+            transform.Translate (new Vector3 (Time.deltaTime * xSpeed, Time.deltaTime * -realSpeed, 0));
         }
 	}
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1135,7 +1135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &249684953
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1495,7 +1495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -238.99998, y: -227}
+  m_AnchoredPosition: {x: -239, y: -227}
   m_SizeDelta: {x: 298.8108, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &341550229
@@ -3056,7 +3056,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.010827652, y: 0.04063255}
   m_AnchorMax: {x: 0.31800002, y: 0.162}
-  m_AnchoredPosition: {x: 100, y: 57.65008}
+  m_AnchoredPosition: {x: 99.999954, y: 57.650085}
   m_SizeDelta: {x: 0.0000038146973, y: 115.30016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547147587
@@ -4280,7 +4280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6781385, y: 0.04063255}
   m_AnchorMax: {x: 0.9883968, y: 0.162}
-  m_AnchoredPosition: {x: -100.00001, y: 57.65008}
+  m_AnchoredPosition: {x: -100, y: 57.650085}
   m_SizeDelta: {x: -0.000015258789, y: 115.30016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &686249044
@@ -7346,7 +7346,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6781385, y: 0.04063255}
   m_AnchorMax: {x: 0.9883968, y: 0.162}
-  m_AnchoredPosition: {x: -100, y: 57.650127}
+  m_AnchoredPosition: {x: -100, y: 57.65013}
   m_SizeDelta: {x: 0, y: 115.300255}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1099690658
@@ -9836,7 +9836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.010827652, y: 0.04063255}
   m_AnchorMax: {x: 0.31800002, y: 0.162}
-  m_AnchoredPosition: {x: 100, y: 57.650253}
+  m_AnchoredPosition: {x: 99.999954, y: 57.650253}
   m_SizeDelta: {x: -0.0000076293945, y: 115.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1611989227
@@ -10244,8 +10244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6575c13371fd4cbcba0652f2092d1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleMusic: {fileID: 8300000, guid: 7db0c87ec4fdb0e48af04349c4f14df9, type: 3}
-  mainMusic: {fileID: 8300000, guid: 7db0c87ec4fdb0e48af04349c4f14df9, type: 3}
+  titleMusic: {fileID: 8300000, guid: a1e215ae108fcb84e828180c70a83679, type: 3}
+  mainMusic: {fileID: 8300000, guid: a1e215ae108fcb84e828180c70a83679, type: 3}
   volumeDown: {fileID: 24519918, guid: 0ac7fb39e445048d89688f69c2a1839a, type: 2}
   volumeUp: {fileID: 24500003, guid: 0ac7fb39e445048d89688f69c2a1839a, type: 2}
 --- !u!82 &1644238101
@@ -10522,8 +10522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a90b415a3d56d4bbcac754b65b0615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starSound: {fileID: 8300000, guid: a794d0e6f06d7734ea2722ae1ae28acc, type: 3}
-  coinSound: {fileID: 8300000, guid: d2a1e98d37b41ac4e9b1292c0a68081c, type: 3}
+  starSound: {fileID: 8300000, guid: 548e30198c6c83d4ebc7404d6fdb75be, type: 3}
+  coinSound: {fileID: 8300000, guid: 2390ce1d83282fd4998d582e97acdc24, type: 3}
   multiOnSound: {fileID: 8300000, guid: fe3275e8ff24f644cb52984743eff480, type: 3}
   multiOffSound: {fileID: 8300000, guid: d73f85b284577324faf2449ba3af40f1, type: 3}
 --- !u!1 &1676042473

@@ -22,7 +22,7 @@ public class CameraBehaviour : MonoBehaviour {
         cameraMode = GameObject.Find("UI").GetComponent<StartOptions>().currentCameraMode;
         playerT = GameObject.Find ("PlayerSphere").transform;
         startPos = this.transform.position;
-        camPos = new Vector3 (0, 0f, -40f);
+        camPos = new Vector3 (0, -10f, -40f);
         offset = new Vector3 (0, 2f, 2f);
 	}
 
@@ -67,6 +67,7 @@ public class CameraBehaviour : MonoBehaviour {
                 }
 
                 transform.position = camPosition;
+                transform.LookAt(playerT);
             }
         }
     }
