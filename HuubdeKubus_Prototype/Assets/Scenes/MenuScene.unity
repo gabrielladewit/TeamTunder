@@ -644,6 +644,48 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 117616359}
   m_CullTransparentMesh: 0
+--- !u!1001 &132354657
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &140105202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1495,7 +1537,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -239, y: -227}
+  m_AnchoredPosition: {x: -238.99998, y: -227}
   m_SizeDelta: {x: 298.8108, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &341550229
@@ -3056,7 +3098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.010827652, y: 0.04063255}
   m_AnchorMax: {x: 0.31800002, y: 0.162}
-  m_AnchoredPosition: {x: 99.999954, y: 57.650085}
+  m_AnchoredPosition: {x: 99.999954, y: 57.650116}
   m_SizeDelta: {x: 0.0000038146973, y: 115.30016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547147587
@@ -4280,7 +4322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6781385, y: 0.04063255}
   m_AnchorMax: {x: 0.9883968, y: 0.162}
-  m_AnchoredPosition: {x: -100, y: 57.650085}
+  m_AnchoredPosition: {x: -100, y: 57.650116}
   m_SizeDelta: {x: -0.000015258789, y: 115.30016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &686249044
@@ -5178,7 +5220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41487685, y: 0.7621133}
   m_AnchorMax: {x: 0.583, y: 0.8185472}
-  m_AnchoredPosition: {x: 0.5437012, y: 117.00003}
+  m_AnchoredPosition: {x: 0.5437012, y: 117.00002}
   m_SizeDelta: {x: 72.26628, y: 13.841522}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806981336
@@ -7346,7 +7388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6781385, y: 0.04063255}
   m_AnchorMax: {x: 0.9883968, y: 0.162}
-  m_AnchoredPosition: {x: -100, y: 57.65013}
+  m_AnchoredPosition: {x: -100, y: 57.650116}
   m_SizeDelta: {x: 0, y: 115.300255}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1099690658
@@ -9836,7 +9878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.010827652, y: 0.04063255}
   m_AnchorMax: {x: 0.31800002, y: 0.162}
-  m_AnchoredPosition: {x: 99.999954, y: 57.650253}
+  m_AnchoredPosition: {x: 99.999954, y: 57.650238}
   m_SizeDelta: {x: -0.0000076293945, y: 115.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1611989227
@@ -10687,7 +10729,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
