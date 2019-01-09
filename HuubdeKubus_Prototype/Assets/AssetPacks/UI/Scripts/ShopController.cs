@@ -11,11 +11,23 @@ public class ShopController : MonoBehaviour
     private Slider livesUpgradeSlider;
     public SaveInventory inventory;
     public Text currentMoneyTxt;
+    public Text itemNameTxt;
+
+    public GameObject panelBuy;
+    public GameObject panelError;
+    private Vector3 panelBuyPosition, panelErrorPosition;
+    private Vector3 panelInScreenPos;
+    private Vector3 panelOutOfScreenPos;
+    string theItemName;
+    int theItemPrice;
 
 
     // Use this for initializatio
     void Start()
     {
+        panelInScreenPos = (new Vector3(151.5f, 257.9f, 0.0f));
+        panelOutOfScreenPos = new Vector3(151.5f, 795.3f, 0.0f);
+
         PlayerPrefs.SetInt("Money", 400);
         Destroy(GameObject.Find("UI"));
         inventory = this.gameObject.AddComponent<SaveInventory>();
@@ -23,8 +35,9 @@ public class ShopController : MonoBehaviour
         //livesUpgradeSlider = livesUpgradeObj.GetComponentInChildren<Slider>();
         //StartCoroutine(UpdateShopUI());
 
-        Debug.Log("Hoi");
+        Debug.Log("Panel base position: " + panelBuy.transform.position);
         currentMoneyText.text = "" + PlayerPrefs.GetInt("Money");
+
     }
 
     public void Update()
@@ -44,54 +57,19 @@ public class ShopController : MonoBehaviour
     {
         switch(buttonNumber){
             case 1:
-                if (20 <= PlayerPrefs.GetInt("Money"))
-                {
-                    int newMoneyVal = PlayerPrefs.GetInt("Money") - 20;
-                    PlayerPrefs.SetInt("Money", newMoneyVal);
-                    UpdateShopUI();
-                }
-                else
-                {
-                    Debug.Log("You dont have enough money");
-                }
+                ItemBuyLogic(20, "Sun Ball");
+
                 break;
 
             case 2:
-                if (50 <= PlayerPrefs.GetInt("Money"))
-                {
-                    int newMoneyVal = PlayerPrefs.GetInt("Money") - 50;
-                    PlayerPrefs.SetInt("Money", newMoneyVal);
-                    UpdateShopUI();
-                }
-                else
-                {
-                    Debug.Log("You dont have enough money");
-                }
+                ItemBuyLogic(50, "Soccerball");
                 break;
 
             case 3:
-                if (175 <= PlayerPrefs.GetInt("Money"))
-                {
-                    int newMoneyVal = PlayerPrefs.GetInt("Money") - 175;
-                    PlayerPrefs.SetInt("Money", newMoneyVal);
-                    UpdateShopUI();
-                }
-                else
-                {
-                    Debug.Log("You dont have enough money");
-                }
+                ItemBuyLogic(175, "Basketball");
                 break;
             case 4:
-                if (400 <= PlayerPrefs.GetInt("Money"))
-                {
-                    int newMoneyVal = PlayerPrefs.GetInt("Money") - 400;
-                    PlayerPrefs.SetInt("Money", newMoneyVal);
-                    UpdateShopUI();
-                }
-                else
-                {
-                    Debug.Log("You dont have enough money");
-                }
+                ItemBuyLogic(400, "Earthball");
                 break;
 
             default:
@@ -100,7 +78,50 @@ public class ShopController : MonoBehaviour
         }
     }
 
-    public void BuyLivesUpgrade()
+    private void ItemBuyLogic (int thePrice, string itemName)
+    {
+        if (thePrice <= PlayerPrefs.GetInt("Money"))
+        {
+            //int newMoneyVal = PlayerPrefs.GetInt("Money") - thePrice;
+            itemNameTxt.text = itemName;
+            theItemName = itemName;
+            theItemPrice = thePrice;
+            panelBuy.transform.position = panelInScreenPos;
+            panelError.transform.position = panelOutOfScreenPos;
+            //PlayerPrefs.SetInt("Money", newMoneyVal);
+            //UpdateShopUI();
+        }
+        else
+        {
+            panelBuy.transform.position = panelOutOfScreenPos;
+            panelError.transform.position = panelInScreenPos;
+            Debug.Log("You dont have enough money");
+        }
+    }
+
+    public void CheckItemBuyAction(int buttonNumber)
+    {
+        switch (buttonNumber)
+        {
+            case 1:
+                int newMoneyVal = PlayerPrefs.GetInt("Money") - theItemPrice;
+                PlayerPrefs.SetInt("Money", newMoneyVal);
+                UpdateShopUI();
+                panelBuy.transform.position = panelOutOfScreenPos;
+                panelError.transform.position = panelOutOfScreenPos;
+                break;
+
+            case 2:
+                panelBuy.transform.position = panelOutOfScreenPos;
+                panelError.transform.position = panelOutOfScreenPos;
+                break;
+            default:
+                break;
+
+        }
+    }
+
+        public void BuyLivesUpgrade()
     {
         switch (inventory.currentLives)
         {

@@ -51,7 +51,7 @@ class MovementSystem : ComponentSystem
         foreach (var e in GetEntities<Components>())
         {
             e.trans.Rotate(Vector3.up * e.move.rotationSpeed);
-            e.trans.position = e.trans.position + new Vector3(0.0f, 0.0f, Mathf.Sin(Time.realtimeSinceStartup * e.move.verticalSpeed) * e.move.amplitude);
+            e.trans.position = e.trans.position + new Vector3(0.0f, Mathf.Sin(Time.realtimeSinceStartup * e.move.verticalSpeed) * e.move.amplitude, 0.0f);
         }
     }
 }
