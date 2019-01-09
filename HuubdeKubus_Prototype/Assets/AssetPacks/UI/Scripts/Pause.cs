@@ -93,6 +93,12 @@ public class Pause : MonoBehaviour {
         SceneManager.LoadScene(Application.loadedLevel);
     }
 
+    public void DoRestartFromWin()
+    {
+        SceneManager.LoadScene(Application.loadedLevel);
+        showPanels.HideWinPanel();
+    }
+
     public void DoQuit()
     {
         SceneManager.LoadScene("MenuScene");
