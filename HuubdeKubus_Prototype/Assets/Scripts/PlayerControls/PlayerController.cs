@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     
     public GameObject replacement;
+    GameObject camCtrl;
 
     public bool inverted = false;
     public float movementSpeed = 8;
@@ -21,16 +22,19 @@ public class PlayerController : MonoBehaviour
     
     void Start()
     {
+        camCtrl = GameObject.Find("Main Camera Parent");
         stopwatch = new Stopwatch();
-        stopwatch.Start();
         rb = this.gameObject.GetComponent<Rigidbody>();
         pickupManager = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
     }
     
     void FixedUpdate()
     {
-        rb.AddForce(new Vector3(0, 0, 5f));
-        MoveUpdate();
+        if (camCtrl.GetComponent<CameraBehaviour>().initiated)
+        {
+            //rb.AddForce(new Vector3(0, 0, 5f));
+            MoveUpdate();
+        }
     }
     
     void MoveUpdate()

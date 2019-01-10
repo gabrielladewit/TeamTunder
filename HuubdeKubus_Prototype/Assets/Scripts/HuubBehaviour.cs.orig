@@ -20,10 +20,18 @@ public class HuubBehaviour : MonoBehaviour {
         playerObj = GameObject.Find("PlayerSphere");
         camCtrl = GameObject.Find("Main Camera Parent");
 	}
+<<<<<<< HEAD
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
+        if (playerObj != null && !pause.isPaused)
+=======
+	
+	// Update is called once per frame
+	void Update () {
         if (playerObj != null && !pause.isPaused  && camCtrl.GetComponent<CameraBehaviour>().initiated)
+>>>>>>> IntroAnimation
         {
             dist = Mathf.Abs((playerObj.transform.position - this.transform.position).y);
 
