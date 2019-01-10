@@ -23,7 +23,7 @@ public class VelocityLimiter : MonoBehaviour
         float dist = this.transform.position.y - mainCamera.transform.position.y;
         
         //If the player is already at the bottom
-        if (dist > -6)
+        if (dist > -6 && mainCamera.GetComponent<CameraBehaviour>().initiated)
         {
             // IF Speed > Speedlimit
             /*if (Mathf.Abs(rigid.velocity.y) > velocityLimit)
@@ -34,10 +34,10 @@ public class VelocityLimiter : MonoBehaviour
                 rigid.velocity = rigidbodyVelocity;
             }
             else*/
-            rigid.AddForce(new Vector3(0,-gravity,0));
+            rigid.AddForce(new Vector3(0,-gravity,1));
             //rigid.AddTorque();
 
-            if (Mathf.Abs(rigid.velocity.y) < velocityLimit)
+            if ((Mathf.Abs(rigid.velocity.y) < velocityLimit))
             {
                 //Else keep going faster
                 Vector3 rigidbodyVelocity = rigid.velocity;

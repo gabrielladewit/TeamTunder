@@ -5,7 +5,7 @@ using UnityEngine;
 public class HuubBehaviour : MonoBehaviour {
     Pause pause;
     Vector3 startPos;
-    GameObject playerObj;
+    GameObject playerObj, camCtrl;
     public float speed;
     public float dist, xDist;
     public float realSpeed, xSpeed;
@@ -16,11 +16,12 @@ public class HuubBehaviour : MonoBehaviour {
         pause = GameObject.Find("UI").GetComponent<Pause>();
         startPos = this.transform.position;
         playerObj = GameObject.Find("PlayerSphere");
+        camCtrl = GameObject.Find("Main Camera Parent");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (playerObj != null && !pause.isPaused)
+        if (playerObj != null && !pause.isPaused  && camCtrl.GetComponent<CameraBehaviour>().initiated)
         {
             dist = Mathf.Abs((playerObj.transform.position - this.transform.position).y ); 
 

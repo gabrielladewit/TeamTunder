@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 482693625}
   - component: {fileID: 482693624}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Main Camera Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -462,8 +462,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f23dc23ffa6a8438cf0c1529f84a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initiated: 0
   smoothSpeed: 0.125
-  camPos: {x: 0, y: 0, z: 0}
+  journeyTime: 10
 --- !u!4 &482693625
 Transform:
   m_ObjectHideFlags: 0
@@ -1648,7 +1649,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.9725491, g: 0.9058824, b: 0.7176471, a: 1}
+  m_Color: {r: 0.9433962, g: 0.77929455, b: 0.31594875, a: 1}
   m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
