@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4186998129264158}
   - component: {fileID: 33364936260313926}
   - component: {fileID: 23410341079365370}
-  - component: {fileID: 114698280086885384}
   m_Layer: 0
   m_Name: SpikeBall
   m_TagString: Untagged
@@ -116,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1848380181207960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.53, y: 0, z: -135.65}
+  m_LocalPosition: {x: 0.13, y: 0.020000799, z: -30.73795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4186998129264158}
@@ -189,23 +188,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 100
-  addRadius: 6
+  force: 5
+  addRadius: 20
   delay: 0
   particleSmoke: {fileID: 198289407915280614}
   particleShock: {fileID: 198974734649641214}
---- !u!114 &114698280086885384
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1107888084007034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422f202caa026bb429777431af73da82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.06
 --- !u!135 &135552141949488282
 SphereCollider:
   m_ObjectHideFlags: 1

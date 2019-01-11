@@ -28,8 +28,8 @@ public class WinStatsSetter : MonoBehaviour {
             coins = currentLevel.currentCoins;
         }
 
-        starDaddy = this.transform.GetChild(1);
-        coinDaddy = this.transform.GetChild(2);
+        starDaddy = this.transform.GetChild(0);
+        coinDaddy = this.transform.GetChild(1);
 
         // Set stars UI
         if (starDaddy != null)

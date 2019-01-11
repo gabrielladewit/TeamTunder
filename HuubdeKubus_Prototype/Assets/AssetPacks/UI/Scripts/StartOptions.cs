@@ -202,14 +202,14 @@ public class StartOptions : MonoBehaviour {
 
         switch (GameObject.Find("CameraModeOptions").GetComponent<Dropdown>().value)
         {
-            case 0:
+            case 1:
                 camMode = CameraBehaviour.Modes.Sway;
                 break;
-            case 1:
+            case 0:
                 camMode = CameraBehaviour.Modes.Strafe;
                 break;
             default:
-                camMode = CameraBehaviour.Modes.Sway;
+                camMode = CameraBehaviour.Modes.Strafe;
                 break;
         }
 

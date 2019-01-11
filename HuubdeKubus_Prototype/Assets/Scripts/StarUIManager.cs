@@ -60,38 +60,5 @@ public class StarUIManager : MonoBehaviour {
                 }
             }
         }
-
-        /*for (int i = 1; i <= gameObject.transform.childCount; i++)
-        {
-            GameObject starDaddy = gameObject.transform.GetChild(i).gameObject;
-
-            if (starDaddy != null)
-            {
-                Transform star1 = starDaddy.transform.GetChild(1);
-                star1.gameObject.SetActive(false);
-                Transform star2 = starDaddy.transform.GetChild(2);
-                star2.gameObject.SetActive(false);
-                Transform star3 = starDaddy.transform.GetChild(3);
-                star3.gameObject.SetActive(false);
-
-                switch (starsArray[i])
-                {
-                    case 0:
-                        break;
-                    case 1:
-                        star1.gameObject.SetActive(true);
-                        break;
-                    case 2:
-                        star1.gameObject.SetActive(true);
-                        star2.gameObject.SetActive(true);
-                        break;
-                    case 3:
-                        star1.gameObject.SetActive(true);
-                        star2.gameObject.SetActive(true);
-                        star3.gameObject.SetActive(true);
-                        break;
-                }
-            }*/
-        //}
     }
 }

@@ -5,13 +5,12 @@ using UnityEngine;
 public class MineBehaviour : MonoBehaviour {
 
     private GameObject player;
-    public float force, addRadius, delay;
+    public float force = 5, addRadius, delay = 0;
 
     float radius, tempDelay;
     bool onOff;
 
-    public ParticleSystem particleSmoke;
-    public ParticleSystem particleShock;
+    public ParticleSystem particleSmoke, particleShock;
 
     // Use this for initialization
     void Start () {
@@ -30,16 +29,29 @@ public class MineBehaviour : MonoBehaviour {
             if (tempDelay <= 0.0f)
             {
                 Rigidbody rb = player.GetComponent<Rigidbody>();
-                Debug.Log("add xplode");
-                rb.AddExplosionForce(force * 10, this.transform.position, addRadius + radius);
+                
+                Vector3 levelledPosition = this.transform.position;
+                levelledPosition.z = player.transform.position.z;
+
+                Vector3 mineDirection = rb.transform.position - levelledPosition;
+                mineDirection = mineDirection.normalized;
+
+                //Debug.Log("mineDirection: " + mineDirection.x + "  , " + mineDirection.y + "  ," + mineDirection.z);
+                
+                mineDirection.x = mineDirection.x * 2;
+
+                //Debug.Log("mineForce: " + mineDirection * (force * 100));
+
+                rb.AddForce(mineDirection * force * 100);
+
                 onOff = false;
+                Destroy(gameObject);
             }
         }
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit");
         particleSmoke.Play();
         particleShock.Play();
         onOff = true;

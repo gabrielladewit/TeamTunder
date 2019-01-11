@@ -6,8 +6,6 @@ public class Levels : MonoBehaviour {
 
     public int currentLevel;
     public int currentStars;
-    public int[] starlvlarray;
-    public int starsToDisplay;
     public int currentCoins;
     public int currenLevelDuration;
 
