@@ -67,6 +67,9 @@ public class CameraBehaviour : MonoBehaviour {
             Vector3 center = (((posA.transform.position + camPos) + (posB.transform.position + camPos)) * 0.5f);
             center -= Vector3.back;
 
+            //Set journeyTime so that transition is smooth
+            journeyTime = Vector3.Distance(posA.transform.position, posB.transform.position) * 0.03f;
+
             Vector3 aRelCenter = posA.transform.position + camPos - center;
             Vector3 bRelCenter = posB.transform.position + camPos - center;
 
@@ -75,12 +78,7 @@ public class CameraBehaviour : MonoBehaviour {
             transform.position = Vector3.Slerp(aRelCenter, bRelCenter, fracComplete);
             transform.position += center;
 
-            if (transform.position.y == posB.transform.position.y + camPos.y)
-            {
-                Debug.Log("MOVE IT!");
-            }
-
-            //if (transform.position == posB.transform.position + camPos)
+            // Slerp is done set next Slerp positions
             if (transform.position.y == posB.transform.position.y + camPos.y)
             {
                 if (!Slerp1Done)
