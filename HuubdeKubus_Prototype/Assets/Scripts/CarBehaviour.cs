@@ -6,13 +6,18 @@ public class CarBehaviour : MonoBehaviour {
     Vector3 startPos;
     public float moveSpeed = 8;
     public float distance = 80;
+    public float waitTime = 0;
     bool move = true;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         startPos = this.transform.position;
-        if(this.gameObject.name.Contains ("2"))
+        if (waitTime > 0)
+        {
             this.move = false;
+            if(this.gameObject.name.Contains("2"))
+                waitTime = 2f;
+        }
 
         if (!this.move)
             StartCoroutine (startCar ());
@@ -31,7 +36,7 @@ public class CarBehaviour : MonoBehaviour {
 
     IEnumerator startCar()
     {
-        yield return new WaitForSeconds (2f);
+        yield return new WaitForSeconds (waitTime);
         this.move = true;
     }
 }

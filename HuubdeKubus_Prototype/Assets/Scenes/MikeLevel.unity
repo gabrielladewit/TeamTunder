@@ -35760,7 +35760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &962159751
 Transform:
   m_ObjectHideFlags: 0
@@ -67645,6 +67645,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1839648719}
   m_Mesh: {fileID: 4305330, guid: 4b7d74d884ea12343874752fece10875, type: 3}
+--- !u!1001 &1854389691
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654098486529278, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea47a26975993054482739124fcc5fb0, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1857333622
 GameObject:
   m_ObjectHideFlags: 0
