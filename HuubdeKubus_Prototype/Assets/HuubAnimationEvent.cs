@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class HuubAnimationEvent : MonoBehaviour {
 
-    public bool isCatched = false;
+    Pause pause;
+
+    public void Start()
+    {
+        pause = GameObject.Find("UI").GetComponent<Pause>();
+    }
 
     public void PlayerCatched() {
-        isCatched = true;
+        pause.DoDie();
     }
 }

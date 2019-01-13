@@ -54,11 +54,5 @@ public class HuubBehaviour : MonoBehaviour {
             realSpeed = 0;
             ani.SetInteger("State", 1);
         }
-
-        //Check if huub grabbed the player
-        if (aniEvent.isCatched == true)
-        {
-            pause.DoDie();
-        }
     }
 }
