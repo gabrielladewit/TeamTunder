@@ -16,7 +16,6 @@ public class ShowPanels : MonoBehaviour {
     public GameObject textPanel;
     public GameObject textPanel1;
     public GameObject textPanel2;
-    public GameObject textPanel3;
 
     public int next;
 
@@ -37,10 +36,6 @@ public class ShowPanels : MonoBehaviour {
             case 2:
                 textPanel1.SetActive(false);
                 textPanel2.SetActive(true);
-                break;
-            case 3:
-                textPanel2.SetActive(false);
-                textPanel3.SetActive(true);
                 break;
             default:
                 break;
