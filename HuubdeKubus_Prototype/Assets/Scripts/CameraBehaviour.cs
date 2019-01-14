@@ -22,13 +22,14 @@ public class CameraBehaviour : MonoBehaviour {
 
     private GameObject playerT;
     public float smoothSpeed = 0.125f, journeyTime;
-    float startTime;
-    Vector3 camPos, startPos, offset;
+    float startTime, desiredHeightA, desiredHeightB;
+    Vector3 camPos, offset;
+    Vector3 aRelCenter, bRelCenter;
     private Vector3 centerPoint, startRelCenter, endRelCenter;
     GameObject finishLine;
 
-    GameObject posA;
-    GameObject posB;
+    Vector3 posA;
+    Vector3 posB;
     GameObject[] list;
 
     bool Slerp1Done = false, Slerp2Done = false, Slerp3Done = false;
@@ -47,15 +48,16 @@ public class CameraBehaviour : MonoBehaviour {
         playerT = GameObject.Find("PlayerSphere");
 
         //Set first Slerp positions from finishline to star 3
-        posA = finishLine;
+        posA = finishLine.transform.position;
         posB = GetStarByName("Star3");
+        posB.z = -13;
 
         //Used to get camera mode from settings (deprecated)
         cameraMode = Modes.Strafe;//GameObject.Find("UI").GetComponent<StartOptions>().currentCameraMode;
         
         //Set Cam at Finish
-        startPos = transform.position;
-        startPos.y = posA.transform.position.y - 10;
+        Vector3 startPos = transform.position;
+        startPos.y = posA.y - 10;
         transform.position = startPos;
 
         //Set Cam Rotation to Rotation in CameraTesting32 Scene so that transition is smooth
@@ -70,26 +72,21 @@ public class CameraBehaviour : MonoBehaviour {
     {
         if (!initiated)
         {
-            Vector3 center = (((posA.transform.position + camPos) + (posB.transform.position + camPos)) * 0.5f);
-            center -= Vector3.back;
-
-            starScript1 = GetStarByName("Star1").GetComponent<PickupMovement>();
-            starScript2 = GetStarByName("Star2").GetComponent<PickupMovement>();
-            starScript3 = GetStarByName("Star3").GetComponent<PickupMovement>();
+            starScript1 = GetPickupMovementByName("Star1");
+            starScript2 = GetPickupMovementByName("Star2");
+            starScript3 = GetPickupMovementByName("Star3");
 
             //Set journeyTime so that transition is smooth
-            //  journeyTime = Vector3.Distance(posA.transform.position, posB.transform.position) * 0.03f;
-
-            Vector3 aRelCenter = posA.transform.position + camPos - center;
-            Vector3 bRelCenter = posB.transform.position + camPos - center;
+            journeyTime = Vector3.Distance(posA, posB) * 0.015f;
 
             float fracComplete = (Time.time - startTime) / journeyTime;
 
-            transform.position = Vector3.Slerp(aRelCenter, bRelCenter, fracComplete);
-            transform.position += center;
+            Vector3 desiredPos = Vector3.Lerp(posA + camPos, posB + camPos, fracComplete);
 
+            transform.position = desiredPos;
+            
             // Slerp is done set next Slerp positions
-            if ((transform.position.y == posB.transform.position.y + camPos.y) && !coroutineRunning)
+            if ((transform.position.y == posB.y + camPos.y) && !coroutineRunning)
             {
                 coroutineRunning = true;
                 StartCoroutine(SetNewPos(0.4f));
@@ -98,33 +95,10 @@ public class CameraBehaviour : MonoBehaviour {
 
         if (playerT != null && initiated)
         {
-            if (cameraMode == Modes.Sway)
+            if (cameraMode == Modes.Strafe)
             {
                 Vector3 camPosition = playerT.transform.position + camPos;
-
-                camPosition.x = 0;
-
-                transform.LookAt(playerT.transform);
-                Quaternion camRotation = this.transform.rotation;
-
-
-                if (camRotation.y > 0.1f)
-                {
-                    //clamp right
-                    camRotation.y = 0.1f;
-                }
-                else if (camRotation.y < -0.1f)
-                {
-                    camRotation.y = -0.1f;
-                    //clamp left
-                }
-
-                transform.rotation = camRotation;
-                transform.position = camPosition;
-            } else if (cameraMode == Modes.Strafe)
-            {
-                Vector3 camPosition = playerT.transform.position + camPos;
-
+                
                 if (camPosition.x > 60f)
                 {
                     camPosition.x = 60f;
@@ -142,16 +116,6 @@ public class CameraBehaviour : MonoBehaviour {
         }
     }
 
-    public void GetCenter(Vector3 direction)
-    {
-        Vector3 endPos = playerT.transform.position;
-        endPos.y += 15;
-        centerPoint = (startPos + endPos) * 0.5f;
-        centerPoint -= direction;
-        startRelCenter = startPos - centerPoint;
-        endRelCenter = endPos - centerPoint;
-    }
-
     public IEnumerator SetNewPos(float time)
     {
         if (!Slerp1Done)
@@ -160,7 +124,9 @@ public class CameraBehaviour : MonoBehaviour {
             yield return new WaitForSecondsRealtime(time);
             Slerp1Done = true;
             posA = GetStarByName("Star3");
+            posA.z = -13;
             posB = GetStarByName("Star2");
+            posB.z = -13;
             startTime = Time.time;
             yield return coroutineRunning = false;
         }
@@ -170,7 +136,9 @@ public class CameraBehaviour : MonoBehaviour {
             yield return new WaitForSecondsRealtime(time);
             Slerp2Done = true;
             posA = GetStarByName("Star2");
+            posA.z = -13;
             posB = GetStarByName("Star1");
+            posB.z = -13;
             startTime = Time.time;
             yield return coroutineRunning = false;
         }
@@ -180,7 +148,8 @@ public class CameraBehaviour : MonoBehaviour {
             yield return new WaitForSecondsRealtime(time);
             Slerp3Done = true;
             posA = GetStarByName("Star1");
-            posB = playerT;
+            posA.z = -13;
+            posB = playerT.transform.position;
             startTime = Time.time;
             yield return coroutineRunning = false;
         }
@@ -194,13 +163,25 @@ public class CameraBehaviour : MonoBehaviour {
         yield return coroutineRunning = false;
     }
 
-    public GameObject GetStarByName(string name)
+    public Vector3 GetStarByName(string name)
     {
         foreach (var item in list)
         {
             if(item.name == name)
             {
-                return item;
+                return item.transform.position;
+            }
+        }
+        return new Vector3();
+    }
+
+    public PickupMovement GetPickupMovementByName(string name)
+    {
+        foreach(var item in list)
+        {
+            if (item.name == name)
+            {
+                return item.GetComponent<PickupMovement>();
             }
         }
         return null;
