@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeathChecker : MonoBehaviour
 {
     Pause pause;
+    public GameObject explosion;
     
     void Start()
     {
@@ -13,8 +14,9 @@ public class DeathChecker : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (gameObject.transform.position.z > 0)
+        if (gameObject.transform.position.z > 2)
         {
+            GameObject.Instantiate(explosion);
             pause.DoDie();
         }
     }
