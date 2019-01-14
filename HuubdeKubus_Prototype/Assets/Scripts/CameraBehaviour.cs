@@ -13,6 +13,7 @@ public class CameraBehaviour : MonoBehaviour {
     private Modes cameraMode;
 
     Pause pauseScript;
+    Levels _levels;
 
     public bool initiated = false;
 
@@ -35,6 +36,7 @@ public class CameraBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start () {
         pauseScript = GameObject.Find("UI").GetComponent<Pause>();
+        _levels = GameObject.Find("UI").GetComponent<Levels>();
         //Start the time
         startTime = Time.time;
         journeyTime = 3f;
@@ -115,7 +117,8 @@ public class CameraBehaviour : MonoBehaviour {
                 else if (Slerp1Done && Slerp2Done && Slerp3Done)
                 {
                     initiated = true;
-                    pauseScript.PauseTutorial();
+                    if(_levels.currentLevel == 1)
+                        pauseScript.PauseTutorial();
                 }
             }
         }
