@@ -12,12 +12,16 @@ public class MovingObstacle : MonoBehaviour {
     Vector3 startPos;
 
     float distance;
+    bool dontRotate = false;
     int nextLocation = 0;
 
-    float speed = 15f;
+    public float speed = 15f;
     // Use this for initialization
     void Start()
     {
+        if (this.gameObject.GetComponent<RotateObstacle>() != null)
+            dontRotate = true;
+
         startPos = this.transform.position;
         places = GetComponentsInChildren<Transform>();
 
@@ -43,7 +47,8 @@ public class MovingObstacle : MonoBehaviour {
                 nextLocation = 0;
             nextPos = positions[nextLocation];
 
-            RotateDieKutAutosGoed();
+            if(!dontRotate)
+                RotateDieKutAutosGoed();
         }
 
     }

@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class MineBehaviour : MonoBehaviour {
 
+    public GameObject explosion;
     private GameObject player;
     public float force = 5, addRadius, delay = 0;
 
     float radius, tempDelay;
     bool onOff;
-
-    public ParticleSystem particleSmoke, particleShock;
 
     // Use this for initialization
     void Start () {
@@ -52,8 +51,7 @@ public class MineBehaviour : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        particleSmoke.Play();
-        particleShock.Play();
+        Instantiate(explosion, this.transform.position, this.transform.rotation);
         onOff = true;
         tempDelay = delay;
         this.gameObject.GetComponent<Collider>().enabled = false;

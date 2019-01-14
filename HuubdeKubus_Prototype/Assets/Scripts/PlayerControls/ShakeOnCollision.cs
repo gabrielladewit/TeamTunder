@@ -16,7 +16,6 @@ public class ShakeOnCollision : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         if (collision.gameObject.tag != "Floor")
         {
-            Debug.Log(collision.gameObject.name);
             if (CameraShaker.Instance != null)
             {
                 CameraShaker.Instance.ShakeOnce(Magnitude, Roughness, 0, FadeOutTime);

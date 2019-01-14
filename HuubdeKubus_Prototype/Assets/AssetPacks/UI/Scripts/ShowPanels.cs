@@ -98,6 +98,12 @@ public class ShowPanels : MonoBehaviour {
         optionsTint.SetActive(true);
     }
 
+    public void HideWinPanel()
+    {
+        winPanel.SetActive(false);
+        optionsTint.SetActive(false);
+    }
+
     //Call this function to show deathpanel on death
     public void ShowDeathPanel()
     {
