@@ -18,7 +18,7 @@ public class TrainBehaviour : MonoBehaviour {
 
         StartCoroutine(Oscillate(OccilationFuntion.Sine, 1f));
 
-        Debug.Log("x: " + xPos + ", y: " + yPos + ", z: " + zPos);
+        //Debug.Log("x: " + xPos + ", y: " + yPos + ", z: " + zPos);
         //to start at scalar value
         //StartCoroutine (Oscillate (OccilationFuntion.Cosine, 1f));
     }
