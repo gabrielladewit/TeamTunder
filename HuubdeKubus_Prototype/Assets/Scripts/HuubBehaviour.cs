@@ -49,7 +49,7 @@ public class HuubBehaviour : MonoBehaviour {
         }
 
         //Check if huub can grab the player
-        if (Vector2.Distance(new Vector2(playerObj.transform.position.x, playerObj.transform.position.y), new Vector2(transform.position.x, transform.position.y)) <= 26.5f)
+        if (Vector2.Distance(new Vector2(playerObj.transform.position.x, playerObj.transform.position.y), new Vector2(transform.position.x, transform.position.y)) <= 20f)
         {
             realSpeed = 0;
             ani.SetInteger("State", 1);

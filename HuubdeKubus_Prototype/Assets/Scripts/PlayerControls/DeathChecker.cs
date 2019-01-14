@@ -14,7 +14,7 @@ public class DeathChecker : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (gameObject.transform.position.z > 2)
+        if (gameObject.transform.position.z > 1.75)
         {
             GameObject.Instantiate(explosion);
             pause.DoDie();
