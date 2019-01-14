@@ -42,7 +42,7 @@ public class CameraBehaviour : MonoBehaviour {
 
         //Set first Slerp positions from finishline to star 3
         posA = finishLine;
-        posB = list[2];
+        posB = GetStarByName("Star3");
 
         //Used to get camera mode from settings (deprecated)
         cameraMode = Modes.Strafe;//GameObject.Find("UI").GetComponent<StartOptions>().currentCameraMode;
@@ -84,19 +84,19 @@ public class CameraBehaviour : MonoBehaviour {
                 if (!Slerp1Done)
                 {
                     Slerp1Done = true;
-                    posA = list[2];
-                    posB = list[1];
+                    posA = GetStarByName("Star3");
+                    posB = GetStarByName("Star2");
                     startTime = Time.time;
                 } else if (Slerp1Done && !Slerp2Done)
                 {
                     Slerp2Done = true;
-                    posA = list[1];
-                    posB = list[0];
+                    posA = GetStarByName("Star2");
+                    posB = GetStarByName("Star1");
                     startTime = Time.time;
                 } else if (Slerp1Done && Slerp2Done && !Slerp3Done)
                 {
                     Slerp3Done = true;
-                    posA = list[0];
+                    posA = GetStarByName("Star1");
                     posB = playerT;
                     startTime = Time.time;
                 } else if (Slerp1Done && Slerp2Done && Slerp3Done)
@@ -160,5 +160,17 @@ public class CameraBehaviour : MonoBehaviour {
         centerPoint -= direction;
         startRelCenter = startPos - centerPoint;
         endRelCenter = endPos - centerPoint;
+    }
+
+    public GameObject GetStarByName(string name)
+    {
+        foreach (var item in list)
+        {
+            if(item.name == name)
+            {
+                return item;
+            }
+        }
+        return null;
     }
 }
