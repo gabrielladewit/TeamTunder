@@ -15,7 +15,7 @@ public class MovingObstacle : MonoBehaviour {
     bool dontRotate = false;
     int nextLocation = 0;
 
-    float speed = 15f;
+    public float speed = 15f;
     // Use this for initialization
     void Start()
     {

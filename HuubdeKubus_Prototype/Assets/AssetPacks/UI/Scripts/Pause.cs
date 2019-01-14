@@ -7,8 +7,9 @@ public class Pause : MonoBehaviour {
 
 	private ShowPanels showPanels;						//Reference to the ShowPanels script used to hide and show UI panels
 	public bool isPaused, isDead;						//Boolean to check if the game is paused or not
-	private StartOptions startScript;					//Reference to the StartButton script
-	
+	private StartOptions startScript;                   //Reference to the StartButton script
+    bool showedTutorial = false;
+
 	//Awake is called before Start()
 	void Awake()
 	{
@@ -44,20 +45,17 @@ public class Pause : MonoBehaviour {
 
 	public void PauseTutorial()
 	{
-        //Set isPaused to true
-        isPaused = true;
-
-        StartCoroutine(PauseForTutorial());
+        if (!showedTutorial)
+        {
+            //Set isPaused to true
+            isPaused = true;
+            Time.timeScale = 0;
+            //call the ShowPausePanel function of the ShowPanels script
+            showPanels.ShowTutorialPanel();
+            showedTutorial = true;
+        }
     }
 
-    IEnumerator PauseForTutorial()
-    {
-        yield return new WaitForSeconds(1);
-        //Set time.timescale to 0, this will cause animations and physics to stop updating
-        Time.timeScale = 0;
-        //call the ShowPausePanel function of the ShowPanels script
-        showPanels.ShowTutorialPanel();
-    }
 
     public void DoPause()
     {

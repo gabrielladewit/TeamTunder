@@ -12,9 +12,12 @@ public class CameraBehaviour : MonoBehaviour {
     
     private Modes cameraMode;
 
+    Pause pauseScript;
+
     public bool initiated = false;
 
     public GameObject Star1, Star2, Star3;
+    PickupMovement starScript1, starScript2, starScript3;
 
     private GameObject playerT;
     public float smoothSpeed = 0.125f, journeyTime;
@@ -31,6 +34,7 @@ public class CameraBehaviour : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        pauseScript = GameObject.Find("UI").GetComponent<Pause>();
         //Start the time
         startTime = Time.time;
         journeyTime = 3f;
@@ -67,8 +71,12 @@ public class CameraBehaviour : MonoBehaviour {
             Vector3 center = (((posA.transform.position + camPos) + (posB.transform.position + camPos)) * 0.5f);
             center -= Vector3.back;
 
+            starScript1 = GetStarByName("Star1").GetComponent<PickupMovement>();
+            starScript2 = GetStarByName("Star2").GetComponent<PickupMovement>();
+            starScript3 = GetStarByName("Star3").GetComponent<PickupMovement>();
+
             //Set journeyTime so that transition is smooth
-            journeyTime = Vector3.Distance(posA.transform.position, posB.transform.position) * 0.03f;
+            //  journeyTime = Vector3.Distance(posA.transform.position, posB.transform.position) * 0.03f;
 
             Vector3 aRelCenter = posA.transform.position + camPos - center;
             Vector3 bRelCenter = posB.transform.position + camPos - center;
@@ -87,21 +95,27 @@ public class CameraBehaviour : MonoBehaviour {
                     posA = GetStarByName("Star3");
                     posB = GetStarByName("Star2");
                     startTime = Time.time;
+                    starScript3.Particles();
                 } else if (Slerp1Done && !Slerp2Done)
                 {
                     Slerp2Done = true;
                     posA = GetStarByName("Star2");
                     posB = GetStarByName("Star1");
                     startTime = Time.time;
-                } else if (Slerp1Done && Slerp2Done && !Slerp3Done)
+                    starScript2.Particles();
+                }
+                else if (Slerp1Done && Slerp2Done && !Slerp3Done)
                 {
                     Slerp3Done = true;
                     posA = GetStarByName("Star1");
                     posB = playerT;
                     startTime = Time.time;
-                } else if (Slerp1Done && Slerp2Done && Slerp3Done)
+                    starScript1.Particles();
+                }
+                else if (Slerp1Done && Slerp2Done && Slerp3Done)
                 {
                     initiated = true;
+                    pauseScript.PauseTutorial();
                 }
             }
         }
