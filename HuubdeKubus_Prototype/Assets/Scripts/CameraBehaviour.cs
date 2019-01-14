@@ -12,6 +12,8 @@ public class CameraBehaviour : MonoBehaviour {
     
     private Modes cameraMode;
 
+    Pause pauseScript;
+
     public bool initiated = false;
 
     public GameObject Star1, Star2, Star3;
@@ -31,6 +33,7 @@ public class CameraBehaviour : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        pauseScript = GameObject.Find("UI").GetComponent<Pause>();
         //Start the time
         startTime = Time.time;
         journeyTime = 3f;
@@ -68,7 +71,7 @@ public class CameraBehaviour : MonoBehaviour {
             center -= Vector3.back;
 
             //Set journeyTime so that transition is smooth
-            journeyTime = Vector3.Distance(posA.transform.position, posB.transform.position) * 0.03f;
+          //  journeyTime = Vector3.Distance(posA.transform.position, posB.transform.position) * 0.03f;
 
             Vector3 aRelCenter = posA.transform.position + camPos - center;
             Vector3 bRelCenter = posB.transform.position + camPos - center;
@@ -102,6 +105,7 @@ public class CameraBehaviour : MonoBehaviour {
                 } else if (Slerp1Done && Slerp2Done && Slerp3Done)
                 {
                     initiated = true;
+                    pauseScript.PauseTutorial();
                 }
             }
         }

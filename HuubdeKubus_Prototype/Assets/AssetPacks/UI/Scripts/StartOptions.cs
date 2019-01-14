@@ -129,16 +129,9 @@ public class StartOptions : MonoBehaviour {
         
         //Load the selected scene, by scene index number in build settings
         SceneManager.LoadScene (1);
-        Tutorial();
     }
 
-    private void Tutorial()
-    {
-        if (levelManager.currentLevel == 1)
-        {
-            pauseScript.PauseTutorial();
-        }
-    }
+
 
     private void LoadDelayedShop()
     {

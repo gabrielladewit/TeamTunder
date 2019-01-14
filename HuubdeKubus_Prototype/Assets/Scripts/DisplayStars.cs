@@ -12,6 +12,7 @@ public class DisplayStars : MonoBehaviour {
     // Use this for initialization
     void Start () {
         currentLevel = GameObject.Find("UI").GetComponent<Levels>();
+        currentLevel.Reset();
         ChangeStars();
     }
 
