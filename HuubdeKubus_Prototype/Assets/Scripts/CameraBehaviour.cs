@@ -15,7 +15,7 @@ public class CameraBehaviour : MonoBehaviour {
     Pause pauseScript;
     Levels _levels;
 
-    public bool initiated = false;
+    public bool initiated = false, coroutineRunning = false;
 
     public GameObject Star1, Star2, Star3;
     PickupMovement starScript1, starScript2, starScript3;
@@ -89,37 +89,10 @@ public class CameraBehaviour : MonoBehaviour {
             transform.position += center;
 
             // Slerp is done set next Slerp positions
-            if (transform.position.y == posB.transform.position.y + camPos.y)
+            if ((transform.position.y == posB.transform.position.y + camPos.y) && !coroutineRunning)
             {
-                if (!Slerp1Done)
-                {
-                    Slerp1Done = true;
-                    posA = GetStarByName("Star3");
-                    posB = GetStarByName("Star2");
-                    startTime = Time.time;
-                    starScript3.Particles();
-                } else if (Slerp1Done && !Slerp2Done)
-                {
-                    Slerp2Done = true;
-                    posA = GetStarByName("Star2");
-                    posB = GetStarByName("Star1");
-                    startTime = Time.time;
-                    starScript2.Particles();
-                }
-                else if (Slerp1Done && Slerp2Done && !Slerp3Done)
-                {
-                    Slerp3Done = true;
-                    posA = GetStarByName("Star1");
-                    posB = playerT;
-                    startTime = Time.time;
-                    starScript1.Particles();
-                }
-                else if (Slerp1Done && Slerp2Done && Slerp3Done)
-                {
-                    initiated = true;
-                    if(_levels.currentLevel == 1)
-                        pauseScript.PauseTutorial();
-                }
+                coroutineRunning = true;
+                StartCoroutine(SetNewPos(0.4f));
             }
         }
 
@@ -177,6 +150,48 @@ public class CameraBehaviour : MonoBehaviour {
         centerPoint -= direction;
         startRelCenter = startPos - centerPoint;
         endRelCenter = endPos - centerPoint;
+    }
+
+    public IEnumerator SetNewPos(float time)
+    {
+        if (!Slerp1Done)
+        {
+            starScript3.Particles();
+            yield return new WaitForSecondsRealtime(time);
+            Slerp1Done = true;
+            posA = GetStarByName("Star3");
+            posB = GetStarByName("Star2");
+            startTime = Time.time;
+            yield return coroutineRunning = false;
+        }
+        else if (Slerp1Done && !Slerp2Done)
+        {
+            starScript2.Particles();
+            yield return new WaitForSecondsRealtime(time);
+            Slerp2Done = true;
+            posA = GetStarByName("Star2");
+            posB = GetStarByName("Star1");
+            startTime = Time.time;
+            yield return coroutineRunning = false;
+        }
+        else if (Slerp1Done && Slerp2Done && !Slerp3Done)
+        {
+            starScript1.Particles();
+            yield return new WaitForSecondsRealtime(time);
+            Slerp3Done = true;
+            posA = GetStarByName("Star1");
+            posB = playerT;
+            startTime = Time.time;
+            yield return coroutineRunning = false;
+        }
+        else if (Slerp1Done && Slerp2Done && Slerp3Done)
+        {
+            initiated = true;
+            if (_levels.currentLevel == 1)
+                pauseScript.PauseTutorial();
+            yield return coroutineRunning = false;
+        }
+        yield return coroutineRunning = false;
     }
 
     public GameObject GetStarByName(string name)
