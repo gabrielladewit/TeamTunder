@@ -15,30 +15,25 @@ public class CameraBehaviour : MonoBehaviour {
     Pause pauseScript;
     Levels _levels;
 
-    public bool initiated = false, coroutineRunning = false;
+    public bool initiated = false, coroutineRunning = false, Slerp1Done = false, 
+        Slerp2Done = false, Slerp3Done = false;
 
-    public GameObject Star1, Star2, Star3;
-    PickupMovement starScript1, starScript2, starScript3;
-
-    private GameObject playerT;
-    public float smoothSpeed = 0.125f, journeyTime;
-    float startTime, desiredHeightA, desiredHeightB;
-    Vector3 camPos, offset;
-    Vector3 aRelCenter, bRelCenter;
-    private Vector3 centerPoint, startRelCenter, endRelCenter;
-    GameObject finishLine;
-
-    Vector3 posA;
-    Vector3 posB;
     GameObject[] list;
+    GameObject playerT, finishLine;
 
-    bool Slerp1Done = false, Slerp2Done = false, Slerp3Done = false;
+    PickupMovement starScript1, starScript2, starScript3;
+    
+    public float smoothSpeed = 0.125f;
+    float startTime, journeyTime;
+
+    Vector3 camPos, offset, posA, posB;
+
+    
 
     // Use this for initialization
     void Start () {
         pauseScript = GameObject.Find("UI").GetComponent<Pause>();
         _levels = GameObject.Find("UI").GetComponent<Levels>();
-        //Start the time
         startTime = Time.time;
         journeyTime = 3f;
 
