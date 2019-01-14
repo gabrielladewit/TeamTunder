@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         if (camCtrl.GetComponent<CameraBehaviour>().initiated)
         {
-            //rb.AddForce(new Vector3(0, 0, 5f));
+            rb.AddForce(new Vector3(0, 0, 5f));
             MoveUpdate();
         }
     }
