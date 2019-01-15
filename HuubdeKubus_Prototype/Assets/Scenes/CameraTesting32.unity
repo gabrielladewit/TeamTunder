@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -163,7 +163,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 72344451}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -247,7 +247,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4032719041417858, guid: 5cfea4464cd9c5e499cc2a455732847c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.00000500679
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4032719041417858, guid: 5cfea4464cd9c5e499cc2a455732847c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -255,15 +255,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4032719041417858, guid: 5cfea4464cd9c5e499cc2a455732847c, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4032719041417858, guid: 5cfea4464cd9c5e499cc2a455732847c, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4032719041417858, guid: 5cfea4464cd9c5e499cc2a455732847c, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4032719041417858, guid: 5cfea4464cd9c5e499cc2a455732847c, type: 2}
       propertyPath: m_LocalRotation.w
@@ -271,7 +271,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4032719041417858, guid: 5cfea4464cd9c5e499cc2a455732847c, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cfea4464cd9c5e499cc2a455732847c, type: 2}
@@ -450,7 +450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &482693624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,7 +474,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 482693623}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5, y: -20, z: -27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1296,7 +1296,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4308768000996402, guid: 7297ab1930ac0254c993da002324edb0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.4
+      value: 0.3999939
       objectReference: {fileID: 0}
     - target: {fileID: 4308768000996402, guid: 7297ab1930ac0254c993da002324edb0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1308,15 +1308,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4308768000996402, guid: 7297ab1930ac0254c993da002324edb0, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4308768000996402, guid: 7297ab1930ac0254c993da002324edb0, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4308768000996402, guid: 7297ab1930ac0254c993da002324edb0, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4308768000996402, guid: 7297ab1930ac0254c993da002324edb0, type: 2}
       propertyPath: m_LocalRotation.w
@@ -1324,7 +1324,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4308768000996402, guid: 7297ab1930ac0254c993da002324edb0, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114044899258972848, guid: 7297ab1930ac0254c993da002324edb0,
         type: 2}
@@ -1386,8 +1386,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4052501619243774, guid: b4f1ac98e122e21418f72c04410a2522, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114921834734000744, guid: b4f1ac98e122e21418f72c04410a2522,
+        type: 2}
+      propertyPath: camFix
+      value: 
+      objectReference: {fileID: 482693623}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4f1ac98e122e21418f72c04410a2522, type: 2}
   m_IsPrefabAsset: 0
@@ -1540,12 +1545,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1966449378}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2042733656
 Prefab:
@@ -1568,15 +1573,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4657381928461094, guid: a2ecab1c3f269754790de73d2722d526, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4657381928461094, guid: a2ecab1c3f269754790de73d2722d526, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4657381928461094, guid: a2ecab1c3f269754790de73d2722d526, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4657381928461094, guid: a2ecab1c3f269754790de73d2722d526, type: 2}
       propertyPath: m_LocalRotation.w

@@ -30,10 +30,13 @@ public class PlayerController : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (camCtrl.GetComponent<CameraBehaviour>().initiated)
+        if (camCtrl != null)
         {
-            rb.AddForce(new Vector3(0, 0, 5f));
-            MoveUpdate();
+            if (camCtrl.GetComponent<CameraBehaviour>().initiated)
+            {
+                rb.AddForce(new Vector3(0, 0, 5f));
+                MoveUpdate();
+            }
         }
     }
     
@@ -129,5 +132,10 @@ public class PlayerController : MonoBehaviour
                 SpawnBreakable(coll.gameObject);
             }
         }
+    }
+
+    public void SetCamera()
+    {
+        camCtrl = GameObject.Find("Main Camera Parent");
     }
 }
