@@ -39,22 +39,17 @@ public class CameraBehaviour : MonoBehaviour {
         journeyTime = 3f;
 
         //Get All Needed Objects
-        list = GameObject.FindGameObjectsWithTag("Star");
+        //list = GameObject.FindGameObjectsWithTag("Star");
         finishLine = GameObject.Find("FinishLine");
         playerT = GameObject.Find("PlayerSphere");
 
         //Set first Slerp positions from finishline to star 3
         posA = finishLine.transform.position;
-        posB = GetStarByName("Star3");
-        posB.z = -13;
+        posB = playerT.transform.position; //GetStarByName("Star3");
+        //posB.z = -13;
 
         //Used to get camera mode from settings (deprecated)
         cameraMode = Modes.Strafe;//GameObject.Find("UI").GetComponent<StartOptions>().currentCameraMode;
-        
-        //Set Cam at Finish
-        Vector3 startPos = transform.position;
-        startPos.y = posA.y - 10;
-        transform.position = startPos;
 
         //Set Cam Rotation to Rotation in CameraTesting32 Scene so that transition is smooth
         transform.eulerAngles = new Vector3(-32.196f, 0, 0);
@@ -62,13 +57,13 @@ public class CameraBehaviour : MonoBehaviour {
         //To Calculate with
         camPos = new Vector3 (0, -15f, -25f);
         offset = new Vector3 (0, 2f, 2f);
-	}
 
-    void FixedUpdate()
+    }
+
+    void Update()
     {
         if (!initiated)
         {
-            //Debug.Log("WHY?");
             starScript1 = GetPickupMovementByName("Star1");
             starScript2 = GetPickupMovementByName("Star2");
             starScript3 = GetPickupMovementByName("Star3");
@@ -85,7 +80,8 @@ public class CameraBehaviour : MonoBehaviour {
             // Slerp is done set next Slerp positions
             if ((transform.position.y == posB.y + camPos.y))
             {
-                SetNewPos();
+                initiated = true;
+                //SetNewPos();
             }
         }
 
