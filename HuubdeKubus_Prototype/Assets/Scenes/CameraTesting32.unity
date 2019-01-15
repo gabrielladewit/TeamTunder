@@ -1431,21 +1431,11 @@ Prefab:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 482693623}
-    - target: {fileID: 114959535157630030, guid: 7297ab1930ac0254c993da002324edb0,
+    - target: {fileID: 114274641928406532, guid: 7297ab1930ac0254c993da002324edb0,
         type: 2}
-      propertyPath: Magnitude
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114959535157630030, guid: 7297ab1930ac0254c993da002324edb0,
-        type: 2}
-      propertyPath: Roughness
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114141288904281478, guid: 7297ab1930ac0254c993da002324edb0,
-        type: 2}
-      propertyPath: explosion
+      propertyPath: cam
       value: 
-      objectReference: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
+      objectReference: {fileID: 1541347932}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7297ab1930ac0254c993da002324edb0, type: 2}
   m_IsPrefabAsset: 0
