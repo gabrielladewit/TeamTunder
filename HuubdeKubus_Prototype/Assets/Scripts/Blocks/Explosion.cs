@@ -16,11 +16,14 @@ public class Explosion : MonoBehaviour
         }
         Sparks.Play();
         Flash.Play();
-        for (int i = 0; i < Debris.Length; i++)
+        if (Debris[0] != null)
         {
-            Debris[i].Play();
+            for (int i = 0; i < Debris.Length; i++)
+            {
+                Debris[i].Play();
+            }
+            Destroy(gameObject, Main.duration);
         }
-        Destroy(gameObject, Main.duration);
     }
 }
 

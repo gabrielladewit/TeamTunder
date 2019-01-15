@@ -42,6 +42,7 @@ public class MineBehaviour : MonoBehaviour {
                 //Debug.Log("mineForce: " + mineDirection * (force * 100));
 
                 rb.AddForce(mineDirection * force * 100);
+                Debug.Log("oeps");
 
                 onOff = false;
                 Destroy(gameObject);
@@ -51,9 +52,12 @@ public class MineBehaviour : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        Instantiate(explosion, this.transform.position, this.transform.rotation);
-        onOff = true;
-        tempDelay = delay;
-        this.gameObject.GetComponent<Collider>().enabled = false;
+        if (other.gameObject == player)
+        {
+            Instantiate(explosion, this.transform.position, this.transform.rotation);
+            onOff = true;
+            tempDelay = delay;
+            this.gameObject.GetComponent<Collider>().enabled = false;
+        }
     }
 }
