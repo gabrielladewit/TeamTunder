@@ -46,7 +46,8 @@ public class CameraBehaviour : MonoBehaviour {
         //Set first Slerp positions from finishline to star 3
         posA = finishLine.transform.position;
         posB = playerT.transform.position;
-        posB.z = -13;
+        posB.z = -28;
+        posA.z = -15;
 
         //Used to get camera mode from settings (deprecated)
         cameraMode = Modes.Strafe;//GameObject.Find("UI").GetComponent<StartOptions>().currentCameraMode;
@@ -60,7 +61,7 @@ public class CameraBehaviour : MonoBehaviour {
         transform.eulerAngles = new Vector3(-32.196f, 0, 0);
 
         //To Calculate with
-        camPos = new Vector3 (0, -15f, -25f);
+        camPos = new Vector3(0, -15f, -25f);
         offset = new Vector3 (0, 2f, 2f);
 	}
 
@@ -116,32 +117,25 @@ public class CameraBehaviour : MonoBehaviour {
     {
         if (!Slerp1Done)
         {
-            //starScript3.Particles();
             yield return new WaitForSecondsRealtime(time);
             Slerp1Done = true;
-            /*posA = GetStarByName("Star3");
-            posA.z = -13;
-            posB = GetStarByName("Star2");
-            posB.z = -13;*/
+
             posA = playerT.transform.position;
-            posA.z = -13;
+            posA.z = -28;
             posB = huubKuub.transform.position;
             posB.y -= 10;
             posB.z = -7;
             startTime = Time.time;
+            //introCamPos = new Vector3(0, 0, 0);
             yield return coroutineRunning = false;
         }
         else if (Slerp1Done && !Slerp2Done)
         {
-            Debug.Log("hit");
-            //starScript2.Particles();
+
             huubKuub.GetComponent<AudioSource>().Play();
             yield return new WaitForSecondsRealtime(time*2);
             Slerp2Done = true;
-            /*posA = GetStarByName("Star2");
-            posA.z = -13;
-            posB = GetStarByName("Star1");
-            posB.z = -13;*/
+
             posA = huubKuub.transform.position;
             posA.y -= 10;
             posA.z = -7;
@@ -149,28 +143,8 @@ public class CameraBehaviour : MonoBehaviour {
             startTime = Time.time;
             yield return coroutineRunning = false;
         }
-        /*else if (Slerp1Done && Slerp2Done && !Slerp3Done)
-        {
-            starScript1.Particles();
-            yield return new WaitForSecondsRealtime(time);
-            Slerp3Done = true;
-            posA = GetStarByName("Star1");
-            posA.z = -13;
-            posB = huubKuub.transform.position;
-            startTime = Time.time;
-            yield return coroutineRunning = false;
-        }
-        else if (Slerp1Done && Slerp2Done && Slerp3Done && !Slerp4Done)
-        {
-            yield return new WaitForSecondsRealtime(time);
-            Slerp4Done = true;
-            posA = huubKuub.transform.position;
-            posA.z = -13;
-            posB = playerT.transform.position;
-            startTime = Time.time;
-            yield return coroutineRunning = false;
-        }*/
-        else if (Slerp1Done && Slerp2Done /*&& Slerp3Done && Slerp4Done*/)
+
+        else if (Slerp1Done && Slerp2Done)
         {
             initiated = true;
             if (_levels.currentLevel == 1)

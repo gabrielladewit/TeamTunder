@@ -61,5 +61,9 @@ public class HuubBehaviour : MonoBehaviour {
     public void SetCamera()
     {
         camCtrl = GameObject.Find("Main Camera Parent");
+
+        if(pause == null)
+            pause = GameObject.Find("UI").GetComponent<Pause>();
+        pause.setOnClick();
     }
 }
