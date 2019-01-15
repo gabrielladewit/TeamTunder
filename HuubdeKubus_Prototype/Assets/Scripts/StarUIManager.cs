@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StarUIManager : MonoBehaviour {
     
@@ -24,21 +25,21 @@ public class StarUIManager : MonoBehaviour {
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             GameObject starDaddy = gameObject.transform.GetChild(i).gameObject;
+            Debug.Log(starDaddy.name);
             //Since GameObjects stars active check if it needs to be set to Deactive
             if (starDaddy != null && starDaddy.name != "Return" && starDaddy.name != "RawImage")
             {
+                Transform star1 = starDaddy.transform.GetChild(1);
+                star1.gameObject.SetActive(false);
+                Transform star2 = starDaddy.transform.GetChild(2);
+                star2.gameObject.SetActive(false);
+                Transform star3 = starDaddy.transform.GetChild(3);
+                star3.gameObject.SetActive(false);
+
                 if (starDaddy.GetComponent<UnlockLevelWithStars>().requiredStars > totalStars)
                 {
-                    starDaddy.SetActive(false);
-                }
-                else
-                {
-                    Transform star1 = starDaddy.transform.GetChild(1);
-                    star1.gameObject.SetActive(false);
-                    Transform star2 = starDaddy.transform.GetChild(2);
-                    star2.gameObject.SetActive(false);
-                    Transform star3 = starDaddy.transform.GetChild(3);
-                    star3.gameObject.SetActive(false);
+                    starDaddy.transform.GetChild(0).GetComponent<Image>().color = new Color32(40,40,40,200);
+                    starDaddy.transform.GetChild(0).GetComponent<Button>().enabled = false;
 
                     switch (starsArray[i])
                     {
