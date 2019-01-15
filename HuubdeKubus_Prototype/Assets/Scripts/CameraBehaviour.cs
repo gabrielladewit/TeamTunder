@@ -19,7 +19,7 @@ public class CameraBehaviour : MonoBehaviour {
     bool Slerp1Done = false, 
         Slerp2Done = false, Slerp3Done = false;
 
-    GameObject[] list;
+    //GameObject[] list;
     GameObject playerT, finishLine;
 
     PickupMovement starScript1, starScript2, starScript3;
@@ -64,9 +64,9 @@ public class CameraBehaviour : MonoBehaviour {
     {
         if (!initiated)
         {
-            starScript1 = GetPickupMovementByName("Star1");
+            /*starScript1 = GetPickupMovementByName("Star1");
             starScript2 = GetPickupMovementByName("Star2");
-            starScript3 = GetPickupMovementByName("Star3");
+            starScript3 = GetPickupMovementByName("Star3");*/
 
             //Set journeyTime so that transition is smooth
             journeyTime = Vector3.Distance(posA, posB) * 0.015f;
@@ -115,9 +115,9 @@ public class CameraBehaviour : MonoBehaviour {
             starScript3.Particles();
             //yield return new WaitForSecondsRealtime(time);
             Slerp1Done = true;
-            posA = GetStarByName("Star3");
+            //posA = GetStarByName("Star3");
             posA.z = -13;
-            posB = GetStarByName("Star2");
+            //posB = GetStarByName("Star2");
             posB.z = -13;
             startTime = Time.time;
             return;
@@ -127,9 +127,9 @@ public class CameraBehaviour : MonoBehaviour {
             starScript2.Particles();
             //yield return new WaitForSecondsRealtime(time);
             Slerp2Done = true;
-            posA = GetStarByName("Star2");
+            //posA = GetStarByName("Star2");
             posA.z = -13;
-            posB = GetStarByName("Star1");
+            //posB = GetStarByName("Star1");
             posB.z = -13;
             startTime = Time.time;
             return;
@@ -139,7 +139,7 @@ public class CameraBehaviour : MonoBehaviour {
             starScript1.Particles();
             //yield return new WaitForSecondsRealtime(time);
             Slerp3Done = true;
-            posA = GetStarByName("Star1");
+            //posA = GetStarByName("Star1");
             posA.z = -13;
             posB = playerT.transform.position;
             startTime = Time.time;
@@ -153,7 +153,7 @@ public class CameraBehaviour : MonoBehaviour {
         }
     }
 
-    public Vector3 GetStarByName(string name)
+    /*public Vector3 GetStarByName(string name)
     {
         foreach (var item in list)
         {
@@ -175,5 +175,5 @@ public class CameraBehaviour : MonoBehaviour {
             }
         }
         return null;
-    }
+    }*/
 }
