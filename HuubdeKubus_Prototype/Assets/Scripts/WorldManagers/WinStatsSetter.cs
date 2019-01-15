@@ -61,7 +61,8 @@ public class WinStatsSetter : MonoBehaviour {
         // Set bonus coins UI
         if (coinDaddy != null)
         {
-            coinDaddy.GetComponent<Text>().text = coins.ToString();
+            int realScore = stars * 100 + coins -100;
+            coinDaddy.GetComponent<Text>().text = realScore.ToString();
         }
 
         Debug.Log("currentcoins = " + coins + ", currentstars = " + stars);

@@ -7,7 +7,7 @@ public class ScoreUpdate : MonoBehaviour {
 
     GameObject theScore, playerObj, topObj, cameraObj;
     public bool multiplier = false;
-    private int scorez;
+    private int score;
     private float multiplierDurance;
     public float multiplierTime = 5f;
 
@@ -28,7 +28,7 @@ public class ScoreUpdate : MonoBehaviour {
 
             if (multiplier)
             {
-                scorez = (int)(Vector3.Distance(playerObj.transform.position, topObj.transform.position) * 1.5f);
+                this.score = (int)(Vector3.Distance(playerObj.transform.position, topObj.transform.position) * 1.5f);
                 Debug.Log("Multiplier is active");
 
                 multiplierDurance -= Time.deltaTime*10;
@@ -36,7 +36,7 @@ public class ScoreUpdate : MonoBehaviour {
 
                 if (multiplierDurance < 0)
                 {
-                    scorez = (int)Vector3.Distance(playerObj.transform.position, topObj.transform.position);
+                    this.score = (int)Vector3.Distance(playerObj.transform.position, topObj.transform.position);
                     multiplier = false;
                     multiplierDurance = multiplierTime;
                     Debug.Log("MULTIPLIER DEACTIVATED");
@@ -46,10 +46,11 @@ public class ScoreUpdate : MonoBehaviour {
             }
 
             
-            //theScore.GetComponent<Text>().text = (-16 + scorez).ToString();
 
-            var score = (int)Vector3.Distance(cameraObj.transform.position, topObj.transform.position);
-            //theScore.GetComponent<Text>().text = (-8 + score).ToString();
+
+            this.score = (int)Vector3.Distance(playerObj.transform.position, topObj.transform.position);
+
+           // theScore.GetComponent<Text>().text = score.ToString();
 
             yield return new WaitForSeconds(0.4f);
         }
