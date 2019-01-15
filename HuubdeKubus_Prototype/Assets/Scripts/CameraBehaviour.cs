@@ -15,7 +15,8 @@ public class CameraBehaviour : MonoBehaviour {
     Pause pauseScript;
     Levels _levels;
 
-    public bool initiated = false, coroutineRunning = false, Slerp1Done = false, 
+    public bool initiated = false;
+    bool Slerp1Done = false, 
         Slerp2Done = false, Slerp3Done = false;
 
     GameObject[] list;
@@ -67,6 +68,7 @@ public class CameraBehaviour : MonoBehaviour {
     {
         if (!initiated)
         {
+            //Debug.Log("WHY?");
             starScript1 = GetPickupMovementByName("Star1");
             starScript2 = GetPickupMovementByName("Star2");
             starScript3 = GetPickupMovementByName("Star3");
@@ -81,10 +83,9 @@ public class CameraBehaviour : MonoBehaviour {
             transform.position = desiredPos;
             
             // Slerp is done set next Slerp positions
-            if ((transform.position.y == posB.y + camPos.y) && !coroutineRunning)
+            if ((transform.position.y == posB.y + camPos.y))
             {
-                coroutineRunning = true;
-                StartCoroutine(SetNewPos(0.4f));
+                SetNewPos();
             }
         }
 
@@ -111,51 +112,49 @@ public class CameraBehaviour : MonoBehaviour {
         }
     }
 
-    public IEnumerator SetNewPos(float time)
+    public void SetNewPos()
     {
         if (!Slerp1Done)
         {
             starScript3.Particles();
-            yield return new WaitForSecondsRealtime(time);
+            //yield return new WaitForSecondsRealtime(time);
             Slerp1Done = true;
             posA = GetStarByName("Star3");
             posA.z = -13;
             posB = GetStarByName("Star2");
             posB.z = -13;
             startTime = Time.time;
-            yield return coroutineRunning = false;
+            return;
         }
         else if (Slerp1Done && !Slerp2Done)
         {
             starScript2.Particles();
-            yield return new WaitForSecondsRealtime(time);
+            //yield return new WaitForSecondsRealtime(time);
             Slerp2Done = true;
             posA = GetStarByName("Star2");
             posA.z = -13;
             posB = GetStarByName("Star1");
             posB.z = -13;
             startTime = Time.time;
-            yield return coroutineRunning = false;
+            return;
         }
         else if (Slerp1Done && Slerp2Done && !Slerp3Done)
         {
             starScript1.Particles();
-            yield return new WaitForSecondsRealtime(time);
+            //yield return new WaitForSecondsRealtime(time);
             Slerp3Done = true;
             posA = GetStarByName("Star1");
             posA.z = -13;
             posB = playerT.transform.position;
             startTime = Time.time;
-            yield return coroutineRunning = false;
+            //yield break;
         }
         else if (Slerp1Done && Slerp2Done && Slerp3Done)
         {
             initiated = true;
             if (_levels.currentLevel == 1)
                 pauseScript.PauseTutorial();
-            yield return coroutineRunning = false;
         }
-        yield return coroutineRunning = false;
     }
 
     public Vector3 GetStarByName(string name)
