@@ -34,11 +34,7 @@ public class ExpandedCarMovement : MonoBehaviour
         if (this.move)
         {
             float step = moveSpeed * Time.deltaTime;
-
             transform.position = (Vector3.MoveTowards(transform.position, travelPoints[tPointIndex].transform.position, step));
-
-            //Debug.Log("Truck pos x: " + transform.position.x + " y: " + transform.position.y + " z: " + transform.position.z );
-            //Debug.Log("Waypoint pos x: " + travelPoints[tPointIndex].transform.position.x + " y: " + travelPoints[tPointIndex].transform.position.y + " z: " + travelPoints[tPointIndex].transform.position.z);
 
             if (Vector3.Distance(transform.position, travelPoints[tPointIndex].transform.position) < distance )
             {
@@ -48,9 +44,6 @@ public class ExpandedCarMovement : MonoBehaviour
 
                         transform.Rotate(0, turnRadius, 0);
                     tPointIndex++;
-
-                    
-                    //transform.eulerAngles = new Vector3(0, 0, 0);
                 }
                 else
                 {
