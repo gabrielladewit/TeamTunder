@@ -16,10 +16,10 @@ public class CameraBehaviour : MonoBehaviour {
     Levels _levels;
 
     public bool initiated = false, coroutineRunning = false, Slerp1Done = false, 
-        Slerp2Done = false, Slerp3Done = false;
+        Slerp2Done = false/*, Slerp3Done = false, Slerp4Done = false*/;
 
     GameObject[] list;
-    GameObject playerT, finishLine;
+    GameObject playerT, finishLine, huubKuub;
 
     PickupMovement starScript1, starScript2, starScript3;
     
@@ -41,11 +41,13 @@ public class CameraBehaviour : MonoBehaviour {
         list = GameObject.FindGameObjectsWithTag("Star");
         finishLine = GameObject.Find("FinishLine");
         playerT = GameObject.Find("PlayerSphere");
+        huubKuub = GameObject.Find("Huub");
 
         //Set first Slerp positions from finishline to star 3
         posA = finishLine.transform.position;
-        posB = GetStarByName("Star3");
-        posB.z = -13;
+        posB = playerT.transform.position;
+        posB.z = -28;
+        posA.z = -15;
 
         //Used to get camera mode from settings (deprecated)
         cameraMode = Modes.Strafe;//GameObject.Find("UI").GetComponent<StartOptions>().currentCameraMode;
@@ -59,7 +61,7 @@ public class CameraBehaviour : MonoBehaviour {
         transform.eulerAngles = new Vector3(-32.196f, 0, 0);
 
         //To Calculate with
-        camPos = new Vector3 (0, -15f, -25f);
+        camPos = new Vector3(0, -15f, -25f);
         offset = new Vector3 (0, 2f, 2f);
 	}
 
@@ -115,40 +117,34 @@ public class CameraBehaviour : MonoBehaviour {
     {
         if (!Slerp1Done)
         {
-            starScript3.Particles();
             yield return new WaitForSecondsRealtime(time);
             Slerp1Done = true;
-            posA = GetStarByName("Star3");
-            posA.z = -13;
-            posB = GetStarByName("Star2");
-            posB.z = -13;
+
+            posA = playerT.transform.position;
+            posA.z = -28;
+            posB = huubKuub.transform.position;
+            posB.y -= 10;
+            posB.z = -7;
             startTime = Time.time;
+            //introCamPos = new Vector3(0, 0, 0);
             yield return coroutineRunning = false;
         }
         else if (Slerp1Done && !Slerp2Done)
         {
-            starScript2.Particles();
-            yield return new WaitForSecondsRealtime(time);
+
+            huubKuub.GetComponent<AudioSource>().Play();
+            yield return new WaitForSecondsRealtime(time*2);
             Slerp2Done = true;
-            posA = GetStarByName("Star2");
-            posA.z = -13;
-            posB = GetStarByName("Star1");
-            posB.z = -13;
-            startTime = Time.time;
-            yield return coroutineRunning = false;
-        }
-        else if (Slerp1Done && Slerp2Done && !Slerp3Done)
-        {
-            starScript1.Particles();
-            yield return new WaitForSecondsRealtime(time);
-            Slerp3Done = true;
-            posA = GetStarByName("Star1");
-            posA.z = -13;
+
+            posA = huubKuub.transform.position;
+            posA.y -= 10;
+            posA.z = -7;
             posB = playerT.transform.position;
             startTime = Time.time;
             yield return coroutineRunning = false;
         }
-        else if (Slerp1Done && Slerp2Done && Slerp3Done)
+
+        else if (Slerp1Done && Slerp2Done)
         {
             initiated = true;
             if (_levels.currentLevel == 1)

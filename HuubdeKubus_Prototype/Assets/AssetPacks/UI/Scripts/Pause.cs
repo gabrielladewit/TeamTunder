@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Pause : MonoBehaviour { 
 
@@ -9,7 +10,7 @@ public class Pause : MonoBehaviour {
 	public bool isPaused, isDead;						//Boolean to check if the game is paused or not
 	private StartOptions startScript;                   //Reference to the StartButton script
     bool showedTutorial = false;
-
+    bool onClickSet = false;
 	//Awake is called before Start()
 	void Awake()
 	{
@@ -19,9 +20,13 @@ public class Pause : MonoBehaviour {
 		startScript = GetComponent<StartOptions> ();
 	}
 
-	// Update is called once per frame
-	void Update () {
+    public void setOnClick()
+    {
+        GameObject.Find("PauseButton").GetComponent<Button>().onClick.AddListener(DoPause);
+    }
 
+    // Update is called once per frame
+    void Update () {
 		//Check if the Cancel button in Input Manager is down this frame (default is Escape key) and that game is not paused, and that we're not in main menu
 		if (Input.GetButtonDown ("Cancel") && !isPaused && !startScript.inMainMenu && !isDead) 
 		{
@@ -59,12 +64,17 @@ public class Pause : MonoBehaviour {
 
     public void DoPause()
     {
-        //Set isPaused to true
-        isPaused = true;
-        //Set time.timescale to 0, this will cause animations and physics to stop updating
-        Time.timeScale = 0;
-        //call the ShowPausePanel function of the ShowPanels script
-        showPanels.ShowPausePanel();
+        if (!isPaused)
+        {
+            //Set isPaused to true
+            isPaused = true;
+            //Set time.timescale to 0, this will cause animations and physics to stop updating
+            Time.timeScale = 0;
+            //call the ShowPausePanel function of the ShowPanels script
+            showPanels.ShowPausePanel();
+        }
+        else
+            UnPause();
     }
 
     public void DoDie()

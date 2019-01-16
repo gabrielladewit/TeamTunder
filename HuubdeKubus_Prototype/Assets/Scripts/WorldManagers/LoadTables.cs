@@ -6,12 +6,19 @@ public class LoadTables : MonoBehaviour
 {
     Levels levels;
     Transform worldBlockParent;
+
+    PlayerController playerController;
+    HuubBehaviour huubBehaviour;
+
     public List<GameObject> tablePrefabs;
+    public GameObject camFix;
     int x = 0, i = 0;
 
     // Use this for initialization
     void Start ()
     {
+        playerController = GameObject.Find("PlayerSphere").GetComponent<PlayerController>();
+        huubBehaviour = GameObject.Find("Top").GetComponent<HuubBehaviour>();
         tablePrefabs = new List<GameObject> (Resources.LoadAll<GameObject> ("PrototypePrefabs"));
         worldBlockParent = GameObject.Find ("GameWorld").transform;
         levels = GameObject.Find ("UI").GetComponent<Levels> ();
@@ -43,6 +50,9 @@ public class LoadTables : MonoBehaviour
         {
             GameObject worldBlock = (GameObject)Instantiate (level [x], new Vector3 (0, x * -33f, 0), Quaternion.Euler (-90, 0, 0));
             worldBlock.transform.parent = worldBlockParent;
+            camFix.SetActive(true);
+            huubBehaviour.SetCamera();
+            playerController.SetCamera();
         }
     }
         

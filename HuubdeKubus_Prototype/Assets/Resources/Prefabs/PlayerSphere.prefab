@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4100273614845722}
   - component: {fileID: 212821445375555778}
   - component: {fileID: 95211406769391766}
+  - component: {fileID: 114274641928406532}
   m_Layer: 0
   m_Name: hamster
   m_TagString: Untagged
@@ -70,9 +71,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1542995691236530}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: -20, z: -2.27}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3999939, y: -20, z: -2.27}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 4100273614845722}
   m_Father: {fileID: 0}
@@ -93,7 +94,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 46e941ecb535fe34d855fb470b934c67, type: 2}
+  - {fileID: 2100000, guid: a0d89fa5ad0a13249a2784671bcd9c04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -178,6 +179,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3cefdbb72489f4ea9a5c27362fad7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
+--- !u!114 &114274641928406532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1520562745776848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0776b2afcdd6e489cda71346fd97fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
 --- !u!114 &114879297998482400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,6 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006a9df6b586bc54ba0d0d016bce7e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeftPressed: 0
+  isRightPressed: 0
   replacement: {fileID: 0}
   inverted: 0
   movementSpeed: 11
@@ -205,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Magnitude: 5
-  Roughness: 10
+  Roughness: 8
   FadeOutTime: 0.35
 --- !u!135 &135272367833259612
 SphereCollider:
@@ -255,7 +271,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ec7ccf938d0f02249b28b4ed57b15e97, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.54901963}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9028241bc80306408b0fa08ce64c5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredStars: 2
+  requiredStars: 8
 --- !u!1 &298689626
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,7 +3238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 149.4054, y: -349.72}
+  m_AnchoredPosition: {x: 149.4054, y: -349.71997}
   m_SizeDelta: {x: 298.8, y: 106.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &523082023
@@ -3365,7 +3365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.010827652, y: 0.04063255}
   m_AnchorMax: {x: 0.31800002, y: 0.162}
-  m_AnchoredPosition: {x: 99.999954, y: 100.000015}
+  m_AnchoredPosition: {x: 99.999954, y: 100.00011}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547147587
@@ -3873,7 +3873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9028241bc80306408b0fa08ce64c5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredStars: 0
+  requiredStars: 5
 --- !u!1 &591462447
 GameObject:
   m_ObjectHideFlags: 0
@@ -4395,7 +4395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6781385, y: 0.04063255}
   m_AnchorMax: {x: 0.9883968, y: 0.162}
-  m_AnchoredPosition: {x: -100, y: 100.000015}
+  m_AnchoredPosition: {x: -100, y: 100.00011}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &686249044
@@ -8419,7 +8419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6781385, y: 0.04063255}
   m_AnchorMax: {x: 0.9883968, y: 0.162}
-  m_AnchoredPosition: {x: -429.99997, y: 128}
+  m_AnchoredPosition: {x: -429.99994, y: 128}
   m_SizeDelta: {x: -150, y: -30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1368201527
@@ -8728,7 +8728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.010827652, y: 0.04063255}
   m_AnchorMax: {x: 0.31800002, y: 0.162}
-  m_AnchoredPosition: {x: 250, y: 74.99985}
+  m_AnchoredPosition: {x: 250.00006, y: 74.99997}
   m_SizeDelta: {x: 0, y: 109.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471379400
@@ -9744,7 +9744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.010827652, y: 0.04063255}
   m_AnchorMax: {x: 0.31800002, y: 0.162}
-  m_AnchoredPosition: {x: 99.999954, y: 57.650253}
+  m_AnchoredPosition: {x: 99.999954, y: 57.650192}
   m_SizeDelta: {x: -0.0000076293945, y: 115.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1611989227
@@ -10129,8 +10129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6575c13371fd4cbcba0652f2092d1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleMusic: {fileID: 8300000, guid: a1e215ae108fcb84e828180c70a83679, type: 3}
-  mainMusic: {fileID: 8300000, guid: a1e215ae108fcb84e828180c70a83679, type: 3}
+  titleMusic: {fileID: 8300000, guid: ad25cf16255c1094284298e5b511785d, type: 3}
+  mainMusic: {fileID: 8300000, guid: ad25cf16255c1094284298e5b511785d, type: 3}
   volumeDown: {fileID: 24519918, guid: 0ac7fb39e445048d89688f69c2a1839a, type: 2}
   volumeUp: {fileID: 24500003, guid: 0ac7fb39e445048d89688f69c2a1839a, type: 2}
 --- !u!82 &1644238101
@@ -10592,7 +10592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12314,7 +12314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9028241bc80306408b0fa08ce64c5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredStars: 2
+  requiredStars: 3
 --- !u!1 &1931334649
 GameObject:
   m_ObjectHideFlags: 0

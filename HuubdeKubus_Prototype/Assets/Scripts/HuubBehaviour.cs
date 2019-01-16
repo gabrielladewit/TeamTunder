@@ -24,28 +24,30 @@ public class HuubBehaviour : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (playerObj != null && !pause.isPaused && camCtrl.GetComponent<CameraBehaviour>().initiated)
+        if(camCtrl != null)
         {
-            //Get vertical distance between player and huub
-            dist = Mathf.Abs((playerObj.transform.position - this.transform.position).y);
+            if (playerObj != null && !pause.isPaused && camCtrl.GetComponent<CameraBehaviour>().initiated)
+            {
+                //Get vertical distance between player and huub
+                dist = Mathf.Abs((playerObj.transform.position - this.transform.position).y);
 
-            //Set speed depending on distance
-            if (dist > 12)
-                realSpeed = speed + (dist * 0.1f);
-            else
-                realSpeed = speed;
+                //Set speed depending on distance
+                if (dist > 12)
+                    realSpeed = speed + (dist * 0.1f);
+                else
+                    realSpeed = speed;
 
-            //Get currentPos on same height
-            Vector3 currentPos = this.transform.position;
-            currentPos.z = playerObj.transform.position.z;
+                //Get currentPos on same height
+                Vector3 currentPos = this.transform.position;
+                currentPos.z = playerObj.transform.position.z;
 
-            //Get direction between player and huub
-            Vector3 dirVec = playerObj.transform.position - currentPos;
-            dirVec = dirVec.normalized;
+                //Get direction between player and huub
+                Vector3 dirVec = playerObj.transform.position - currentPos;
+                dirVec = dirVec.normalized;
 
-            //Move huub in player direction
-            transform.Translate(dirVec * realSpeed * Time.deltaTime);
-
+                //Move huub in player direction
+                transform.Translate(dirVec * realSpeed * Time.deltaTime);
+            }
         }
 
         //Check if huub can grab the player
@@ -54,5 +56,14 @@ public class HuubBehaviour : MonoBehaviour {
             realSpeed = 0;
             ani.SetInteger("State", 1);
         }
+    }
+
+    public void SetCamera()
+    {
+        camCtrl = GameObject.Find("Main Camera Parent");
+
+        if(pause == null)
+            pause = GameObject.Find("UI").GetComponent<Pause>();
+        pause.setOnClick();
     }
 }
