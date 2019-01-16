@@ -25,7 +25,6 @@ public class StarUIManager : MonoBehaviour {
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             GameObject starDaddy = gameObject.transform.GetChild(i).gameObject;
-            Debug.Log(starDaddy.name);
             //Since GameObjects stars active check if it needs to be set to Deactive
             if (starDaddy != null && starDaddy.name != "Return" && starDaddy.name != "RawImage")
             {
@@ -38,8 +37,13 @@ public class StarUIManager : MonoBehaviour {
 
                 if (starDaddy.GetComponent<UnlockLevelWithStars>().requiredStars > totalStars)
                 {
-                    starDaddy.transform.GetChild(0).GetComponent<Image>().color = new Color32(40,40,40,200);
+                    //starDaddy.SetActive(false);
                     starDaddy.transform.GetChild(0).GetComponent<Button>().enabled = false;
+                    starDaddy.transform.GetChild(0).GetComponent<Image>().color = new Color32(40,40,40,200);
+                }
+                else
+                {
+                    
 
                     switch (starsArray[i])
                     {
