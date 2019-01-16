@@ -47,7 +47,7 @@ public class CameraBehaviour : MonoBehaviour {
         posA = finishLine.transform.position;
         posB = playerT.transform.position;
         posB.z = -28;
-        posA.z = -15;
+        posA.z = -25;
 
         //Used to get camera mode from settings (deprecated)
         cameraMode = Modes.Strafe;//GameObject.Find("UI").GetComponent<StartOptions>().currentCameraMode;
