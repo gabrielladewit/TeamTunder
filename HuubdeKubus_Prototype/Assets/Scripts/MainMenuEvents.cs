@@ -10,17 +10,16 @@ public class MainMenuEvents : MonoBehaviour
 
     void Start()
     {
-        //PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
-            //.Build();
+        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
+            .Build();
 
-        //PlayGamesPlatform.InitializeInstance(config);
-        // recommended for debugging:
-        //PlayGamesPlatform.DebugLogEnabled = true;
-        // Activate the Google Play Games platform
-        //PlayGamesPlatform.Activate();
+        PlayGamesPlatform.InitializeInstance(config);
 
-        //signIn();
+       PlayGamesPlatform.DebugLogEnabled = true;
 
+       PlayGamesPlatform.Activate();
+
+        signIn();
 
     }
 
@@ -32,6 +31,7 @@ public class MainMenuEvents : MonoBehaviour
             if (success)
             {
                 Debug.Log("succes");
+                UnlockAchievement("CgkIxPu6y84TEAIQBA");
             }
             else
             {
@@ -39,4 +39,38 @@ public class MainMenuEvents : MonoBehaviour
             }
         });
     }
+
+    public void showSpecificLeaderboard(string leaderboardId)
+    {
+        PlayGamesPlatform.Instance.ShowLeaderboardUI(leaderboardId);
+    }
+
+    #region Achievements
+    public static void UnlockAchievement(string id)
+    {
+        Social.ReportProgress(id, 100, success => { });
+    }
+
+    public static void IncrementAchievement(string id, int stepsToIncrement)
+    {
+        PlayGamesPlatform.Instance.IncrementAchievement(id, stepsToIncrement, success => { });
+    }
+
+    public void ShowAchievementsUI()
+    {
+        Social.ShowAchievementsUI();
+    }
+    #endregion /Achievements
+
+    #region Leaderboards
+    public static void AddScoreToLeaderboard(string leaderboardId, long score)
+    {
+        Social.ReportScore(score, leaderboardId, success => { });
+    }
+
+    public void ShowLeaderboardsUI()
+    {
+        Social.ShowLeaderboardUI();
+    }
+    #endregion /Leaderboards
 }

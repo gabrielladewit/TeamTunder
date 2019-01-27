@@ -63,6 +63,10 @@ public class WinStatsSetter : MonoBehaviour {
         {
             int realScore = stars * 100 + coins -100;
             coinDaddy.GetComponent<Text>().text = realScore.ToString();
+            if (currentLevel.currentLevel == 1)
+                MainMenuEvents.AddScoreToLeaderboard("CgkIxPu6y84TEAIQAg", realScore);
+            if (currentLevel.currentLevel == 4)
+                MainMenuEvents.AddScoreToLeaderboard("CgkIxPu6y84TEAIQAw", realScore);
         }
 
         Debug.Log("currentcoins = " + coins + ", currentstars = " + stars);

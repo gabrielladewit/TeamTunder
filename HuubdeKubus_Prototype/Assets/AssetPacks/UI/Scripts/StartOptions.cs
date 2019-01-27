@@ -20,7 +20,7 @@ public class StartOptions : MonoBehaviour {
 	private PlayMusic playMusic;										//Reference to PlayMusic script
 	private float fastFadeIn = .01f;									//Very short fade time (10 milliseconds) to start playing music immediately without a click/glitch
 	private ShowPanels showPanels;										//Reference to ShowPanels script on UI GameObject, to show and hide panels
-
+     MainMenuEvents mainMenuEvents;
     public Levels levelManager;
     public Pause pauseScript;
     public Tutorial tutorialScript;
@@ -35,6 +35,7 @@ public class StartOptions : MonoBehaviour {
         //Get a reference to PlayMusic attached to UI object
         playMusic = GetComponent<PlayMusic> ();
 
+        mainMenuEvents = GameObject.Find("GooglePlayApi").GetComponent<MainMenuEvents>();
         levelManager = GetComponent<Levels>();
         pauseScript = GetComponent<Pause>();
         tutorialScript = GetComponent<Tutorial>();
@@ -86,6 +87,14 @@ public class StartOptions : MonoBehaviour {
             //Set the trigger of Animator animColorFade to start transition to the FadeToOpaque state.
             animColorFade.SetTrigger("fade");
         }
+    }
+
+    public void LeaderboardButtonClicked()
+    {
+        if(levelManager.currentLevel == 1)
+            mainMenuEvents.showSpecificLeaderboard("CgkIxPu6y84TEAIQAg");
+        if(levelManager.currentLevel == 4)
+            mainMenuEvents.showSpecificLeaderboard("CgkIxPu6y84TEAIQAw");
     }
 
     public void MainMenuButtonClicked()
