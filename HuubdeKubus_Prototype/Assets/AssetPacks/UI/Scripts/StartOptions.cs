@@ -24,8 +24,6 @@ public class StartOptions : MonoBehaviour {
     public Levels levelManager;
     public Pause pauseScript;
     public Tutorial tutorialScript;
-
-    public CameraBehaviour.Modes currentCameraMode = CameraBehaviour.Modes.Sway;
 	
 	void Awake()
 	{
@@ -188,24 +186,5 @@ public class StartOptions : MonoBehaviour {
 		//Play music clip assigned to mainMusic in PlayMusic script
 		playMusic.PlaySelectedMusic (1);
 	}
-    
-    public void SetCameraMode()
-    {
-        CameraBehaviour.Modes camMode;
-
-        switch (GameObject.Find("CameraModeOptions").GetComponent<Dropdown>().value)
-        {
-            case 1:
-                camMode = CameraBehaviour.Modes.Sway;
-                break;
-            case 0:
-                camMode = CameraBehaviour.Modes.Strafe;
-                break;
-            default:
-                camMode = CameraBehaviour.Modes.Strafe;
-                break;
-        }
-
-        currentCameraMode = camMode;
-    }
+   
 }
