@@ -68,7 +68,7 @@ public class CameraBehaviour : MonoBehaviour {
             // Fraction of journey completed = current distance divided by total distance.
             float fracJourney = distCovered / journeyLength ;
 
-            //Set position 
+            //Lerp 1: from finishline to player
             transform.position = Vector3.Lerp(posA + camPos, posB + camPos, fracJourney);
 
             //Lerp is done, set next lerp positions
@@ -102,7 +102,7 @@ public class CameraBehaviour : MonoBehaviour {
 
     public IEnumerator SetNewPos(float time)
     {
-        //Lerp 1: from finishline to Huub
+        //Lerp 2: From player to Huub
         if (!Lerp1Done)
         {
             yield return new WaitForSecondsRealtime(time);
@@ -115,7 +115,7 @@ public class CameraBehaviour : MonoBehaviour {
             yield return coroutineRunning = false;
         }
 
-        //Lerp 2: From Huub to player
+        //Lerp 3: From Huub to player
         else if (Lerp1Done && !Lerp2Done)
         {
             huubKuub.GetComponent<AudioSource>().Play();
