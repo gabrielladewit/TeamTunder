@@ -74,6 +74,9 @@ public class CameraBehaviour : MonoBehaviour
     {
         if (!initiated)
         {
+            Vector3 center = (((posA + camPos) + (posB + camPos)) * 0.5f);
+            center -= Vector3.back;
+
             starScript1 = GetPickupMovementByName("Star1");
             starScript2 = GetPickupMovementByName("Star2");
             starScript3 = GetPickupMovementByName("Star3");
@@ -81,14 +84,16 @@ public class CameraBehaviour : MonoBehaviour
             //Set journeyTime so that transition is smooth
             journeyTime = Vector3.Distance(posA, posB) * 0.015f;
 
+            Vector3 aRelCenter = posA + camPos - center;
+            Vector3 bRelCenter = posB + camPos - center;
+
             float fracComplete = (Time.time - startTime) / journeyTime;
 
-            Vector3 desiredPos = Vector3.Lerp(posA + camPos, posB + camPos, fracComplete);
-
-            transform.position = desiredPos;
+            transform.position = Vector3.Slerp(aRelCenter, bRelCenter, fracComplete);
+            transform.position += center;
 
             // Slerp is done set next Slerp positions
-            if ((transform.position.y == posB.y + camPos.y) && !coroutineRunning)
+            if ((Mathf.Round(transform.position.y) == Mathf.Round(posB.y + camPos.y)) && !coroutineRunning)
             {
                 coroutineRunning = true;
                 StartCoroutine(SetNewPos(0.4f));
