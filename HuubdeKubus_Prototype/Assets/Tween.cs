@@ -24,7 +24,7 @@ public class Tween : MonoBehaviour
     {
         startTime = Time.time;
         start = transform.position.y;
-        end = start -110;
+        end = start -450;
     }
 
     // Update is called once per frame
