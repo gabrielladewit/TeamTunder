@@ -8,7 +8,7 @@ public class CameraBehaviour : MonoBehaviour {
     Levels _levels;
 
     public bool initiated = false, coroutineRunning = false, Lerp1Done = false,
-        Lerp2Done = false;
+        Lerp2Done = false, skipTutorial = false;
 
     GameObject playerT, finishLine, huubKuub;
     
@@ -51,6 +51,13 @@ public class CameraBehaviour : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if (skipTutorial == false && Input.GetMouseButton(0))
+        {
+            Lerp1Done = true;
+            StartCoroutine(SetNewPos(0));
+            skipTutorial = true;
+        }
+
         if (!initiated)
         {
             journeyLength = Vector3.Distance(posA + camPos, posB + camPos);
