@@ -46,6 +46,11 @@ public class Pause : MonoBehaviour {
         isPaused = true;
         Time.timeScale = 0;
         showPanels.ShowWinPanel();
+        if(Achievements.explodedbarrels == 0)
+        {
+            ShowAchievement.showAchievement("Peacefull");
+            MainMenuEvents.UnlockAchievement("CgkIxPu6y84TEAIQDg");
+        }
     }
 
 	public void PauseTutorial()
