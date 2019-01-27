@@ -32,6 +32,7 @@ public class MainMenuEvents : MonoBehaviour
             {
                 Debug.Log("succes");
                 UnlockAchievement("CgkIxPu6y84TEAIQBA");
+                ShowAchievement.showAchievement("Welcome");
             }
             else
             {

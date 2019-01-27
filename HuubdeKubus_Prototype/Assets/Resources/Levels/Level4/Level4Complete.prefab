@@ -1611,6 +1611,7 @@ GameObject:
   - component: {fileID: 135929205268147578}
   - component: {fileID: 114860729865733020}
   - component: {fileID: 114272861633301330}
+  - component: {fileID: 114961825361459154}
   m_Layer: 0
   m_Name: Star2
   m_TagString: Star
@@ -123059,6 +123060,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starParticles: {fileID: 0}
   powerup: 3
+--- !u!114 &114961825361459154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1058322621022302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0812a429f6213d4f99c1c85204ab5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114993384449402926
 MonoBehaviour:
   m_ObjectHideFlags: 1

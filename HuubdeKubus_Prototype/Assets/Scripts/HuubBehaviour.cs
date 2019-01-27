@@ -32,7 +32,7 @@ public class HuubBehaviour : MonoBehaviour {
                 dist = Mathf.Abs((playerObj.transform.position - this.transform.position).y);
 
                 //Set speed depending on distance
-                if (dist > 12)
+                if (dist > 15)
                     realSpeed = speed + (dist * 0.1f);
                 else
                     realSpeed = speed;

@@ -11,6 +11,8 @@ public class MovingObstacle : MonoBehaviour {
     Vector3 lastPos;
     Vector3 startPos;
 
+    public static float hitchHikeTime = 0f;
+    bool hitchHiker = false;
     float distance;
     bool dontRotate = false;
     int nextLocation = 0;
@@ -50,6 +52,12 @@ public class MovingObstacle : MonoBehaviour {
             if(!dontRotate)
                 RotateDieKutAutosGoed();
         }
+        if(hitchHikeTime > 3f && !hitchHiker)
+        {
+            ShowAchievement.showAchievement("Hitch Hiker");
+            MainMenuEvents.UnlockAchievement("CgkIxPu6y84TEAIQBg");
+            hitchHiker = true;
+        }
 
     }
 
@@ -65,5 +73,13 @@ public class MovingObstacle : MonoBehaviour {
 
         transform.localRotation = Quaternion.Euler(0, angle, 0);
 
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.name == "PlayerSphere")
+        {
+            hitchHikeTime += Time.deltaTime;
+        }
     }
 }
