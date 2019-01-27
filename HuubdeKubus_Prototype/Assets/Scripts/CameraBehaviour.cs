@@ -2,38 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraBehaviour : MonoBehaviour {
+public class CameraBehaviour : MonoBehaviour
+{
 
     public enum Modes
     {
         Sway,
         Strafe
     }
-    
+
     private Modes cameraMode;
 
     Pause pauseScript;
     Levels _levels;
 
-    public bool initiated = false, coroutineRunning = false, Slerp1Done = false, 
-        Slerp2Done = false/*, Slerp3Done = false, Slerp4Done = false*/;
+    public bool initiated = false, coroutineRunning = false;
 
-    GameObject[] list;
-    GameObject playerT, finishLine, huubKuub;
-
+    public GameObject Star1, Star2, Star3;
     PickupMovement starScript1, starScript2, starScript3;
-    
-    public float smoothSpeed = 0.125f;
-    float startTime, journeyTime;
 
-    Vector3 camPos, offset, posA, posB;
+    private GameObject playerT;
+    public float smoothSpeed = 0.125f, journeyTime;
+    float startTime, desiredHeightA, desiredHeightB;
+    Vector3 camPos, offset;
+    Vector3 aRelCenter, bRelCenter;
+    private Vector3 centerPoint, startRelCenter, endRelCenter;
+    GameObject finishLine;
 
-    
+    Vector3 posA;
+    Vector3 posB;
+    GameObject[] list;
+
+    bool Slerp1Done = false, Slerp2Done = false, Slerp3Done = false;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         pauseScript = GameObject.Find("UI").GetComponent<Pause>();
         _levels = GameObject.Find("UI").GetComponent<Levels>();
+        //Start the time
         startTime = Time.time;
         journeyTime = 3f;
 
@@ -41,17 +48,15 @@ public class CameraBehaviour : MonoBehaviour {
         list = GameObject.FindGameObjectsWithTag("Star");
         finishLine = GameObject.Find("FinishLine");
         playerT = GameObject.Find("PlayerSphere");
-        huubKuub = GameObject.Find("Huub");
 
         //Set first Slerp positions from finishline to star 3
         posA = finishLine.transform.position;
-        posB = playerT.transform.position;
-        posB.z = -28;
-        posA.z = -25;
+        posB = GetStarByName("Star3");
+        posB.z = -13;
 
         //Used to get camera mode from settings (deprecated)
         cameraMode = Modes.Strafe;//GameObject.Find("UI").GetComponent<StartOptions>().currentCameraMode;
-        
+
         //Set Cam at Finish
         Vector3 startPos = transform.position;
         startPos.y = posA.y - 10;
@@ -62,8 +67,8 @@ public class CameraBehaviour : MonoBehaviour {
 
         //To Calculate with
         camPos = new Vector3(0, -15f, -25f);
-        offset = new Vector3 (0, 2f, 2f);
-	}
+        offset = new Vector3(0, 2f, 2f);
+    }
 
     void FixedUpdate()
     {
@@ -81,7 +86,7 @@ public class CameraBehaviour : MonoBehaviour {
             Vector3 desiredPos = Vector3.Lerp(posA + camPos, posB + camPos, fracComplete);
 
             transform.position = desiredPos;
-            
+
             // Slerp is done set next Slerp positions
             if ((transform.position.y == posB.y + camPos.y) && !coroutineRunning)
             {
@@ -95,7 +100,7 @@ public class CameraBehaviour : MonoBehaviour {
             if (cameraMode == Modes.Strafe)
             {
                 Vector3 camPosition = playerT.transform.position + camPos;
-                
+
                 if (camPosition.x > 60f)
                 {
                     camPosition.x = 60f;
@@ -117,34 +122,40 @@ public class CameraBehaviour : MonoBehaviour {
     {
         if (!Slerp1Done)
         {
+            starScript3.Particles();
             yield return new WaitForSecondsRealtime(time);
             Slerp1Done = true;
-
-            posA = playerT.transform.position;
-            posA.z = -28;
-            posB = huubKuub.transform.position;
-            posB.y -= 10;
-            posB.z = -7;
+            posA = GetStarByName("Star3");
+            posA.z = -13;
+            posB = GetStarByName("Star2");
+            posB.z = -13;
             startTime = Time.time;
-            //introCamPos = new Vector3(0, 0, 0);
             yield return coroutineRunning = false;
         }
         else if (Slerp1Done && !Slerp2Done)
         {
-
-            huubKuub.GetComponent<AudioSource>().Play();
-            yield return new WaitForSecondsRealtime(time*2);
+            starScript2.Particles();
+            yield return new WaitForSecondsRealtime(time);
             Slerp2Done = true;
-
-            posA = huubKuub.transform.position;
-            posA.y -= 10;
-            posA.z = -7;
+            posA = GetStarByName("Star2");
+            posA.z = -13;
+            posB = GetStarByName("Star1");
+            posB.z = -13;
+            startTime = Time.time;
+            yield return coroutineRunning = false;
+        }
+        else if (Slerp1Done && Slerp2Done && !Slerp3Done)
+        {
+            starScript1.Particles();
+            yield return new WaitForSecondsRealtime(time);
+            Slerp3Done = true;
+            posA = GetStarByName("Star1");
+            posA.z = -13;
             posB = playerT.transform.position;
             startTime = Time.time;
             yield return coroutineRunning = false;
         }
-
-        else if (Slerp1Done && Slerp2Done)
+        else if (Slerp1Done && Slerp2Done && Slerp3Done)
         {
             initiated = true;
             if (_levels.currentLevel == 1)
@@ -158,7 +169,7 @@ public class CameraBehaviour : MonoBehaviour {
     {
         foreach (var item in list)
         {
-            if(item.name == name)
+            if (item.name == name)
             {
                 return item.transform.position;
             }
@@ -168,7 +179,7 @@ public class CameraBehaviour : MonoBehaviour {
 
     public PickupMovement GetPickupMovementByName(string name)
     {
-        foreach(var item in list)
+        foreach (var item in list)
         {
             if (item.name == name)
             {
