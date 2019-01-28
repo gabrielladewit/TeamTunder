@@ -7,18 +7,15 @@ public class CameraBehaviour : MonoBehaviour {
     Pause pauseScript;
     Levels _levels;
 
-    public bool initiated = false, coroutineRunning = false, Lerp1Done = false,
-        Lerp2Done = false, skipTutorial = false;
+    public bool initiated = false;
+    private bool coroutineRunning = false, Lerp1Done = false, Lerp2Done = false, skipTutorial = false;
 
     GameObject playerT, finishLine, huubKuub;
-    
-    float startTime;
-
     Vector3 camPos, offset, posA, posB;
 
     // Total distance between the markers for lerping
     private float journeyLength;
-    public float cameraspeed = 50f;
+    private float cameraspeed = 50f, startTime;
 
     // Use this for initialization
     void Start () {
@@ -43,29 +40,21 @@ public class CameraBehaviour : MonoBehaviour {
         //Set camera rotation to rotation in CameraTesting32 scene
         transform.eulerAngles = new Vector3(-32.196f, 0, 0);
 
-        //To Calculate with
-        //Used when focusing on Huub?
+        //To calculate with
         camPos = new Vector3(0, -15f, -25f);
         offset = new Vector3 (0, 2f, 2f);
 	}
 
-    void FixedUpdate()
+    void Update()
     {
-        if (skipTutorial == false && Input.GetMouseButton(0))
-        {
-            Lerp1Done = true;
-            StartCoroutine(SetNewPos(0));
-            skipTutorial = true;
-        }
-
         if (!initiated)
         {
             journeyLength = Vector3.Distance(posA + camPos, posB + camPos);
 
-            // Distance moved = time * speed.
+            //Distance moved
             float distCovered = (Time.time - startTime) * cameraspeed;
 
-            // Fraction of journey completed = current distance divided by total distance.
+            //Fraction of journey completed
             float fracJourney = distCovered / journeyLength ;
 
             //Lerp 1: from finishline to player
@@ -82,21 +71,21 @@ public class CameraBehaviour : MonoBehaviour {
         //Camera follows player after lerps are done 
         if (playerT != null && initiated)
         {
-                Vector3 camPosition = playerT.transform.position + camPos;
-                
-                if (camPosition.x > 60f)
-                {
-                    camPosition.x = 60f;
-                }
-                else if (camPosition.x < -60f)
-                {
-                    camPosition.x = -60f;
-                }
+            Vector3 camPosition = playerT.transform.position + camPos;
 
-                transform.position = camPosition;
+            if (camPosition.x > 60f)
+            {
+                camPosition.x = 60f;
+            }
+            else if (camPosition.x < -60f)
+            {
+                camPosition.x = -60f;
+            }
 
-                Vector3 lookAtPos = playerT.transform.position + offset;
-                transform.LookAt(lookAtPos);
+            transform.position = camPosition;
+
+            Vector3 lookAtPos = playerT.transform.position + offset;
+            transform.LookAt(lookAtPos);
         }
     }
 
