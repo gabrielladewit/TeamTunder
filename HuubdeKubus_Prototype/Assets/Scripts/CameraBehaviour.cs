@@ -12,7 +12,7 @@ public class CameraBehaviour : MonoBehaviour
     private bool Slerp1Done = false, Slerp2Done = false, Slerp3Done = false, coroutineRunning = false, skipSlerp = false;
 
     private GameObject playerT, finishLine;
-    private float journeyTime = 2f, startTime;
+    private float journeyTime, startTime;
 
     private Vector3 camPos, offset, aRelCenter, bRelCenter, posA, posB;
 
@@ -29,6 +29,7 @@ public class CameraBehaviour : MonoBehaviour
 
         //Start the time for slerping
         startTime = Time.time;
+        journeyTime = 2f;
 
         //Set first Slerp positions from finishline to star 3
         posA = finishLine.transform.position;
@@ -50,14 +51,13 @@ public class CameraBehaviour : MonoBehaviour
 
     void Update()
     {
-        //Speeds up slerp if player taps 
+        //Skip slerp if player taps 
         if (skipSlerp == false && Input.GetMouseButton(0))
         {
             journeyTime = 0.7f;
             skipSlerp = true;
         }
     
-
         if (!initiated)
         {
             //Get the center between the first and second position
