@@ -6,15 +6,13 @@ public class CameraBehaviour : MonoBehaviour
 {
     Pause pauseScript;
     Levels _levels;
-    GameObject[] list;
+    private GameObject[] list;
+    private GameObject playerT, finishLine;
+    private Vector3 camPos, offset, aRelCenter, bRelCenter, posA, posB;
 
     public bool initiated = false;
     private bool Slerp1Done = false, Slerp2Done = false, Slerp3Done = false, coroutineRunning = false, skipSlerp = false;
-
-    private GameObject playerT, finishLine;
     private float journeyTime, startTime;
-
-    private Vector3 camPos, offset, aRelCenter, bRelCenter, posA, posB;
 
     // Use this for initialization
     void Start()
@@ -106,7 +104,7 @@ public class CameraBehaviour : MonoBehaviour
     }
 
     //Set new positions for each slerp
-    public IEnumerator SetNewPos(float time)
+    private IEnumerator SetNewPos(float time)
     {
         if (!Slerp1Done)
         {
@@ -159,7 +157,7 @@ public class CameraBehaviour : MonoBehaviour
     }
 
     //Get position of specific star
-    public Vector3 GetStarByName(string name)
+    private Vector3 GetStarByName(string name)
     {
         foreach (var item in list)
         {
@@ -172,7 +170,7 @@ public class CameraBehaviour : MonoBehaviour
     }
 
     //Get script from star (for particle animation)
-    public PickupMovement GetPickupMovementByName(string name)
+    private PickupMovement GetPickupMovementByName(string name)
     {
         foreach (var item in list)
         {
