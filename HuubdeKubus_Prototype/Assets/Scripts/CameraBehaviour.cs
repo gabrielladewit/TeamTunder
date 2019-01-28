@@ -88,7 +88,7 @@ public class CameraBehaviour : MonoBehaviour
             transform.position = desiredPos;
 
             // Slerp is done set next Slerp positions
-            if ((transform.position.y == posB.y + camPos.y) && !coroutineRunning)
+            if ((Mathf.Round(transform.position.y) == Mathf.Round(posB.y + camPos.y)) && !coroutineRunning)
             {
                 coroutineRunning = true;
                 StartCoroutine(SetNewPos(0.4f));
