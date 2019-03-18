@@ -6,7 +6,7 @@ using Unity.Entities;
 public class PickupMovement : MonoBehaviour
 {
     static PickupBehaviour pUp;
-    public ParticleSystem starParticles;
+    //public ParticleSystem starParticles;
     Collider col;
 
     private void Start()
@@ -45,15 +45,24 @@ public class PickupMovement : MonoBehaviour
 
     IEnumerator StarPickup()
     {
+        GameObject starParticles = ObjectPool.SharedInstance.GetPooledObject("StarParticles");
+
         if (starParticles != null)
-            starParticles.Play();
+        {
+            starParticles.transform.position = this.transform.position;
+            starParticles.transform.rotation = this.transform.rotation;
+            starParticles.SetActive(true);
+            starParticles.GetComponent<ParticleSystem>().Play();
+        }
+
         col.enabled = !col.enabled;
         yield return new WaitForSeconds(1);
-        Destroy(this.gameObject);
+        //starParticles.GetComponent<ParticleSystem>().Clear();
+        starParticles.SetActive(false);
     }
 
     public void Particles()
     {
-        starParticles.Play();
+        //starParticles.Play();
     }
 }

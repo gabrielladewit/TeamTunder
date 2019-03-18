@@ -26,7 +26,7 @@ public class HuubBehaviour : MonoBehaviour {
     {
         if(camCtrl != null)
         {
-            if (playerObj != null && !pause.isPaused && camCtrl.GetComponent<CameraBehaviour>().initiated)
+            if (playerObj != null && !pause.isPaused && camCtrl.GetComponent<CameraSlerp>().initiated)
             {
                 //Get vertical distance between player and huub
                 dist = Mathf.Abs((playerObj.transform.position - this.transform.position).y);

@@ -7,6 +7,7 @@ public class MineBehaviour : MonoBehaviour {
     public GameObject explosion;
     private GameObject player;
     public float force = 5, addRadius, delay = 0;
+    public float destroyDelay = 1f;
 
     float radius, tempDelay;
     bool onOff;
@@ -34,18 +35,12 @@ public class MineBehaviour : MonoBehaviour {
 
                 Vector3 mineDirection = rb.transform.position - levelledPosition;
                 mineDirection = mineDirection.normalized;
-
-                //Debug.Log("mineDirection: " + mineDirection.x + "  , " + mineDirection.y + "  ," + mineDirection.z);
                 
                 mineDirection.x = mineDirection.x * 2;
 
-                //Debug.Log("mineForce: " + mineDirection * (force * 100));
-
                 rb.AddForce(mineDirection * force * 100);
-                Debug.Log("oeps");
-
                 onOff = false;
-                Destroy(gameObject);
+                //Destroy(gameObject);
             }
         }
     }
@@ -54,10 +49,37 @@ public class MineBehaviour : MonoBehaviour {
     {
         if (other.gameObject == player)
         {
-            Instantiate(explosion, this.transform.position, this.transform.rotation);
+            Debug.Log("1");
+
+            StartCoroutine(Particles());
+        }
+    }
+
+    IEnumerator Particles()
+    {
+        Debug.Log("2");
+
+        GameObject explosion2 = ParticlePool.SharedInstance.GetPooledParticles();
+        if (explosion2 != null)
+        {
+            Debug.Log("3");
+
+            explosion2.transform.position = this.transform.position;
+            explosion2.transform.rotation = this.transform.rotation;
+            explosion2.SetActive(true);
+
+            Debug.Log("3");
+
             onOff = true;
             tempDelay = delay;
             this.gameObject.GetComponent<Collider>().enabled = false;
+
+            yield return new WaitForSeconds(destroyDelay);
+
+            //explosion2.GetComponent<ParticleSystem>().Clear();
+            Debug.Log("setactive false");
+            explosion2.SetActive(false);
         }
+        
     }
 }
