@@ -5,19 +5,14 @@ using System.Linq;
 
 //Fill in the tag(s) of the objects to slerp to in the inspector
 
-[System.Serializable]
-public class SlerpToObject
-{
-    public string objectName;
-}
-
 public class CameraSlerp : MonoBehaviour
 {
     Pause pauseScript;
     Levels _levels;
+    CameraBehaviour camScript;
+
     public List<Vector3> positionList;
-    public List<SlerpToObject> objectsToSlerp;
-    public CameraBehaviour camScript;
+    public List<string> objectTags;
 
     private GameObject playerT, finishLine;
     private Vector3 camPos, offset, aRelCenter, bRelCenter, posA, posB;
@@ -25,8 +20,7 @@ public class CameraSlerp : MonoBehaviour
     public bool initiated = false;
     private bool coroutineRunning = false;
     private float journeyTime, startTime;
-    private int state = 1;
-
+    public int state = 1;
     // Use this for initialization
     void Start()
     {
@@ -95,12 +89,18 @@ public class CameraSlerp : MonoBehaviour
         if (state <= positionList.Count - 1)
         {
             yield return new WaitForSecondsRealtime(time);
-            posA = positionList[state-1];
+            posA = positionList[state - 1];
             posB = positionList[state];
             startTime = Time.time;
             state++;
             yield return coroutineRunning = false;
 
+            //When camera focuses on star play particle system
+            if (state > 2)
+            {
+                StartCoroutine(PlaceParticles("StarParticles"));
+
+            }
         }
 
         //Start the tutorial if it's level 1, or else start the game
@@ -118,15 +118,32 @@ public class CameraSlerp : MonoBehaviour
     //Add positions of the objects to list
     public void AddPos()
     {
-        foreach (SlerpToObject item in objectsToSlerp)
+        foreach (string item in objectTags)
         {
-            foreach (GameObject obj in GameObject.FindGameObjectsWithTag(item.objectName))
+            foreach (GameObject obj in GameObject.FindGameObjectsWithTag(item))
             {
                 positionList.Add(obj.transform.position);
             }
         }
 
-        //Sort the list to make sure slerp happens in right order 
+        //Sort the list to make sure slerp happens in right order (from finisline to player)
         positionList = positionList.OrderBy(t => Vector3.Distance(finishLine.transform.position, t)).ToList();
+    }
+
+    public IEnumerator PlaceParticles(string tag)
+    {
+        GameObject particles = ObjectPool.SharedInstance.GetPooledObject(tag);
+
+        if (particles != null)
+        {
+            particles.transform.position = posA;
+            particles.transform.rotation = this.transform.rotation;
+            particles.SetActive(true);
+            particles.GetComponent<ParticleSystem>().Play();
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        particles.SetActive(false);
     }
 }

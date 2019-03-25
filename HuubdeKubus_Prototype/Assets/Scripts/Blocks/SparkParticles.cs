@@ -11,8 +11,8 @@ public class SparkParticles : MonoBehaviour
     {
         particleSystem = GetComponent<ParticleSystem>();
 
-        if (BillboardTarget == null)
-            BillboardTarget = Camera.main.transform;
+        //if (BillboardTarget == null)
+            //BillboardTarget = Camera.main.transform;
     }
 
     void FixParticleRotations()

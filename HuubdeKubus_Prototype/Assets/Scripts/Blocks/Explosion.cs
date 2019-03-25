@@ -22,7 +22,7 @@ public class Explosion : MonoBehaviour
             {
                 Debris[i].Play();
             }
-            Destroy(gameObject, Main.duration);
+            //Destroy(gameObject, Main.duration);
         }
     }
 

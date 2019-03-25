@@ -34,6 +34,7 @@ public class ObjectPool : MonoBehaviour {
         }
     }
 
+    //Gets an object from the pool
     public GameObject GetPooledObject(string tag)
     {
         for (int i = 0; i < pooledObjects.Count; i++)
@@ -45,6 +46,25 @@ public class ObjectPool : MonoBehaviour {
         }
         return null;
     }
+
+    //Call this to place particle systems from the pool 
+    /*public IEnumerator PlaceParticles(string tag, Vector3 pos, float time)
+    {
+        GameObject particles = GetPooledObject(tag);
+
+        if (particles != null)
+        {
+            particles.transform.position = pos;
+            particles.transform.rotation = this.transform.rotation;
+            particles.SetActive(true);
+            particles.GetComponent<ParticleSystem>().Play();
+        }
+
+        yield return new WaitForSeconds(time);
+
+        //particles.GetComponent<ParticleSystem>().Clear();
+        particles.SetActive(false);
+    }*/
 
     //NOT WORKING ATM
     public ParticleSystem GetParticleSystem()

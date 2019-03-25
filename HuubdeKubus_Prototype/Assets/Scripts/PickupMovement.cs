@@ -8,11 +8,39 @@ public class PickupMovement : MonoBehaviour
     static PickupBehaviour pUp;
     //public ParticleSystem starParticles;
     Collider col;
+    Levels lvlScript;
+    CameraSlerp slerpScript;
+    //public GameObject particles;
+    //ObjectPool poolScript;
+    public float time = 0;
+    public bool timer = false;
+    bool on = false;
 
     private void Start()
     {
         pUp = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
         col = gameObject.GetComponent<Collider>();
+        lvlScript = GameObject.Find("UI").GetComponent<Levels>();
+        slerpScript = GameObject.Find("Main Camera Parent").GetComponent<CameraSlerp>();
+    }
+
+    public void Update()
+    {
+        /*if (timer == true)
+        {
+            //Debug.Log("timerrrr");
+
+            time += Time.deltaTime;
+        }
+        if (time > 2f)
+        {
+            timer = false;
+            time = 0;
+            Debug.Log("timer");
+            particles.SetActive(false);
+            
+        }*/
+
     }
 
     public enum Powerups
@@ -34,7 +62,8 @@ public class PickupMovement : MonoBehaviour
             pUp.Pickup(powerup.ToString());
             if (powerup.ToString() == "Star")
             {
-                StartCoroutine(StarPickup());
+                //StartCoroutine(ObjectPool.SharedInstance.PlaceParticles("StarParticles", this.transform.position, time));
+                StartCoroutine(PlaceParticles("StarParticles"));
             }
             else
             {
@@ -43,9 +72,10 @@ public class PickupMovement : MonoBehaviour
         }
     }
 
-    IEnumerator StarPickup()
+    /*IEnumerator StarPickup()
     {
         GameObject starParticles = ObjectPool.SharedInstance.GetPooledObject("StarParticles");
+        string tag = "StarParticles";
 
         if (starParticles != null)
         {
@@ -59,10 +89,33 @@ public class PickupMovement : MonoBehaviour
         yield return new WaitForSeconds(1);
         //starParticles.GetComponent<ParticleSystem>().Clear();
         starParticles.SetActive(false);
-    }
 
-    public void Particles()
+
+
+        //ObjectPoolHandler.SharedInstance.GetObjectFromPool("StarParticles", this.transform.position, this.transform.rotation);
+     
+    }*/
+
+    public IEnumerator PlaceParticles(string tag)
     {
-        //starParticles.Play();
+        GameObject particles = ObjectPool.SharedInstance.GetPooledObject(tag);
+
+        if (particles != null && on == false)
+        {
+            particles.transform.position = this.transform.position;
+            particles.transform.rotation = this.transform.rotation;
+            particles.SetActive(true);
+            particles.GetComponent<ParticleSystem>().Play();
+            on = true;
+        }
+
+        if (on == true)
+        {
+            yield return new WaitForSeconds(2f);
+
+            //particles.GetComponent<ParticleSystem>().Clear();
+            particles.SetActive(false);
+            on = false;
+        }
     }
 }
