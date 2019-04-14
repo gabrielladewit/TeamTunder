@@ -41,6 +41,7 @@ public class StartOptions : MonoBehaviour {
     public void LevelClicked(int x)
     {
         levelManager.currentLevel = x;
+        //levelManager.LevelSelected = x;
         ChangeScenes();
     }
 

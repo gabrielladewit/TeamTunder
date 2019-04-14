@@ -18,6 +18,9 @@ public class Pause : MonoBehaviour {
 		showPanels = GetComponent<ShowPanels> ();
 		//Get a component reference to StartButton attached to this object, store in startScript variable
 		startScript = GetComponent<StartOptions> ();
+
+        //Levels.OnLevelChange += PauseTutorial;
+        //CameraManager.onBoolChange += PauseTutorial;
 	}
 
     public void setOnClick()
@@ -48,10 +51,13 @@ public class Pause : MonoBehaviour {
         showPanels.ShowWinPanel();
     }
 
-	public void PauseTutorial()
+	public void PauseTutorial(int level, bool init)
 	{
-        if (!showedTutorial)
+        Debug.Log("pause: " + level);
+
+        if (!showedTutorial && level == 1)
         {
+            Debug.Log("after if: " + level);
             //Set isPaused to true
             isPaused = true;
             Time.timeScale = 0;

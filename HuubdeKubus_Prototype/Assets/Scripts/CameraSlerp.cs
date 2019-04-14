@@ -10,12 +10,14 @@ public class CameraSlerp : MonoBehaviour
     Pause pauseScript;
     Levels _levels;
     CameraBehaviour camScript;
+    CameraManager camManager;
 
     public List<Vector3> positionList;
     public List<string> objectTags;
 
     private GameObject playerT, finishLine;
-    private Vector3 camPos, offset, aRelCenter, bRelCenter, posA, posB;
+    private Vector3 camPos, offset, aRelCenter, bRelCenter, posB;
+    public Vector3 posA;
 
     public bool initiated = false;
     private bool coroutineRunning = false;
@@ -26,6 +28,7 @@ public class CameraSlerp : MonoBehaviour
     {
         pauseScript = GameObject.Find("UI").GetComponent<Pause>();
         camScript = GetComponent<CameraBehaviour>();
+        camManager = GetComponent<CameraManager>();
         _levels = GameObject.Find("UI").GetComponent<Levels>();
         playerT = GameObject.Find("PlayerSphere");
         finishLine = GameObject.FindGameObjectWithTag("Finish");
@@ -93,12 +96,14 @@ public class CameraSlerp : MonoBehaviour
             posB = positionList[state];
             startTime = Time.time;
             state++;
+            camManager.SlerpState = state;
             yield return coroutineRunning = false;
 
             //When camera focuses on star play particle system
             if (state > 2)
             {
-                StartCoroutine(PlaceParticles("StarParticles"));
+                //StartCoroutine(PlaceParticles("StarParticles"));
+                
 
             }
         }
@@ -107,8 +112,11 @@ public class CameraSlerp : MonoBehaviour
         else if (state == positionList.Count)
         {
             initiated = true;
-            if (_levels.currentLevel == 1)
-                pauseScript.PauseTutorial();
+            //camManager.slerpFinish = true;
+            camManager.SlerpFinish = true;
+
+            /*if (_levels.currentLevel == 1)
+                pauseScript.PauseTutorial();*/
             yield return coroutineRunning = false;
         }
 

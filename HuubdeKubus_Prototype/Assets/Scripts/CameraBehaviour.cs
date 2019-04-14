@@ -13,7 +13,6 @@ public class CameraBehaviour : MonoBehaviour
 
         //Set camera rotation to rotation in CameraTesting32 Scene so that the transition is smooth
         transform.eulerAngles = new Vector3(-32.196f, 0, 0);
-
         camPos = new Vector3(0, -15f, -25f);
     }
 
@@ -22,3 +21,4 @@ public class CameraBehaviour : MonoBehaviour
         transform.position = playerT.transform.position + camPos;
     }
 }
+

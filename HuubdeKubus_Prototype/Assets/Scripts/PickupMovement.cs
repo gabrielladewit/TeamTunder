@@ -12,8 +12,6 @@ public class PickupMovement : MonoBehaviour
     CameraSlerp slerpScript;
     //public GameObject particles;
     //ObjectPool poolScript;
-    public float time = 0;
-    public bool timer = false;
     bool on = false;
 
     private void Start()

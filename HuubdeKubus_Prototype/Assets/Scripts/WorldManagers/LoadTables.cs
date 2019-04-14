@@ -52,7 +52,7 @@ public class LoadTables : MonoBehaviour
             worldBlock.transform.parent = worldBlockParent;
             camFix.SetActive(true);
             huubBehaviour.SetCamera();
-            playerController.SetCamera();
+            //playerController.SetCamera();
         }
     }
         

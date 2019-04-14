@@ -7,11 +7,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    bool isLeftPressed = false, isRightPressed = false;
+    bool isLeftPressed = false, isRightPressed = false, initiated;
     private Rigidbody rb;
     
     public GameObject replacement;
-    GameObject camCtrl;
 
     public bool inverted = false;
     public float movementSpeed = 8;
@@ -22,24 +21,28 @@ public class PlayerController : MonoBehaviour
     
     void Start()
     {
-        camCtrl = GameObject.Find("Main Camera Parent");
         stopwatch = new Stopwatch();
         rb = this.gameObject.GetComponent<Rigidbody>();
         pickupManager = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
+
+        //Subscribe to the event
+        CameraManager.onBoolChange += CameraInitiated;
     }
     
     void FixedUpdate()
     {
-        if (camCtrl != null)
+        if (initiated)
         {
-            if (camCtrl.GetComponent<CameraSlerp>().initiated)
-            {
-                rb.AddForce(new Vector3(0, 0, 5f));
-                MoveUpdate();
-            }
+            rb.AddForce(new Vector3(0, 0, 5f));
+            MoveUpdate();
         }
     }
-    
+
+    void CameraInitiated(bool init)
+    {
+        initiated = true;
+    }
+
     void MoveUpdate()
     {
         if (!inverted)
@@ -136,6 +139,6 @@ public class PlayerController : MonoBehaviour
 
     public void SetCamera()
     {
-        camCtrl = GameObject.Find("Main Camera Parent");
+        //camCtrl = GameObject.Find("Main Camera Parent");
     }
 }
