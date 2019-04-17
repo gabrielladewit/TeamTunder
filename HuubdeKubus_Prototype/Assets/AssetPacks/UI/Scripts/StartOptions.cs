@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class StartOptions : MonoBehaviour {
 
@@ -22,10 +23,8 @@ public class StartOptions : MonoBehaviour {
 	private ShowPanels showPanels;										//Reference to ShowPanels script on UI GameObject, to show and hide panels
 
     public Levels levelManager;
-    public Pause pauseScript;
-    public Tutorial tutorialScript;
-	
-	void Awake()
+
+    void Awake()
 	{
 		//Get a reference to ShowPanels attached to UI object
 		showPanels = GetComponent<ShowPanels> ();
@@ -34,14 +33,11 @@ public class StartOptions : MonoBehaviour {
         playMusic = GetComponent<PlayMusic> ();
 
         levelManager = GetComponent<Levels>();
-        pauseScript = GetComponent<Pause>();
-        tutorialScript = GetComponent<Tutorial>();
 	}
 
     public void LevelClicked(int x)
     {
         levelManager.currentLevel = x;
-        //levelManager.LevelSelected = x;
         ChangeScenes();
     }
 

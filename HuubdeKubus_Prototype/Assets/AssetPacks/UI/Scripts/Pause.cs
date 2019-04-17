@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Pause : MonoBehaviour {
 
-    private CameraManager camManager;
 	private ShowPanels showPanels;						//Reference to the ShowPanels script used to hide and show UI panels
 	public bool isPaused, isDead;						//Boolean to check if the game is paused or not
 	private StartOptions startScript;                   //Reference to the StartButton script
+    private Levels levelScript;
     bool showedTutorial = false;
     bool onClickSet = false;
 	//Awake is called before Start()
@@ -18,11 +18,10 @@ public class Pause : MonoBehaviour {
 		showPanels = GetComponent<ShowPanels> ();
 		//Get a component reference to StartButton attached to this object, store in startScript variable
 		startScript = GetComponent<StartOptions> ();
+        levelScript = GetComponent<Levels>();
 
-        //camManager = GameObject.Find("Main Camera Parent").GetComponent<CameraManager>();
-
-        //Levels.OnLevelChange += PauseTutorial;
-	}
+        CameraManager.initiateGame += PauseTutorial;
+    }
 
     public void setOnClick()
     {
@@ -52,13 +51,11 @@ public class Pause : MonoBehaviour {
         showPanels.ShowWinPanel();
     }
 
-	public void PauseTutorial(int level)
+	public void PauseTutorial()
 	{
-        Debug.Log("pause: " + level);
-
-        if (!showedTutorial && level == 1)
+        //if (!showedTutorial && level == 1)
+        if (!showedTutorial && levelScript.currentLevel == 1)
         {
-            Debug.Log("after if: " + level);
             //Set isPaused to true
             isPaused = true;
             Time.timeScale = 0;

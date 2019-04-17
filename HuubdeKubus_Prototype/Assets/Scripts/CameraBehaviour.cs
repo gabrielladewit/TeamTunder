@@ -7,12 +7,6 @@ public class CameraBehaviour : MonoBehaviour
     private GameObject playerT;
     private Vector3 camPos;
 
-    private void Awake()
-    {
-       // CameraManager.onBoolChange += CameraInitiated;
-
-    }
-
     private void OnEnable()
     {
         playerT = GameObject.Find("PlayerSphere");

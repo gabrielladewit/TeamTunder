@@ -7,15 +7,12 @@ using System;
 public class CameraSlerp : MonoBehaviour
 {
     //Fill in the tag(s) of the objects to slerp to in the inspector
-    public List<Vector3> positionList;
     public List<string> objectTags;
+    public List<Vector3> positionList;
 
-    private GameObject playerT, finishLine;
-    private Vector3 camPos, offset, aRelCenter, bRelCenter, posB;
-    public Vector3 posA;
+    private Vector3 camPos, offset, aRelCenter, bRelCenter, posB, posA;
 
-    public bool initiated = false;
-    private bool coroutineRunning = false;
+    private bool coroutineRunning = false, initiated = false;
     private float journeyTime, startTime;
     public int state = 1;
 
@@ -26,9 +23,6 @@ public class CameraSlerp : MonoBehaviour
 
     void Start()
     {
-        playerT = GameObject.Find("PlayerSphere");
-        finishLine = GameObject.FindGameObjectWithTag("Finish");
-
         AddPos();
 
         //Start the time for slerping
@@ -71,14 +65,8 @@ public class CameraSlerp : MonoBehaviour
             if ((Mathf.Round(transform.position.y) == Mathf.Round(posB.y + camPos.y)) && !coroutineRunning)
             {
                 coroutineRunning = true;
-                StartCoroutine(SetNewPos(0.4f));
+                StartCoroutine(SetNewPos(1f));
             }
-        }
-
-        //After slerps are done, camera follows player
-        if (playerT != null && initiated)
-        {
-            //camScript.enabled = true;
         }
     }
 
@@ -87,16 +75,17 @@ public class CameraSlerp : MonoBehaviour
     {
         if (state <= positionList.Count - 1)
         {
+            if (onStateChange != null)
+            {
+                onStateChange(state, posB);
+            }
             yield return new WaitForSecondsRealtime(time);
             posA = positionList[state - 1];
             posB = positionList[state];
             startTime = Time.time;
             state++;
             //camManager.SlerpState = state;
-            if (onStateChange != null)
-            {
-                onStateChange(state, posA);
-            }
+
             yield return coroutineRunning = false;
         }
 
@@ -109,9 +98,6 @@ public class CameraSlerp : MonoBehaviour
             {
                 onSlerpFinished();
             }
-
-            /*if (_levels.currentLevel == 1)
-                pauseScript.PauseTutorial();*/
             yield return coroutineRunning = false;
         }
 
@@ -119,7 +105,7 @@ public class CameraSlerp : MonoBehaviour
     }
 
     //Add positions of the objects to list
-    public void AddPos()
+    void AddPos()
     {
         foreach (string item in objectTags)
         {

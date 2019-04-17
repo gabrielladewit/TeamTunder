@@ -10,11 +10,13 @@ public class VelocityLimiter : MonoBehaviour
     public float velocityLimit = 15f;
     public float gravity = 0.4f;
     RaycastHit hit;
+    bool initiated;
 
     // Use this for initialization
     void Start()
     {
         rigid = this.gameObject.GetComponent<Rigidbody>();
+        CameraManager.initiateGame += CameraInitiated;
     }
 
     // Update is called once per frame
@@ -23,7 +25,7 @@ public class VelocityLimiter : MonoBehaviour
         float dist = this.transform.position.y - mainCamera.transform.position.y;
         
         //If the player is already at the bottom
-        if (dist > -6 && mainCamera.GetComponent<CameraSlerp>().initiated)
+        if (dist > -6 && initiated)
         {
             // IF Speed > Speedlimit
             /*if (Mathf.Abs(rigid.velocity.y) > velocityLimit)
@@ -87,5 +89,15 @@ public class VelocityLimiter : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         StopCoroutine("SmoothVelocityChange");
+    }
+
+    void CameraInitiated()
+    {
+        initiated = true;
+    }
+
+    private void OnDisable()
+    {
+        CameraManager.initiateGame -= CameraInitiated;
     }
 }

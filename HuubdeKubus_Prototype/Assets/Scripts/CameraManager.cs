@@ -1,42 +1,32 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 
 public class CameraManager : MonoBehaviour {
 
-    Pause pauseScript;
-    Levels _levels;
     CameraSlerp camSlerp;
     CameraBehaviour camScript;
-
     public bool slerpOn;
+    public static event Action initiateGame;
 
     // Use this for initialization
     void Start () {
-
         camSlerp = this.gameObject.GetComponent<CameraSlerp>();
         camScript = this.gameObject.GetComponent<CameraBehaviour>();
 
-        _levels = GameObject.Find("EventSystem").GetComponent<Levels>();
-        pauseScript = GameObject.Find("EventSystem").GetComponent<Pause>();
-
+        //Subscribe to the events
         CameraSlerp.onStateChange += SlerpStateChanged;
         CameraSlerp.onSlerpFinished += SlerpFinished;
 
-        if (slerpOn == true)
-        {
-            camSlerp.enabled = true;
-        }
-        else
-        {
-            camScript.enabled = true;
-        }
+        SlerpOnOff();
     }
 
     void SlerpStateChanged(int state, Vector3 position)
     {
-        if (state > 2)
+        //Play particles at the position of each star that the slerp camera focuses on
+        if (state > 1)
         {
             StartCoroutine(PlaceParticles("StarParticles", position));
         }
@@ -44,19 +34,30 @@ public class CameraManager : MonoBehaviour {
 
     void SlerpFinished()
     {
-        if (!camScript || !camSlerp)
-        {
-            Debug.Log("camscript/slerp not found");
+        slerpOn = false;
+        SlerpOnOff();
+        initiateGame();
+    }
 
-            camScript = this.gameObject.GetComponent<CameraBehaviour>();
-            camSlerp = this.gameObject.GetComponent<CameraSlerp>();
-            camScript.enabled = true;
-            camSlerp.enabled = false;
+    void SlerpOnOff()
+    {
+        if (camSlerp || camScript)
+        {
+            switch (slerpOn)
+            {
+                case true:
+                    camSlerp.enabled = true;
+                    camScript.enabled = false;
+                    break;
+                case false:
+                    camSlerp.enabled = false;
+                    camScript.enabled = true;
+                    break;
+            }
         }
         else
         {
-            camScript.enabled = true;
-            camSlerp.enabled = false;
+            Debug.Log("Camera script(s) not found");
         }
     }
 
@@ -80,6 +81,8 @@ public class CameraManager : MonoBehaviour {
 
     private void OnDisable()
     {
+        //Unsubscribe from events
         CameraSlerp.onStateChange -= SlerpStateChanged;
+        CameraSlerp.onSlerpFinished -= SlerpFinished;
     }
 }

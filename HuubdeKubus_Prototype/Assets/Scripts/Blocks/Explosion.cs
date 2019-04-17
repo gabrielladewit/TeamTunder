@@ -9,8 +9,6 @@ public class Explosion : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("enabled");
-
         for (int i = 0; i < Ring.Length; i++)
         {
             Ring[i].Play();
@@ -22,13 +20,11 @@ public class Explosion : MonoBehaviour
             {
                 Debris[i].Play();
             }
-            //Destroy(gameObject, Main.duration);
         }
     }
 
     private void OnDisable()
     {
-        Debug.Log("disabled");
         for (int i = 0; i < Ring.Length; i++)
         {
             Ring[i].Clear();

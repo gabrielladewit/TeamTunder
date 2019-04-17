@@ -19,7 +19,7 @@ public class HuubBehaviour : MonoBehaviour {
         playerObj = GameObject.Find("PlayerSphere");
         camCtrl = GameObject.Find("Main Camera Parent");
 
-        CameraSlerp.onSlerpFinished += CameraInitiated;
+        CameraManager.initiateGame += CameraInitiated;
     }
 
     // Update is called once per frame
@@ -69,5 +69,10 @@ public class HuubBehaviour : MonoBehaviour {
         /*if(pause == null)
             pause = GameObject.Find("UI").GetComponent<Pause>();
         pause.setOnClick();*/
+    }
+
+    private void OnDisable()
+    {
+        CameraManager.initiateGame -= CameraInitiated;
     }
 }

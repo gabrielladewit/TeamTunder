@@ -26,9 +26,9 @@ public class PlayerController : MonoBehaviour
         pickupManager = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
 
         //Subscribe to the event
-        CameraSlerp.onSlerpFinished += CameraInitiated;
+        CameraManager.initiateGame += CameraInitiated;
     }
-    
+
     void FixedUpdate()
     {
         if (initiated)
@@ -139,5 +139,10 @@ public class PlayerController : MonoBehaviour
     public void SetCamera()
     {
         //camCtrl = GameObject.Find("Main Camera Parent");
+    }
+
+    private void OnDisable()
+    {
+        CameraManager.initiateGame -= CameraInitiated;
     }
 }

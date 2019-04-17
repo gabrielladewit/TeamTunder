@@ -30,7 +30,7 @@ public class MineExplosion : MonoBehaviour {
         }
     }
 
-    public IEnumerator PlaceParticles(string tag)
+    private IEnumerator PlaceParticles(string tag)
     {
         GameObject particles = ObjectPool.SharedInstance.GetPooledObject(tag);
 
@@ -53,7 +53,7 @@ public class MineExplosion : MonoBehaviour {
         }
     }
 
-    public void Explode()
+    private void Explode()
     {
         if (onOff == true)
         {

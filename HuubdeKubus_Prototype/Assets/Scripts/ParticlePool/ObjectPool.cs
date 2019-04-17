@@ -12,7 +12,7 @@ public class ObjectPoolItem
 public class ObjectPool : MonoBehaviour {
 
     public static ObjectPool SharedInstance;
-    public List<GameObject> pooledObjects;
+    private List<GameObject> pooledObjects;
     public List<ObjectPoolItem> itemsToPool;
 
     // Use this for initialization
@@ -46,36 +46,4 @@ public class ObjectPool : MonoBehaviour {
         }
         return null;
     }
-
-    //Call this to place particle systems from the pool 
-    /*public IEnumerator PlaceParticles(string tag, Vector3 pos, float time)
-    {
-        GameObject particles = GetPooledObject(tag);
-
-        if (particles != null)
-        {
-            particles.transform.position = pos;
-            particles.transform.rotation = this.transform.rotation;
-            particles.SetActive(true);
-            particles.GetComponent<ParticleSystem>().Play();
-        }
-
-        yield return new WaitForSeconds(time);
-
-        //particles.GetComponent<ParticleSystem>().Clear();
-        particles.SetActive(false);
-    }*/
-
-    //NOT WORKING ATM
-    /*public ParticleSystem GetParticleSystem()
-    {
-        for (int i = 0; i < pooledObjects.Count; i++)
-        {
-            if (!pooledObjects[i].activeInHierarchy)
-            {
-                return pooledObjects[i].GetComponent<ParticleSystem>();
-            }
-        }
-        return null;
-    }*/
 }
