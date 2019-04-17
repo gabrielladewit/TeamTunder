@@ -9545,7 +9545,7 @@ GameObject:
   - component: {fileID: 212233189087683088}
   m_Layer: 0
   m_Name: FinishLine
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122140,10 +122140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114035801120847628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122166,7 +122166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 198014648480778048}
   powerup: 5
 --- !u!114 &114057344383038492
 MonoBehaviour:
@@ -122179,10 +122178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114064548086082062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122228,7 +122227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114150988479350838
 MonoBehaviour:
@@ -122252,7 +122250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114211117923277310
 MonoBehaviour:
@@ -122265,7 +122262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114216319660040814
 MonoBehaviour:
@@ -122278,7 +122274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114247573070489942
 MonoBehaviour:
@@ -122313,7 +122308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114319710403414506
 MonoBehaviour:
@@ -122337,7 +122331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114324437549897386
 MonoBehaviour:
@@ -122372,10 +122365,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114345053462153588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122398,10 +122391,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114372970695126634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122424,7 +122417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114392196386005094
 MonoBehaviour:
@@ -122449,7 +122441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114426817928566120
 MonoBehaviour:
@@ -122462,7 +122453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114438767095321924
 MonoBehaviour:
@@ -122497,7 +122487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114467577208898678
 MonoBehaviour:
@@ -122521,7 +122510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114483886375866890
 MonoBehaviour:
@@ -122534,7 +122522,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 198396071233527680}
   powerup: 5
 --- !u!114 &114520008770927046
 MonoBehaviour:
@@ -122558,7 +122545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114562046178489442
 MonoBehaviour:
@@ -122571,7 +122557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114573455460362148
 MonoBehaviour:
@@ -122584,10 +122569,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114576126119743852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122621,7 +122606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114593387905473460
 MonoBehaviour:
@@ -122634,7 +122618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114616280350325120
 MonoBehaviour:
@@ -122647,10 +122630,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114622382179837930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122684,7 +122667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114664381208267512
 MonoBehaviour:
@@ -122719,10 +122701,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114689612825008250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122746,10 +122728,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114711431521099936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122783,10 +122765,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114780862212910556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122798,7 +122780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114786824809455674
 MonoBehaviour:
@@ -122811,10 +122792,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 6
   addRadius: 6
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114787672262478872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122838,10 +122819,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114845722053070478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122853,7 +122834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114848854211711334
 MonoBehaviour:
@@ -122866,7 +122846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114849699180432448
 MonoBehaviour:
@@ -122879,10 +122858,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114859359892453692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122906,7 +122885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 198629390335540556}
   powerup: 5
 --- !u!114 &114868227248192508
 MonoBehaviour:
@@ -122919,10 +122897,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114868778363408022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123003,10 +122981,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114939147840387862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123029,7 +123007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114952258656659126
 MonoBehaviour:
@@ -123042,10 +123019,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93159ea9f0fe54040a1a78e3c3b468df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 175040, guid: f3a86839a8f2a2841a4f50cb56015536, type: 2}
   force: 5
   addRadius: 20
   delay: 0
+  destroyDelay: 1
 --- !u!114 &114961232635054848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123057,7 +123034,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261a687050a335a48ab19bc15f2d7d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starParticles: {fileID: 0}
   powerup: 3
 --- !u!114 &114993384449402926
 MonoBehaviour:

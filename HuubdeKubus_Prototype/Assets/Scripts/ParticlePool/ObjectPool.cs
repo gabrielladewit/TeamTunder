@@ -67,7 +67,7 @@ public class ObjectPool : MonoBehaviour {
     }*/
 
     //NOT WORKING ATM
-    public ParticleSystem GetParticleSystem()
+    /*public ParticleSystem GetParticleSystem()
     {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
@@ -77,5 +77,5 @@ public class ObjectPool : MonoBehaviour {
             }
         }
         return null;
-    }
+    }*/
 }

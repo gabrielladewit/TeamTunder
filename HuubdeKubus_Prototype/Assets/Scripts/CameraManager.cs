@@ -12,13 +12,6 @@ public class CameraManager : MonoBehaviour {
 
     public bool slerpOn;
 
-    public delegate void OnBoolChangeDelegate(bool value);
-    public static event OnBoolChangeDelegate onBoolChange;
-
-    private bool slerpFinish;
-    private int slerpState;
-    //public bool slerpFinish;
-
     // Use this for initialization
     void Start () {
 
@@ -28,59 +21,46 @@ public class CameraManager : MonoBehaviour {
         _levels = GameObject.Find("EventSystem").GetComponent<Levels>();
         pauseScript = GameObject.Find("EventSystem").GetComponent<Pause>();
 
+        CameraSlerp.onStateChange += SlerpStateChanged;
+        CameraSlerp.onSlerpFinished += SlerpFinished;
+
         if (slerpOn == true)
         {
             camSlerp.enabled = true;
         }
         else
         {
-            camScript.enabled = false;
+            camScript.enabled = true;
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-        //if (slerpFinish)
-        {
-            //Debug.Log("Cam manager on change");
-           // onBoolChange(slerpFinish);
-        }
-	}
 
-    public bool SlerpFinish
+    void SlerpStateChanged(int state, Vector3 position)
     {
-        get
+        if (state > 2)
         {
-            return slerpFinish;
-        }
-        set
-        {
-            slerpFinish = value;
-            onBoolChange(slerpFinish);
-            //Debug.Log("SLERPfin " + slerpFinish);
-            //Debug.Log("boolchange " + onBoolChange);
+            StartCoroutine(PlaceParticles("StarParticles", position));
         }
     }
 
-    public int SlerpState
+    void SlerpFinished()
     {
-        get
+        if (!camScript || !camSlerp)
         {
-            return slerpState;
+            Debug.Log("camscript/slerp not found");
+
+            camScript = this.gameObject.GetComponent<CameraBehaviour>();
+            camSlerp = this.gameObject.GetComponent<CameraSlerp>();
+            camScript.enabled = true;
+            camSlerp.enabled = false;
         }
-        set
+        else
         {
-            if (slerpState != value)
-            {
-                slerpState = value;
-                if (slerpState > 2)
-                {
-                    StartCoroutine(PlaceParticles("StarParticles", camSlerp.posA));
-                }
-            }
+            camScript.enabled = true;
+            camSlerp.enabled = false;
         }
     }
 
+    //Places particlesystem at the specified position
     public IEnumerator PlaceParticles(string tag, Vector3 pos)
     {
         GameObject particles = ObjectPool.SharedInstance.GetPooledObject(tag);
@@ -96,5 +76,10 @@ public class CameraManager : MonoBehaviour {
         yield return new WaitForSeconds(2f);
 
         particles.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        CameraSlerp.onStateChange -= SlerpStateChanged;
     }
 }

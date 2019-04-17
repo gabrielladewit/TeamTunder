@@ -60,39 +60,16 @@ public class PickupMovement : MonoBehaviour
             pUp.Pickup(powerup.ToString());
             if (powerup.ToString() == "Star")
             {
-                //StartCoroutine(ObjectPool.SharedInstance.PlaceParticles("StarParticles", this.transform.position, time));
                 StartCoroutine(PlaceParticles("StarParticles"));
             }
             else
             {
-                Destroy(this.gameObject);
+                //StartCoroutine(Destroy());
             }
+            StartCoroutine(Destroy());
+
         }
     }
-
-    /*IEnumerator StarPickup()
-    {
-        GameObject starParticles = ObjectPool.SharedInstance.GetPooledObject("StarParticles");
-        string tag = "StarParticles";
-
-        if (starParticles != null)
-        {
-            starParticles.transform.position = this.transform.position;
-            starParticles.transform.rotation = this.transform.rotation;
-            starParticles.SetActive(true);
-            starParticles.GetComponent<ParticleSystem>().Play();
-        }
-
-        col.enabled = !col.enabled;
-        yield return new WaitForSeconds(1);
-        //starParticles.GetComponent<ParticleSystem>().Clear();
-        starParticles.SetActive(false);
-
-
-
-        //ObjectPoolHandler.SharedInstance.GetObjectFromPool("StarParticles", this.transform.position, this.transform.rotation);
-     
-    }*/
 
     public IEnumerator PlaceParticles(string tag)
     {
@@ -115,5 +92,15 @@ public class PickupMovement : MonoBehaviour
             particles.SetActive(false);
             on = false;
         }
+
+        //Destroy(this.gameObject);
+
+    }
+
+    private IEnumerator Destroy()
+    {
+        Debug.Log("coroutine");
+        yield return new WaitForSeconds(2f);
+        Destroy(this.gameObject);
     }
 }

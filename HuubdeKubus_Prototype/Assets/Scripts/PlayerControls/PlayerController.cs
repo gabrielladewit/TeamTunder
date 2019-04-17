@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         pickupManager = GameObject.Find("PickupHandler").GetComponent<PickupBehaviour>();
 
         //Subscribe to the event
-        CameraManager.onBoolChange += CameraInitiated;
+        CameraSlerp.onSlerpFinished += CameraInitiated;
     }
     
     void FixedUpdate()
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void CameraInitiated(bool init)
+    void CameraInitiated()
     {
         initiated = true;
     }
@@ -71,8 +71,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         else
-        {
-            
+        { 
             if (isLeftPressed)
             {
                 rb.AddForce(new Vector3(movementSpeed, 0, 0));

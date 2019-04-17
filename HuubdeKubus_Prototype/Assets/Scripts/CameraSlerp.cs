@@ -2,16 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
-//Fill in the tag(s) of the objects to slerp to in the inspector
+using System;
 
 public class CameraSlerp : MonoBehaviour
 {
-    Pause pauseScript;
-    Levels _levels;
-    CameraBehaviour camScript;
-    CameraManager camManager;
-
+    //Fill in the tag(s) of the objects to slerp to in the inspector
     public List<Vector3> positionList;
     public List<string> objectTags;
 
@@ -23,13 +18,14 @@ public class CameraSlerp : MonoBehaviour
     private bool coroutineRunning = false;
     private float journeyTime, startTime;
     public int state = 1;
-    // Use this for initialization
+
+    //Shortcut for "delegate void..."
+    public static event Action<int, Vector3> onStateChange;
+    public static event Action onSlerpFinished;
+
+
     void Start()
     {
-        pauseScript = GameObject.Find("UI").GetComponent<Pause>();
-        camScript = GetComponent<CameraBehaviour>();
-        camManager = GetComponent<CameraManager>();
-        _levels = GameObject.Find("UI").GetComponent<Levels>();
         playerT = GameObject.Find("PlayerSphere");
         finishLine = GameObject.FindGameObjectWithTag("Finish");
 
@@ -82,7 +78,7 @@ public class CameraSlerp : MonoBehaviour
         //After slerps are done, camera follows player
         if (playerT != null && initiated)
         {
-            camScript.enabled = true;
+            //camScript.enabled = true;
         }
     }
 
@@ -96,24 +92,23 @@ public class CameraSlerp : MonoBehaviour
             posB = positionList[state];
             startTime = Time.time;
             state++;
-            camManager.SlerpState = state;
-            yield return coroutineRunning = false;
-
-            //When camera focuses on star play particle system
-            if (state > 2)
+            //camManager.SlerpState = state;
+            if (onStateChange != null)
             {
-                //StartCoroutine(PlaceParticles("StarParticles"));
-                
-
+                onStateChange(state, posA);
             }
+            yield return coroutineRunning = false;
         }
 
         //Start the tutorial if it's level 1, or else start the game
         else if (state == positionList.Count)
         {
             initiated = true;
-            //camManager.slerpFinish = true;
-            camManager.SlerpFinish = true;
+
+            if (onSlerpFinished != null)
+            {
+                onSlerpFinished();
+            }
 
             /*if (_levels.currentLevel == 1)
                 pauseScript.PauseTutorial();*/
@@ -135,23 +130,6 @@ public class CameraSlerp : MonoBehaviour
         }
 
         //Sort the list to make sure slerp happens in right order (from finisline to player)
-        positionList = positionList.OrderBy(t => Vector3.Distance(finishLine.transform.position, t)).ToList();
-    }
-
-    public IEnumerator PlaceParticles(string tag)
-    {
-        GameObject particles = ObjectPool.SharedInstance.GetPooledObject(tag);
-
-        if (particles != null)
-        {
-            particles.transform.position = posA;
-            particles.transform.rotation = this.transform.rotation;
-            particles.SetActive(true);
-            particles.GetComponent<ParticleSystem>().Play();
-        }
-
-        yield return new WaitForSeconds(2f);
-
-        particles.SetActive(false);
+        positionList = positionList.OrderBy(t => Vector3.Distance(positionList.Last(), t)).ToList();
     }
 }
